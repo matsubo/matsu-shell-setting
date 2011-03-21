@@ -1,0 +1,11 @@
+# init
+# % git submodule add  git://github.com/vim-scripts/PDV--phpDocumentor-for-Vim.git .vim/bundle/PDV--phpDocumentor-for-Vim
+#
+# update
+# % git submodule update
+[submodule ".vim/bundle/PDV--phpDocumentor-for-Vim"]
+	path = .vim/bundle/PDV--phpDocumentor-for-Vim
+	url = git://github.com/vim-scripts/PDV--phpDocumentor-for-Vim.git
+[submodule ".vim/bundle/pathogen.vim"]
+	path = .vim/bundle/pathogen.vim
+	url = git://github.com/vim-scripts/pathogen.vim.git
