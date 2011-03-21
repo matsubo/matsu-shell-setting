@@ -17,3 +17,8 @@ nnoremap <C-l> ;<C-l>j
 nnoremap <C-h> ;<C-h>j
 
 
+"inoremap {      {}<Left>
+"inoremap {<CR>  {<CR>}<Esc>O
+"inoremap {{     {
+"inoremap {}     {}
+
