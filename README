@@ -1,6 +1,10 @@
 -------------------------------------------------
-* my shell setting
+* Shell setting
 -------------------------------------------------
+I'm a system architect and work as a programmer also. I'd like to publish my shell setting on github for effective coding.
+
+Please subscribe RSS of my blog to keep track of open source development.
+http://matsu.tymy.net/blog/
 
 
 -------------------------------------------------
@@ -14,7 +18,20 @@ ln -s setting/.screenrc
 ln -s setting/.vim
 ln -s setting/.vimrc
 ln -s setting/.zshrc
+git submodule update
+
+
+
+
 -------------------------------------------------
+* git tips
+-------------------------------------------------
+- how to add new plugin as a submodule
+  % git submodule add  git://github.com/vim-scripts/PDV--phpDocumentor-for-Vim.git .vim/bundle/PDV--phpDocumentor-for-Vim
+
+- update submodules
+  % git submodule update
+
 
 
 -------------------------------------------------
