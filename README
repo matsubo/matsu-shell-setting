@@ -1,1 +1,29 @@
-my shell setting.
+-------------------------------------------------
+* my shell setting
+-------------------------------------------------
+
+
+-------------------------------------------------
+* installation
+-------------------------------------------------
+git pull git@github.com:matsubo/matsu-shell-setting.git .setting
+cd
+ln -s setting/.gitconfig
+ln -s setting/.htoprc
+ln -s setting/.screenrc
+ln -s setting/.vim
+ln -s setting/.vimrc
+ln -s setting/.zshrc
+-------------------------------------------------
+
+
+-------------------------------------------------
+* Copyright
+-------------------------------------------------
+Createive Commons Attribution 3.0 Unported (CC BY 3.0)
+http://creativecommons.org/licenses/by/3.0/
+
+
+thanks to:
+http://d.hatena.ne.jp/vimtaku/20110219
+
