@@ -4,6 +4,9 @@
 
 #export LANG=ja_JP.eucJP
 export LANG=en_US.utf8
+export LC_ALL=en_US
+export LESSCHARSET=utf-8
+
 
 setopt auto_menu auto_cd correct auto_name_dirs auto_remove_slash
 setopt extended_history hist_ignore_dups hist_ignore_space prompt_subst
@@ -79,6 +82,7 @@ export SVN_EDITOR=vi
 
 export JAVA_HOME=/usr/local/java
 export PATH=$MYSQL/bin/:$SAMBA/bin:/usr/local/bin:/bin:/usr/bin:/sbin:/usr/sbin:$JAVA_HOME/bin
+export PATH=~/archive/screen-4.0.3:$PATH
 
 
 # Hit ^ = cd ..
@@ -122,9 +126,23 @@ else
 
   screen -r -U
 
+#########################################
+# keychain
+#########################################
+export HOSTNAME=`hostname`
+if [ -f ~/.keychain/$HOSTNAME-sh ]; then
+  keychain ~/.ssh/id_rsa
+  . ~/.keychain/$HOSTNAME-sh
 fi
 
 
 #########################################
+# gree setting
+#########################################
+export ETHNA_HOME="/usr/local/lib/php/Ethna"
+export PATH=$PATH:$ETHNA_HOME/bin
+alias ethna=ethna.sh
+alias screen="screen -U"
+
 
 
