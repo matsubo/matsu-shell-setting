@@ -1,7 +1,8 @@
 let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =5
+let g:netrw_dirhist_cnt =6
 let g:netrw_dirhist_1='/Users/matsu/repository/mixi/batch/actions'
 let g:netrw_dirhist_2='/Users/matsu/repository/mixi/batch/actions/test'
 let g:netrw_dirhist_3='/Users/matsu/Sites/o-ta-su-ke.net/mixi'
 let g:netrw_dirhist_4='/Users/matsu/Sites/o-ta-su-ke.net'
 let g:netrw_dirhist_5='/Users/matsu/Sites/o-ta-su-ke.net/rss'
+let g:netrw_dirhist_6='/Users/matsu/repository/mixi/config'

@@ -46,7 +46,13 @@ PROMPT="[%U$USER@%m %~%u]%# "
 HISTFILE=$HOME/.zsh_history
 HISTSIZE=10000
 SAVEHIST=1000000
-LS_COLORS="no=00:fi=00:di=00;32:ln=00;36:pi=40;33:so=00;35:bd=40;33;01:cd=40;33;01:or=01;05;37;41:mi=01;05;37;41:ex=00;32:*.cmd=00;32:*.exe=00;32:*.com=00;32:*.btm=00;32:*.bat=00;32:*.sh=00;32:*.csh=00;32:*.tar=00;31:*.tgz=00;31:*.arj=00;31:*.taz=00;31:*.lzh=00;31:*.zip=00;31:*.z=00;31:*.Z=00;31:*.gz=00;31:*.bz2=00;31:*.bz=00;31:*.tz=00;31:*.rpm=00;31:*.cpio=00;31:*.jpg=00;35:*.gif=00;35:*.bmp=00;35:*.xbm=00;35:*.xpm=00;35:*.png=00;35:*.tif=00;35:"
+
+
+# FSF color management
+export LS_COLORS="no=00:fi=00:di=05;32:ln=00;36:pi=40;33:so=00;35:bd=40;33;01:cd=40;33;01:or=01;05;37;41:mi=01;05;37;41:ex=00;32:*.cmd=00;32:*.exe=00;32:*.com=00;32:*.btm=00;32:*.bat=00;32:*.sh=00;32:*.csh=00;32:*.tar=00;31:*.tgz=00;31:*.arj=00;31:*.taz=00;31:*.lzh=00;31:*.zip=00;31:*.z=00;31:*.Z=00;31:*.gz=00;31:*.bz2=00;31:*.bz=00;31:*.tz=00;31:*.rpm=00;31:*.cpio=00;31:*.jpg=00;35:*.gif=00;35:*.bmp=00;35:*.xbm=00;35:*.xpm=00;35:*.png=00;35:*.tif=00;35:"
+
+# BSD color management
+export LSCOLORS=cxfxcxdxbxegedabagacad
 
 
 export WORDCHARS="*?_-.[]~=&;!#$%^(){}<>"
@@ -55,7 +61,9 @@ NAME='Yuki Matsukura'
 #########################################
 # alias
 #########################################
+
 alias ls='ls --color=auto --time-style=+"%Y/%m/%d %H:%M:%S"'
+
 alias la='ls -a' ll='ls -l' le='less -e'
 alias j=jobs    sw='%-'   z=suspend
 
@@ -92,6 +100,20 @@ bindkey '\^' cdup
 
 
 
+
+#########################################
+# OS specific setting
+#########################################
+if [ -d /Users/ ]; then
+
+  source ~/.setting/.zshrc_mac
+
+else
+
+  source ~/.setting/.zshrc_linux
+
+fi
+
 #########################################
 # override function
 #########################################
@@ -102,29 +124,11 @@ zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS}
 bindkey -e
 
 
-
 #########################################
-if [ -d /Users/ ]; then
-
-  # alias
-  unalias ls
-  alias ls="ls -G"
-
-  alias updatedb="/usr/libexec/locate.updatedb"
-
-  # mac ports
-  export PATH=/opt/local/bin:/opt/local/sbin/:$PATH
-  export MANPATH=/opt/local/man:$MANPATH
-
-  screen -r -U
-
-else
-
-  screen -r -U
-
-fi
-
-
+# startup command
 #########################################
+
+screen -r -U
+
 
 
