@@ -1,6 +1,10 @@
 [submodule ".vim/bundle/PDV--phpDocumentor-for-Vim"]
 	path = .vim/bundle/PDV--phpDocumentor-for-Vim
 	url = git://github.com/vim-scripts/PDV--phpDocumentor-for-Vim.git
-[submodule ".vim/bundle/pathogen.vim"]
-	path = .vim/bundle/pathogen.vim
-	url = git://github.com/vim-scripts/pathogen.vim.git
+[submodule ".vim/bundle/vim-pathogen"]
+	path = .vim/bundle/vim-pathogen
+	url = git://github.com/tpope/vim-pathogen.git
+[submodule ".vim/bundle/zencoding-vim"]
+	path = .vim/bundle/zencoding-vim
+	url = git://github.com/mattn/zencoding-vim.git
+
