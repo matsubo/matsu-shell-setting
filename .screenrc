@@ -3,6 +3,19 @@ caption always "%{= wk} %-w%{=bu dr}%n %t%{-}%+w %= %{=b wb}%H [%c:%s]"
 autodetach on
 
 
+# disable window resize
+termcapinfo xterm 'is=\E[r\E[m\E[2J\E[H\E[?7h\E[?1;4;6l'
+
+# 256 color
+if &term =~ "xterm-256color"
+  "256色表示
+  set t_Co=256
+  "シンタックスハイライトを有効にする
+  syntax on
+  "カラースキーマ
+  colorscheme desert256
+endif
+
 # encoding
 bind 'U' eval "encoding utf8" "stuff 'export LANG=ja_JP.UTF-8\012'"
 bind 'E' eval "encoding euc" "stuff 'export LANG=ja_JP.EUC-JP\012'"

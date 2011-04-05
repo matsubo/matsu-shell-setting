@@ -19,10 +19,15 @@ set ignorecase
 " if the search word includes upper case, checks the case
 set smartcase
 
+" show line number
+set number
 
 
 " カーソル行をハイライト
 set cursorline
+highlight CursorLine ctermbg=DarkGray
+
+
 " カレントウィンドウにのみ罫線を引く
 augroup cch
 autocmd! cch
