@@ -9,8 +9,8 @@ syntax on
 hi Comment ctermfg=2
 
 " insert spaces instead of tabs
-set expandtab
-set softtabstop=2
+"set expandtab
+"set softtabstop=2
 set tabstop=2
 
 " search behaviors
