@@ -8,3 +8,6 @@
 	path = .vim/bundle/zencoding-vim
 	url = git://github.com/mattn/zencoding-vim.git
 
+[submodule ".vim/bundle/rails.vim"]
+	path = .vim/bundle/rails.vim
+	url = git://github.com/vim-scripts/rails.vim.git

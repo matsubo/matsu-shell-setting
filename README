@@ -18,6 +18,7 @@ ln -s setting/.screenrc
 ln -s setting/.vim
 ln -s setting/.vimrc
 ln -s setting/.zshrc
+cd .setting
 git submodule init
 git submodule update
 
