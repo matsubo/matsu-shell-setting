@@ -78,6 +78,8 @@ alias vi='vim'
 alias ap='sudo /usr/local/apache2/bin/apachectl'
 alias my='sudo /etc/init.d/mysql'
 
+alias upgrade='sudo aptitude update && sudo aptitude safe-upgrade'
+
 
 
 export EDITOR=vi
@@ -122,6 +124,11 @@ else
 
 fi
 
+if [ -f /usr/bin/ccache ];then
+	export CC='ccache gcc'
+	export CXX='ccache g++'
+fi
+
 #########################################
 # override function
 #########################################
@@ -157,6 +164,8 @@ LOCAL_SETTING="~/.zshrc_local"
 if [ -f $LOCAL_SETTING ]; then
   source $LOCAL_SETTING
 fi
+
+
 
 
 #########################################
