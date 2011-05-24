@@ -44,3 +44,5 @@ autocmd FileType php set omnifunc=phpcomplete#CompletePHP
 
 set hlsearch
 
+colorscheme darkblue
+
