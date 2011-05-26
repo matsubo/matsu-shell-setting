@@ -74,9 +74,21 @@ alias sc='svn commit -m "" --password=hogehoge --username=matsu'
 alias up='svn up'
 
 alias vi='vim'
+alias v='vi'
 
 alias ap='sudo /usr/local/apache2/bin/apachectl'
 alias my='sudo /etc/init.d/mysql'
+
+alias upgrade='sudo aptitude update && sudo aptitude safe-upgrade'
+
+alias -g L='| less'
+alias -g H='| head'
+alias -g T='| tail'
+alias -g G='| grep'
+alias -g W='| wc'
+alias -g S='| sed'
+alias -g A='| awk'
+alias -g W='| wc'
 
 
 
@@ -114,6 +126,11 @@ if [ -d /Users/ ]; then
   alias ls='ls -G -p'
 fi
 
+if [ -f /usr/bin/ccache ];then
+	export CC='ccache gcc'
+	export CXX='ccache g++'
+fi
+
 #########################################
 # override function
 #########################################
@@ -149,6 +166,8 @@ LOCAL_SETTING="~/.zshrc_local"
 if [ -f $LOCAL_SETTING ]; then
   source $LOCAL_SETTING
 fi
+
+
 
 
 #########################################

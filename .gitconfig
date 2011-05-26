@@ -1,6 +1,7 @@
 [user]
 	name = Yuki Matsukura
 	email = matsubokkuri@gmail.com
+
 [color]
   ui = auto
   status = auto
@@ -10,13 +11,15 @@
   grep = auto
 
 [alias]
-st = status
-ci = commit -a
-br = branch
-co = checkout
-df = diff
-lg = log -p
+  st = status
+  ci = commit -a
+  br = branch
+  co = checkout
+  df = diff
+  lg = log -p
 
+[push]
+	default = tracking
 
 [alias]
   st = status
@@ -36,7 +39,7 @@ lg = log -p
   ba = branch -a           # originも含めた全てのbranchを表示
   bm = branch --merged     # merge済みのbranchを表示
   bn = branch --no-merged  # mergeしてないbranchを表示
-  #           # log関連
+  # log関連
   wc = whatchanged         # logに変更されたファイルも一緒に出す
   ls = log --stat          # logに変更されたファイルも一緒に出す
   lp = log -p              # diffも一緒に出す

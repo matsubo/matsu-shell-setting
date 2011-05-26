@@ -9,8 +9,8 @@ syntax on
 hi Comment ctermfg=2
 
 " insert spaces instead of tabs
-set expandtab
-set softtabstop=2
+"set expandtab
+"set softtabstop=2
 set tabstop=2
 
 " search behaviors
@@ -35,12 +35,20 @@ autocmd WinLeave * set nocursorline
 autocmd WinEnter,BufRead * set cursorline
 augroup END
 
-:hi clear CursorLine
-:hi CursorLine gui=underline
-highlight CursorLine ctermbg=black guibg=black
+":hi clear CursorLine
+":hi CursorLine gui=underline
+"highlight CursorLine ctermbg=black guibg=black
 
 autocmd FileType php set omnifunc=phpcomplete#CompletePHP
 
 
 set hlsearch
+
+colorscheme darkblue
+
+" orignal "darkblue" end
+
+
+:highlight Underlined ctermfg=Cyan
+
 

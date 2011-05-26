@@ -28,6 +28,12 @@ hardstatus string "[%H #%n] %h"
 # number of lines to scroll back
 defscrollback 10000
 
+# turn off visible bell
+vbell off
+
+# No autodetach because a detached stem screen is useless.
+autodetach off
+
 # window management emulating emacs key bind
 bind -c REGION 2 split
 bind -c REGION 1 only
