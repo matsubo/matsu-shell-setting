@@ -69,3 +69,5 @@
   # grep関連
   gr = grep
   gn = grep -n
+[core]
+	editor = /usr/bin/vim

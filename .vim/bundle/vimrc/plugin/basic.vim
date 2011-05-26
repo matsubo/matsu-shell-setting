@@ -35,9 +35,9 @@ autocmd WinLeave * set nocursorline
 autocmd WinEnter,BufRead * set cursorline
 augroup END
 
-:hi clear CursorLine
-:hi CursorLine gui=underline
-highlight CursorLine ctermbg=black guibg=black
+":hi clear CursorLine
+":hi CursorLine gui=underline
+"highlight CursorLine ctermbg=black guibg=black
 
 autocmd FileType php set omnifunc=phpcomplete#CompletePHP
 
@@ -54,4 +54,11 @@ set smartindent
 
 "行頭の余白内で Tab を打ち込むと、'shiftwidth' の数だけインデントする。
 set smarttab
+
+colorscheme darkblue
+
+" orignal "darkblue" end
+
+
+:highlight Underlined ctermfg=Cyan
 
