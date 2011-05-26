@@ -131,6 +131,11 @@ if [ -f /usr/bin/ccache ];then
 	export CXX='ccache g++'
 fi
 
+if [ -f /usr/bin/ccache ];then
+	export CC='ccache gcc'
+	export CXX='ccache g++'
+fi
+
 #########################################
 # override function
 #########################################
