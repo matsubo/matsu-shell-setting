@@ -87,6 +87,17 @@ alias -g S='| sed'
 alias -g A='| awk'
 alias -g W='| wc'
 
+alias upgrade='sudo aptitude update && sudo aptitude safe-upgrade'
+
+alias -g L='| less'
+alias -g H='| head'
+alias -g T='| tail'
+alias -g G='| grep'
+alias -g W='| wc'
+alias -g S='| sed'
+alias -g A='| awk'
+alias -g W='| wc'
+
 
 
 export EDITOR=vi
