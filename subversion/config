@@ -40,7 +40,7 @@
 ### merging tool of choice. Subversion will pass 4 arguments to
 ### the specified command: base theirs mine merged
 # merge-tool-cmd = merge_command
-diff-cmd = /home/yuki-matsukura/setting/bin/diffwrap.sh
+#diff-cmd = /home/yuki-matsukura/setting/bin/diffwrap.sh
 
 ### Section for configuring tunnel agents.
 [tunnels]

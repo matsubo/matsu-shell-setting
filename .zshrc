@@ -70,11 +70,22 @@ alias j=jobs    sw='%-'   z=suspend
 alias up='svn up'
 
 alias vi='vim'
+alias v='vi'
 
 alias ap='sudo /usr/local/apache2/bin/apachectl'
 alias my='sudo /etc/init.d/mysql'
+alias upgrade='sudo aptitude update && sudo aptitude safe-upgrade'
 
 alias r='rails'
+
+alias -g L='| less'
+alias -g H='| head'
+alias -g T='| tail'
+alias -g G='| grep'
+alias -g W='| wc'
+alias -g S='| sed'
+alias -g A='| awk'
+alias -g W='| wc'
 
 
 
@@ -118,6 +129,11 @@ else
      source ~/.setting/.zshrc_linux
   fi
 
+fi
+
+if [ -f /usr/bin/ccache ];then
+	export CC='ccache gcc'
+	export CXX='ccache g++'
 fi
 
 #########################################
@@ -182,6 +198,8 @@ LOCAL_SETTING="~/.zshrc_local"
 if [ -f $LOCAL_SETTING ]; then
   source $LOCAL_SETTING
 fi
+
+
 
 
 #########################################
