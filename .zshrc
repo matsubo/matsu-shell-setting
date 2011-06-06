@@ -81,6 +81,10 @@ alias my='sudo /etc/init.d/mysql'
 
 alias upgrade='sudo aptitude update && sudo aptitude safe-upgrade'
 
+# super shortcut
+# ex: g TestAction
+alias g='find . | grep '
+
 alias -g L='| less'
 alias -g H='| head'
 alias -g T='| tail'
@@ -89,6 +93,7 @@ alias -g W='| wc'
 alias -g S='| sed'
 alias -g A='| awk'
 alias -g W='| wc'
+
 
 
 
