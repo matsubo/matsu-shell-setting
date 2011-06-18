@@ -17,4 +17,4 @@ Session.vim
 *.elc
 .zshrc_local
 .zsh_alias
-
+.vim/.netrwhist

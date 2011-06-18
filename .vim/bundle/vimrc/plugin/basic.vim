@@ -55,7 +55,10 @@ set smartindent
 "行頭の余白内で Tab を打ち込むと、'shiftwidth' の数だけインデントする。
 set smarttab
 
-colorscheme darkblue
+" http://winterdom.com/2008/08/molokaiforvim
+set t_Co=256
+colorscheme molokai
+let s:molokai_original = 1
 
 " orignal "darkblue" end
 
