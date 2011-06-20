@@ -4,6 +4,9 @@ alias ls='ls -G -F'
 
 alias updatedb="/usr/libexec/locate.updatedb"
 
+alias port-upgrade="port selfupdate && port upgrade outdated && port uninstall inactive"
+
+
 # mac ports
 export PATH=/opt/local/bin:/opt/local/sbin/:$PATH
 export MANPATH=/opt/local/man:$MANPATH
