@@ -6,12 +6,20 @@ set fileencodings=utf-8,euc-jp,iso-2022-jp,sjis
 syntax on
 
 " Changing PHP comment color
-hi Comment ctermfg=2
+" hi Comment ctermfg=2
 
 " insert spaces instead of tabs
 "set expandtab
 "set softtabstop=2
 set tabstop=2
+
+" insert appropriate tab with 1 tab key. but it's not smart...
+" set smarttab
+set autoindent
+
+" always show status line
+set laststatus=2
+
 
 " search behaviors
 set ignorecase
@@ -21,6 +29,13 @@ set smartcase
 
 " show line number
 set number
+
+" show special chars
+set list
+set lcs=tab:>\ ,trail:_,extends:\
+highlight SpecialKey cterm=NONE ctermfg=darkgray guifg=7
+highlight JpSpace cterm=underline ctermfg=darkgray guifg=7
+au BufRead,BufNew * match JpSpace /　/
 
 
 " カーソル行をハイライト
@@ -41,9 +56,13 @@ augroup END
 
 autocmd FileType php set omnifunc=phpcomplete#CompletePHP
 
+" folding
+" set fdm=marker
+
 
 set hlsearch
 
+<<<<<<< HEAD
 
 " disable auto comment out after the line break
 set formatoptions-=ro
@@ -59,9 +78,20 @@ set smarttab
 set t_Co=256
 colorscheme molokai
 let s:molokai_original = 1
+=======
+" colorscheme darkblue
 
-" orignal "darkblue" end
+set bg=dark
+
+set t_Co=256
+let g:molokai_original=1
+colorscheme molokai
+
+" show line number
+set number ruler
+>>>>>>> b446de7809334130614d7a0a017951f725f514f4
 
 
-:highlight Underlined ctermfg=Cyan
+
+" :highlight Underlined ctermfg=Cyan
 
