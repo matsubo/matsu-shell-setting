@@ -62,7 +62,6 @@ autocmd FileType php set omnifunc=phpcomplete#CompletePHP
 
 set hlsearch
 
-<<<<<<< HEAD
 
 " disable auto comment out after the line break
 set formatoptions-=ro
@@ -75,11 +74,6 @@ set smartindent
 set smarttab
 
 " http://winterdom.com/2008/08/molokaiforvim
-set t_Co=256
-colorscheme molokai
-let s:molokai_original = 1
-=======
-" colorscheme darkblue
 
 set bg=dark
 
@@ -89,7 +83,6 @@ colorscheme molokai
 
 " show line number
 set number ruler
->>>>>>> b446de7809334130614d7a0a017951f725f514f4
 
 
 
