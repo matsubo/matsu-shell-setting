@@ -39,7 +39,8 @@ augroup END
 ":hi CursorLine gui=underline
 "highlight CursorLine ctermbg=black guibg=black
 
-autocmd FileType php set omnifunc=phpcomplete#CompletePHP
+" cannot past due to this?
+" autocmd FileType php set omnifunc=phpcomplete#CompletePHP
 
 
 set hlsearch
