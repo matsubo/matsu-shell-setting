@@ -62,7 +62,18 @@ autocmd FileType php set omnifunc=phpcomplete#CompletePHP
 
 set hlsearch
 
-" colorscheme darkblue
+
+" disable auto comment out after the line break
+set formatoptions-=ro
+
+" http://www.ispern.com/?p=324
+"新しい行を作ったときに高度な自動インデントを行う
+set smartindent
+
+"行頭の余白内で Tab を打ち込むと、'shiftwidth' の数だけインデントする。
+set smarttab
+
+" http://winterdom.com/2008/08/molokaiforvim
 
 set bg=dark
 
@@ -76,5 +87,4 @@ set number ruler
 
 
 " :highlight Underlined ctermfg=Cyan
-
 
