@@ -1,5 +1,4 @@
 escape ^]^]
-caption always "%{= wk} %-w%{=bu dr}%n %t%{-}%+w %= %{=b wb}%H [%c:%s]"
 autodetach on
 
 
@@ -8,20 +7,17 @@ termcapinfo xterm 'is=\E[r\E[m\E[2J\E[H\E[?7h\E[?1;4;6l'
 termcapinfo  xterm-256color hs@:is=\E[r\E[m\E[2J\E[H\E[?7h\E[?1;4;6l
 
 
-# 256 color
-if &term =~ "xterm-256color"
-  set t_Co=256
-  syntax on
-  colorscheme desert256
-endif
-
 # encoding
 bind 'U' eval "encoding utf8" "stuff 'export LANG=ja_JP.UTF-8\012'"
 bind 'E' eval "encoding euc" "stuff 'export LANG=ja_JP.EUC-JP\012'"
 bind 'S' eval "encoding sjis" "stuff 'export LANG=ja_JP.SHIFT-JIS\012'"
 
 
-hardstatus string "[%H #%n] %h"
+#caption always "%{= wk} %-w%{=bu dr}%n %t%{-}%+w %= %{=b wb}%H [%c:%s]"
+#hardstatus string "[%H #%n] %h"
+
+caption always '%?%F%{= wk}%:%{= Kk}%?%2n%f%07=%t%='
+hardstatus alwayslastline '%m/%d %02c:%s %{= .g}%H%{-} %L=%-w%45L>%{=u g.}%n %t%{-}%+w %-17<%=%{= .y}(%l)'
 
 
 # number of lines to scroll back

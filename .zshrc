@@ -89,6 +89,9 @@ alias -g W='| wc'
 
 alias upgrade='sudo aptitude update && sudo aptitude safe-upgrade'
 
+alias cd="pushd"
+alias bd="popd"
+
 # super shortcut
 # ex: g TestAction
 alias g='find . | grep '
