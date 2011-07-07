@@ -25,11 +25,14 @@ nnoremap <C-h> ;<C-h>j
 
 "" gtags
 map <C-g> :Gtags 
-map <C-i> :Gtags -f %<CR>
+" map <C-i> :Gtags -f %<CR>
 " code jump
 map <C-j> :GtagsCursor<CR>
 " for gtags file skip
 map <C-n> :cn<CR>
 map <C-p> :cp<CR>
+
+
+
 
 
