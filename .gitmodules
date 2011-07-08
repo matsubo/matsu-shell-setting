@@ -13,3 +13,6 @@
 [submodule ".vim/bundle/vim-gtags.vim.git"]
 	path = .vim/bundle/vim-gtags.vim.git
 	url = git://github.com/vim-scripts/gtags.vim.git
+[submodule ".vim/bundle/vcscommand.vim.git"]
+	path = .vim/bundle/vcscommand.vim.git
+	url = https://github.com/vim-scripts/vcscommand.vim.git
