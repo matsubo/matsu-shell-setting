@@ -3,7 +3,8 @@
 ##
 
 #export LANG=ja_JP.eucJP
-export LANG=en_US.utf8
+#export LANG=en_US.utf8
+export LANG=ja_JP.utf8
 export LC_ALL=en_US
 export LESSCHARSET=utf-8
 
@@ -31,6 +32,15 @@ compinit -u
 
 
 
+# git completion
+#autoload bashcompinit
+#bashcompinit
+#source ~/.setting/.git-completion.bash
+
+# http://u7fa9.org/memo/HEAD/archives/2011-02/2011-02-01.rst
+__git_files() { _files }
+
+
 watch=(notme)
 
 
@@ -41,12 +51,27 @@ LOGCHECK=10
 WATCHFMT="%(a:${fg[blue]}Hello %n [%m] [%t]:${fg[red]}Bye %n [%m] [%t])"
 
 
-PROMPT="[%U$USER@%m %~%u]%# "
+# prompt
+setopt prompt_subst
+local DARKC=$'%{\e[38;5;47m%}'
+local LIGHTC=$'%{\e[38;5;46m%}'
+local DEFAULTC=$'%{\e[m%}'
+PROMPT=$DARKC"[%U$USER@%m "$LIGHTC"%~%u"$DARKC"]%# "$DEFAULTC
 
 HISTFILE=$HOME/.zsh_history
 HISTSIZE=10000
 SAVEHIST=1000000
 
+# prints all color setting
+function pcolor() {
+    for ((f = 0; f < 255; f++)); do
+        printf "\e[38;5;%dm %3d#\e[m" $f $f
+        if [[ $f%8 -eq 7 ]] then
+            printf "\n"
+        fi
+    done
+    echo
+}
 
 # FSF color management
 export LS_COLORS="no=00:fi=00:di=04;35:ln=00;36:pi=40;33:so=00;35:bd=40;33;01:cd=40;33;01:or=01;05;37;41:mi=01;05;37;41:ex=00;32:*.cmd=00;32:*.exe=00;32:*.com=00;32:*.btm=00;32:*.bat=00;32:*.sh=00;32:*.csh=00;32:*.tar=00;31:*.tgz=00;31:*.arj=00;31:*.taz=00;31:*.lzh=00;31:*.zip=00;31:*.z=00;31:*.Z=00;31:*.gz=00;31:*.bz2=00;31:*.bz=00;31:*.tz=00;31:*.rpm=00;31:*.cpio=00;31:*.jpg=00;35:*.gif=00;35:*.bmp=00;35:*.xbm=00;35:*.xpm=00;35:*.png=00;35:*.tif=00;35:"
@@ -88,6 +113,9 @@ alias -g A='| awk'
 alias -g W='| wc'
 
 alias upgrade='sudo aptitude update && sudo aptitude safe-upgrade'
+
+alias cd="pushd"
+alias bd="popd"
 
 # super shortcut
 # ex: g TestAction

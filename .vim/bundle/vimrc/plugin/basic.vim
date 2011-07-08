@@ -71,7 +71,7 @@ set formatoptions-=ro
 set smartindent
 
 "行頭の余白内で Tab を打ち込むと、'shiftwidth' の数だけインデントする。
-set smarttab
+" set smarttab
 
 " http://winterdom.com/2008/08/molokaiforvim
 
