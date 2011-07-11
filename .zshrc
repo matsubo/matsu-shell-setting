@@ -131,6 +131,9 @@ alias -g A='| awk'
 alias -g W='| wc'
 
 
+# for work
+alias findgrep="find -type d -name '.svn' -prune -o -type f -print | xargs grep -n"
+
 
 
 export EDITOR=vi
@@ -250,6 +253,6 @@ fi
 # startup command
 #########################################
 
-screen -r 
+screen -xRU
 
 
