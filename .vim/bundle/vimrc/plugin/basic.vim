@@ -16,10 +16,12 @@ set tabstop=2
 " insert appropriate tab with 1 tab key. but it's not smart...
 " set smarttab
 set autoindent
+set cindent
+set shiftwidth=1
+
 
 " always show status line
 set laststatus=2
-
 
 " search behaviors
 set ignorecase
@@ -69,7 +71,7 @@ set formatoptions-=ro
 
 " http://www.ispern.com/?p=324
 "新しい行を作ったときに高度な自動インデントを行う
-set smartindent
+" set smartindent
 
 "行頭の余白内で Tab を打ち込むと、'shiftwidth' の数だけインデントする。
 " set smarttab
