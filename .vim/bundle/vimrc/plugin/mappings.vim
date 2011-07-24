@@ -34,5 +34,13 @@ map <C-p> :cp<CR>
 
 
 
+" test ...
+set t_kb=^H
+set wildmenu
+map! ^? ^H
+
+
+
+
 
 
