@@ -87,6 +87,10 @@ colorscheme molokai
 set number ruler
 
 
+set backspace=indent,eol,start
+
+
 
 " :highlight Underlined ctermfg=Cyan
+
 
