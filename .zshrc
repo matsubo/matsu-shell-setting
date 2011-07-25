@@ -166,6 +166,7 @@ if [ -d /Users/ ]; then
   # mac
   alias updatedb=/usr/libexec/locate.updatedb
   alias ls='ls -G -p'
+	export PATH=$PATH:/usr/local/git/bin
 fi
 
 if [ -f /usr/bin/ccache ];then
