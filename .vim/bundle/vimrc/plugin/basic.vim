@@ -17,7 +17,7 @@ set tabstop=2
 " set smarttab
 set autoindent
 set cindent
-set shiftwidth=1
+set shiftwidth=2
 
 
 " always show status line
