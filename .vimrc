@@ -1,19 +1,18 @@
-" 基本的な設定はこちら
+" basic
 " .vim/bundle/vimrc/plugin/basic.vim
 "
-" GUI関連はこちら
+" gui
 " .vim/bundle/vimrc/plugin/gui.vim
 "
-" マッピングに関するものはこちら
+" alias
 " .vim/bundle/vimrc/plugin/mappings.vim
 "
-" プラグインとそのマッピングについてはこちら
+" plugin
 " .vim/bundle/vimrc/plugin/plugins_vimrc.vim
 "
-" 独自関数や便利関数はこちら
+" utility
 " .vim/bundle/vimrc/plugin/util.vim
 
-" pathogen.vim用
 filetype off
 call pathogen#runtime_append_all_bundles()
 call pathogen#helptags()

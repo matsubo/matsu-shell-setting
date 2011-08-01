@@ -145,8 +145,9 @@ export SAMBA=/usr/local/samba
 export SVN_EDITOR=vi
 
 export JAVA_HOME=/usr/local/java
-export PATH=$MYSQL/bin/:$SAMBA/bin:/usr/local/bin:/bin:/usr/bin:/sbin:/usr/sbin:$JAVA_HOME/bin
+export PATH=$MYSQL/bin/:$SAMBA/bin:/usr/local/bin:/bin:/usr/bin:/sbin:/usr/sbin:$JAVA_HOME/bin:/opt/local/bin
 export PATH=~/archive/screen-4.0.3:$PATH
+export PATH="/opt/local/bin":$PATH
 
 
 # Hit ^ = cd ..
@@ -165,17 +166,15 @@ bindkey '\^' cdup
 # OS specific setting
 #########################################
 if [ -d /Users/ ]; then
+  # mac
+  alias updatedb=/usr/libexec/locate.updatedb
+  alias ls='ls -G -p'
+	export PATH=$PATH:/usr/local/git/bin
+fi
 
-  if [ -f ~/.setting/.zshrc_mac ]; then
-    source ~/.setting/.zshrc_mac
-  fi
-
-else
-
-  if [ -d /Users/ ]; then
-     source ~/.setting/.zshrc_linux
-  fi
-
+if [ -f /usr/bin/ccache ];then
+	export CC='ccache gcc'
+	export CXX='ccache g++'
 fi
 
 if [ -f /usr/bin/ccache ];then
