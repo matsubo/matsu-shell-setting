@@ -9,6 +9,8 @@
   branch = auto
   interactive = auto
   grep = auto
+[help]
+	autocorrect = 1
 
 [alias]
   st = status
@@ -71,7 +73,14 @@
   gn = grep -n
 [core]
 	editor = /usr/bin/vim
+	pager = nkf -w | LESSCHARSET=utf-8 less
 [status]
 	diff = auto
 [branch]
 	diff = auto
+	autosetuprebase = always
+[color "diff"]
+	meta = blue bold
+	old = yellow
+[color "diff.add"]
+	old = magenta

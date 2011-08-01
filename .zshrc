@@ -114,8 +114,8 @@ alias -g W='| wc'
 
 alias upgrade='sudo aptitude update && sudo aptitude safe-upgrade'
 
-alias cd="pushd"
-alias bd="popd"
+#alias cd="pushd"
+#alias bd="popd"
 
 # super shortcut
 # ex: g TestAction
@@ -130,6 +130,9 @@ alias -g S='| sed'
 alias -g A='| awk'
 alias -g W='| wc'
 
+
+# for work
+alias findgrep="find -type d -name '.svn' -prune -o -type f -print | xargs grep -n"
 
 
 
@@ -249,6 +252,7 @@ fi
 # startup command
 #########################################
 
-screen -r 
+#screen -xrU
+screen -r
 
 

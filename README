@@ -12,12 +12,13 @@ http://matsu.tymy.net/blog/
 -------------------------------------------------
 git clone git@github.com:matsubo/matsu-shell-setting.git .setting
 cd
-ln -s setting/.gitconfig
-ln -s setting/.htoprc
-ln -s setting/.screenrc
-ln -s setting/.vim
-ln -s setting/.vimrc
-ln -s setting/.zshrc
+ln -s .setting/.htoprc
+ln -s .setting/.screenrc
+ln -s .setting/.vim
+ln -s .setting/.vimrc
+ln -s .setting/.zshrc
+cp .setting/.tigrc ./
+cp .setting/.gitconfig ./
 cd .setting
 git submodule init
 git submodule update

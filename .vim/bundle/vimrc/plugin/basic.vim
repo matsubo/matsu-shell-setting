@@ -17,7 +17,7 @@ set tabstop=2
 " set smarttab
 set autoindent
 set cindent
-set shiftwidth=1
+set shiftwidth=2
 
 
 " always show status line
@@ -87,6 +87,10 @@ colorscheme molokai
 set number ruler
 
 
+set backspace=indent,eol,start
+
+
 
 " :highlight Underlined ctermfg=Cyan
+
 
