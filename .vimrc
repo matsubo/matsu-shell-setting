@@ -32,9 +32,9 @@ Bundle 'Highlight-UnMatched-Brackets'
 Bundle 'vcscommand.vim'
 Bundle 'gtags.vim'
 Bundle 'ref.vim'
-Bundle 'neocomplcache'
 Bundle 'unite.vim'
 Bundle 'AutoComplPop'
+Bundle 'git://github.com/Shougo/neocomplcache.git'
 
 " rails
 Bundle 'vim-ruby/vim-ruby'
@@ -134,6 +134,19 @@ set formatoptions-=ro
 
 "行頭の余白内で Tab を打ち込むと、'shiftwidth' の数だけインデントする。
 " set smarttab
+
+
+" neocomplcache
+let g:neocomplcache_enable_at_startup = 1
+let g:neocomplcache_enable_smart_case = 1 
+let g:neocomplcache_enable_camel_case_completion = 1
+let g:neocomplcache_enable_underbar_completion = 1
+
+let g:neocomplcache_dictionary_filetype_lists = {
+            \ 'default' : '',
+            \ 'php' : $HOME.'/.setting/.vim/dict/php.dict',
+            \ }
+
 
 " """""""""""""""""""""""""
 " Color setting
