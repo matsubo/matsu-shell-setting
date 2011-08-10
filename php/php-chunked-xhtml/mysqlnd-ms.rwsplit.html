@@ -1,0 +1,57 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+ <head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>Read-write splitting</title>
+
+ </head>
+ <body><div class="manualnavbar" style="text-align: center;">
+ <div class="prev" style="text-align: left; float: left;"><a href="mysqlnd-ms.loadbalancing.html">Load balancing</a></div>
+ <div class="next" style="text-align: right; float: right;"><a href="mysqlnd-ms.setup.html">Installing/Configuring</a></div>
+ <div class="up"><a href="mysqlnd-ms.concepts.html">Concepts</a></div>
+ <div class="home"><a href="index.html">PHP Manual</a></div>
+</div><hr /><div id="mysqlnd-ms.rwsplit" class="section">
+  <h2 class="title">Read-write splitting</h2>
+  <p class="para">
+   The plugin runs read-only statements on the configured MySQL slaves and
+   all other queries on the MySQL master. Statements are
+   considered read-only if they either start with <i>SELECT</i>,
+   the SQL hint <i>/*ms=slave*/</i> or a slave had been chosen for
+   running the previous query and the query starts with the SQL hint
+   <i>/*ms=last_used*/</i>. In all other cases the query will
+   be send to the MySQL replication master server.
+  </p>  
+  <p class="para">
+   SQL hints are a special kind of standard compliant SQL comments. The plugin
+   does check every statement for certain SQL hints. The SQL hints are described
+   together with the <a href="mysqlnd-ms.constants.html" class="link">constants</a>
+   exported by the extension. Other systems 
+   involved in the statement processing, such as the MySQL server, SQL firewalls
+   or SQL proxies are unaffected by the SQL hints because those systems are 
+   supposed to ignore SQL comments.
+  </p>
+  <p class="para">
+   The built-in read-write splitter can be replaced by a user-defined one, see also
+   <span class="function"><a href="function.mysqlnd-ms-set-user-pick-server.html" class="function">mysqlnd_ms_set_user_pick_server()</a></span>.
+  </p>
+  <p class="para">
+    A user-defined read-write splitter can ask the built-in logic to make
+    a proposal where to sent a statement by invoking
+    <span class="function"><b>mysqlnd_ms_is_select()</b></span>.
+  </p>
+  <blockquote class="note"><p><b class="note">Note</b>: 
+   <p class="para">
+    The built-in read-write splitter is not aware of multi-statements. 
+    Multi-statements are seen as one statement. The splitter will check the 
+    beginning of the statement to decide where to run the statement. If, for example,
+    a multi-statement begins with 
+    <i>SELECT 1 FROM DUAL; INSERT INTO test(id) VALUES (1); ...</i>
+    the plugin will run it on a slave although the statement is not read-only.
+   </p>
+  </p></blockquote> 
+ </div><hr /><div class="manualnavbar" style="text-align: center;">
+ <div class="prev" style="text-align: left; float: left;"><a href="mysqlnd-ms.loadbalancing.html">Load balancing</a></div>
+ <div class="next" style="text-align: right; float: right;"><a href="mysqlnd-ms.setup.html">Installing/Configuring</a></div>
+ <div class="up"><a href="mysqlnd-ms.concepts.html">Concepts</a></div>
+ <div class="home"><a href="index.html">PHP Manual</a></div>
+</div></body></html>

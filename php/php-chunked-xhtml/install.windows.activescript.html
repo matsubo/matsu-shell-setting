@@ -1,0 +1,85 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+ <head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>ActiveScript</title>
+
+ </head>
+ <body><div class="manualnavbar" style="text-align: center;">
+ <div class="prev" style="text-align: left; float: left;"><a href="install.windows.manual.html">Manual Installation Steps</a></div>
+ <div class="next" style="text-align: right; float: right;"><a href="install.windows.iis.html">Microsoft IIS</a></div>
+ <div class="up"><a href="install.windows.html">Installation on Windows systems</a></div>
+ <div class="home"><a href="index.html">PHP Manual</a></div>
+</div><hr /><div id="install.windows.activescript" class="sect1">
+    <h2 class="title">ActiveScript</h2>
+    <p class="para">
+     This section contains notes specific to the ActiveScript installation.
+    </p>
+    <p class="para">
+     ActiveScript is a Windows only SAPI that enables you to use PHP script in
+     any ActiveScript compliant host, like Windows Script Host, ASP/ASP.NET,
+     Windows Script Components or Microsoft Scriptlet control.
+    </p>
+    <p class="para">
+     As of PHP 5.0.1, ActiveScript has been moved to the <a href="http://pecl.php.net/" class="link external">&raquo;&nbsp;PECL</a> repository.
+     A <acronym title="Dynamic Link Library">DLL</acronym> for this
+<acronym title="PHP Extension and Application Repository">PECL</acronym> extension is currently unavailable. See also the
+<a href="install.windows.building.html" class="link">building on Windows</a>
+section.
+    </p>
+    <blockquote class="note"><p><b class="note">Note</b>: 
+     <p class="para">
+      You should read the <a href="install.windows.manual.html" class="link">manual
+       installation steps</a> first!
+     </p>
+    </p></blockquote>
+    <p class="para">
+     After installing PHP, you should download the ActiveScript DLL
+     (<var class="filename">php5activescript.dll</var>) and place it in the main PHP
+     folder (e.g. <var class="filename">C:\php</var>).
+    </p>
+    <p class="para">
+     After having all the files needed, you must register the DLL on your
+     system. To achieve this, open a Command Prompt window (located in the
+     Start Menu). Then go to your PHP directory by typing something like
+     <i>cd C:\php</i>. To register the DLL just type
+     <i>regsvr32 php5activescript.dll</i>.
+    </p>
+    <p class="para">
+     To test if ActiveScript is working, create a new file, named
+     <i>test.wsf</i> (the extension is very important) and type:
+     <div class="example-contents">
+<div class="cdata"><pre>
+&lt;job id=&quot;test&quot;&gt;
+ 
+ &lt;script language=&quot;PHPScript&quot;&gt;
+  $WScript-&gt;Echo(&quot;Hello World!&quot;);
+ &lt;/script&gt;
+ 
+&lt;/job&gt;
+</pre></div>
+     </div>
+
+     Save and double-click on the file. If you receive a little window saying
+     &quot;Hello World!&quot; you&#039;re done.
+    </p>
+    <blockquote class="note"><p><b class="note">Note</b>: 
+     <p class="para">
+      In PHP 4, the engine was named &#039;ActivePHP&#039;, so if you are using PHP 4,
+      you should replace &#039;PHPScript&#039; with &#039;ActivePHP&#039; in the above example.
+     </p>
+    </p></blockquote>
+    <blockquote class="note"><p><b class="note">Note</b>: 
+     <p class="para">
+      ActiveScript doesn&#039;t use the default <var class="filename">php.ini</var> file. Instead, it will
+      look only in the same directory as the .exe that caused it to load. You
+      should create <var class="filename">php-activescript.ini</var> and place it in
+      that folder, if you wish to load extensions, etc.
+     </p>
+    </p></blockquote>
+   </div><hr /><div class="manualnavbar" style="text-align: center;">
+ <div class="prev" style="text-align: left; float: left;"><a href="install.windows.manual.html">Manual Installation Steps</a></div>
+ <div class="next" style="text-align: right; float: right;"><a href="install.windows.iis.html">Microsoft IIS</a></div>
+ <div class="up"><a href="install.windows.html">Installation on Windows systems</a></div>
+ <div class="home"><a href="index.html">PHP Manual</a></div>
+</div></body></html>

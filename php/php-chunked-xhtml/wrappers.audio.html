@@ -1,0 +1,214 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+ <head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>Audio streams</title>
+
+ </head>
+ <body><div class="manualnavbar" style="text-align: center;">
+ <div class="prev" style="text-align: left; float: left;"><a href="wrappers.rar.html">rar://</a></div>
+ <div class="next" style="text-align: right; float: right;"><a href="wrappers.expect.html">expect://</a></div>
+ <div class="up"><a href="wrappers.html">Supported Protocols and Wrappers</a></div>
+ <div class="home"><a href="index.html">PHP Manual</a></div>
+</div><hr /><div id="wrappers.audio" class="refentry">
+ <div class="refnamediv">
+  <h1 class="refname">ogg://</h1>
+  <p class="refpurpose"><span class="refname">ogg://</span> &mdash; <span class="dc-title">Audio streams</span></p>
+
+ </div>
+
+ <div class="refsect1 description" id="refsect1-wrappers.audio-description">
+  <h3 class="title">Description</h3>
+  <p class="para">
+   Files opened for reading via the <var class="filename">ogg://</var> wrapper
+   are treated as compressed audio encoded using the <i>OGG/Vorbis</i> codec.
+   Similarly, files opened for writing or appending via the
+   <var class="filename">ogg://</var> wrapper are writen as compressed audio data.
+   <span class="function"><a href="function.stream-get-meta-data.html" class="function">stream_get_meta_data()</a></span>, when used on an <i>OGG/Vorbis</i>
+   file opened for reading will return various details about the stream
+   including the <i><tt class="parameter">vendor</tt></i> tag, any included
+   <i><tt class="parameter">comments</tt></i>, the number of
+   <i><tt class="parameter">channels</tt></i>, the sampling <i><tt class="parameter">rate</tt></i>,
+   and the encoding rate range described by:
+   <i><tt class="parameter">bitrate_lower</tt></i>, <i><tt class="parameter">bitrate_upper</tt></i>,
+   <i><tt class="parameter">bitrate_nominal</tt></i>, and <i><tt class="parameter">bitrate_window</tt></i>.
+  </p>
+
+  <p class="simpara"><var class="filename">ogg://</var> PHP 4.3.0 and up (PECL) </p>
+  <blockquote class="note"><p><b class="note">Note</b>: 
+   <b>This wrapper is not enabled by default</b><br />
+   <span class="simpara">
+    In order to use the <var class="filename">ogg://</var> wrapper you must install
+    the <a href="http://pecl.php.net/package/oggvorbis" class="link external">&raquo;&nbsp;OGG/Vorbis</a> extension
+    available from <a href="http://pecl.php.net/" class="link external">&raquo;&nbsp;PECL</a>.
+   </span>
+  </p></blockquote>
+ </div>
+
+
+ <div class="refsect1 usage" id="refsect1-wrappers.audio-usage"> 
+  <h3 class="title">Options</h3>
+  <ul class="itemizedlist">
+   <li class="listitem"><span class="simpara"><var class="filename">ogg://soundfile.ogg</var></span></li>
+   <li class="listitem"><span class="simpara"><var class="filename">ogg:///path/to/soundfile.ogg</var></span></li>
+   <li class="listitem"><span class="simpara"><var class="filename">ogg://http://www.example.com/path/to/soundstream.ogg</var></span></li>
+  </ul>
+ </div>
+ 
+
+ <div class="refsect1 options" id="refsect1-wrappers.audio-options">
+  <h3 class="title">Options</h3>
+  <p class="para">
+   <table class="doctable table">
+    <caption><b>Wrapper Summary</b></caption>
+    
+     <thead valign="middle">
+      <tr valign="middle">
+       <th>Attribute</th>
+       <th>Supported</th>
+      </tr>
+
+     </thead>
+
+     <tbody valign="middle" class="tbody">
+      <tr valign="middle">
+       <td align="left">Restricted by <a href="filesystem.configuration.html#ini.allow-url-fopen" class="link">allow_url_fopen</a></td>
+       <td align="left">No</td>
+      </tr>
+
+      <tr valign="middle">
+       <td align="left">Allows Reading</td>
+       <td align="left">Yes</td>
+      </tr>
+
+      <tr valign="middle">
+       <td align="left">Allows Writing</td>
+       <td align="left">Yes</td>
+      </tr>
+
+      <tr valign="middle">
+       <td align="left">Allows Appending</td>
+       <td align="left">Yes</td>
+      </tr>
+
+      <tr valign="middle">
+       <td align="left">Allows Simultaneous Reading and Writing</td>
+       <td align="left">No</td>
+      </tr>
+
+      <tr valign="middle">
+       <td align="left">Supports <span class="function"><a href="function.stat.html" class="function">stat()</a></span></td>
+       <td align="left">No</td>
+      </tr>
+
+      <tr valign="middle">
+       <td align="left">Supports <span class="function"><a href="function.unlink.html" class="function">unlink()</a></span></td>
+       <td align="left">No</td>
+      </tr>
+
+      <tr valign="middle">
+       <td align="left">Supports <span class="function"><a href="function.rename.html" class="function">rename()</a></span></td>
+       <td align="left">No</td>
+      </tr>
+
+      <tr valign="middle">
+       <td align="left">Supports <span class="function"><a href="function.mkdir.html" class="function">mkdir()</a></span></td>
+       <td align="left">No</td>
+      </tr>
+
+      <tr valign="middle">
+       <td align="left">Supports <span class="function"><a href="function.rmdir.html" class="function">rmdir()</a></span></td>
+       <td align="left">No</td>
+      </tr>
+
+     </tbody>
+    
+   </table>
+
+  </p>
+  
+  <p class="para">
+   <table class="doctable table">
+    <caption><b>Context options</b></caption>
+    
+     <thead valign="middle">
+      <tr valign="middle">
+       <th>Name</th>
+       <th>Usage</th>
+       <th>Default</th>
+       <th>Mode</th>
+      </tr>
+
+     </thead>
+
+     <tbody valign="middle" class="tbody">
+      <tr valign="middle">
+       <td align="left"><i>pcm_mode</i></td>
+       <td align="left">
+        PCM encoding to apply while reading, one of:
+        <b><tt>OGGVORBIS_PCM_U8</tt></b>, <b><tt>OGGVORBIS_PCM_S8</tt></b>,
+        <b><tt>OGGVORBIS_PCM_U16_BE</tt></b>, <b><tt>OGGVORBIS_PCM_S16_BE</tt></b>,
+        <b><tt>OGGVORBIS_PCM_U16_LE</tt></b>, and <b><tt>OGGVORBIS_PCM_S16_LE</tt></b>.
+        (8 vs 16 bit, signed or unsigned, big or little <i>endian</i>)
+       </td>
+       <td align="left">OGGVORBIS_PCM_S16_LE</td>
+       <td align="left">Read</td>
+      </tr>
+
+      <tr valign="middle">
+       <td align="left"><i>rate</i></td>
+       <td align="left">
+        Sampling rate of input data, expressed in Hz
+       </td>
+       <td align="left">44100</td>
+       <td align="left">Write/Append</td>
+      </tr>
+
+      <tr valign="middle">
+       <td align="left"><i>bitrate</i></td>
+       <td align="left">
+        When given as an integer, the fixed bitrate at which to encode. (16000 to 131072)
+        When given as a float, the variable bitrate quality to use. (-1.0 to 1.0)
+       </td>
+       <td align="left">128000</td>
+       <td align="left">Write/Append</td>
+      </tr>
+
+      <tr valign="middle">
+       <td align="left"><i>channels</i></td>
+       <td align="left">
+        The number of audio channels to encode, typically 1 (Mono), or 2 (Stero).
+        May range as high as 16.
+       </td>
+       <td align="left">2</td>
+       <td align="left">Write/Append</td>
+      </tr>
+
+      <tr valign="middle">
+       <td align="left"><i>comments</i></td>
+       <td align="left">
+        An array of string values to encode into the track header.
+       </td>
+       <td class="empty">&nbsp;</td>
+       <td align="left">Write/Append</td>
+      </tr>
+
+     </tbody>
+    
+   </table>
+
+  </p>
+ </div>
+ 
+
+ <div class="refsect1 examples" id="refsect1-wrappers.audio-examples">
+  <h3 class="title">Examples</h3>
+ </div>
+
+
+</div><hr /><div class="manualnavbar" style="text-align: center;">
+ <div class="prev" style="text-align: left; float: left;"><a href="wrappers.rar.html">rar://</a></div>
+ <div class="next" style="text-align: right; float: right;"><a href="wrappers.expect.html">expect://</a></div>
+ <div class="up"><a href="wrappers.html">Supported Protocols and Wrappers</a></div>
+ <div class="home"><a href="index.html">PHP Manual</a></div>
+</div></body></html>

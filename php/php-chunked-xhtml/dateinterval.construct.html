@@ -1,0 +1,204 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+ <head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>Creates new DateInterval object</title>
+
+ </head>
+ <body><div class="manualnavbar" style="text-align: center;">
+ <div class="prev" style="text-align: left; float: left;"><a href="class.dateinterval.html">DateInterval</a></div>
+ <div class="next" style="text-align: right; float: right;"><a href="dateinterval.createfromdatestring.html">DateInterval::createFromDateString</a></div>
+ <div class="up"><a href="class.dateinterval.html">DateInterval</a></div>
+ <div class="home"><a href="index.html">PHP Manual</a></div>
+</div><hr /><div id="dateinterval.construct" class="refentry">
+ <div class="refnamediv">
+  <h1 class="refname">DateInterval::__construct</h1>
+  <p class="verinfo">(PHP 5 &gt;= 5.3.0)</p><p class="refpurpose"><span class="refname">DateInterval::__construct</span> &mdash; <span class="dc-title">Creates new DateInterval object</span></p>
+
+ </div>
+
+ <div class="refsect1 description" id="refsect1-dateinterval.construct-description">
+  <h3 class="title">Description</h3>
+  <div class="constructorsynopsis dc-description">
+   <span class="modifier">public</span>  <span class="methodname"><b>DateInterval::__construct()</b></span>
+    ( <span class="methodparam"><span class="type">string</span> <tt class="parameter">$interval_spec</tt></span>
+   )</div>
+
+  <p class="para rdfs-comment">
+   Creates new DateInterval object.
+  </p>
+ </div>
+
+
+ <div class="refsect1 parameters" id="refsect1-dateinterval.construct-parameters">
+  <h3 class="title">Parameters</h3>
+  <p class="para">
+   <dl>
+
+    <dt>
+
+     <span class="term"><i><tt class="parameter">interval_spec</tt></i></span>
+     <dd>
+
+      <p class="para">
+       Interval specification.
+      </p>
+      <p class="para">
+       The format starts with the letter <i>P</i>,
+       for "<span class="quote">period.</span>"
+       Each duration period is represented by an integer value
+       followed by a period designator.
+       If the duration contains time elements, that portion
+       of the specification is preceded by the letter
+       <i>T</i>.
+      </p>
+      <p class="para">
+       <table class="doctable table">
+        <caption><b>
+         <i><tt class="parameter">interval_spec</tt></i> Period Designators
+        </b></caption>
+        
+         <thead valign="middle">
+          <tr valign="middle">
+           <th>Period Designator</th>
+           <th>Description</th>
+          </tr>
+
+         </thead>
+
+         <tbody valign="middle" class="tbody">
+          <tr valign="middle">
+           <td align="left"><i>Y</i></td>
+           <td align="left">years</td>
+          </tr>
+
+          <tr valign="middle">
+           <td align="left"><i>M</i></td>
+           <td align="left">months</td>
+          </tr>
+
+          <tr valign="middle">
+           <td align="left"><i>D</i></td>
+           <td align="left">days</td>
+          </tr>
+
+          <tr valign="middle">
+           <td align="left"><i>W</i></td>
+           <td align="left">
+            weeks. These get converted into days,
+            so can not be combined with <i>D</i>.
+           </td>
+          </tr>
+
+          <tr valign="middle">
+           <td align="left"><i>H</i></td>
+           <td align="left">hours</td>
+          </tr>
+
+          <tr valign="middle">
+           <td align="left"><i>M</i></td>
+           <td align="left">minutes</td>
+          </tr>
+
+          <tr valign="middle">
+           <td align="left"><i>S</i></td>
+           <td align="left">seconds</td>
+          </tr>
+
+         </tbody>
+        
+       </table>
+
+      </p>
+      <p class="para">
+       Here are some simple examples.
+       Two days is <i>P2D</i>.
+       Two seconds is <i>PT2S</i>.
+       Six years and five minutes is <i>P6YT5M</i>.
+      </p>
+      <blockquote class="note"><p><b class="note">Note</b>: 
+       <p class="para">
+        The unit types must be entered from the largest
+        scale unit on the left to the smallest scale unit
+        on the right.
+        So years before months, months before days,
+        days before minutes, etc.
+        Thus one year and four days must be represented as
+        <i>P1Y4D</i>, not <i>P4D1Y</i>.
+       </p>
+      </p></blockquote>
+      <p class="para">
+       The specification can also be represented as a date time.
+       A sample of one year and four days would be
+       <i>P0001-00-04T00:00:00</i>.
+       But the values in this format can not exceed a given period&#039;s
+       roll-over-point (e.g. <i>25</i> hours is invalid).
+      </p>
+      <p class="para">
+       These formats are based on the <a href="http://en.wikipedia.org/wiki/Iso8601#Durations" class="link external">&raquo;&nbsp;ISO 8601 duration
+       specification</a>.
+      </p>
+     </dd>
+
+    </dt>
+
+   </dl>
+
+  </p>
+ </div>
+
+
+ <div class="refsect1 examples" id="refsect1-dateinterval.construct-examples">
+  <h3 class="title">Examples</h3>
+  <p class="para">
+   <div class="example" id="example-623">
+    <p><b>Example #1 <a href="class.dateinterval.html" class="classname">DateInterval</a> example</b></p>
+    <div class="example-contents">
+<div class="phpcode"><code><span style="color: #000000">
+<span style="color: #0000BB">&lt;?php<br /><br />$interval&nbsp;</span><span style="color: #007700">=&nbsp;new&nbsp;</span><span style="color: #0000BB">DateInterval</span><span style="color: #007700">(</span><span style="color: #DD0000">'P2Y4DT6H8M'</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">print_r</span><span style="color: #007700">(</span><span style="color: #0000BB">$interval</span><span style="color: #007700">);<br /><br /></span><span style="color: #0000BB">?&gt;</span>
+</span>
+</code></div>
+    </div>
+
+    <div class="example-contents"><p>The above example will output:</p></div>
+    <div class="example-contents screen">
+<div class="cdata"><pre>
+DateInterval Object
+(
+    [y] =&gt; 2
+    [m] =&gt; 0
+    [d] =&gt; 4
+    [h] =&gt; 6
+    [i] =&gt; 8
+    [s] =&gt; 0
+    [invert] =&gt; 0
+    [days] =&gt; 0
+)
+</pre></div>
+    </div>
+   </div>
+  </p>
+ </div>
+
+
+ <div class="refsect1 seealso" id="refsect1-dateinterval.construct-seealso">
+  <h3 class="title">See Also</h3>
+  <p class="para">
+   <ul class="simplelist">
+    <li class="member"><span class="function"><a href="dateinterval.format.html" class="function" rel="rdfs-seeAlso">DateInterval::format()</a> - Formats the interval</span></li>
+    <li class="member"><span class="function"><a href="datetime.add.html" class="function" rel="rdfs-seeAlso">DateTime::add()</a> - Adds an amount of days, months, years, hours, minutes and seconds to a
+   DateTime object</span></li>
+    <li class="member"><span class="function"><a href="datetime.sub.html" class="function" rel="rdfs-seeAlso">DateTime::sub()</a> - Subtracts an amount of days, months, years, hours, minutes and seconds from
+   a DateTime object</span></li>
+    <li class="member"><span class="function"><a href="datetime.diff.html" class="function" rel="rdfs-seeAlso">DateTime::diff()</a> - Returns the difference between two DateTime objects</span></li>
+   </ul>
+  </p>
+ </div>
+
+
+</div><hr /><div class="manualnavbar" style="text-align: center;">
+ <div class="prev" style="text-align: left; float: left;"><a href="class.dateinterval.html">DateInterval</a></div>
+ <div class="next" style="text-align: right; float: right;"><a href="dateinterval.createfromdatestring.html">DateInterval::createFromDateString</a></div>
+ <div class="up"><a href="class.dateinterval.html">DateInterval</a></div>
+ <div class="home"><a href="index.html">PHP Manual</a></div>
+</div></body></html>

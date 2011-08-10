@@ -1,0 +1,95 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+ <head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>Context options</title>
+
+ </head>
+ <body><div class="manualnavbar" style="text-align: center;">
+ <div class="prev" style="text-align: left; float: left;"><a href="oggvorbis.constants.html">Predefined Constants</a></div>
+ <div class="next" style="text-align: right; float: right;"><a href="oggvorbis.examples.html">Examples</a></div>
+ <div class="up"><a href="book.oggvorbis.html">oggvorbis</a></div>
+ <div class="home"><a href="index.html">PHP Manual</a></div>
+</div><hr /><div id="oggvorbis.contexts" class="chapter">  
+ <h1>Context options</h1>
+
+ <table class="doctable table">
+  <caption><b>OGG/Vorbis tuning options</b></caption>
+  
+   <thead valign="middle">
+    <tr valign="middle">
+     <th>Option</th>
+     <th>Definition</th>
+     <th>Relevance</th>
+     <th>Default</th>
+    </tr>
+
+   </thead>
+
+   <tbody valign="middle" class="tbody">
+    <tr valign="middle">
+     <td align="left">pcm_mode</td>
+     <td align="left">PCM byte encoding used. See constants below.</td>
+     <td align="left">Read / Write</td>
+     <td align="left"><b><tt>OGGVORBIS_PCM_S16_LE</tt></b></td>
+    </tr>
+
+    <tr valign="middle">
+     <td align="left">rate</td>
+     <td align="left">PCM Sampling rate. Measured in Hz.</td>
+     <td align="left">Write only</td>
+     <td align="left"><b><tt>44100</tt></b></td>
+    </tr>
+
+    <tr valign="middle">
+     <td align="left">bitrate</td>
+     <td align="left">
+      Vorbis Average Bitrate Encoding / Variable Bitrate Encoding.  
+      Measured in bps (ABR) or Quality level (VBR: 0.0 to 1.0).  
+      128000 ABR is rough equal to 0.4 VBR.
+     </td>
+     <td align="left">Write only</td>
+     <td align="left"><b><tt>128000</tt></b></td>
+    </tr>
+
+    <tr valign="middle">
+     <td align="left">channels</td>
+     <td align="left">Number of PCM channels.  1 == Mono, 2 == Stereo.</td>
+     <td align="left">Write only</td>
+     <td align="left"><b><tt>2</tt></b></td>
+    </tr>
+
+    <tr valign="middle">
+     <td align="left">serialno</td>
+     <td align="left">
+      Serial Number of stream within file.  Must be unique within file.
+      Because of the potential to select a duplicate serial number within
+      a chained file, make efforts to manually assign unique numbers when
+      encoding.
+     </td>
+     <td align="left">Write only</td>
+     <td align="left"><em class="emphasis">Random</em></td>
+    </tr>
+
+    <tr valign="middle">
+     <td align="left">comments</td>
+     <td align="left">
+      Associative array of file comments.  
+      Will be translated to <i>strtoupper($name) . &quot;=$value&quot;</i>.
+      Note: This context option is not available in oggvorbis-0.1
+     </td>
+     <td align="left">Write only</td>
+     <td align="left"><i>array(&#039;ENCODER&#039; =&gt; &#039;PHP/OggVorbis, http://pear.php.net/oggvorbis&#039;)</i></td>
+    </tr>
+
+   </tbody>
+  
+ </table>
+
+</div>
+<hr /><div class="manualnavbar" style="text-align: center;">
+ <div class="prev" style="text-align: left; float: left;"><a href="oggvorbis.constants.html">Predefined Constants</a></div>
+ <div class="next" style="text-align: right; float: right;"><a href="oggvorbis.examples.html">Examples</a></div>
+ <div class="up"><a href="book.oggvorbis.html">oggvorbis</a></div>
+ <div class="home"><a href="index.html">PHP Manual</a></div>
+</div></body></html>

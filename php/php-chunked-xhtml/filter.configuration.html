@@ -1,0 +1,106 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+ <head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>Runtime Configuration</title>
+
+ </head>
+ <body><div class="manualnavbar" style="text-align: center;">
+ <div class="prev" style="text-align: left; float: left;"><a href="filter.installation.html">Installation</a></div>
+ <div class="next" style="text-align: right; float: right;"><a href="filter.resources.html">Resource Types</a></div>
+ <div class="up"><a href="filter.setup.html">Installing/Configuring</a></div>
+ <div class="home"><a href="index.html">PHP Manual</a></div>
+</div><hr /><div id="filter.configuration" class="section">
+ <h2 class="title">Runtime Configuration</h2>
+ <p class="simpara">
+The behaviour of these functions is affected by settings in <var class="filename">php.ini</var>.
+</p>
+ <p class="para">
+  <table class="doctable table">
+   <caption><b>Filter Configuration Options</b></caption>
+   
+    <thead valign="middle">
+     <tr valign="middle">
+      <th>Name</th>
+      <th>Default</th>
+      <th>Changeable</th>
+      <th>Changelog</th>
+     </tr>
+
+    </thead>
+
+    <tbody valign="middle" class="tbody">
+     <tr valign="middle">
+      <td align="left"><a href="filter.configuration.html#ini.filter.default" class="link">filter.default</a></td>
+      <td align="left">&quot;unsafe_raw&quot;</td>
+      <td align="left">PHP_INI_PERDIR</td>
+      <td align="left">PHP_INI_ALL in filter &lt;= 0.9.4. Available since PHP 5.2.0.</td>
+     </tr>
+
+     <tr valign="middle">
+      <td align="left"><a href="filter.configuration.html#ini.filter.default-flags" class="link">filter.default_flags</a></td>
+      <td align="left">NULL</td>
+      <td align="left">PHP_INI_PERDIR</td>
+      <td align="left">PHP_INI_ALL in filter &lt;= 0.9.4. Available since PHP 5.2.0.</td>
+     </tr>
+
+    </tbody>
+   
+  </table>
+
+  For further details and definitions of the
+PHP_INI_* modes, see the <a href="configuration.changes.modes.html" class="xref">Where a configuration setting may be set</a>.
+</p>
+
+<p class="para">Here&#039;s a short explanation of
+the configuration directives.</p>
+
+<p class="para">
+ <dl>
+
+  <dt id="ini.filter.default">
+   <span class="term">
+    <i><tt class="parameter">filter.default</tt></i>
+    <span class="type"><a href="language.types.string.html" class="type string">string</a></span>
+   </span>
+   <dd>
+
+    <p class="para">
+     Filter all <var class="varname"><var class="varname"><a href="reserved.variables.get.html" class="classname">$_GET</a></var></var>, <var class="varname"><var class="varname"><a href="reserved.variables.post.html" class="classname">$_POST</a></var></var>,
+     <var class="varname"><var class="varname"><a href="reserved.variables.cookies.html" class="classname">$_COOKIE</a></var></var>,  <var class="varname"><var class="varname"><a href="reserved.variables.request.html" class="classname">$_REQUEST</a></var></var> and
+     <var class="varname"><var class="varname"><a href="reserved.variables.server.html" class="classname">$_SERVER</a></var></var> data by this filter.
+     Original data can be accessed through <span class="function"><a href="function.filter-input.html" class="function">filter_input()</a></span>.
+    </p>
+    <p class="para">
+     Accepts the name of the filter you like to use by default. See the
+     existing filter list for the list of the filter names.
+    </p>
+   </dd>
+
+  </dt>
+
+  
+  <dt id="ini.filter.default-flags">
+   <span class="term">
+    <i><tt class="parameter">filter.default_flags</tt></i>
+    <span class="type"><a href="language.types.integer.html" class="type integer">integer</a></span>
+   </span>
+   <dd>
+
+    <p class="para">
+     Default flags
+    </p>
+   </dd>
+
+  </dt>
+
+  
+ </dl>
+
+ </p>
+</div><hr /><div class="manualnavbar" style="text-align: center;">
+ <div class="prev" style="text-align: left; float: left;"><a href="filter.installation.html">Installation</a></div>
+ <div class="next" style="text-align: right; float: right;"><a href="filter.resources.html">Resource Types</a></div>
+ <div class="up"><a href="filter.setup.html">Installing/Configuring</a></div>
+ <div class="home"><a href="index.html">PHP Manual</a></div>
+</div></body></html>

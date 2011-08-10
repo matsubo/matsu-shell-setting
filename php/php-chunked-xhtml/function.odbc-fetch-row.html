@@ -1,0 +1,93 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+ <head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>Fetch a row</title>
+
+ </head>
+ <body><div class="manualnavbar" style="text-align: center;">
+ <div class="prev" style="text-align: left; float: left;"><a href="function.odbc-fetch-object.html">odbc_fetch_object</a></div>
+ <div class="next" style="text-align: right; float: right;"><a href="function.odbc-field-len.html">odbc_field_len</a></div>
+ <div class="up"><a href="ref.uodbc.html">ODBC Functions</a></div>
+ <div class="home"><a href="index.html">PHP Manual</a></div>
+</div><hr /><div id="function.odbc-fetch-row" class="refentry">
+ <div class="refnamediv">
+  <h1 class="refname">odbc_fetch_row</h1>
+  <p class="verinfo">(PHP 4, PHP 5)</p><p class="refpurpose"><span class="refname">odbc_fetch_row</span> &mdash; <span class="dc-title">Fetch a row</span></p>
+
+ </div>
+ <div class="refsect1 description" id="refsect1-function.odbc-fetch-row-description">
+  <h3 class="title">Description</h3>
+  <div class="methodsynopsis dc-description">
+   <span class="type">bool</span> <span class="methodname"><b>odbc_fetch_row</b></span>
+    ( <span class="methodparam"><span class="type">resource</span> <tt class="parameter">$result_id</tt></span>
+   [, <span class="methodparam"><span class="type">int</span> <tt class="parameter">$row_number</tt></span>
+  ] )</div>
+
+  <p class="para rdfs-comment">
+   Fetches a row of the data that was returned by <span class="function"><a href="function.odbc-do.html" class="function">odbc_do()</a></span>
+   or <span class="function"><a href="function.odbc-exec.html" class="function">odbc_exec()</a></span>. After <span class="function"><b>odbc_fetch_row()</b></span>
+   is called, the fields of that row can be accessed with
+   <span class="function"><a href="function.odbc-result.html" class="function">odbc_result()</a></span>.
+  </p>
+ </div>
+
+ <div class="refsect1 parameters" id="refsect1-function.odbc-fetch-row-parameters">
+  <h3 class="title">Parameters</h3>
+  <p class="para">
+   <dl>
+
+    <dt>
+
+     <span class="term"><i><tt class="parameter">result_id</tt></i></span>
+     <dd>
+
+      <p class="para">
+       The result identifier.
+      </p>
+     </dd>
+
+    </dt>
+
+    <dt>
+
+     <span class="term"><i><tt class="parameter">row_number</tt></i></span>
+     <dd>
+
+      <p class="para">
+       If <i><tt class="parameter">row_number</tt></i> is not specified,
+       <span class="function"><b>odbc_fetch_row()</b></span> will try to fetch the next row in
+       the result set. Calls to <span class="function"><b>odbc_fetch_row()</b></span> with and
+       without <i><tt class="parameter">row_number</tt></i> can be mixed.
+      </p>
+      <p class="para">
+       To step through the result more than once, you can call
+       <span class="function"><b>odbc_fetch_row()</b></span> with
+       <i><tt class="parameter">row_number</tt></i> 1, and then continue doing
+       <span class="function"><b>odbc_fetch_row()</b></span> without
+       <i><tt class="parameter">row_number</tt></i> to review the result.  If a driver
+       doesn&#039;t support fetching rows by number, the
+       <i><tt class="parameter">row_number</tt></i> parameter is ignored.
+      </p>
+     </dd>
+
+    </dt>
+
+   </dl>
+
+  </p>
+ </div>
+
+ <div class="refsect1 returnvalues" id="refsect1-function.odbc-fetch-row-returnvalues">
+  <h3 class="title">Return Values</h3>
+  <p class="para">
+   Returns <b><tt>TRUE</tt></b> if there was a row, <b><tt>FALSE</tt></b> otherwise.
+  </p>
+ </div>
+
+</div><hr /><div class="manualnavbar" style="text-align: center;">
+ <div class="prev" style="text-align: left; float: left;"><a href="function.odbc-fetch-object.html">odbc_fetch_object</a></div>
+ <div class="next" style="text-align: right; float: right;"><a href="function.odbc-field-len.html">odbc_field_len</a></div>
+ <div class="up"><a href="ref.uodbc.html">ODBC Functions</a></div>
+ <div class="home"><a href="index.html">PHP Manual</a></div>
+</div></body></html>

@@ -1,0 +1,139 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+ <head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>Setup</title>
+
+ </head>
+ <body><div class="manualnavbar" style="text-align: center;">
+ <div class="prev" style="text-align: left; float: left;"><a href="mysqlnd-ms.quickstart.html">Quickstart and Examples</a></div>
+ <div class="next" style="text-align: right; float: right;"><a href="mysqlnd-ms.quickstart.usage.html">Running statements</a></div>
+ <div class="up"><a href="mysqlnd-ms.quickstart.html">Quickstart and Examples</a></div>
+ <div class="home"><a href="index.html">PHP Manual</a></div>
+</div><hr /><div id="mysqlnd-ms.quickstart.configuration" class="section">
+  <h2 class="title">Setup</h2>
+  <p class="para">
+   The plugin is implemented as a PHP extension. 
+   Please, follow the 
+   <a href="mysqlnd-ms.installation.html" class="link">installation instructions</a> to
+   install the 
+   <a href="http://pecl.php.net/package/mysqlnd_ms" class="link external">&raquo;&nbsp;PECL/mysqlnd_ms</a> extension.
+   Then, load the extension into PHP and activate the plugin in the PHP configuration
+   file using the PHP configuration directive named
+   <a href="mysqlnd-ms.configuration.html#ini.mysqlnd-ms.enable" class="link">mysqlnd_ms.enable</a>. 
+  </p>
+  <p class="para">
+   The plugin is using its own configuration file. Use the PHP
+   configuration directive
+   <a href="mysqlnd-ms.configuration.html#ini.mysqlnd-ms.ini-file" class="link">mysqlnd_ms.ini_file</a>
+   to set the full path to the plugin-specific configuration file.
+   This file must be readable by PHP.
+  </p>
+  <p class="para">
+   <div class="example" id="example-1611">
+    <p><b>Example #1 Enabling the plugin (php.ini)</b></p>
+    <div class="example-contents">
+<div class="inicode"><pre class="inicode">mysqlnd_ms.enable=1
+mysqlnd_ms.ini_file=/path/to/mysqlnd_ms_plugin.ini</pre>
+</div>
+    </div>
+
+    </div>
+  </p>
+  <p class="para">
+   Create a plugin-specific configuration file. Save the file to the path
+   set by the PHP configuration directive 
+   <a href="mysqlnd-ms.configuration.html#ini.mysqlnd-ms.ini-file" class="link">mysqlnd_ms.ini_file</a>.
+   The plugin-specific file must be readable by PHP.
+  </p>
+  <p class="para">
+   The plugins configuration file is divided into one or more sections.
+   Each section has a name, for example, <i>myapp</i>. Every section
+   makes its own set of configuration settings.   
+  </p>
+  <p class="para">
+    A section must at least list the MySQL replication master server.
+    The plugin supports using only one master server per section. Multi-master
+    MySQL replication setups are not supported.
+    Use the configuration directive
+    <a href="mysqlnd-ms.plugin-ini.html#ini.mysqlnd-ms-plugin-config.master" class="link">master[]</a>
+    to set the hostname and the port or socket of the MySQL master server.
+  </p>
+  <p class="para">
+   <div class="example" id="example-1612">
+    <p><b>Example #2 Minimal plugin-specific configuration file (mysqlnd_ms_plugin.ini)</b></p>
+    <div class="example-contents">
+<div class="inicode"><pre class="inicode">[myapp]
+master[]=localhost:/tmp/mysql.sock</pre>
+</div>
+    </div>
+
+    </div>
+  </p>
+  <p class="para">
+   It is allowed to set no MySQL slave server but it is not recommended to do.
+   You should always configure at least one slave server as well. Slave servers
+   are set using the configuration directive
+   <a href="mysqlnd-ms.plugin-ini.html#ini.mysqlnd-ms-plugin-config.slave" class="link">slave[]</a>.
+   A configuration section may contain no, one or multiple 
+   <i>slave[]</i> directives to set no, one or multiple
+   MySQL slaves. 
+  </p>
+  <p class="para">
+   <div class="example" id="example-1613">
+    <p><b>Example #3 Recommended minimal plugin-specific config (mysqlnd_ms_plugin.ini)</b></p>
+    <div class="example-contents">
+<div class="inicode"><pre class="inicode">[myapp]
+master[]=localhost:/tmp/mysql.sock
+slave[]=192.168.2.27:3306</pre>
+</div>
+    </div>
+
+    </div>
+  </p>
+  <p class="para">
+   If there are
+   at least two servers in total, the plugin can start to load balance and switch
+   connections. Switching connections is not always transparent and can cause
+   issues in certain cases. The reference section on 
+   <a href="mysqlnd-ms.pooling.html" class="link">connection pooling and switching</a>,
+   <a href="mysqlnd-ms.transaction.html" class="link">transaction handling</a>,
+   <a href="mysqlnd-ms.failover.html" class="link">fail over</a> 
+   <a href="mysqlnd-ms.loadbalancing.html" class="link">load balancing</a> and 
+   <a href="mysqlnd-ms.rwsplit.html" class="link">read-write splitting</a> gives details.
+   For now you can continue reading the quickstart. Potential pitfalls 
+   will be described later in the quickstart guide.
+  </p>
+  <p class="para">   
+   It is responsibility of the application to handle potential issues caused
+   by connection switches. By always configuring a master and at lease one slave
+   server you can be sure to detect issues early because switches become 
+   possible.
+  </p>
+  <p class="para">
+   The MySQL master and MySQL slave servers, which you configure, do not need to 
+   be part of MySQL replication setup. For testing purpose you can use single
+   MySQL server and make it known to the plugin as a master and slave server 
+   as shown below. This could help you to detect many potential issues with 
+   connection switches. However, such a setup will not be prone to the issues
+   caused by replication lag. 
+  </p>
+  <p class="para">
+   <div class="example" id="example-1614">
+    <p><b>Example #4 Using one server as a master and as a slave (testing only!)</b></p>
+    <div class="example-contents">
+<div class="inicode"><pre class="inicode">[myapp]
+master[]=localhost:/tmp/mysql.sock
+slave[]=127.0.0.1:3306</pre>
+</div>
+    </div>
+
+    </div>
+  </p>
+  
+ </div><hr /><div class="manualnavbar" style="text-align: center;">
+ <div class="prev" style="text-align: left; float: left;"><a href="mysqlnd-ms.quickstart.html">Quickstart and Examples</a></div>
+ <div class="next" style="text-align: right; float: right;"><a href="mysqlnd-ms.quickstart.usage.html">Running statements</a></div>
+ <div class="up"><a href="mysqlnd-ms.quickstart.html">Quickstart and Examples</a></div>
+ <div class="home"><a href="index.html">PHP Manual</a></div>
+</div></body></html>

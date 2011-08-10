@@ -1,0 +1,262 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+ <head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>The HttpQueryString class</title>
+
+ </head>
+ <body><div class="manualnavbar" style="text-align: center;">
+ <div class="prev" style="text-align: left; float: left;"><a href="function.httpmessage-tostring.html">HttpMessage::toString</a></div>
+ <div class="next" style="text-align: right; float: right;"><a href="function.httpquerystring-construct.html">HttpQueryString::__construct</a></div>
+ <div class="up"><a href="book.http.html">HTTP</a></div>
+ <div class="home"><a href="index.html">PHP Manual</a></div>
+</div><hr /><div id="class.httpquerystring" class="reference">
+ <h1 class="title">The <b class="classname">HttpQueryString</b> class</h1>
+ <div class="partintro">
+  <div class="section" id="httpquerystring.synopsis">
+   <h2 class="title">Class synopsis</h2>
+   <div class="classsynopsis">
+    <div class="ooclass"></div>
+    <div class="classsynopsisinfo">
+     <span class="ooclass"><b class="classname">HttpQueryString</b></span>
+     <span class="oointerface">implements 
+      <span class="interfacename"><a href="class.arrayaccess.html" class="interfacename">ArrayAccess</a></span>
+     </span>
+     <span class="oointerface">, 
+      <span class="interfacename"><a href="class.serializable.html" class="interfacename">Serializable</a></span>
+     </span>
+     {</div>
+    <div class="methodsynopsis dc-description">
+   <span class="modifier">final public</span>
+   <span class="type">void</span> <span class="methodname"><a href="function.httpquerystring-construct.html" class="methodname">__construct</a></span>
+    ([ <span class="methodparam"><span class="type">bool</span> <tt class="parameter">$global</tt><span class="initializer"> = true</span></span>
+   [, <span class="methodparam"><span class="type"><a href="language.pseudo-types.html#language.types.mixed" class="type mixed">mixed</a></span> <tt class="parameter">$add</tt></span>
+  ]] )</div>
+<div class="methodsynopsis dc-description">
+   <span class="modifier">public</span>
+   <span class="type">mixed</span> <span class="methodname"><a href="function.httpquerystring-get.html" class="methodname">get</a></span>
+    ([ <span class="methodparam"><span class="type">string</span> <tt class="parameter">$key</tt></span>
+   [, <span class="methodparam"><span class="type"><a href="language.pseudo-types.html#language.types.mixed" class="type mixed">mixed</a></span> <tt class="parameter">$type</tt><span class="initializer"> = 0</span></span>
+   [, <span class="methodparam"><span class="type"><a href="language.pseudo-types.html#language.types.mixed" class="type mixed">mixed</a></span> <tt class="parameter">$defval</tt><span class="initializer"> = <b><tt>NULL</tt></b></span></span>
+   [, <span class="methodparam"><span class="type">bool</span> <tt class="parameter">$delete</tt><span class="initializer"> = false</span></span>
+  ]]]] )</div>
+<div class="methodsynopsis dc-description">
+   <span class="modifier">public</span>
+   <span class="type">HttpQueryString</span> <span class="methodname"><a href="function.httpquerystring-mod.html" class="methodname">mod</a></span>
+    ( <span class="methodparam"><span class="type"><a href="language.pseudo-types.html#language.types.mixed" class="type mixed">mixed</a></span> <tt class="parameter">$params</tt></span>
+   )</div>
+<div class="methodsynopsis dc-description">
+   <span class="modifier">public</span>
+   <span class="type">string</span> <span class="methodname"><a href="function.httpquerystring-set.html" class="methodname">set</a></span>
+    ( <span class="methodparam"><span class="type"><a href="language.pseudo-types.html#language.types.mixed" class="type mixed">mixed</a></span> <tt class="parameter">$params</tt></span>
+   )</div>
+<div class="methodsynopsis dc-description">
+   <span class="modifier">static public</span>
+   <span class="type">HttpQueryString</span> <span class="methodname"><a href="function.httpquerystring-singleton.html" class="methodname">singleton</a></span>
+    ([ <span class="methodparam"><span class="type">bool</span> <tt class="parameter">$global</tt><span class="initializer"> = true</span></span>
+  ] )</div>
+<div class="methodsynopsis dc-description">
+   <span class="modifier">public</span>
+   <span class="type">array</span> <span class="methodname"><a href="function.httpquerystring-toarray.html" class="methodname">toArray</a></span>
+    ( <span class="methodparam">void</span>
+   )</div>
+<div class="methodsynopsis dc-description">
+   <span class="modifier">public</span>
+   <span class="type">string</span> <span class="methodname"><a href="function.httpquerystring-tostring.html" class="methodname">toString</a></span>
+    ( <span class="methodparam">void</span>
+   )</div>
+<div class="methodsynopsis dc-description">
+   <span class="modifier">public</span>
+   <span class="type">bool</span> <span class="methodname"><a href="function.httpquerystring-xlate.html" class="methodname">xlate</a></span>
+    ( <span class="methodparam"><span class="type">string</span> <tt class="parameter">$ie</tt></span>
+   , <span class="methodparam"><span class="type">string</span> <tt class="parameter">$oe</tt></span>
+   )</div>
+
+   }</div>
+  </div>
+
+ <div class="section" id="http.HttpQueryString.members">
+  <h2 class="title">Class Members</h2>
+  <div class="section" id="http.HttpQueryString.properties">
+   <h2 class="title">Properties</h2>
+   <table id="http.HttpQueryString.properties.instance" class="doctable table">
+    <caption><b>Instance Properties</b></caption>
+    
+     <thead valign="middle">
+      <tr valign="middle">
+       <th>Modifiers</th>
+       <th>Type</th>
+       <th>Name</th>
+       <th>Description</th>
+      </tr>
+
+     </thead>
+
+     <tbody valign="middle" class="tbody">
+      <tr valign="middle">
+       <td align="left">private</td>
+       <td align="left">array</td>
+       <td align="left">queryArray</td>
+       <td align="left">query parameters</td>
+      </tr>
+
+      <tr valign="middle">
+       <td align="left">private</td>
+       <td align="left">string</td>
+       <td align="left">queryString</td>
+       <td align="left">serialized query parameters</td>
+      </tr>
+
+     </tbody>
+    
+   </table>
+
+   <table id="http.HttpQueryString.properties.static" class="doctable table">
+    <caption><b>Static Properties</b></caption>
+    
+     <thead valign="middle">
+      <tr valign="middle">
+       <th>Modifiers</th>
+       <th>Type</th>
+       <th>Name</th>
+       <th>Description</th>
+      </tr>
+
+     </thead>
+
+     <tbody valign="middle" class="tbody">
+      <tr valign="middle">
+       <td align="left">private</td>
+       <td align="left">array</td>
+       <td align="left">instance</td>
+       <td align="left">holds singletons</td>
+      </tr>
+
+     </tbody>
+    
+   </table>
+
+  </div>
+  <div class="section" id="http.HttpQueryString.constants">
+   <h2 class="title">Predefined Constants</h2>
+   <table class="doctable table">
+    
+    
+     <thead valign="middle">
+      <tr valign="middle">
+       <th>Type</th>
+       <th>Name</th>
+       <th>Description</th>
+      </tr>
+
+     </thead>
+
+     <tbody valign="middle" class="tbody">
+      <tr valign="middle">
+       <td align="left">int</td>
+       <td align="left">TYPE_BOOL</td>
+       <td align="left">retrieve query param as bool</td>
+      </tr>
+
+      <tr valign="middle">
+       <td align="left">int</td>
+       <td align="left">TYPE_INT</td>
+       <td align="left">retrieve query param as int</td>
+      </tr>
+
+      <tr valign="middle">
+       <td align="left">int</td>
+       <td align="left">TYPE_FLOAT</td>
+       <td align="left">retrieve query param as float</td>
+      </tr>
+
+      <tr valign="middle">
+       <td align="left">int</td>
+       <td align="left">TYPE_STRING</td>
+       <td align="left">retrieve query param as string</td>
+      </tr>
+
+      <tr valign="middle">
+       <td align="left">int</td>
+       <td align="left">TYPE_ARRAY</td>
+       <td align="left">retrieve query param as array</td>
+      </tr>
+
+      <tr valign="middle">
+       <td align="left">int</td>
+       <td align="left">TYPE_OBJECT</td>
+       <td align="left">retrieve query param as object</td>
+      </tr>
+
+     </tbody>
+    
+   </table>
+
+  </div>
+ </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h2>Table of Contents</h2><ul class="chunklist chunklist_reference"><li><a href="function.httpquerystring-construct.html">HttpQueryString::__construct</a> — HttpQueryString constructor</li><li><a href="function.httpquerystring-get.html">HttpQueryString::get</a> — Get (part of) query string</li><li><a href="function.httpquerystring-mod.html">HttpQueryString::mod</a> — Modifiy query string copy</li><li><a href="function.httpquerystring-set.html">HttpQueryString::set</a> — Set query string params</li><li><a href="function.httpquerystring-singleton.html">HttpQueryString::singleton</a> — HttpQueryString singleton</li><li><a href="function.httpquerystring-toarray.html">HttpQueryString::toArray</a> — Get query string as array</li><li><a href="function.httpquerystring-tostring.html">HttpQueryString::toString</a> — Get query string</li><li><a href="function.httpquerystring-xlate.html">HttpQueryString::xlate</a> — Change query strings charset</li></ul>
+</div>
+<hr /><div class="manualnavbar" style="text-align: center;">
+ <div class="prev" style="text-align: left; float: left;"><a href="function.httpmessage-tostring.html">HttpMessage::toString</a></div>
+ <div class="next" style="text-align: right; float: right;"><a href="function.httpquerystring-construct.html">HttpQueryString::__construct</a></div>
+ <div class="up"><a href="book.http.html">HTTP</a></div>
+ <div class="home"><a href="index.html">PHP Manual</a></div>
+</div></body></html>

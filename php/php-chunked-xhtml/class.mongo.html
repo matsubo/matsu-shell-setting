@@ -1,0 +1,389 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+ <head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>The Mongo class</title>
+
+ </head>
+ <body><div class="manualnavbar" style="text-align: center;">
+ <div class="prev" style="text-align: left; float: left;"><a href="mongo.core.html">Core Classes</a></div>
+ <div class="next" style="text-align: right; float: right;"><a href="mongo.close.html">Mongo::close</a></div>
+ <div class="up"><a href="mongo.core.html">Core Classes</a></div>
+ <div class="home"><a href="index.html">PHP Manual</a></div>
+</div><hr /><div id="class.mongo" class="reference">
+
+ <h1 class="title">The Mongo class</h1>
+ 
+
+ <div class="partintro">
+  
+  <div class="section" id="mongo.intro">
+   <h2 class="title">Introduction</h2>
+   <p class="para">
+    A connection between PHP and MongoDB.
+   </p>
+   <p class="para">
+    This class is used to create and manage connections. A typical use is:
+    <div class="example-contents">
+<div class="phpcode"><code><span style="color: #000000">
+<span style="color: #0000BB">&lt;?php<br /><br />$m&nbsp;</span><span style="color: #007700">=&nbsp;new&nbsp;</span><span style="color: #0000BB">Mongo</span><span style="color: #007700">();&nbsp;</span><span style="color: #FF8000">//&nbsp;connect<br /></span><span style="color: #0000BB">$db&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">$m</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">foo</span><span style="color: #007700">;&nbsp;</span><span style="color: #FF8000">//&nbsp;get&nbsp;the&nbsp;database&nbsp;named&nbsp;"foo"<br /><br /></span><span style="color: #0000BB">?&gt;</span>
+</span>
+</code></div>
+    </div>
+
+   </p>
+   <p class="para">
+    See <span class="function"><a href="mongo.construct.html" class="function">Mongo::__construct()</a></span> and the section on
+    <a href="mongo.connecting.html" class="link">connecting</a> for more information 
+    about creating connections.
+   </p>
+  </div>
+  
+
+  <div class="section" id="mongo.synopsis">
+   <h2 class="title">Class synopsis</h2>
+
+   
+   <div class="classsynopsis">
+    <div class="ooclass"></div>
+
+    
+    <div class="classsynopsisinfo">
+     <span class="ooclass">
+      <b class="classname">Mongo</b>
+     </span>
+     {</div>
+    
+
+    <div class="classsynopsisinfo classsynopsisinfo_comment">/* Constants */</div>
+    <div class="fieldsynopsis">
+     <span class="modifier">const</span>
+     <span class="type">string</span>
+      <var class="fieldsynopsis_varname"><a href="class.mongo.html#mongo.constants.version"><var class="varname">VERSION</var></a></var>
+    ;</div>
+
+    <div class="fieldsynopsis">
+     <span class="modifier">const</span>
+     <span class="type">string</span>
+      <var class="fieldsynopsis_varname"><a href="class.mongo.html#mongo.constants.defaulthost"><var class="varname">DEFAULT_HOST</var></a></var>
+     <span class="initializer"> = &quot;localhost&quot;</span>
+    ;</div>
+
+    <div class="fieldsynopsis">
+     <span class="modifier">const</span>
+     <span class="type">int</span>
+      <var class="fieldsynopsis_varname"><a href="class.mongo.html#mongo.constants.defaultport"><var class="varname">DEFAULT_PORT</var></a></var>
+     <span class="initializer"> = 27017</span>
+    ;</div>
+
+
+    <div class="classsynopsisinfo classsynopsisinfo_comment">/* Fields */</div>
+    <div class="fieldsynopsis">
+     <span class="modifier">public</span>
+     <span class="type">boolean</span>
+      <var class="varname">$<var class="varname">Mongo-&gt;connected</var></var>
+     <span class="initializer"> = <b><tt>FALSE</tt></b></span>
+    ;</div>
+
+    <div class="fieldsynopsis">
+     <span class="modifier">public</span>
+     <span class="type">string</span>
+      <var class="varname">$<var class="varname">status</var></var>
+     <span class="initializer"> = <b><tt>NULL</tt></b></span>
+    ;</div>
+
+    <div class="fieldsynopsis">
+     <span class="modifier">protected</span>
+     <span class="type">string</span>
+      <var class="varname">$<var class="varname">server</var></var>
+     <span class="initializer"> = <b><tt>NULL</tt></b></span>
+    ;</div>
+
+    <div class="fieldsynopsis">
+     <span class="modifier">protected</span>
+     <span class="type">boolean</span>
+      <var class="varname">$<var class="varname">persistent</var></var>
+     <span class="initializer"> = <b><tt>NULL</tt></b></span>
+    ;</div>
+
+
+    
+    <div class="classsynopsisinfo classsynopsisinfo_comment">/* Methods */</div>
+    <div class="methodsynopsis dc-description">
+   <span class="modifier">public</span> <span class="type">bool</span> <span class="methodname"><a href="mongo.close.html" class="methodname">Mongo::close</a></span>
+    ( <span class="methodparam">void</span>
+   )</div>
+<div class="methodsynopsis dc-description">
+   <span class="modifier">public</span> <span class="type">bool</span> <span class="methodname"><a href="mongo.connect.html" class="methodname">Mongo::connect</a></span>
+    ( <span class="methodparam">void</span>
+   )</div>
+<div class="methodsynopsis dc-description">
+   <span class="modifier">protected</span> <span class="type">bool</span> <span class="methodname"><a href="mongo.connectutil.html" class="methodname">Mongo::connectUtil</a></span>
+    ( <span class="methodparam">void</span>
+   )</div>
+<div class="methodsynopsis dc-description">
+    <span class="methodname"><a href="mongo.construct.html" class="methodname">Mongo::__construct</a></span>
+    ([ <span class="methodparam"><span class="type">string</span> <tt class="parameter">$server</tt><span class="initializer"> = &quot;mongodb://localhost:27017&quot;</span></span>
+   [, <span class="methodparam"><span class="type">array</span> <tt class="parameter">$options</tt><span class="initializer"> = array(&quot;connect&quot; =&gt; <b><tt>TRUE</tt></b>)</span></span>
+  ]] )</div>
+<div class="methodsynopsis dc-description">
+   <span class="modifier">public</span> <span class="type">array</span> <span class="methodname"><a href="mongo.dropdb.html" class="methodname">Mongo::dropDB</a></span>
+    ( <span class="methodparam"><span class="type"><a href="language.pseudo-types.html#language.types.mixed" class="type mixed">mixed</a></span> <tt class="parameter">$db</tt></span>
+   )</div>
+<div class="methodsynopsis dc-description">
+   <span class="modifier">public</span> <span class="type">MongoDB</span> <span class="methodname"><a href="mongo.get.html" class="methodname">Mongo::__get</a></span>
+    ( <span class="methodparam"><span class="type">string</span> <tt class="parameter">$dbname</tt></span>
+   )</div>
+<div class="methodsynopsis dc-description">
+   <span class="modifier">public</span> <span class="type">array</span> <span class="methodname"><a href="mongo.getHosts.html" class="methodname">Mongo::getHosts</a></span>
+    ( <span class="methodparam">void</span>
+   )</div>
+<div class="methodsynopsis dc-description">
+   <span class="modifier">public</span> <span class="modifier">static</span> <span class="type">int</span> <span class="methodname"><a href="mongo.getpoolsize.html" class="methodname">Mongo::getPoolSize</a></span>
+    ( <span class="methodparam">void</span>
+   )</div>
+<div class="methodsynopsis dc-description">
+   <span class="modifier">public</span> <span class="type">string</span> <span class="methodname"><a href="mongo.getslave.html" class="methodname">Mongo::getSlave</a></span>
+    ( <span class="methodparam">void</span>
+   )</div>
+<div class="methodsynopsis dc-description">
+   <span class="modifier">public</span> <span class="type">bool</span> <span class="methodname"><a href="mongo.getslaveokay.html" class="methodname">Mongo::getSlaveOkay</a></span>
+    ( <span class="methodparam">void</span>
+   )</div>
+<div class="methodsynopsis dc-description">
+   <span class="modifier">public</span> <span class="type">array</span> <span class="methodname"><a href="mongo.listdbs.html" class="methodname">Mongo::listDBs</a></span>
+    ( <span class="methodparam">void</span>
+   )</div>
+<div class="methodsynopsis dc-description">
+   <span class="modifier">public</span> <span class="type">array</span> <span class="methodname"><a href="mongo.pooldebug.html" class="methodname">Mongo::poolDebug</a></span>
+    ( <span class="methodparam">void</span>
+   )</div>
+<div class="methodsynopsis dc-description">
+   <span class="modifier">public</span> <span class="type">MongoCollection</span> <span class="methodname"><a href="mongo.selectcollection.html" class="methodname">Mongo::selectCollection</a></span>
+    ( <span class="methodparam"><span class="type">string</span> <tt class="parameter">$db</tt></span>
+   , <span class="methodparam"><span class="type">string</span> <tt class="parameter">$collection</tt></span>
+   )</div>
+<div class="methodsynopsis dc-description">
+   <span class="modifier">public</span> <span class="type">MongoDB</span> <span class="methodname"><a href="mongo.selectdb.html" class="methodname">Mongo::selectDB</a></span>
+    ( <span class="methodparam"><span class="type">string</span> <tt class="parameter">$name</tt></span>
+   )</div>
+<div class="methodsynopsis dc-description">
+   <span class="modifier">public</span> <span class="modifier">static</span> <span class="type">bool</span> <span class="methodname"><a href="mongo.setpoolsize.html" class="methodname">Mongo::setPoolSize</a></span>
+    ( <span class="methodparam"><span class="type">int</span> <tt class="parameter">$size</tt></span>
+   )</div>
+<div class="methodsynopsis dc-description">
+   <span class="modifier">public</span> <span class="type">bool</span> <span class="methodname"><a href="mongo.setslaveokay.html" class="methodname">Mongo::setSlaveOkay</a></span>
+    ([ <span class="methodparam"><span class="type">bool</span> <tt class="parameter">$ok</tt><span class="initializer"> = true</span></span>
+  ] )</div>
+<div class="methodsynopsis dc-description">
+   <span class="modifier">public</span> <span class="type">string</span> <span class="methodname"><a href="mongo.switchslave.html" class="methodname">Mongo::switchSlave</a></span>
+    ( <span class="methodparam">void</span>
+   )</div>
+<div class="methodsynopsis dc-description">
+   <span class="modifier">public</span> <span class="type">string</span> <span class="methodname"><a href="mongo.tostring.html" class="methodname">Mongo::__toString</a></span>
+    ( <span class="methodparam">void</span>
+   )</div>
+
+   }</div>
+   
+
+  </div>
+
+
+  <div class="section">
+   <h2 class="title">Predefined Constants</h2>
+   <div class="section" id="mongo.constants.types">
+    <h2 class="title">Mongo Constants</h2>
+    <dl>
+
+     <dt id="mongo.constants.version">
+      <span class="term"><b><tt>Mongo::VERSION</tt></b></span>
+      <dd>
+
+       <span class="simpara">
+        PHP driver version.  May be suffixed with &quot;+&quot; or &quot;-&quot; if it is in-between 
+        versions.
+       </span>
+      </dd>
+
+     </dt>
+
+     <dt id="mongo.constants.defaulthost">
+      <span class="term"><b><tt>Mongo::DEFAULT_HOST</tt></b></span>
+      <br /><span class="term"><b><tt>&quot;localhost&quot;</tt></b></span>
+      <dd>
+
+       <span class="simpara">
+        Host to connect to if no host is given.
+       </span>
+      </dd>
+
+     </dt>
+
+     <dt id="mongo.constants.defaultport">
+      <span class="term"><b><tt>Mongo::DEFAULT_PORT</tt></b></span>
+      <br /><span class="term"><b><tt>27017</tt></b></span>
+      <dd>
+
+       <span class="simpara">
+        Port to connect to if no port is given.
+       </span>
+      </dd>
+
+     </dt>
+
+    </dl>
+
+   </div>
+  </div>
+
+  <div class="section">
+   <h2 class="title">Fields</h2>
+   <dl>
+
+    <dt>
+
+     <span class="term">status</span>
+     <dd>
+
+      <span class="simpara">
+       If this is a persistent connection, if the connection was created for 
+       this object or is being reused.  If this is not a persistent connection,
+       this field should be <b><tt>NULL</tt></b>.
+      </span>
+     </dd>
+
+    </dt>
+
+   </dl>
+
+  </div>
+
+  <div class="section">
+   <h2 class="title">See Also</h2>
+   <p class="para">
+    MongoDB core docs on <a href="http://dochub.mongodb.org/core/connections" class="link external">&raquo;&nbsp;connecting</a>.
+   </p>
+  </div>
+
+
+ </div>
+
+ 
+
+
+
+ 
+
+
+
+
+
+ 
+
+
+
+
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+ 
+
+
+
+
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+
+
+
+
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+ 
+
+
+
+
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+ 
+
+
+
+
+
+ 
+
+
+
+
+
+ 
+
+
+
+<h2>Table of Contents</h2><ul class="chunklist chunklist_reference"><li><a href="mongo.close.html">Mongo::close</a> — Closes this connection</li><li><a href="mongo.connect.html">Mongo::connect</a> — Connects to a database server</li><li><a href="mongo.connectutil.html">Mongo::connectUtil</a> — Connects with a database server</li><li><a href="mongo.construct.html">Mongo::__construct</a> — Creates a new database connection object</li><li><a href="mongo.dropdb.html">Mongo::dropDB</a> — Drops a database [deprecated]</li><li><a href="mongo.get.html">Mongo::__get</a> — Gets a database</li><li><a href="mongo.getHosts.html">Mongo::getHosts</a> — Updates status for all hosts associated with this</li><li><a href="mongo.getpoolsize.html">Mongo::getPoolSize</a> — Get pool size for connection pools</li><li><a href="mongo.getslave.html">Mongo::getSlave</a> — Returns the address being used by this for slaveOkay reads</li><li><a href="mongo.getslaveokay.html">Mongo::getSlaveOkay</a> — Get slaveOkay setting for this connection</li><li><a href="mongo.listdbs.html">Mongo::listDBs</a> — Lists all of the databases available.</li><li><a href="mongo.pooldebug.html">Mongo::poolDebug</a> — Returns information about all connection pools.</li><li><a href="mongo.selectcollection.html">Mongo::selectCollection</a> — Gets a database collection</li><li><a href="mongo.selectdb.html">Mongo::selectDB</a> — Gets a database</li><li><a href="mongo.setpoolsize.html">Mongo::setPoolSize</a> — Set the size for future connection pools.</li><li><a href="mongo.setslaveokay.html">Mongo::setSlaveOkay</a> — Change slaveOkay setting for this connection</li><li><a href="mongo.switchslave.html">Mongo::switchSlave</a> — Choose a new slave for slaveOkay reads</li><li><a href="mongo.tostring.html">Mongo::__toString</a> — String representation of this connection</li></ul>
+</div>
+<hr /><div class="manualnavbar" style="text-align: center;">
+ <div class="prev" style="text-align: left; float: left;"><a href="mongo.core.html">Core Classes</a></div>
+ <div class="next" style="text-align: right; float: right;"><a href="mongo.close.html">Mongo::close</a></div>
+ <div class="up"><a href="mongo.core.html">Core Classes</a></div>
+ <div class="home"><a href="index.html">PHP Manual</a></div>
+</div></body></html>

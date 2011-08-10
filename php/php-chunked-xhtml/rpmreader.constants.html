@@ -1,0 +1,1713 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+ <head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>Predefined Constants</title>
+
+ </head>
+ <body><div class="manualnavbar" style="text-align: center;">
+ <div class="prev" style="text-align: left; float: left;"><a href="rpmreader.resources.html">Resource Types</a></div>
+ <div class="next" style="text-align: right; float: right;"><a href="rpmreader.examples.html">Examples</a></div>
+ <div class="up"><a href="book.rpmreader.html">RPM Reader</a></div>
+ <div class="home"><a href="index.html">PHP Manual</a></div>
+</div><hr /><div id="rpmreader.constants" class="appendix">
+ <h1>Predefined Constants</h1>
+
+ <p class="simpara">
+The constants below are defined by this extension, and
+will only be available when the extension has either
+been compiled into PHP or dynamically loaded at runtime.
+</p>
+ <p class="para">
+  The following list of constants are used to obtain information using
+  the <span class="function"><a href="function.rpm-get-tag.html" class="function">rpm_get_tag()</a></span> function.  These constants
+  represent the tag number to be retrieved from the RPM file&#039;s header
+  section.  Descriptions are given below as to what data the tag
+  number constants reference.
+ </p>
+ <p class="para">
+  <dl>
+
+   <dt>
+
+    <span class="term">
+     <b><tt>RPMREADER_MINIMUM</tt></b>
+     (<span class="type"><a href="language.types.integer.html" class="type integer">integer</a></span>)
+    </span>
+    <dd>
+
+     <span class="simpara">
+       The minimum valid value of any RPM tag number.
+     </span>
+    </dd>
+
+   </dt>
+
+   <dt>
+
+    <span class="term">
+     <b><tt>RPMREADER_NAME</tt></b>
+     (<span class="type"><a href="language.types.integer.html" class="type integer">integer</a></span>)
+    </span>
+    <dd>
+
+     <span class="simpara">
+       The name of the RPM package.
+     </span>
+    </dd>
+
+   </dt>
+
+   <dt>
+
+    <span class="term">
+     <b><tt>RPMREADER_VERSION</tt></b>
+     (<span class="type"><a href="language.types.integer.html" class="type integer">integer</a></span>)
+    </span>
+    <dd>
+
+     <span class="simpara">
+       The version of the RPM package.
+     </span>
+    </dd>
+
+   </dt>
+
+   <dt>
+
+    <span class="term">
+     <b><tt>RPMREADER_RELEASE</tt></b>
+     (<span class="type"><a href="language.types.integer.html" class="type integer">integer</a></span>)
+    </span>
+    <dd>
+
+     <span class="simpara">
+       The release of the RPM package.
+     </span>
+    </dd>
+
+   </dt>
+
+   <dt>
+
+    <span class="term">
+     <b><tt>RPMREADER_EPOCH</tt></b>
+     (<span class="type"><a href="language.types.integer.html" class="type integer">integer</a></span>)
+    </span>
+    <dd>
+
+     <span class="simpara">
+     </span>
+    </dd>
+
+   </dt>
+
+   <dt>
+
+    <span class="term">
+     <b><tt>RPMREADER_SERIAL</tt></b>
+     (<span class="type"><a href="language.types.integer.html" class="type integer">integer</a></span>)
+    </span>
+    <dd>
+
+     <span class="simpara">
+     </span>
+    </dd>
+
+   </dt>
+
+   <dt>
+
+    <span class="term">
+     <b><tt>RPMREADER_SUMMARY</tt></b>
+     (<span class="type"><a href="language.types.integer.html" class="type integer">integer</a></span>)
+    </span>
+    <dd>
+
+     <span class="simpara">
+       The summary text of the RPM package.
+     </span>
+    </dd>
+
+   </dt>
+
+   <dt>
+
+    <span class="term">
+     <b><tt>RPMREADER_DESCRIPTION</tt></b>
+     (<span class="type"><a href="language.types.integer.html" class="type integer">integer</a></span>)
+    </span>
+    <dd>
+
+     <span class="simpara">
+       The full description text of the RPM package.
+     </span>
+    </dd>
+
+   </dt>
+
+   <dt>
+
+    <span class="term">
+     <b><tt>RPMREADER_BUILDTIME</tt></b>
+     (<span class="type"><a href="language.types.integer.html" class="type integer">integer</a></span>)
+    </span>
+    <dd>
+
+     <span class="simpara">
+       The date and time when the RPM package was built.
+     </span>
+    </dd>
+
+   </dt>
+
+   <dt>
+
+    <span class="term">
+     <b><tt>RPMREADER_BUILDHOST</tt></b>
+     (<span class="type"><a href="language.types.integer.html" class="type integer">integer</a></span>)
+    </span>
+    <dd>
+
+     <span class="simpara">
+       The name of the host on which the RPM package was built.
+     </span>
+    </dd>
+
+   </dt>
+
+   <dt>
+
+    <span class="term">
+     <b><tt>RPMREADER_INSTALLTIME</tt></b>
+     (<span class="type"><a href="language.types.integer.html" class="type integer">integer</a></span>)
+    </span>
+    <dd>
+
+     <span class="simpara">
+     </span>
+    </dd>
+
+   </dt>
+
+   <dt>
+
+    <span class="term">
+     <b><tt>RPMREADER_SIZE</tt></b>
+     (<span class="type"><a href="language.types.integer.html" class="type integer">integer</a></span>)
+    </span>
+    <dd>
+
+     <span class="simpara">
+       The size of the RPM package.
+     </span>
+    </dd>
+
+   </dt>
+
+   <dt>
+
+    <span class="term">
+     <b><tt>RPMREADER_DISTRIBUTION</tt></b>
+     (<span class="type"><a href="language.types.integer.html" class="type integer">integer</a></span>)
+    </span>
+    <dd>
+
+     <span class="simpara">
+     </span>
+    </dd>
+
+   </dt>
+
+   <dt>
+
+    <span class="term">
+     <b><tt>RPMREADER_VENDOR</tt></b>
+     (<span class="type"><a href="language.types.integer.html" class="type integer">integer</a></span>)
+    </span>
+    <dd>
+
+     <span class="simpara">
+     </span>
+    </dd>
+
+   </dt>
+
+   <dt>
+
+    <span class="term">
+     <b><tt>RPMREADER_GIF</tt></b>
+     (<span class="type"><a href="language.types.integer.html" class="type integer">integer</a></span>)
+    </span>
+    <dd>
+
+     <span class="simpara">
+     </span>
+    </dd>
+
+   </dt>
+
+   <dt>
+
+    <span class="term">
+     <b><tt>RPMREADER_XPM</tt></b>
+     (<span class="type"><a href="language.types.integer.html" class="type integer">integer</a></span>)
+    </span>
+    <dd>
+
+     <span class="simpara">
+     </span>
+    </dd>
+
+   </dt>
+
+   <dt>
+
+    <span class="term">
+     <b><tt>RPMREADER_LICENSE</tt></b>
+     (<span class="type"><a href="language.types.integer.html" class="type integer">integer</a></span>)
+    </span>
+    <dd>
+
+     <span class="simpara">
+     </span>
+    </dd>
+
+   </dt>
+
+   <dt>
+
+    <span class="term">
+     <b><tt>RPMREADER_COPYRIGHT</tt></b>
+     (<span class="type"><a href="language.types.integer.html" class="type integer">integer</a></span>)
+    </span>
+    <dd>
+
+     <span class="simpara">
+     </span>
+    </dd>
+
+   </dt>
+
+   <dt>
+
+    <span class="term">
+     <b><tt>RPMREADER_PACKAGER</tt></b>
+     (<span class="type"><a href="language.types.integer.html" class="type integer">integer</a></span>)
+    </span>
+    <dd>
+
+     <span class="simpara">
+     </span>
+    </dd>
+
+   </dt>
+
+   <dt>
+
+    <span class="term">
+     <b><tt>RPMREADER_GROUP</tt></b>
+     (<span class="type"><a href="language.types.integer.html" class="type integer">integer</a></span>)
+    </span>
+    <dd>
+
+     <span class="simpara">
+     </span>
+    </dd>
+
+   </dt>
+
+   <dt>
+
+    <span class="term">
+     <b><tt>RPMREADER_SOURCE</tt></b>
+     (<span class="type"><a href="language.types.integer.html" class="type integer">integer</a></span>)
+    </span>
+    <dd>
+
+     <span class="simpara">
+     </span>
+    </dd>
+
+   </dt>
+
+   <dt>
+
+    <span class="term">
+     <b><tt>RPMREADER_PATCH</tt></b>
+     (<span class="type"><a href="language.types.integer.html" class="type integer">integer</a></span>)
+    </span>
+    <dd>
+
+     <span class="simpara">
+     </span>
+    </dd>
+
+   </dt>
+
+   <dt>
+
+    <span class="term">
+     <b><tt>RPMREADER_URL</tt></b>
+     (<span class="type"><a href="language.types.integer.html" class="type integer">integer</a></span>)
+    </span>
+    <dd>
+
+     <span class="simpara">
+     </span>
+    </dd>
+
+   </dt>
+
+   <dt>
+
+    <span class="term">
+     <b><tt>RPMREADER_OS</tt></b>
+     (<span class="type"><a href="language.types.integer.html" class="type integer">integer</a></span>)
+    </span>
+    <dd>
+
+     <span class="simpara">
+     </span>
+    </dd>
+
+   </dt>
+
+   <dt>
+
+    <span class="term">
+     <b><tt>RPMREADER_ARCH</tt></b>
+     (<span class="type"><a href="language.types.integer.html" class="type integer">integer</a></span>)
+    </span>
+    <dd>
+
+     <span class="simpara">
+     </span>
+    </dd>
+
+   </dt>
+
+   <dt>
+
+    <span class="term">
+     <b><tt>RPMREADER_PREIN</tt></b>
+     (<span class="type"><a href="language.types.integer.html" class="type integer">integer</a></span>)
+    </span>
+    <dd>
+
+     <span class="simpara">
+     </span>
+    </dd>
+
+   </dt>
+
+   <dt>
+
+    <span class="term">
+     <b><tt>RPMREADER_POSTIN</tt></b>
+     (<span class="type"><a href="language.types.integer.html" class="type integer">integer</a></span>)
+    </span>
+    <dd>
+
+     <span class="simpara">
+     </span>
+    </dd>
+
+   </dt>
+
+   <dt>
+
+    <span class="term">
+     <b><tt>RPMREADER_PREUN</tt></b>
+     (<span class="type"><a href="language.types.integer.html" class="type integer">integer</a></span>)
+    </span>
+    <dd>
+
+     <span class="simpara">
+     </span>
+    </dd>
+
+   </dt>
+
+   <dt>
+
+    <span class="term">
+     <b><tt>RPMREADER_POSTUN</tt></b>
+     (<span class="type"><a href="language.types.integer.html" class="type integer">integer</a></span>)
+    </span>
+    <dd>
+
+     <span class="simpara">
+     </span>
+    </dd>
+
+   </dt>
+
+   <dt>
+
+    <span class="term">
+     <b><tt>RPMREADER_OLDFILENAMES</tt></b>
+     (<span class="type"><a href="language.types.integer.html" class="type integer">integer</a></span>)
+    </span>
+    <dd>
+
+     <span class="simpara">
+       The list of files in an RPM package (deprecated format).  The
+       correct way is now to use a combination of 3 tags
+       (RPMREADER_BASENAMES, RPMREADER_DIRINDEXES, RPMREADER_DIRNAMES)
+       in what RPM now calls &quot;CompressedFileNames&quot;.  This tag is still
+       used in older RPM files that did not use the
+       &quot;CompressedFileNames&quot; method and is maintained for backward
+       compatibility.
+     </span>
+    </dd>
+
+   </dt>
+
+   <dt>
+
+    <span class="term">
+     <b><tt>RPMREADER_FILESIZES</tt></b>
+     (<span class="type"><a href="language.types.integer.html" class="type integer">integer</a></span>)
+    </span>
+    <dd>
+
+     <span class="simpara">
+     </span>
+    </dd>
+
+   </dt>
+
+   <dt>
+
+    <span class="term">
+     <b><tt>RPMREADER_FILESTATES</tt></b>
+     (<span class="type"><a href="language.types.integer.html" class="type integer">integer</a></span>)
+    </span>
+    <dd>
+
+     <span class="simpara">
+     </span>
+    </dd>
+
+   </dt>
+
+   <dt>
+
+    <span class="term">
+     <b><tt>RPMREADER_FILEMODES</tt></b>
+     (<span class="type"><a href="language.types.integer.html" class="type integer">integer</a></span>)
+    </span>
+    <dd>
+
+     <span class="simpara">
+     </span>
+    </dd>
+
+   </dt>
+
+   <dt>
+
+    <span class="term">
+     <b><tt>RPMREADER_FILERDEVS</tt></b>
+     (<span class="type"><a href="language.types.integer.html" class="type integer">integer</a></span>)
+    </span>
+    <dd>
+
+     <span class="simpara">
+     </span>
+    </dd>
+
+   </dt>
+
+   <dt>
+
+    <span class="term">
+     <b><tt>RPMREADER_FILEMTIMES</tt></b>
+     (<span class="type"><a href="language.types.integer.html" class="type integer">integer</a></span>)
+    </span>
+    <dd>
+
+     <span class="simpara">
+     </span>
+    </dd>
+
+   </dt>
+
+   <dt>
+
+    <span class="term">
+     <b><tt>RPMREADER_FILEMD5S</tt></b>
+     (<span class="type"><a href="language.types.integer.html" class="type integer">integer</a></span>)
+    </span>
+    <dd>
+
+     <span class="simpara">
+     </span>
+    </dd>
+
+   </dt>
+
+   <dt>
+
+    <span class="term">
+     <b><tt>RPMREADER_FILELINKTOS</tt></b>
+     (<span class="type"><a href="language.types.integer.html" class="type integer">integer</a></span>)
+    </span>
+    <dd>
+
+     <span class="simpara">
+     </span>
+    </dd>
+
+   </dt>
+
+   <dt>
+
+    <span class="term">
+     <b><tt>RPMREADER_FILEFLAGS</tt></b>
+     (<span class="type"><a href="language.types.integer.html" class="type integer">integer</a></span>)
+    </span>
+    <dd>
+
+     <span class="simpara">
+     </span>
+    </dd>
+
+   </dt>
+
+   <dt>
+
+    <span class="term">
+     <b><tt>RPMREADER_FILEUSERNAME</tt></b>
+     (<span class="type"><a href="language.types.integer.html" class="type integer">integer</a></span>)
+    </span>
+    <dd>
+
+     <span class="simpara">
+     </span>
+    </dd>
+
+   </dt>
+
+   <dt>
+
+    <span class="term">
+     <b><tt>RPMREADER_FILEGROUPNAME</tt></b>
+     (<span class="type"><a href="language.types.integer.html" class="type integer">integer</a></span>)
+    </span>
+    <dd>
+
+     <span class="simpara">
+     </span>
+    </dd>
+
+   </dt>
+
+   <dt>
+
+    <span class="term">
+     <b><tt>RPMREADER_ICON</tt></b>
+     (<span class="type"><a href="language.types.integer.html" class="type integer">integer</a></span>)
+    </span>
+    <dd>
+
+     <span class="simpara">
+     </span>
+    </dd>
+
+   </dt>
+
+   <dt>
+
+    <span class="term">
+     <b><tt>RPMREADER_SOURCERPM</tt></b>
+     (<span class="type"><a href="language.types.integer.html" class="type integer">integer</a></span>)
+    </span>
+    <dd>
+
+     <span class="simpara">
+     </span>
+    </dd>
+
+   </dt>
+
+   <dt>
+
+    <span class="term">
+     <b><tt>RPMREADER_FILEVERIFYFLAGS</tt></b>
+     (<span class="type"><a href="language.types.integer.html" class="type integer">integer</a></span>)
+    </span>
+    <dd>
+
+     <span class="simpara">
+     </span>
+    </dd>
+
+   </dt>
+
+   <dt>
+
+    <span class="term">
+     <b><tt>RPMREADER_ARCHIVESIZE</tt></b>
+     (<span class="type"><a href="language.types.integer.html" class="type integer">integer</a></span>)
+    </span>
+    <dd>
+
+     <span class="simpara">
+     </span>
+    </dd>
+
+   </dt>
+
+   <dt>
+
+    <span class="term">
+     <b><tt>RPMREADER_PROVIDENAME</tt></b>
+     (<span class="type"><a href="language.types.integer.html" class="type integer">integer</a></span>)
+    </span>
+    <dd>
+
+     <span class="simpara">
+     </span>
+    </dd>
+
+   </dt>
+
+   <dt>
+
+    <span class="term">
+     <b><tt>RPMREADER_PROVIDES</tt></b>
+     (<span class="type"><a href="language.types.integer.html" class="type integer">integer</a></span>)
+    </span>
+    <dd>
+
+     <span class="simpara">
+     </span>
+    </dd>
+
+   </dt>
+
+   <dt>
+
+    <span class="term">
+     <b><tt>RPMREADER_REQUIREFLAGS</tt></b>
+     (<span class="type"><a href="language.types.integer.html" class="type integer">integer</a></span>)
+    </span>
+    <dd>
+
+     <span class="simpara">
+     </span>
+    </dd>
+
+   </dt>
+
+   <dt>
+
+    <span class="term">
+     <b><tt>RPMREADER_REQUIRENAME</tt></b>
+     (<span class="type"><a href="language.types.integer.html" class="type integer">integer</a></span>)
+    </span>
+    <dd>
+
+     <span class="simpara">
+     </span>
+    </dd>
+
+   </dt>
+
+   <dt>
+
+    <span class="term">
+     <b><tt>RPMREADER_REQUIREVERSION</tt></b>
+     (<span class="type"><a href="language.types.integer.html" class="type integer">integer</a></span>)
+    </span>
+    <dd>
+
+     <span class="simpara">
+     </span>
+    </dd>
+
+   </dt>
+
+   <dt>
+
+    <span class="term">
+     <b><tt>RPMREADER_CONFLICTFLAGS</tt></b>
+     (<span class="type"><a href="language.types.integer.html" class="type integer">integer</a></span>)
+    </span>
+    <dd>
+
+     <span class="simpara">
+     </span>
+    </dd>
+
+   </dt>
+
+   <dt>
+
+    <span class="term">
+     <b><tt>RPMREADER_CONFLICTNAME</tt></b>
+     (<span class="type"><a href="language.types.integer.html" class="type integer">integer</a></span>)
+    </span>
+    <dd>
+
+     <span class="simpara">
+     </span>
+    </dd>
+
+   </dt>
+
+   <dt>
+
+    <span class="term">
+     <b><tt>RPMREADER_CONFLICTVERSION</tt></b>
+     (<span class="type"><a href="language.types.integer.html" class="type integer">integer</a></span>)
+    </span>
+    <dd>
+
+     <span class="simpara">
+     </span>
+    </dd>
+
+   </dt>
+
+   <dt>
+
+    <span class="term">
+     <b><tt>RPMREADER_EXCLUDEARCH</tt></b>
+     (<span class="type"><a href="language.types.integer.html" class="type integer">integer</a></span>)
+    </span>
+    <dd>
+
+     <span class="simpara">
+     </span>
+    </dd>
+
+   </dt>
+
+   <dt>
+
+    <span class="term">
+     <b><tt>RPMREADER_EXCLUDEOS</tt></b>
+     (<span class="type"><a href="language.types.integer.html" class="type integer">integer</a></span>)
+    </span>
+    <dd>
+
+     <span class="simpara">
+     </span>
+    </dd>
+
+   </dt>
+
+   <dt>
+
+    <span class="term">
+     <b><tt>RPMREADER_EXCLUSIVEARCH</tt></b>
+     (<span class="type"><a href="language.types.integer.html" class="type integer">integer</a></span>)
+    </span>
+    <dd>
+
+     <span class="simpara">
+     </span>
+    </dd>
+
+   </dt>
+
+   <dt>
+
+    <span class="term">
+     <b><tt>RPMREADER_EXCLUSIVEOS</tt></b>
+     (<span class="type"><a href="language.types.integer.html" class="type integer">integer</a></span>)
+    </span>
+    <dd>
+
+     <span class="simpara">
+     </span>
+    </dd>
+
+   </dt>
+
+   <dt>
+
+    <span class="term">
+     <b><tt>RPMREADER_RPMVERSION</tt></b>
+     (<span class="type"><a href="language.types.integer.html" class="type integer">integer</a></span>)
+    </span>
+    <dd>
+
+     <span class="simpara">
+     </span>
+    </dd>
+
+   </dt>
+
+   <dt>
+
+    <span class="term">
+     <b><tt>RPMREADER_TRIGGERSCRIPTS</tt></b>
+     (<span class="type"><a href="language.types.integer.html" class="type integer">integer</a></span>)
+    </span>
+    <dd>
+
+     <span class="simpara">
+     </span>
+    </dd>
+
+   </dt>
+
+   <dt>
+
+    <span class="term">
+     <b><tt>RPMREADER_TRIGGERNAME</tt></b>
+     (<span class="type"><a href="language.types.integer.html" class="type integer">integer</a></span>)
+    </span>
+    <dd>
+
+     <span class="simpara">
+     </span>
+    </dd>
+
+   </dt>
+
+   <dt>
+
+    <span class="term">
+     <b><tt>RPMREADER_TRIGGERVERSION</tt></b>
+     (<span class="type"><a href="language.types.integer.html" class="type integer">integer</a></span>)
+    </span>
+    <dd>
+
+     <span class="simpara">
+     </span>
+    </dd>
+
+   </dt>
+
+   <dt>
+
+    <span class="term">
+     <b><tt>RPMREADER_TRIGGERFLAGS</tt></b>
+     (<span class="type"><a href="language.types.integer.html" class="type integer">integer</a></span>)
+    </span>
+    <dd>
+
+     <span class="simpara">
+     </span>
+    </dd>
+
+   </dt>
+
+   <dt>
+
+    <span class="term">
+     <b><tt>RPMREADER_TRIGGERINDEX</tt></b>
+     (<span class="type"><a href="language.types.integer.html" class="type integer">integer</a></span>)
+    </span>
+    <dd>
+
+     <span class="simpara">
+     </span>
+    </dd>
+
+   </dt>
+
+   <dt>
+
+    <span class="term">
+     <b><tt>RPMREADER_VERIFYSCRIPT</tt></b>
+     (<span class="type"><a href="language.types.integer.html" class="type integer">integer</a></span>)
+    </span>
+    <dd>
+
+     <span class="simpara">
+     </span>
+    </dd>
+
+   </dt>
+
+   <dt>
+
+    <span class="term">
+     <b><tt>RPMREADER_CHANGELOGTIME</tt></b>
+     (<span class="type"><a href="language.types.integer.html" class="type integer">integer</a></span>)
+    </span>
+    <dd>
+
+     <span class="simpara">
+       The list of dates from changelog entries.
+     </span>
+    </dd>
+
+   </dt>
+
+   <dt>
+
+    <span class="term">
+     <b><tt>RPMREADER_CHANGELOGNAME</tt></b>
+     (<span class="type"><a href="language.types.integer.html" class="type integer">integer</a></span>)
+    </span>
+    <dd>
+
+     <span class="simpara">
+       The list of changelog entry names.
+     </span>
+    </dd>
+
+   </dt>
+
+   <dt>
+
+    <span class="term">
+     <b><tt>RPMREADER_CHANGELOGTEXT</tt></b>
+     (<span class="type"><a href="language.types.integer.html" class="type integer">integer</a></span>)
+    </span>
+    <dd>
+
+     <span class="simpara">
+       The list of the text from changelog entries.
+     </span>
+    </dd>
+
+   </dt>
+
+   <dt>
+
+    <span class="term">
+     <b><tt>RPMREADER_PREINPROG</tt></b>
+     (<span class="type"><a href="language.types.integer.html" class="type integer">integer</a></span>)
+    </span>
+    <dd>
+
+     <span class="simpara">
+     </span>
+    </dd>
+
+   </dt>
+
+   <dt>
+
+    <span class="term">
+     <b><tt>RPMREADER_POSTINPROG</tt></b>
+     (<span class="type"><a href="language.types.integer.html" class="type integer">integer</a></span>)
+    </span>
+    <dd>
+
+     <span class="simpara">
+     </span>
+    </dd>
+
+   </dt>
+
+   <dt>
+
+    <span class="term">
+     <b><tt>RPMREADER_PREUNPROG</tt></b>
+     (<span class="type"><a href="language.types.integer.html" class="type integer">integer</a></span>)
+    </span>
+    <dd>
+
+     <span class="simpara">
+     </span>
+    </dd>
+
+   </dt>
+
+   <dt>
+
+    <span class="term">
+     <b><tt>RPMREADER_POSTUNPROG</tt></b>
+     (<span class="type"><a href="language.types.integer.html" class="type integer">integer</a></span>)
+    </span>
+    <dd>
+
+     <span class="simpara">
+     </span>
+    </dd>
+
+   </dt>
+
+   <dt>
+
+    <span class="term">
+     <b><tt>RPMREADER_BUILDARCHS</tt></b>
+     (<span class="type"><a href="language.types.integer.html" class="type integer">integer</a></span>)
+    </span>
+    <dd>
+
+     <span class="simpara">
+     </span>
+    </dd>
+
+   </dt>
+
+   <dt>
+
+    <span class="term">
+     <b><tt>RPMREADER_OBSOLETENAME</tt></b>
+     (<span class="type"><a href="language.types.integer.html" class="type integer">integer</a></span>)
+    </span>
+    <dd>
+
+     <span class="simpara">
+     </span>
+    </dd>
+
+   </dt>
+
+   <dt>
+
+    <span class="term">
+     <b><tt>RPMREADER_OBSOLETES</tt></b>
+     (<span class="type"><a href="language.types.integer.html" class="type integer">integer</a></span>)
+    </span>
+    <dd>
+
+     <span class="simpara">
+     </span>
+    </dd>
+
+   </dt>
+
+   <dt>
+
+    <span class="term">
+     <b><tt>RPMREADER_VERIFYSCRIPTPROG</tt></b>
+     (<span class="type"><a href="language.types.integer.html" class="type integer">integer</a></span>)
+    </span>
+    <dd>
+
+     <span class="simpara">
+     </span>
+    </dd>
+
+   </dt>
+
+   <dt>
+
+    <span class="term">
+     <b><tt>RPMREADER_TRIGGERSCRIPTPROG</tt></b>
+     (<span class="type"><a href="language.types.integer.html" class="type integer">integer</a></span>)
+    </span>
+    <dd>
+
+     <span class="simpara">
+     </span>
+    </dd>
+
+   </dt>
+
+   <dt>
+
+    <span class="term">
+     <b><tt>RPMREADER_COOKIE</tt></b>
+     (<span class="type"><a href="language.types.integer.html" class="type integer">integer</a></span>)
+    </span>
+    <dd>
+
+     <span class="simpara">
+     </span>
+    </dd>
+
+   </dt>
+
+   <dt>
+
+    <span class="term">
+     <b><tt>RPMREADER_FILEDEVICES</tt></b>
+     (<span class="type"><a href="language.types.integer.html" class="type integer">integer</a></span>)
+    </span>
+    <dd>
+
+     <span class="simpara">
+     </span>
+    </dd>
+
+   </dt>
+
+   <dt>
+
+    <span class="term">
+     <b><tt>RPMREADER_FILEINODES</tt></b>
+     (<span class="type"><a href="language.types.integer.html" class="type integer">integer</a></span>)
+    </span>
+    <dd>
+
+     <span class="simpara">
+     </span>
+    </dd>
+
+   </dt>
+
+   <dt>
+
+    <span class="term">
+     <b><tt>RPMREADER_FILELANGS</tt></b>
+     (<span class="type"><a href="language.types.integer.html" class="type integer">integer</a></span>)
+    </span>
+    <dd>
+
+     <span class="simpara">
+     </span>
+    </dd>
+
+   </dt>
+
+   <dt>
+
+    <span class="term">
+     <b><tt>RPMREADER_PREFIXES</tt></b>
+     (<span class="type"><a href="language.types.integer.html" class="type integer">integer</a></span>)
+    </span>
+    <dd>
+
+     <span class="simpara">
+     </span>
+    </dd>
+
+   </dt>
+
+   <dt>
+
+    <span class="term">
+     <b><tt>RPMREADER_INSTPREFIXES</tt></b>
+     (<span class="type"><a href="language.types.integer.html" class="type integer">integer</a></span>)
+    </span>
+    <dd>
+
+     <span class="simpara">
+     </span>
+    </dd>
+
+   </dt>
+
+   <dt>
+
+    <span class="term">
+     <b><tt>RPMREADER_PROVIDEFLAGS</tt></b>
+     (<span class="type"><a href="language.types.integer.html" class="type integer">integer</a></span>)
+    </span>
+    <dd>
+
+     <span class="simpara">
+     </span>
+    </dd>
+
+   </dt>
+
+   <dt>
+
+    <span class="term">
+     <b><tt>RPMREADER_PROVIDEVERSION</tt></b>
+     (<span class="type"><a href="language.types.integer.html" class="type integer">integer</a></span>)
+    </span>
+    <dd>
+
+     <span class="simpara">
+     </span>
+    </dd>
+
+   </dt>
+
+   <dt>
+
+    <span class="term">
+     <b><tt>RPMREADER_OBSOLETEFLAGS</tt></b>
+     (<span class="type"><a href="language.types.integer.html" class="type integer">integer</a></span>)
+    </span>
+    <dd>
+
+     <span class="simpara">
+     </span>
+    </dd>
+
+   </dt>
+
+   <dt>
+
+    <span class="term">
+     <b><tt>RPMREADER_OBSOLETEVERSION</tt></b>
+     (<span class="type"><a href="language.types.integer.html" class="type integer">integer</a></span>)
+    </span>
+    <dd>
+
+     <span class="simpara">
+     </span>
+    </dd>
+
+   </dt>
+
+   <dt>
+
+    <span class="term">
+     <b><tt>RPMREADER_DIRINDEXES</tt></b>
+     (<span class="type"><a href="language.types.integer.html" class="type integer">integer</a></span>)
+    </span>
+    <dd>
+
+     <span class="simpara">
+       The list of indices that relate directory names to files in the
+       RPM package.  This tag is used in conjunction with
+       RPMREADER_BASENAMES and RPMREADER_DIRNAMES to reconstruct
+       filenames in the RPM package stored with the new
+       &quot;CompressedFileNames&quot; method in RPM.
+     </span>
+    </dd>
+
+   </dt>
+
+   <dt>
+
+    <span class="term">
+     <b><tt>RPMREADER_BASENAMES</tt></b>
+     (<span class="type"><a href="language.types.integer.html" class="type integer">integer</a></span>)
+    </span>
+    <dd>
+
+     <span class="simpara">
+       The list of the names of files in the RPM package without path
+       information.  This tag is used in conjunction with
+       RPMREADER_DIRINDEXES and RPMREADER_DIRNAMES to reconstruct
+       filenames in the RPM package stored with the new
+       &quot;CompressedFileNames&quot; method in RPM.
+     </span>
+    </dd>
+
+   </dt>
+
+   <dt>
+
+    <span class="term">
+     <b><tt>RPMREADER_DIRNAMES</tt></b>
+     (<span class="type"><a href="language.types.integer.html" class="type integer">integer</a></span>)
+    </span>
+    <dd>
+
+     <span class="simpara">
+       The list of directory names used by files in the RPM package.
+       This tag is used in conjunction with RPMREADER_BASENAMES and
+       RPMREADER_DIRINDEXES to reconstruct filenames in the RPM
+       package stored with the new &quot;CompressedFileNames&quot; method in
+       RPM.
+     </span>
+    </dd>
+
+   </dt>
+
+   <dt>
+
+    <span class="term">
+     <b><tt>RPMREADER_OPTFLAGS</tt></b>
+     (<span class="type"><a href="language.types.integer.html" class="type integer">integer</a></span>)
+    </span>
+    <dd>
+
+     <span class="simpara">
+     </span>
+    </dd>
+
+   </dt>
+
+   <dt>
+
+    <span class="term">
+     <b><tt>RPMREADER_DISTURL</tt></b>
+     (<span class="type"><a href="language.types.integer.html" class="type integer">integer</a></span>)
+    </span>
+    <dd>
+
+     <span class="simpara">
+     </span>
+    </dd>
+
+   </dt>
+
+   <dt>
+
+    <span class="term">
+     <b><tt>RPMREADER_PAYLOADFORMAT</tt></b>
+     (<span class="type"><a href="language.types.integer.html" class="type integer">integer</a></span>)
+    </span>
+    <dd>
+
+     <span class="simpara">
+     </span>
+    </dd>
+
+   </dt>
+
+   <dt>
+
+    <span class="term">
+     <b><tt>RPMREADER_PAYLOADCOMPRESSOR</tt></b>
+     (<span class="type"><a href="language.types.integer.html" class="type integer">integer</a></span>)
+    </span>
+    <dd>
+
+     <span class="simpara">
+     </span>
+    </dd>
+
+   </dt>
+
+   <dt>
+
+    <span class="term">
+     <b><tt>RPMREADER_PAYLOADFLAGS</tt></b>
+     (<span class="type"><a href="language.types.integer.html" class="type integer">integer</a></span>)
+    </span>
+    <dd>
+
+     <span class="simpara">
+     </span>
+    </dd>
+
+   </dt>
+
+   <dt>
+
+    <span class="term">
+     <b><tt>RPMREADER_INSTALLCOLOR</tt></b>
+     (<span class="type"><a href="language.types.integer.html" class="type integer">integer</a></span>)
+    </span>
+    <dd>
+
+     <span class="simpara">
+     </span>
+    </dd>
+
+   </dt>
+
+   <dt>
+
+    <span class="term">
+     <b><tt>RPMREADER_INSTALLTID</tt></b>
+     (<span class="type"><a href="language.types.integer.html" class="type integer">integer</a></span>)
+    </span>
+    <dd>
+
+     <span class="simpara">
+     </span>
+    </dd>
+
+   </dt>
+
+   <dt>
+
+    <span class="term">
+     <b><tt>RPMREADER_REMOVETID</tt></b>
+     (<span class="type"><a href="language.types.integer.html" class="type integer">integer</a></span>)
+    </span>
+    <dd>
+
+     <span class="simpara">
+     </span>
+    </dd>
+
+   </dt>
+
+   <dt>
+
+    <span class="term">
+     <b><tt>RPMREADER_RHNPLATFORM</tt></b>
+     (<span class="type"><a href="language.types.integer.html" class="type integer">integer</a></span>)
+    </span>
+    <dd>
+
+     <span class="simpara">
+     </span>
+    </dd>
+
+   </dt>
+
+   <dt>
+
+    <span class="term">
+     <b><tt>RPMREADER_PLATFORM</tt></b>
+     (<span class="type"><a href="language.types.integer.html" class="type integer">integer</a></span>)
+    </span>
+    <dd>
+
+     <span class="simpara">
+     </span>
+    </dd>
+
+   </dt>
+
+   <dt>
+
+    <span class="term">
+     <b><tt>RPMREADER_PATCHESNAME</tt></b>
+     (<span class="type"><a href="language.types.integer.html" class="type integer">integer</a></span>)
+    </span>
+    <dd>
+
+     <span class="simpara">
+     </span>
+    </dd>
+
+   </dt>
+
+   <dt>
+
+    <span class="term">
+     <b><tt>RPMREADER_PATCHESFLAGS</tt></b>
+     (<span class="type"><a href="language.types.integer.html" class="type integer">integer</a></span>)
+    </span>
+    <dd>
+
+     <span class="simpara">
+     </span>
+    </dd>
+
+   </dt>
+
+   <dt>
+
+    <span class="term">
+     <b><tt>RPMREADER_PATCHESVERSION</tt></b>
+     (<span class="type"><a href="language.types.integer.html" class="type integer">integer</a></span>)
+    </span>
+    <dd>
+
+     <span class="simpara">
+     </span>
+    </dd>
+
+   </dt>
+
+   <dt>
+
+    <span class="term">
+     <b><tt>RPMREADER_CACHECTIME</tt></b>
+     (<span class="type"><a href="language.types.integer.html" class="type integer">integer</a></span>)
+    </span>
+    <dd>
+
+     <span class="simpara">
+     </span>
+    </dd>
+
+   </dt>
+
+   <dt>
+
+    <span class="term">
+     <b><tt>RPMREADER_CACHEPKGPATH</tt></b>
+     (<span class="type"><a href="language.types.integer.html" class="type integer">integer</a></span>)
+    </span>
+    <dd>
+
+     <span class="simpara">
+     </span>
+    </dd>
+
+   </dt>
+
+   <dt>
+
+    <span class="term">
+     <b><tt>RPMREADER_CACHEPKGSIZE</tt></b>
+     (<span class="type"><a href="language.types.integer.html" class="type integer">integer</a></span>)
+    </span>
+    <dd>
+
+     <span class="simpara">
+     </span>
+    </dd>
+
+   </dt>
+
+   <dt>
+
+    <span class="term">
+     <b><tt>RPMREADER_CACHEPKGMTIME</tt></b>
+     (<span class="type"><a href="language.types.integer.html" class="type integer">integer</a></span>)
+    </span>
+    <dd>
+
+     <span class="simpara">
+     </span>
+    </dd>
+
+   </dt>
+
+   <dt>
+
+    <span class="term">
+     <b><tt>RPMREADER_FILECOLORS</tt></b>
+     (<span class="type"><a href="language.types.integer.html" class="type integer">integer</a></span>)
+    </span>
+    <dd>
+
+     <span class="simpara">
+     </span>
+    </dd>
+
+   </dt>
+
+   <dt>
+
+    <span class="term">
+     <b><tt>RPMREADER_FILECLASS</tt></b>
+     (<span class="type"><a href="language.types.integer.html" class="type integer">integer</a></span>)
+    </span>
+    <dd>
+
+     <span class="simpara">
+     </span>
+    </dd>
+
+   </dt>
+
+   <dt>
+
+    <span class="term">
+     <b><tt>RPMREADER_CLASSDICT</tt></b>
+     (<span class="type"><a href="language.types.integer.html" class="type integer">integer</a></span>)
+    </span>
+    <dd>
+
+     <span class="simpara">
+     </span>
+    </dd>
+
+   </dt>
+
+   <dt>
+
+    <span class="term">
+     <b><tt>RPMREADER_FILEDEPENDSX</tt></b>
+     (<span class="type"><a href="language.types.integer.html" class="type integer">integer</a></span>)
+    </span>
+    <dd>
+
+     <span class="simpara">
+     </span>
+    </dd>
+
+   </dt>
+
+   <dt>
+
+    <span class="term">
+     <b><tt>RPMREADER_FILEDEPENDSN</tt></b>
+     (<span class="type"><a href="language.types.integer.html" class="type integer">integer</a></span>)
+    </span>
+    <dd>
+
+     <span class="simpara">
+     </span>
+    </dd>
+
+   </dt>
+
+   <dt>
+
+    <span class="term">
+     <b><tt>RPMREADER_DEPENDSDICT</tt></b>
+     (<span class="type"><a href="language.types.integer.html" class="type integer">integer</a></span>)
+    </span>
+    <dd>
+
+     <span class="simpara">
+     </span>
+    </dd>
+
+   </dt>
+
+   <dt>
+
+    <span class="term">
+     <b><tt>RPMREADER_SOURCEPKGID</tt></b>
+     (<span class="type"><a href="language.types.integer.html" class="type integer">integer</a></span>)
+    </span>
+    <dd>
+
+     <span class="simpara">
+     </span>
+    </dd>
+
+   </dt>
+
+   <dt>
+
+    <span class="term">
+     <b><tt>RPMREADER_FILECONTEXTS</tt></b>
+     (<span class="type"><a href="language.types.integer.html" class="type integer">integer</a></span>)
+    </span>
+    <dd>
+
+     <span class="simpara">
+     </span>
+    </dd>
+
+   </dt>
+
+   <dt>
+
+    <span class="term">
+     <b><tt>RPMREADER_FSCONTEXTS</tt></b>
+     (<span class="type"><a href="language.types.integer.html" class="type integer">integer</a></span>)
+    </span>
+    <dd>
+
+     <span class="simpara">
+     </span>
+    </dd>
+
+   </dt>
+
+   <dt>
+
+    <span class="term">
+     <b><tt>RPMREADER_RECONTEXTS</tt></b>
+     (<span class="type"><a href="language.types.integer.html" class="type integer">integer</a></span>)
+    </span>
+    <dd>
+
+     <span class="simpara">
+     </span>
+    </dd>
+
+   </dt>
+
+   <dt>
+
+    <span class="term">
+     <b><tt>RPMREADER_POLICIES</tt></b>
+     (<span class="type"><a href="language.types.integer.html" class="type integer">integer</a></span>)
+    </span>
+    <dd>
+
+     <span class="simpara">
+     </span>
+    </dd>
+
+   </dt>
+
+   <dt>
+
+    <span class="term">
+     <b><tt>RPMREADER_MAXIMUM</tt></b>
+     (<span class="type"><a href="language.types.integer.html" class="type integer">integer</a></span>)
+    </span>
+    <dd>
+
+     <span class="simpara">
+       The maximum valid value of any RPM tag number.
+     </span>
+    </dd>
+
+   </dt>
+
+  </dl>
+
+ </p>
+</div>
+<hr /><div class="manualnavbar" style="text-align: center;">
+ <div class="prev" style="text-align: left; float: left;"><a href="rpmreader.resources.html">Resource Types</a></div>
+ <div class="next" style="text-align: right; float: right;"><a href="rpmreader.examples.html">Examples</a></div>
+ <div class="up"><a href="book.rpmreader.html">RPM Reader</a></div>
+ <div class="home"><a href="index.html">PHP Manual</a></div>
+</div></body></html>

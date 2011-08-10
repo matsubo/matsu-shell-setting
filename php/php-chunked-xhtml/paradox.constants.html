@@ -1,0 +1,203 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+ <head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>Predefined Constants</title>
+
+ </head>
+ <body><div class="manualnavbar" style="text-align: center;">
+ <div class="prev" style="text-align: left; float: left;"><a href="paradox.resources.html">Resource Types</a></div>
+ <div class="next" style="text-align: right; float: right;"><a href="ref.paradox.html">Paradox Functions</a></div>
+ <div class="up"><a href="book.paradox.html">Paradox</a></div>
+ <div class="home"><a href="index.html">PHP Manual</a></div>
+</div><hr /><div id="paradox.constants" class="appendix">
+ <h1>Predefined Constants</h1>
+
+ <p class="simpara">
+The constants below are defined by this extension, and
+will only be available when the extension has either
+been compiled into PHP or dynamically loaded at runtime.
+</p>
+ <p class="para">
+  The following two tables lists all constants defined by the paradox
+  extension.
+  <table id="paradox.table-fieldtypes" class="doctable table">
+   <caption><b>Contants for field types</b></caption>
+   
+    <thead valign="middle">
+     <tr valign="middle">
+      <th>Name</th>
+      <th>Meaning</th>
+     </tr>
+
+    </thead>
+
+    <tbody valign="middle" class="tbody">
+     <tr valign="middle">
+      <td align="left">PX_FIELD_ALPHA</td>
+      <td align="left">Character data with fixed length</td>
+     </tr>
+
+     <tr valign="middle">
+      <td align="left">PX_FIELD_DATE</td>
+      <td align="left">Date, number of days since 1.1.0000</td>
+     </tr>
+
+     <tr valign="middle">
+      <td align="left">PX_FIELD_SHORT</td>
+      <td align="left">Short integer (2 Bytes)</td>
+     </tr>
+
+     <tr valign="middle">
+      <td align="left">PX_FIELD_LONG</td>
+      <td align="left">Long integer (4 Bytes)</td>
+     </tr>
+
+     <tr valign="middle">
+      <td align="left">PX_FIELD_CURRENCY</td>
+      <td align="left">same as PX_FIELD_NUMBER</td>
+     </tr>
+
+     <tr valign="middle">
+      <td align="left">PX_FIELD_NUMBER</td>
+      <td align="left">Double</td>
+     </tr>
+
+     <tr valign="middle">
+      <td align="left">PX_FIELD_LOGICAL</td>
+      <td align="left">Boolean</td>
+     </tr>
+
+     <tr valign="middle">
+      <td align="left">PX_FIELD_MEMOBLOB</td>
+      <td align="left">Binary large object</td>
+     </tr>
+
+     <tr valign="middle">
+      <td align="left">PX_FIELD_BLOB</td>
+      <td align="left">Binary large object (not supported)</td>
+     </tr>
+
+     <tr valign="middle">
+      <td align="left">PX_FIELD_FMTMEMOBLOB</td>
+      <td align="left">Binary large object</td>
+     </tr>
+
+     <tr valign="middle">
+      <td align="left">PX_FIELD_OLE</td>
+      <td align="left">OLE object (basically a blob, not supported)</td>
+     </tr>
+
+     <tr valign="middle">
+      <td align="left">PX_FIELD_GRAPHIC</td>
+      <td align="left">Graphic (basically a blob, not supported)</td>
+     </tr>
+
+     <tr valign="middle">
+      <td align="left">PX_FIELD_TIME</td>
+      <td align="left">time, number of milli seconds since midnight</td>
+     </tr>
+
+     <tr valign="middle">
+      <td align="left">PX_FIELD_TIMESTAMP</td>
+      <td align="left">timestamp, number of milli seconds since 1.1.0000 </td>
+     </tr>
+
+     <tr valign="middle">
+      <td align="left">PX_FIELD_AUTOINC</td>
+      <td align="left">Auto incrementing interger (like PX_FIELD_LONG)</td>
+     </tr>
+
+     <tr valign="middle">
+      <td align="left">PX_FIELD_BCD</td>
+      <td align="left">Decimal number stored in bcd format (not supported)</td>
+     </tr>
+
+     <tr valign="middle">
+      <td align="left">PX_FIELD_BYTES</td>
+      <td align="left">Array of Bytes with not more than 255 bytes (not supported)</td>
+     </tr>
+
+     <tr valign="middle">
+      <td align="left">PX_KEYTOLOWER</td>
+      <td align="left">Turn all field names into lower case</td>
+     </tr>
+
+     <tr valign="middle">
+      <td align="left">PX_KEYTOUPPER</td>
+      <td align="left">Turn all field names into upper case</td>
+     </tr>
+
+    </tbody>
+   
+  </table>
+
+  <table id="paradox.table-filetypes" class="doctable table">
+   <caption><b>Contants for file types</b></caption>
+   
+    <thead valign="middle">
+     <tr valign="middle">
+      <th>Name</th>
+      <th>Meaning</th>
+     </tr>
+
+    </thead>
+
+    <tbody valign="middle" class="tbody">
+     <tr valign="middle">
+      <td align="left">PX_FILE_INDEX_DB</td>
+      <td align="left">Indexed database</td>
+     </tr>
+
+     <tr valign="middle">
+      <td align="left">PX_FILE_PRIM_INDEX</td>
+      <td align="left">Primary index</td>
+     </tr>
+
+     <tr valign="middle">
+      <td align="left">PX_FILE_NON_INDEX_DB</td>
+      <td align="left">None indexed database</td>
+     </tr>
+
+     <tr valign="middle">
+      <td align="left">PX_FILE_NON_INC_SEC_INDEX</td>
+      <td align="left">None incremental secondary index</td>
+     </tr>
+
+     <tr valign="middle">
+      <td align="left">PX_FILE_SEC_INDEX</td>
+      <td align="left">Secondary index</td>
+     </tr>
+
+     <tr valign="middle">
+      <td align="left">PX_FILE_INC_SEC_INDEX</td>
+      <td align="left">Incremental secondary index</td>
+     </tr>
+
+     <tr valign="middle">
+      <td align="left">PX_FILE_NON_INC_SEC_INDEX_G</td>
+      <td align="left">Non incremental secondary index</td>
+     </tr>
+
+     <tr valign="middle">
+      <td align="left">PX_FILE_SEC_INDEX_G</td>
+      <td align="left">Secondary index</td>
+     </tr>
+
+     <tr valign="middle">
+      <td align="left">PX_FILE_INC_SEC_INDEX_G</td>
+      <td align="left">Non incremental secondary index</td>
+     </tr>
+
+    </tbody>
+   
+  </table>
+
+ </p>
+</div>
+<hr /><div class="manualnavbar" style="text-align: center;">
+ <div class="prev" style="text-align: left; float: left;"><a href="paradox.resources.html">Resource Types</a></div>
+ <div class="next" style="text-align: right; float: right;"><a href="ref.paradox.html">Paradox Functions</a></div>
+ <div class="up"><a href="book.paradox.html">Paradox</a></div>
+ <div class="home"><a href="index.html">PHP Manual</a></div>
+</div></body></html>

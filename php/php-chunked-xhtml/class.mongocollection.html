@@ -1,0 +1,445 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+ <head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>The MongoCollection class</title>
+
+ </head>
+ <body><div class="manualnavbar" style="text-align: center;">
+ <div class="prev" style="text-align: left; float: left;"><a href="mongodb.--tostring.html">MongoDB::__toString</a></div>
+ <div class="next" style="text-align: right; float: right;"><a href="mongocollection.batchinsert.html">MongoCollection::batchInsert</a></div>
+ <div class="up"><a href="mongo.core.html">Core Classes</a></div>
+ <div class="home"><a href="index.html">PHP Manual</a></div>
+</div><hr /><div id="class.mongocollection" class="reference">
+
+ <h1 class="title">The MongoCollection class</h1>
+ 
+
+ <div class="partintro">
+
+
+  <div class="section" id="mongocollection.intro">
+   <h2 class="title">Introduction</h2>
+   <p class="para">
+    Representations a database collection.
+   </p>
+   <p class="para">
+    Collection names can use any character in the ASCII set.  Some valid 
+    collection names are &quot;&quot;, &quot;...&quot;, 
+    &quot;my collection&quot;, and &quot;*&amp;#@&quot;.
+   </p>
+   <p class="para">
+    User-defined collection names cannot contain the $ symbol.  There are 
+    certain system collections which use a $ in their names (e.g., 
+    local.oplog.$main), but it is a reserved character.  If you attempt to 
+    create and use a collection with a $ in the name, MongoDB will assert.
+   </p>
+  </div>
+
+
+  <div class="section" id="mongocollection.synopsis">
+   <h2 class="title">Class synopsis</h2>
+
+
+   <div class="classsynopsis">
+    <div class="ooclass"></div>
+
+
+    <div class="classsynopsisinfo">
+     <span class="ooclass">
+      <b class="classname">MongoCollection</b>
+     </span>
+     {</div>
+
+
+    <div class="classsynopsisinfo classsynopsisinfo_comment">/* Constants */</div>
+    <div class="fieldsynopsis">
+     <span class="modifier">const</span>
+     <span class="type">int</span>
+      <var class="fieldsynopsis_varname"><a href="class.mongocollection.html#mongocollection.constants.ascending"><var class="varname">ASCENDING</var></a></var>
+     <span class="initializer"> = 1</span>
+    ;</div>
+
+    <div class="fieldsynopsis">
+     <span class="modifier">const</span>
+     <span class="type">int</span>
+      <var class="fieldsynopsis_varname"><a href="class.mongocollection.html#mongocollection.constants.descending"><var class="varname">DESCENDING</var></a></var>
+     <span class="initializer"> = -1</span>
+    ;</div>
+
+    
+    <div class="classsynopsisinfo classsynopsisinfo_comment">/* Fields */</div>
+    <div class="fieldsynopsis">
+     <span class="modifier">public</span>
+     <span class="type"><a href="class.mongodb.html" class="type MongoDB">MongoDB</a></span>
+      <var class="varname">$<var class="varname">MongoCollection-&gt;db</var></var>
+     <span class="initializer"> = <b><tt>NULL</tt></b></span>
+    ;</div>
+
+    <div class="fieldsynopsis">
+     <span class="modifier">public</span>
+     <span class="type">integer</span>
+      <var class="varname">$<var class="varname">w</var></var>
+    ;</div>
+
+    <div class="fieldsynopsis">
+     <span class="modifier">public</span>
+     <span class="type">integer</span>
+      <var class="varname">$<var class="varname">wtimeout</var></var>
+    ;</div>
+
+
+    <div class="classsynopsisinfo classsynopsisinfo_comment">/* Methods */</div>
+    <div class="methodsynopsis dc-description">
+   <span class="modifier">public</span> <span class="type">mixed</span> <span class="methodname"><a href="mongocollection.batchinsert.html" class="methodname">MongoCollection::batchInsert</a></span>
+    ( <span class="methodparam"><span class="type">array</span> <tt class="parameter">$a</tt></span>
+   [, <span class="methodparam"><span class="type">array</span> <tt class="parameter">$options</tt><span class="initializer"> = array()</span></span>
+  ] )</div>
+<div class="methodsynopsis dc-description">
+   <span class="modifier">public</span>  <span class="methodname"><a href="mongocollection.construct.html" class="methodname">MongoCollection::__construct</a></span>
+    ( <span class="methodparam"><span class="type"><a href="class.mongodb.html" class="type MongoDB">MongoDB</a></span> <tt class="parameter">$db</tt></span>
+   , <span class="methodparam"><span class="type">string</span> <tt class="parameter">$name</tt></span>
+   )</div>
+<div class="methodsynopsis dc-description">
+   <span class="modifier">public</span> <span class="type">int</span> <span class="methodname"><a href="mongocollection.count.html" class="methodname">MongoCollection::count</a></span>
+    ([ <span class="methodparam"><span class="type">array</span> <tt class="parameter">$query</tt><span class="initializer"> = array()</span></span>
+   [, <span class="methodparam"><span class="type">int</span> <tt class="parameter">$limit</tt><span class="initializer"> = 0</span></span>
+   [, <span class="methodparam"><span class="type">int</span> <tt class="parameter">$skip</tt><span class="initializer"> = 0</span></span>
+  ]]] )</div>
+<div class="methodsynopsis dc-description">
+   <span class="modifier">public</span> <span class="type">array</span> <span class="methodname"><a href="mongocollection.createdbref.html" class="methodname">MongoCollection::createDBRef</a></span>
+    ( <span class="methodparam"><span class="type">array</span> <tt class="parameter">$a</tt></span>
+   )</div>
+<div class="methodsynopsis dc-description">
+   <span class="modifier">public</span> <span class="type">array</span> <span class="methodname"><a href="mongocollection.deleteindex.html" class="methodname">MongoCollection::deleteIndex</a></span>
+    ( <span class="methodparam"><span class="type"><span class="type string|array">string|array</span></span> <tt class="parameter">$keys</tt></span>
+   )</div>
+<div class="methodsynopsis dc-description">
+   <span class="modifier">public</span> <span class="type">array</span> <span class="methodname"><a href="mongocollection.deleteindexes.html" class="methodname">MongoCollection::deleteIndexes</a></span>
+    ( <span class="methodparam">void</span>
+   )</div>
+<div class="methodsynopsis dc-description">
+   <span class="modifier">public</span> <span class="type">array</span> <span class="methodname"><a href="mongocollection.drop.html" class="methodname">MongoCollection::drop</a></span>
+    ( <span class="methodparam">void</span>
+   )</div>
+<div class="methodsynopsis dc-description">
+   <span class="modifier">public</span> <span class="type">bool</span> <span class="methodname"><a href="mongocollection.ensureindex.html" class="methodname">MongoCollection::ensureIndex</a></span>
+    ( <span class="methodparam"><span class="type">array</span> <tt class="parameter">$keys</tt></span>
+   [, <span class="methodparam"><span class="type">array</span> <tt class="parameter">$options</tt><span class="initializer"> = array()</span></span>
+  ] )</div>
+<div class="methodsynopsis dc-description">
+   <span class="modifier">public</span> <span class="type">MongoCursor</span> <span class="methodname"><a href="mongocollection.find.html" class="methodname">MongoCollection::find</a></span>
+    ([ <span class="methodparam"><span class="type">array</span> <tt class="parameter">$query</tt><span class="initializer"> = array()</span></span>
+   [, <span class="methodparam"><span class="type">array</span> <tt class="parameter">$fields</tt><span class="initializer"> = array()</span></span>
+  ]] )</div>
+<div class="methodsynopsis dc-description">
+   <span class="modifier">public</span> <span class="type">array</span> <span class="methodname"><a href="mongocollection.findone.html" class="methodname">MongoCollection::findOne</a></span>
+    ([ <span class="methodparam"><span class="type">array</span> <tt class="parameter">$query</tt><span class="initializer"> = array()</span></span>
+   [, <span class="methodparam"><span class="type">array</span> <tt class="parameter">$fields</tt><span class="initializer"> = array()</span></span>
+  ]] )</div>
+<div class="methodsynopsis dc-description">
+   <span class="modifier">public</span> <span class="type">MongoCollection</span> <span class="methodname"><a href="mongocollection.get.html" class="methodname">MongoCollection::__get</a></span>
+    ( <span class="methodparam"><span class="type">string</span> <tt class="parameter">$name</tt></span>
+   )</div>
+<div class="methodsynopsis dc-description">
+   <span class="modifier">public</span> <span class="type">array</span> <span class="methodname"><a href="mongocollection.getdbref.html" class="methodname">MongoCollection::getDBRef</a></span>
+    ( <span class="methodparam"><span class="type">array</span> <tt class="parameter">$ref</tt></span>
+   )</div>
+<div class="methodsynopsis dc-description">
+   <span class="modifier">public</span> <span class="type">array</span> <span class="methodname"><a href="mongocollection.getindexinfo.html" class="methodname">MongoCollection::getIndexInfo</a></span>
+    ( <span class="methodparam">void</span>
+   )</div>
+<div class="methodsynopsis dc-description">
+   <span class="modifier">public</span> <span class="type">string</span> <span class="methodname"><a href="mongocollection.getname.html" class="methodname">MongoCollection::getName</a></span>
+    ( <span class="methodparam">void</span>
+   )</div>
+<div class="methodsynopsis dc-description">
+   <span class="modifier">public</span> <span class="type">bool</span> <span class="methodname"><a href="mongocollection.getslaveokay.html" class="methodname">MongoCollection::getSlaveOkay</a></span>
+    ( <span class="methodparam">void</span>
+   )</div>
+<div class="methodsynopsis dc-description">
+   <span class="modifier">public</span> <span class="type">array</span> <span class="methodname"><a href="mongocollection.group.html" class="methodname">MongoCollection::group</a></span>
+    ( <span class="methodparam"><span class="type"><a href="language.pseudo-types.html#language.types.mixed" class="type mixed">mixed</a></span> <tt class="parameter">$keys</tt></span>
+   , <span class="methodparam"><span class="type">array</span> <tt class="parameter">$initial</tt></span>
+   , <span class="methodparam"><span class="type"><a href="class.mongocode.html" class="type MongoCode">MongoCode</a></span> <tt class="parameter">$reduce</tt></span>
+   [, <span class="methodparam"><span class="type">array</span> <tt class="parameter">$options</tt><span class="initializer"> = array()</span></span>
+  ] )</div>
+<div class="methodsynopsis dc-description">
+   <span class="modifier">public</span> <span class="type">mixed</span> <span class="methodname"><a href="mongocollection.insert.html" class="methodname">MongoCollection::insert</a></span>
+    ( <span class="methodparam"><span class="type">array</span> <tt class="parameter">$a</tt></span>
+   [, <span class="methodparam"><span class="type">array</span> <tt class="parameter">$options</tt><span class="initializer"> = array()</span></span>
+  ] )</div>
+<div class="methodsynopsis dc-description">
+   <span class="modifier">public</span> <span class="type">mixed</span> <span class="methodname"><a href="mongocollection.remove.html" class="methodname">MongoCollection::remove</a></span>
+    ([ <span class="methodparam"><span class="type">array</span> <tt class="parameter">$criteria</tt><span class="initializer"> = array()</span></span>
+   [, <span class="methodparam"><span class="type">array</span> <tt class="parameter">$options</tt><span class="initializer"> = array()</span></span>
+  ]] )</div>
+<div class="methodsynopsis dc-description">
+   <span class="modifier">public</span> <span class="type">mixed</span> <span class="methodname"><a href="mongocollection.save.html" class="methodname">MongoCollection::save</a></span>
+    ( <span class="methodparam"><span class="type">array</span> <tt class="parameter">$a</tt></span>
+   [, <span class="methodparam"><span class="type">array</span> <tt class="parameter">$options</tt><span class="initializer"> = array()</span></span>
+  ] )</div>
+<div class="methodsynopsis dc-description">
+   <span class="modifier">public</span> <span class="type">bool</span> <span class="methodname"><a href="mongocollection.setslaveokay.html" class="methodname">MongoCollection::setSlaveOkay</a></span>
+    ([ <span class="methodparam"><span class="type">bool</span> <tt class="parameter">$ok</tt><span class="initializer"> = true</span></span>
+  ] )</div>
+<div class="methodsynopsis dc-description">
+   <span class="modifier">public</span> <span class="type">string</span> <span class="methodname"><a href="mongocollection.--tostring.html" class="methodname">MongoCollection::__toString</a></span>
+    ( <span class="methodparam">void</span>
+   )</div>
+<div class="methodsynopsis dc-description">
+   <span class="modifier">public</span> <span class="type">bool</span> <span class="methodname"><a href="mongocollection.update.html" class="methodname">MongoCollection::update</a></span>
+    ( <span class="methodparam"><span class="type">array</span> <tt class="parameter">$criteria</tt></span>
+   , <span class="methodparam"><span class="type">array</span> <tt class="parameter">$newobj</tt></span>
+   [, <span class="methodparam"><span class="type">array</span> <tt class="parameter">$options</tt><span class="initializer"> = array()</span></span>
+  ] )</div>
+<div class="methodsynopsis dc-description">
+   <span class="modifier">public</span> <span class="type">array</span> <span class="methodname"><a href="mongocollection.validate.html" class="methodname">MongoCollection::validate</a></span>
+    ([ <span class="methodparam"><span class="type">bool</span> <tt class="parameter">$scan_data</tt><span class="initializer"> = <b><tt>FALSE</tt></b></span></span>
+  ] )</div>
+
+   }</div>
+
+
+  </div>
+
+  <div class="section">
+   <h2 class="title">Predefined Constants</h2>
+   <dl>
+
+    <dt id="mongocollection.constants.ascending">
+     <span class="term"><b><tt>MongoCollection::ASCENDING</tt></b></span>
+     <br /><span class="term"><b><tt>1</tt></b></span>
+     <dd>
+
+      <span class="simpara">
+       Ascending direction for sorts and index creation.
+      </span>
+     </dd>
+
+    </dt>
+
+    <dt id="mongocollection.constants.descending">
+     <span class="term"><b><tt>MongoCollection::DESCENDING</tt></b></span>
+     <br /><span class="term"><b><tt>-1</tt></b></span>
+     <dd>
+
+      <span class="simpara">
+       Descending direction for sorts and index creation.
+      </span>
+     </dd>
+
+    </dt>
+
+   </dl>
+
+  </div>
+
+  <div class="section">
+   <h2 class="title">Fields</h2>
+   <dl>
+
+    <dt>
+
+     <span class="term">db</span>
+     <dd>
+
+      <p class="para">
+       The &quot;parent&quot; database for this collection.
+      </p>
+     </dd>
+
+    </dt>
+
+    <dt>
+
+     <span class="term">w</span>
+     <dd>
+
+      <p class="para">
+       The number of servers to replicate a change to before returning success.
+       Value is inherited from the parent database. The 
+       <a href="class.mongodb.html" class="classname">MongoDB</a> class has a more detailed description of
+       how <i>w</i> works.
+      </p>
+     </dd>
+
+    </dt>
+
+    <dt>
+
+     <span class="term">wtimeout</span>
+     <dd>
+
+      <p class="para">
+       The number of milliseconds to wait for <i>$this-&gt;w</i> 
+       replications to take place.  Value is inherited from the parent database.
+       The <a href="class.mongodb.html" class="classname">MongoDB</a> class has a more detailed description 
+       of how <i>wtimeout</i> works.
+      </p>
+     </dd>
+
+    </dt>
+
+   </dl>
+
+  </div>
+
+  <div class="section">
+   <h2 class="title">See Also</h2>
+   <p class="para">
+    MongoDB core docs on <a href="http://dochub.mongodb.org/core/collections" class="link external">&raquo;&nbsp;collections</a>.
+   </p>
+  </div>
+
+ </div>
+
+ 
+
+
+
+ 
+
+
+
+
+
+ 
+
+
+
+
+
+ 
+
+
+
+
+
+ 
+
+
+
+
+
+ 
+
+
+
+
+
+ 
+
+
+
+
+
+ 
+
+
+
+
+
+ 
+
+
+
+
+
+ 
+
+
+
+
+
+ 
+
+
+
+
+
+ 
+
+
+
+
+
+ 
+
+
+
+
+
+ 
+
+
+
+
+
+ 
+
+
+
+
+
+ 
+
+
+
+
+
+ 
+
+
+
+
+
+ 
+
+
+
+
+
+ 
+
+
+
+
+
+ 
+
+
+
+
+
+ 
+
+
+
+
+
+ 
+
+
+
+
+
+ 
+
+
+
+
+
+ 
+
+
+
+<h2>Table of Contents</h2><ul class="chunklist chunklist_reference"><li><a href="mongocollection.batchinsert.html">MongoCollection::batchInsert</a> — Inserts multiple documents into this collection</li><li><a href="mongocollection.construct.html">MongoCollection::__construct</a> — Creates a new collection</li><li><a href="mongocollection.count.html">MongoCollection::count</a> — Counts the number of documents in this collection</li><li><a href="mongocollection.createdbref.html">MongoCollection::createDBRef</a> — Creates a database reference</li><li><a href="mongocollection.deleteindex.html">MongoCollection::deleteIndex</a> — Deletes an index from this collection</li><li><a href="mongocollection.deleteindexes.html">MongoCollection::deleteIndexes</a> — Delete all indices for this collection</li><li><a href="mongocollection.drop.html">MongoCollection::drop</a> — Drops this collection</li><li><a href="mongocollection.ensureindex.html">MongoCollection::ensureIndex</a> — Creates an index on the given field(s), or does nothing if the index 
+   already exists</li><li><a href="mongocollection.find.html">MongoCollection::find</a> — Querys this collection</li><li><a href="mongocollection.findone.html">MongoCollection::findOne</a> — Querys this collection, returning a single element</li><li><a href="mongocollection.get.html">MongoCollection::__get</a> — Gets a collection</li><li><a href="mongocollection.getdbref.html">MongoCollection::getDBRef</a> — Fetches the document pointed to by a database reference</li><li><a href="mongocollection.getindexinfo.html">MongoCollection::getIndexInfo</a> — Returns an array of index names for this collection</li><li><a href="mongocollection.getname.html">MongoCollection::getName</a> — Returns this collection's name</li><li><a href="mongocollection.getslaveokay.html">MongoCollection::getSlaveOkay</a> — Get slaveOkay setting for this collection</li><li><a href="mongocollection.group.html">MongoCollection::group</a> — Performs an operation similar to SQL's GROUP BY command</li><li><a href="mongocollection.insert.html">MongoCollection::insert</a> — Inserts an array into the collection</li><li><a href="mongocollection.remove.html">MongoCollection::remove</a> — Remove records from this collection</li><li><a href="mongocollection.save.html">MongoCollection::save</a> — Saves an object to this collection</li><li><a href="mongocollection.setslaveokay.html">MongoCollection::setSlaveOkay</a> — Change slaveOkay setting for this collection</li><li><a href="mongocollection.--tostring.html">MongoCollection::__toString</a> — String representation of this collection</li><li><a href="mongocollection.update.html">MongoCollection::update</a> — Update records based on a given criteria</li><li><a href="mongocollection.validate.html">MongoCollection::validate</a> — Validates this collection</li></ul>
+</div>
+<hr /><div class="manualnavbar" style="text-align: center;">
+ <div class="prev" style="text-align: left; float: left;"><a href="mongodb.--tostring.html">MongoDB::__toString</a></div>
+ <div class="next" style="text-align: right; float: right;"><a href="mongocollection.batchinsert.html">MongoCollection::batchInsert</a></div>
+ <div class="up"><a href="mongo.core.html">Core Classes</a></div>
+ <div class="home"><a href="index.html">PHP Manual</a></div>
+</div></body></html>

@@ -1,0 +1,156 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+ <head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>Checks if the object is of this class or has this class as one of its parents</title>
+
+ </head>
+ <body><div class="manualnavbar" style="text-align: center;">
+ <div class="prev" style="text-align: left; float: left;"><a href="function.interface-exists.html">interface_exists</a></div>
+ <div class="next" style="text-align: right; float: right;"><a href="function.is-subclass-of.html">is_subclass_of</a></div>
+ <div class="up"><a href="ref.classobj.html">Classes/Object Functions</a></div>
+ <div class="home"><a href="index.html">PHP Manual</a></div>
+</div><hr /><div id="function.is-a" class="refentry">
+ <div class="refnamediv">
+  <h1 class="refname">is_a</h1>
+  <p class="verinfo">(PHP 4 &gt;= 4.2.0, PHP 5)</p><p class="refpurpose"><span class="refname">is_a</span> &mdash; <span class="dc-title">Checks if the object is of this class or has this class as one of its parents</span></p>
+
+ </div>
+ <div class="refsect1 description" id="refsect1-function.is-a-description">
+  <h3 class="title">Description</h3>
+  <div class="methodsynopsis dc-description">
+   <span class="type">bool</span> <span class="methodname"><b>is_a</b></span>
+    ( <span class="methodparam"><span class="type">object</span> <tt class="parameter">$object</tt></span>
+   , <span class="methodparam"><span class="type">string</span> <tt class="parameter">$class_name</tt></span>
+   )</div>
+
+  <p class="para rdfs-comment">
+   Checks if the given <i><tt class="parameter">object</tt></i> is of this class or has
+   this class as one of its parents.
+  </p>
+ </div>
+
+ <div class="refsect1 parameters" id="refsect1-function.is-a-parameters">
+  <h3 class="title">Parameters</h3>
+  <p class="para">
+   <dl>
+
+    <dt>
+
+     <span class="term"><i><tt class="parameter">object</tt></i></span>
+     <dd>
+
+      <p class="para">
+       The tested object
+      </p>
+     </dd>
+
+    </dt>
+
+    <dt>
+
+     <span class="term"><i><tt class="parameter">class_name</tt></i></span>
+     <dd>
+
+      <p class="para">
+       The class name
+      </p>
+     </dd>
+
+    </dt>
+
+   </dl>
+
+  </p>
+ </div>
+
+ <div class="refsect1 returnvalues" id="refsect1-function.is-a-returnvalues">
+  <h3 class="title">Return Values</h3>
+  <p class="para">
+   Returns <b><tt>TRUE</tt></b> if the object is of this class or has this class as one of
+   its parents, <b><tt>FALSE</tt></b> otherwise.
+  </p>
+ </div>
+
+ <div class="refsect1 changelog" id="refsect1-function.is-a-changelog">
+  <h3 class="title">Changelog</h3>
+  <p class="para">
+   <table class="doctable informaltable">
+    
+     <thead valign="middle">
+      <tr valign="middle">
+       <th>Version</th>
+       <th>Description</th>
+      </tr>
+
+     </thead>
+
+     <tbody valign="middle" class="tbody">
+      <tr valign="middle">
+       <td align="left">5.3.0</td>
+       <td align="left">
+        This function is no longer deprecated, and will therefore 
+        no longer throw <b><tt>E_STRICT</tt></b> warnings.
+       </td>
+      </tr>
+
+      <tr valign="middle">
+       <td align="left">5.0.0</td>
+       <td align="left">
+        This function became deprecated in favour of the 
+        <a href="language.operators.type.html" class="link">instanceof</a> 
+        operator. Calling this function will result in an 
+        <b><tt>E_STRICT</tt></b> warning.
+       </td>
+      </tr>
+
+     </tbody>
+    
+   </table>
+
+  </p>
+ </div>
+
+ <div class="refsect1 examples" id="refsect1-function.is-a-examples">
+  <h3 class="title">Examples</h3>
+  <p class="para">
+   <div class="example" id="example-4300">
+    <p><b>Example #1 <span class="function"><b>is_a()</b></span> example</b></p>
+    <div class="example-contents">
+<div class="phpcode"><code><span style="color: #000000">
+<span style="color: #0000BB">&lt;?php<br /></span><span style="color: #FF8000">//&nbsp;define&nbsp;a&nbsp;class<br /></span><span style="color: #007700">class&nbsp;</span><span style="color: #0000BB">WidgetFactory<br /></span><span style="color: #007700">{<br />&nbsp;&nbsp;var&nbsp;</span><span style="color: #0000BB">$oink&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #DD0000">'moo'</span><span style="color: #007700">;<br />}<br /><br /></span><span style="color: #FF8000">//&nbsp;create&nbsp;a&nbsp;new&nbsp;object<br /></span><span style="color: #0000BB">$WF&nbsp;</span><span style="color: #007700">=&nbsp;new&nbsp;</span><span style="color: #0000BB">WidgetFactory</span><span style="color: #007700">();<br /><br />if&nbsp;(</span><span style="color: #0000BB">is_a</span><span style="color: #007700">(</span><span style="color: #0000BB">$WF</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">'WidgetFactory'</span><span style="color: #007700">))&nbsp;{<br />&nbsp;&nbsp;echo&nbsp;</span><span style="color: #DD0000">"yes,&nbsp;\$WF&nbsp;is&nbsp;still&nbsp;a&nbsp;WidgetFactory\n"</span><span style="color: #007700">;<br />}<br /></span><span style="color: #0000BB">?&gt;</span>
+</span>
+</code></div>
+    </div>
+
+   </div>
+   <div class="example" id="example-4301">
+    <p><b>Example #2 Using the <em class="emphasis">instanceof</em> operator in PHP 5</b></p>
+    <div class="example-contents">
+<div class="phpcode"><code><span style="color: #000000">
+<span style="color: #0000BB">&lt;?php<br /></span><span style="color: #007700">if&nbsp;(</span><span style="color: #0000BB">$WF&nbsp;</span><span style="color: #007700">instanceof&nbsp;</span><span style="color: #0000BB">WidgetFactory</span><span style="color: #007700">)&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;echo&nbsp;</span><span style="color: #DD0000">'Yes,&nbsp;$WF&nbsp;is&nbsp;a&nbsp;WidgetFactory'</span><span style="color: #007700">;<br />}<br /></span><span style="color: #0000BB">?&gt;</span>
+</span>
+</code></div>
+    </div>
+
+   </div>
+  </p>
+ </div>
+
+ <div class="refsect1 seealso" id="refsect1-function.is-a-seealso">
+  <h3 class="title">See Also</h3>
+  <p class="para">
+   <ul class="simplelist">
+    <li class="member"><span class="function"><a href="function.get-class.html" class="function" rel="rdfs-seeAlso">get_class()</a> - Returns the name of the class of an object</span></li>
+    <li class="member"><span class="function"><a href="function.get-parent-class.html" class="function" rel="rdfs-seeAlso">get_parent_class()</a> - Retrieves the parent class name for object or class</span></li>
+    <li class="member"><span class="function"><a href="function.is-subclass-of.html" class="function" rel="rdfs-seeAlso">is_subclass_of()</a> - Checks if the object has this class as one of its parents</span></li>
+   </ul>
+  </p>
+ </div>
+
+</div><hr /><div class="manualnavbar" style="text-align: center;">
+ <div class="prev" style="text-align: left; float: left;"><a href="function.interface-exists.html">interface_exists</a></div>
+ <div class="next" style="text-align: right; float: right;"><a href="function.is-subclass-of.html">is_subclass_of</a></div>
+ <div class="up"><a href="ref.classobj.html">Classes/Object Functions</a></div>
+ <div class="home"><a href="index.html">PHP Manual</a></div>
+</div></body></html>
