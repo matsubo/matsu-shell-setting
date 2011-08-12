@@ -26,7 +26,6 @@ call vundle#rc()
 
 " global
 Bundle 'gmarik/vundle'
-Bundle 'L9'
 Bundle 'FuzzyFinder'
 Bundle 'Highlight-UnMatched-Brackets'
 Bundle 'vcscommand.vim'
@@ -35,6 +34,7 @@ Bundle 'ref.vim'
 Bundle 'unite.vim'
 Bundle 'AutoComplPop'
 Bundle 'git://github.com/Shougo/neocomplcache.git'
+Bundle 'L9'
 
 " rails
 Bundle 'vim-ruby/vim-ruby'
@@ -164,7 +164,7 @@ colorscheme molokai
 " vim-ref
 " """""""""""""""""""""""""
 " vim-ref setting
-" let g:ref_phpmanual_path = $HOME . '/.setting/php/php-chunked-xhtml'
+let g:ref_phpmanual_path = $HOME . '/.setting/php/php-chunked-xhtml'
 " let g:ref_phpmanual_cmd = 'w3m -dump %s'
 
 
@@ -176,6 +176,7 @@ colorscheme molokai
 " """""""""""""""""""""""""
 " 入力モードで開始する
 " let g:unite_enable_start_insert=1
+
 " バッファ一覧
 nnoremap <silent> ,ub :<C-u>Unite buffer<CR>
 " ファイル一覧
@@ -188,6 +189,10 @@ nnoremap <silent> ,um :<C-u>Unite file_mru<CR>
 nnoremap <silent> ,uu :<C-u>Unite buffer file_mru<CR>
 " 全部乗せ
 nnoremap <silent> ,ua :<C-u>UniteWithBufferDir -buffer-name=files buffer file_mru bookmark file<CR>
+
+call unite#set_buffer_name_option('default', 'ignorecase', 1)
+call unite#set_buffer_name_option('default', 'smartcase', 1)
+
 
 " ウィンドウを分割して開く
 au FileType unite nnoremap <silent> <buffer> <expr> <C-j> unite#do_action('split')
@@ -216,13 +221,18 @@ nmap <ESC><ESC> ;nohlsearch<CR><ESC>
 
 
 "" gtags
-map <C-g> :Gtags 
+map <C-g><C-g> :Gtags 
 " map <C-i> :Gtags -f %<CR>
 " code jump
 map <C-j> :GtagsCursor<CR>
 " for gtags file skip
 map <C-n> :cn<CR>
 map <C-p> :cp<CR>
+
+" vmap
+" dump the variable.
+:vmap st "zdiprint_r("<pre>".<C-R>z".</pre>");exit;<ESC>
+
 
 
 

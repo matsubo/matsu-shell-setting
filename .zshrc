@@ -15,7 +15,7 @@ setopt pushd_ignore_dups rm_star_silent sun_keyboard_hack
 setopt extended_glob list_types no_beep always_last_prompt
 setopt cdable_vars sh_word_split auto_param_keys
 setopt NO_flow_control
-setopt autopushd pushd_ignore_dups list_packed list_types EXTENDED_HISTORY
+setopt auto_pushd pushd_ignore_dups list_packed list_types EXTENDED_HISTORY
 
 unsetopt promptcr
 
