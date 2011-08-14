@@ -1,0 +1,176 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+ <head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>Name resolution rules</title>
+
+ </head>
+ <body><div class="manualnavbar" style="text-align: center;">
+ <div class="prev" style="text-align: left; float: left;"><a href="language.namespaces.fallback.html">Using namespaces: fallback to global function/constant</a></div>
+ <div class="next" style="text-align: right; float: right;"><a href="language.namespaces.faq.html">FAQ: things you need to know about namespaces</a></div>
+ <div class="up"><a href="language.namespaces.html">Namespaces</a></div>
+ <div class="home"><a href="index.html">PHP Manual</a></div>
+</div><hr /><div id="language.namespaces.rules" class="sect1">
+  <h2 class="title">Name resolution rules</h2>
+  
+  <p class="para">
+   For the purposes of these resolution rules, here are some important definitions:
+   <dl>
+
+    <strong class="title">Namespace name definitions</strong>
+    <dt>
+
+     <span class="term">Unqualified name</span>
+     <dd>
+
+      <p class="para">
+       This is an identifier without a namespace separator, such as <i>Foo</i>
+      </p>
+     </dd>
+
+    </dt>
+
+    <dt>
+
+     <span class="term">Qualified name</span>
+     <dd>
+
+      <p class="para">
+       This is an identifier with a namespace separator, such as <i>Foo\Bar</i>
+      </p>
+     </dd>
+
+    </dt>
+
+    <dt>
+
+     <span class="term">Fully qualified name</span>
+     <dd>
+
+      <p class="para">
+       This is an identifier with a namespace separator that begins with a namespace
+       separator, such as <i>\Foo\Bar</i>.  <i>namespace\Foo</i>
+       is also a fully qualified name.
+      </p>
+     </dd>
+
+    </dt>
+
+   </dl>
+
+  </p>
+  <p class="para">
+   Names are resolved following these resolution rules:
+   <ol type="1">
+    <li class="listitem">
+     <span class="simpara">
+      Calls to fully qualified functions, classes or constants are resolved at compile-time.
+      For instance <i>new \A\B</i> resolves to class <i>A\B</i>.
+     </span>
+    </li>
+    <li class="listitem">
+     <span class="simpara">
+      All unqualified and qualified names (not fully qualified names) are translated during
+      compilation according to current
+      import rules. For example, if the namespace <i>A\B\C</i> is imported as
+      <i>C</i>, a call to 
+      <i>C\D\e()</i> is translated to <i>A\B\C\D\e()</i>.
+     </span>
+    </li>
+    <li class="listitem">
+     <span class="simpara">
+      Inside a namespace, all qualified names not translated according to import
+      rules have the current namespace prepended.  For example, if a call
+      to <i>C\D\e()</i> is performed within namespace <i>A\B</i>,
+      it is translated to <i>A\B\C\D\e()</i>.
+     </span>
+    </li>
+    <li class="listitem">
+     <span class="simpara">
+      Unqualified class names are translated during compilation according to current
+      import rules (full name substituted for short imported name). In example, if 
+      the namespace <i>A\B\C</i> is imported as C, <i>new C()</i> is 
+      translated to <i>new A\B\C()</i>.
+     </span>
+    </li>
+    <li class="listitem">
+     <span class="simpara">
+      Inside namespace (say A\B), calls to unqualified functions are resolved at run-time.
+      Here is how a 
+      call to function <i>foo()</i> is resolved:
+     </span>
+      <ol type="1">
+       <li class="listitem">
+        <span class="simpara">
+         It looks for a function from the current namespace:
+         <i>A\B\foo()</i>.
+        </span>
+       </li>
+       <li class="listitem">
+        <span class="simpara">
+         It tries to find and call the <em class="emphasis">global</em> function
+         <i>foo()</i>.
+        </span>
+       </li>
+      </ol>
+    </li>
+    <li class="listitem">
+     <span class="simpara">
+      Inside namespace (say <i>A\B</i>), calls to unqualified or qualified
+      class names (not fully qualified class names)
+      are resolved at run-time. Here is how a call to 
+      <i>new C()</i> or <i>new D\E()</i> is resolved.
+      For <i> new C()</i>:
+     </span>
+     <ol type="1">
+      <li class="listitem">
+       <span class="simpara">
+        It looks for a class from the current namespace:
+        <i>A\B\C</i>.
+       </span>
+      </li>
+      <li class="listitem">
+       <span class="simpara">
+        It attempts to autoload <i>A\B\C</i>.
+       </span>
+      </li>
+     </ol>
+     <span class="simpara">
+      For <i> new D\E()</i>:
+     </span>
+     <ol type="1">
+      <li class="listitem">
+       <span class="simpara">
+        It looks for a class by prepending the current namespace:
+        <i>A\B\D\E</i>.
+       </span>
+      </li>
+      <li class="listitem">
+       <span class="simpara">
+        It attempts to autoload <i>A\B\D\E</i>.
+       </span>
+      </li>
+     </ol>
+     <span class="simpara">
+      To reference any global class in the global namespace, 
+      its fully qualified name <i>new \C()</i> must be used.
+     </span>
+    </li>
+   </ol>
+  </p>
+  <div class="example" id="example-241">
+   <p><b>Example #1 Name resolutions illustrated</b></p>
+   <div class="example-contents">
+<div class="phpcode"><code><span style="color: #000000">
+<span style="color: #0000BB">&lt;?php<br /></span><span style="color: #007700">namespace&nbsp;</span><span style="color: #0000BB">A</span><span style="color: #007700">;<br />use&nbsp;</span><span style="color: #0000BB">B</span><span style="color: #007700">\</span><span style="color: #0000BB">D</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">C</span><span style="color: #007700">\</span><span style="color: #0000BB">E&nbsp;</span><span style="color: #007700">as&nbsp;</span><span style="color: #0000BB">F</span><span style="color: #007700">;<br /><br /></span><span style="color: #FF8000">//&nbsp;function&nbsp;calls<br /><br /></span><span style="color: #0000BB">foo</span><span style="color: #007700">();&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #FF8000">//&nbsp;first&nbsp;tries&nbsp;to&nbsp;call&nbsp;"foo"&nbsp;defined&nbsp;in&nbsp;namespace&nbsp;"A"<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;//&nbsp;then&nbsp;calls&nbsp;global&nbsp;function&nbsp;"foo"<br /><br /></span><span style="color: #007700">\</span><span style="color: #0000BB">foo</span><span style="color: #007700">();&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #FF8000">//&nbsp;calls&nbsp;function&nbsp;"foo"&nbsp;defined&nbsp;in&nbsp;global&nbsp;scope<br /><br /></span><span style="color: #0000BB">my</span><span style="color: #007700">\</span><span style="color: #0000BB">foo</span><span style="color: #007700">();&nbsp;&nbsp;&nbsp;</span><span style="color: #FF8000">//&nbsp;calls&nbsp;function&nbsp;"foo"&nbsp;defined&nbsp;in&nbsp;namespace&nbsp;"A\my"<br /><br /></span><span style="color: #0000BB">F</span><span style="color: #007700">();&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #FF8000">//&nbsp;first&nbsp;tries&nbsp;to&nbsp;call&nbsp;"F"&nbsp;defined&nbsp;in&nbsp;namespace&nbsp;"A"<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;//&nbsp;then&nbsp;calls&nbsp;global&nbsp;function&nbsp;"F"<br /><br />//&nbsp;class&nbsp;references<br /><br /></span><span style="color: #007700">new&nbsp;</span><span style="color: #0000BB">B</span><span style="color: #007700">();&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #FF8000">//&nbsp;creates&nbsp;object&nbsp;of&nbsp;class&nbsp;"B"&nbsp;defined&nbsp;in&nbsp;namespace&nbsp;"A"<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;//&nbsp;if&nbsp;not&nbsp;found,&nbsp;it&nbsp;tries&nbsp;to&nbsp;autoload&nbsp;class&nbsp;"A\B"<br /><br /></span><span style="color: #007700">new&nbsp;</span><span style="color: #0000BB">D</span><span style="color: #007700">();&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #FF8000">//&nbsp;using&nbsp;import&nbsp;rules,&nbsp;creates&nbsp;object&nbsp;of&nbsp;class&nbsp;"D"&nbsp;defined&nbsp;in&nbsp;namespace&nbsp;"B"<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;//&nbsp;if&nbsp;not&nbsp;found,&nbsp;it&nbsp;tries&nbsp;to&nbsp;autoload&nbsp;class&nbsp;"B\D"<br /><br /></span><span style="color: #007700">new&nbsp;</span><span style="color: #0000BB">F</span><span style="color: #007700">();&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #FF8000">//&nbsp;using&nbsp;import&nbsp;rules,&nbsp;creates&nbsp;object&nbsp;of&nbsp;class&nbsp;"E"&nbsp;defined&nbsp;in&nbsp;namespace&nbsp;"C"<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;//&nbsp;if&nbsp;not&nbsp;found,&nbsp;it&nbsp;tries&nbsp;to&nbsp;autoload&nbsp;class&nbsp;"C\E"<br /><br /></span><span style="color: #007700">new&nbsp;\</span><span style="color: #0000BB">B</span><span style="color: #007700">();&nbsp;&nbsp;&nbsp;</span><span style="color: #FF8000">//&nbsp;creates&nbsp;object&nbsp;of&nbsp;class&nbsp;"B"&nbsp;defined&nbsp;in&nbsp;global&nbsp;scope<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;//&nbsp;if&nbsp;not&nbsp;found,&nbsp;it&nbsp;tries&nbsp;to&nbsp;autoload&nbsp;class&nbsp;"B"<br /><br /></span><span style="color: #007700">new&nbsp;\</span><span style="color: #0000BB">D</span><span style="color: #007700">();&nbsp;&nbsp;&nbsp;</span><span style="color: #FF8000">//&nbsp;creates&nbsp;object&nbsp;of&nbsp;class&nbsp;"D"&nbsp;defined&nbsp;in&nbsp;global&nbsp;scope<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;//&nbsp;if&nbsp;not&nbsp;found,&nbsp;it&nbsp;tries&nbsp;to&nbsp;autoload&nbsp;class&nbsp;"D"<br /><br /></span><span style="color: #007700">new&nbsp;\</span><span style="color: #0000BB">F</span><span style="color: #007700">();&nbsp;&nbsp;&nbsp;</span><span style="color: #FF8000">//&nbsp;creates&nbsp;object&nbsp;of&nbsp;class&nbsp;"F"&nbsp;defined&nbsp;in&nbsp;global&nbsp;scope<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;//&nbsp;if&nbsp;not&nbsp;found,&nbsp;it&nbsp;tries&nbsp;to&nbsp;autoload&nbsp;class&nbsp;"F"<br /><br />//&nbsp;static&nbsp;methods/namespace&nbsp;functions&nbsp;from&nbsp;another&nbsp;namespace<br /><br /></span><span style="color: #0000BB">B</span><span style="color: #007700">\</span><span style="color: #0000BB">foo</span><span style="color: #007700">();&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #FF8000">//&nbsp;calls&nbsp;function&nbsp;"foo"&nbsp;from&nbsp;namespace&nbsp;"A\B"<br /><br /></span><span style="color: #0000BB">B</span><span style="color: #007700">::</span><span style="color: #0000BB">foo</span><span style="color: #007700">();&nbsp;&nbsp;&nbsp;</span><span style="color: #FF8000">//&nbsp;calls&nbsp;method&nbsp;"foo"&nbsp;of&nbsp;class&nbsp;"B"&nbsp;defined&nbsp;in&nbsp;namespace&nbsp;"A"<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;//&nbsp;if&nbsp;class&nbsp;"A\B"&nbsp;not&nbsp;found,&nbsp;it&nbsp;tries&nbsp;to&nbsp;autoload&nbsp;class&nbsp;"A\B"<br /><br /></span><span style="color: #0000BB">D</span><span style="color: #007700">::</span><span style="color: #0000BB">foo</span><span style="color: #007700">();&nbsp;&nbsp;&nbsp;</span><span style="color: #FF8000">//&nbsp;using&nbsp;import&nbsp;rules,&nbsp;calls&nbsp;method&nbsp;"foo"&nbsp;of&nbsp;class&nbsp;"D"&nbsp;defined&nbsp;in&nbsp;namespace&nbsp;"B"<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;//&nbsp;if&nbsp;class&nbsp;"B\D"&nbsp;not&nbsp;found,&nbsp;it&nbsp;tries&nbsp;to&nbsp;autoload&nbsp;class&nbsp;"B\D"<br /><br /></span><span style="color: #007700">\</span><span style="color: #0000BB">B</span><span style="color: #007700">\</span><span style="color: #0000BB">foo</span><span style="color: #007700">();&nbsp;&nbsp;&nbsp;</span><span style="color: #FF8000">//&nbsp;calls&nbsp;function&nbsp;"foo"&nbsp;from&nbsp;namespace&nbsp;"B"<br /><br /></span><span style="color: #007700">\</span><span style="color: #0000BB">B</span><span style="color: #007700">::</span><span style="color: #0000BB">foo</span><span style="color: #007700">();&nbsp;&nbsp;</span><span style="color: #FF8000">//&nbsp;calls&nbsp;method&nbsp;"foo"&nbsp;of&nbsp;class&nbsp;"B"&nbsp;from&nbsp;global&nbsp;scope<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;//&nbsp;if&nbsp;class&nbsp;"B"&nbsp;not&nbsp;found,&nbsp;it&nbsp;tries&nbsp;to&nbsp;autoload&nbsp;class&nbsp;"B"<br /><br />//&nbsp;static&nbsp;methods/namespace&nbsp;functions&nbsp;of&nbsp;current&nbsp;namespace<br /><br /></span><span style="color: #0000BB">A</span><span style="color: #007700">\</span><span style="color: #0000BB">B</span><span style="color: #007700">::</span><span style="color: #0000BB">foo</span><span style="color: #007700">();&nbsp;&nbsp;&nbsp;</span><span style="color: #FF8000">//&nbsp;calls&nbsp;method&nbsp;"foo"&nbsp;of&nbsp;class&nbsp;"B"&nbsp;from&nbsp;namespace&nbsp;"A\A"<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;//&nbsp;if&nbsp;class&nbsp;"A\A\B"&nbsp;not&nbsp;found,&nbsp;it&nbsp;tries&nbsp;to&nbsp;autoload&nbsp;class&nbsp;"A\A\B"<br /><br /></span><span style="color: #007700">\</span><span style="color: #0000BB">A</span><span style="color: #007700">\</span><span style="color: #0000BB">B</span><span style="color: #007700">::</span><span style="color: #0000BB">foo</span><span style="color: #007700">();&nbsp;&nbsp;</span><span style="color: #FF8000">//&nbsp;calls&nbsp;method&nbsp;"foo"&nbsp;of&nbsp;class&nbsp;"B"&nbsp;from&nbsp;namespace&nbsp;"A"<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;//&nbsp;if&nbsp;class&nbsp;"A\B"&nbsp;not&nbsp;found,&nbsp;it&nbsp;tries&nbsp;to&nbsp;autoload&nbsp;class&nbsp;"A\B"<br /></span><span style="color: #0000BB">?&gt;</span>
+</span>
+</code></div>
+   </div>
+
+  </div>
+ </div><hr /><div class="manualnavbar" style="text-align: center;">
+ <div class="prev" style="text-align: left; float: left;"><a href="language.namespaces.fallback.html">Using namespaces: fallback to global function/constant</a></div>
+ <div class="next" style="text-align: right; float: right;"><a href="language.namespaces.faq.html">FAQ: things you need to know about namespaces</a></div>
+ <div class="up"><a href="language.namespaces.html">Namespaces</a></div>
+ <div class="home"><a href="index.html">PHP Manual</a></div>
+</div></body></html>

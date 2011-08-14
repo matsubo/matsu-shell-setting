@@ -1,0 +1,106 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+ <head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>OmniHTTPd Server</title>
+
+ </head>
+ <body><div class="manualnavbar" style="text-align: center;">
+ <div class="prev" style="text-align: left; float: left;"><a href="install.windows.sun.html">Sun, iPlanet and Netscape servers on Microsoft Windows</a></div>
+ <div class="next" style="text-align: right; float: right;"><a href="install.windows.sambar.html">Sambar Server on Microsoft Windows</a></div>
+ <div class="up"><a href="install.windows.html">Installation on Windows systems</a></div>
+ <div class="home"><a href="index.html">PHP Manual</a></div>
+</div><hr /><div id="install.windows.omnihttpd" class="sect1">
+   <h2 class="title">OmniHTTPd Server</h2>
+   <p class="para">
+    This section contains notes and hints specific to
+    <a href="http://www.omnicron.ca/" class="link external">&raquo;&nbsp;OmniHTTPd</a> on Windows.
+   </p>
+   <blockquote class="note"><p><b class="note">Note</b>: 
+    <p class="para">
+     You should read the <a href="install.windows.manual.html" class="link">manual
+     installation steps</a> first!
+    </p>
+   </p></blockquote>
+   <div class="warning"><b class="warning">Warning</b><p class="para">A server deployed in CGI mode is open
+to several possible vulnerabilities. Please read our
+<a href="security.cgi-bin.html" class="link">CGI security section</a> to learn how to
+defend yourself from such attacks.</p></div>
+   <p class="simpara">
+    You need to complete the following steps to make PHP
+    work with OmniHTTPd. This is a CGI executable setup.
+    SAPI is supported by OmniHTTPd, but some tests have shown
+    that it is not so stable to use PHP as an ISAPI module.
+   </p>
+   
+   <blockquote class="note"><p><b class="note">Note</b>: 
+    <b>Important for CGI users</b><br />
+    <p class="para">
+     Read the <a href="faq.installation.html#faq.installation.forceredirect" class="link">faq
+     on cgi.force_redirect</a> for important details.  This
+     directive needs to be set to <i>0</i>.
+    </p>
+   </p></blockquote>
+
+   <p class="para">
+    <ol type="1">
+     <li class="listitem">
+      <p class="para">
+       Install OmniHTTPd server.
+      </p>
+     </li>
+     <li class="listitem">
+      <p class="para">
+       Right click on the blue OmniHTTPd icon in the system
+       tray and select <i>Properties</i>
+      </p>
+     </li>
+     <li class="listitem">
+      <p class="para">
+       Click on <i>Web Server Global Settings</i>
+      </p>
+     </li>
+     <li class="listitem">
+      <p class="para">
+       On the &#039;External&#039; tab, enter: <i>virtual = .php
+        | actual = c:\php\php.exe</i> (use
+       <var class="filename">php-cgi.exe</var> if installing PHP 5), and use the Add
+       button.
+      </p>
+     </li>
+     <li class="listitem">
+      <p class="para">
+       On the <i>Mime</i> tab, enter:
+       <i>virtual = wwwserver/stdcgi | actual = .php</i>,
+       and use the Add button.
+      </p>
+     </li>
+     <li class="listitem">
+      <p class="para">
+       Click <i>OK</i>
+      </p>
+     </li>
+    </ol>
+   </p>
+    
+   <p class="simpara">
+    Repeat steps 2 - 6 for each extension you want to associate with PHP.
+   </p>
+   <blockquote class="note"><p><b class="note">Note</b>: 
+    <p class="para">
+     Some OmniHTTPd packages come with built in PHP support.
+     You can choose at setup time to do a custom setup, and
+     uncheck the PHP component. We recommend you to use the latest
+     PHP binaries. Some OmniHTTPd servers come with PHP 4 beta
+     distributions, so you should choose not to set up
+     the built in support, but install your own. If the server
+     is already on your machine, use the Replace button in Step
+     4 and 5 to set the new, correct information.
+    </p>
+   </p></blockquote>
+  </div><hr /><div class="manualnavbar" style="text-align: center;">
+ <div class="prev" style="text-align: left; float: left;"><a href="install.windows.sun.html">Sun, iPlanet and Netscape servers on Microsoft Windows</a></div>
+ <div class="next" style="text-align: right; float: right;"><a href="install.windows.sambar.html">Sambar Server on Microsoft Windows</a></div>
+ <div class="up"><a href="install.windows.html">Installation on Windows systems</a></div>
+ <div class="home"><a href="index.html">PHP Manual</a></div>
+</div></body></html>

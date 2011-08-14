@@ -1,0 +1,113 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+ <head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>Convert domain name from IDNA ASCII to Unicode.</title>
+
+ </head>
+ <body><div class="manualnavbar" style="text-align: center;">
+ <div class="prev" style="text-align: left; float: left;"><a href="function.idn-to-unicode.html">idn_to_unicode</a></div>
+ <div class="next" style="text-align: right; float: right;"><a href="ref.intl.html">intl Functions</a></div>
+ <div class="up"><a href="ref.intl.idn.html">IDN Functions</a></div>
+ <div class="home"><a href="index.html">PHP Manual</a></div>
+</div><hr /><div id="function.idn-to-utf8" class="refentry">
+ <div class="refnamediv">
+  <h1 class="refname">idn_to_utf8</h1>
+  <p class="verinfo">(PHP 5 &gt;= 5.3.0, PECL intl &gt;= 1.0.2, PECL idn &gt;= 0.1)</p><p class="refpurpose"><span class="refname">idn_to_utf8</span> &mdash; <span class="dc-title">Convert domain name from IDNA ASCII to Unicode.</span></p>
+
+ </div>
+ <div class="refsect1 description" id="refsect1-function.idn-to-utf8-description">
+  <h3 class="title">Description</h3>
+  <p class="para">Procedural style</p>
+  <div class="methodsynopsis dc-description">
+   <span class="type">string</span> <span class="methodname"><b>idn_to_utf8</b></span>
+    ( <span class="methodparam"><span class="type">string</span> <tt class="parameter">$domain</tt></span>
+   [, <span class="methodparam"><span class="type">int</span> <tt class="parameter">$options</tt></span>
+  ] )</div>
+
+  <p class="para rdfs-comment">
+   This function converts Unicode domain name from IDNA ASCII-compatible format to plain Unicode.  
+  </p> 
+  </div>
+
+
+ <div class="refsect1 parameters" id="refsect1-function.idn-to-utf8-parameters">
+  <h3 class="title">Parameters</h3>
+  <p class="para">
+   <dl>
+
+    <dt>
+
+     <span class="term"><i><tt class="parameter">domain</tt></i></span>
+     <dd>
+
+      <p class="para">
+       Domain to convert in IDNA ASCII-compatible format.
+      </p>
+     </dd>
+
+    </dt>
+
+    <dt>
+
+     <span class="term"><i><tt class="parameter">options</tt></i></span>
+     <dd>
+
+      <p class="para">
+       Conversion options - combination of IDNA_* constants.
+      </p>
+     </dd>
+
+    </dt>
+
+   </dl>
+
+  </p>
+ </div>
+
+   
+ 
+ <div class="refsect1 returnvalues" id="refsect1-function.idn-to-utf8-returnvalues">
+  <h3 class="title">Return Values</h3>
+  <p class="para">
+   Domain name in Unicode. In PHP5, domain name will be in UTF-8.  or <b><tt>FALSE</tt></b> on failure
+  </p>
+ </div>
+
+ 
+ <div class="refsect1 examples" id="refsect1-function.idn-to-utf8-examples">
+  <h3 class="title">Examples</h3>
+  <div class="example" id="example-2253">
+   <p><b>Example #1 <span class="function"><b>idn_to_utf8()</b></span> example</b></p>
+   <div class="example-contents">
+<div class="phpcode"><code><span style="color: #000000">
+<span style="color: #0000BB">&lt;?php<br /><br /></span><span style="color: #007700">echo&nbsp;</span><span style="color: #0000BB">idn_to_utf8</span><span style="color: #007700">(</span><span style="color: #DD0000">'xn--tst-qla.de'</span><span style="color: #007700">);&nbsp;<br /><br /></span><span style="color: #0000BB">?&gt;</span>
+</span>
+</code></div>
+   </div>
+
+  </div>
+  <p class="para">The above example will output:</p>
+  <div class="example-contents screen">
+<div class="cdata"><pre>
+täst.de
+</pre></div>
+  </div>
+ </div>
+
+
+ <div class="refsect1 seealso" id="refsect1-function.idn-to-utf8-seealso">
+  <h3 class="title">See Also</h3>
+  <p class="para">
+   <ul class="simplelist">
+    <li class="member"><span class="function"><a href="function.idn-to-unicode.html" class="function" rel="rdfs-seeAlso">idn_to_unicode()</a> - Alias of idn_to_utf8</span></li>
+   </ul>
+  </p>
+ </div>
+
+</div><hr /><div class="manualnavbar" style="text-align: center;">
+ <div class="prev" style="text-align: left; float: left;"><a href="function.idn-to-unicode.html">idn_to_unicode</a></div>
+ <div class="next" style="text-align: right; float: right;"><a href="ref.intl.html">intl Functions</a></div>
+ <div class="up"><a href="ref.intl.idn.html">IDN Functions</a></div>
+ <div class="home"><a href="index.html">PHP Manual</a></div>
+</div></body></html>

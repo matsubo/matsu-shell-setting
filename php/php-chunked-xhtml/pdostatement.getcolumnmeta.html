@@ -1,0 +1,235 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+ <head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>Returns metadata for a column in a result set</title>
+
+ </head>
+ <body><div class="manualnavbar" style="text-align: center;">
+ <div class="prev" style="text-align: left; float: left;"><a href="pdostatement.getattribute.html">PDOStatement-&gt;getAttribute</a></div>
+ <div class="next" style="text-align: right; float: right;"><a href="pdostatement.nextrowset.html">PDOStatement-&gt;nextRowset</a></div>
+ <div class="up"><a href="class.pdostatement.html">PDOStatement</a></div>
+ <div class="home"><a href="index.html">PHP Manual</a></div>
+</div><hr /><div id="pdostatement.getcolumnmeta" class="refentry">
+ <div class="refnamediv">
+  <h1 class="refname">PDOStatement->getColumnMeta</h1>
+  <p class="verinfo">(PHP 5 &gt;= 5.1.0, PECL pdo &gt;= 0.2.0)</p><p class="refpurpose"><span class="refname">PDOStatement-&gt;getColumnMeta</span> &mdash; <span class="dc-title">
+   Returns metadata for a column in a result set
+  </span></p>
+
+ </div>
+ <div class="refsect1 description" id="refsect1-pdostatement.getcolumnmeta-description">
+  <h3 class="title">Description</h3>
+  <div class="methodsynopsis dc-description">
+   <span class="type">array</span> <span class="methodname"><b>PDOStatement::getColumnMeta</b></span>
+    ( <span class="methodparam"><span class="type">int</span> <tt class="parameter">$column</tt></span>
+   )</div>
+
+
+  <div class="warning"><b class="warning">Warning</b><p class="simpara">This function is
+<em class="emphasis">EXPERIMENTAL</em>. The behaviour of this function, its name, and
+surrounding documentation may change without notice in a future release of PHP.
+This function should be used at your own risk.
+</p></div>
+  <p class="para">
+   Retrieves the metadata for a 0-indexed column in a result set as an
+   associative array.
+  </p>
+  <div class="warning"><b class="warning">Warning</b>
+   <p class="simpara">
+    Not all PDO drivers support
+    <span class="function"><b>PDOStatement::getColumnMeta()</b></span>.
+   </p>
+  </div>
+
+ </div>
+
+ <div class="refsect1 parameters" id="refsect1-pdostatement.getcolumnmeta-parameters">
+  <h3 class="title">Parameters</h3>
+  <p class="para">
+   <dl>
+
+    <dt>
+
+     <span class="term"><i><tt class="parameter">column</tt></i></span>
+      <dd>
+
+       <p class="para">
+        The 0-indexed column in the result set.
+       </p>
+      </dd>
+
+     </dt>
+
+   </dl>
+
+  </p>
+ </div>
+
+
+ <div class="refsect1 returnvalues" id="refsect1-pdostatement.getcolumnmeta-returnvalues">
+  <h3 class="title">Return Values</h3>
+  <p class="para">
+   Returns an associative array containing the following values representing
+   the metadata for a single column:
+  </p>
+   <table class="doctable table">
+    <caption><b>Column metadata</b></caption>
+    
+     <col align="left" /> 
+     <col align="left" /> 
+     <thead valign="middle">
+      <tr valign="middle">
+       <th>Name</th>
+       <th>Value</th>
+      </tr>
+
+     </thead>
+
+     <tbody valign="middle" class="tbody">
+      <tr valign="middle">
+       <td align="left"><i>native_type</i></td>
+       <td align="left">The PHP native type used to represent the column value.</td>
+      </tr>
+
+      <tr valign="middle">
+       <td align="left"><i>driver:decl_type</i></td>
+       <td align="left">The SQL type used to represent the column value in the database.
+       If the column in the result set is the result of a function, this value
+       is not returned by <span class="function"><b>PDOStatement::getColumnMeta()</b></span>.
+       </td>
+      </tr>
+
+      <tr valign="middle">
+       <td align="left"><i>flags</i></td>
+       <td align="left">Any flags set for this column.</td>
+      </tr>
+
+      <tr valign="middle">
+       <td align="left"><i>name</i></td>
+       <td align="left">The name of this column as returned by the database.</td>
+      </tr>
+
+      <tr valign="middle">
+       <td align="left"><i>table</i></td>
+       <td align="left">The name of this column&#039;s table as returned by the database.</td>
+      </tr>
+
+      <tr valign="middle">
+       <td align="left"><i>len</i></td>
+       <td align="left">The length of this column. Normally <i>-1</i> for
+       types other than floating point decimals.</td>
+      </tr>
+
+      <tr valign="middle">
+       <td align="left"><i>precision</i></td>
+       <td align="left">The numeric precision of this column. Normally
+       <i>0</i> for types other than floating point
+       decimals.</td>
+      </tr>
+
+      <tr valign="middle">
+       <td align="left"><i>pdo_type</i></td>
+       <td align="left">The type of this column as represented by the
+       <i>PDO::PARAM_*</i> constants.</td>
+      </tr>
+
+     </tbody>
+    
+   </table>
+
+  <p class="para">
+   Returns <b><tt>FALSE</tt></b> if the requested column does not exist in the result set,
+   or if no result set exists.
+  </p>
+ </div>
+
+
+ 
+
+ <div class="refsect1 changelog" id="refsect1-pdostatement.getcolumnmeta-changelog">
+  <h3 class="title">Changelog</h3>
+  <p class="para">
+   <table class="doctable informaltable">
+    
+     <thead valign="middle">
+      <tr valign="middle">
+       <th>Version</th>
+       <th>Description</th>
+      </tr>
+
+     </thead>
+
+     <tbody valign="middle" class="tbody">
+      <tr valign="middle">
+       <td align="left">5.2.3</td>
+       <td align="left"><i>table</i> field</td>
+      </tr>
+
+     </tbody>
+    
+   </table>
+
+  </p>
+ </div>
+
+
+ <div class="refsect1 examples" id="refsect1-pdostatement.getcolumnmeta-examples">
+  <h3 class="title">Examples</h3>
+  <p class="para">
+   <div class="example" id="example-981">
+    <p><b>Example #1 Retrieving column metadata</b></p>
+    <div class="example-contents"><p>
+     The following example shows the results of retrieving the metadata for a
+     single column generated by a function (COUNT) in a PDO_SQLITE driver.
+    </p></div>
+    <div class="example-contents">
+<div class="phpcode"><code><span style="color: #000000">
+<span style="color: #0000BB">&lt;?php<br />$select&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">$DB</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">query</span><span style="color: #007700">(</span><span style="color: #DD0000">'SELECT&nbsp;COUNT(*)&nbsp;FROM&nbsp;fruit'</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">$meta&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">$select</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">getColumnMeta</span><span style="color: #007700">(</span><span style="color: #0000BB">0</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">var_dump</span><span style="color: #007700">(</span><span style="color: #0000BB">$meta</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">?&gt;</span>
+</span>
+</code></div>
+    </div>
+
+    <div class="example-contents"><p>The above example will output:</p></div>
+    <div class="example-contents screen">
+<div class="cdata"><pre>
+array(6) {
+  [&quot;native_type&quot;]=&gt;
+  string(7) &quot;integer&quot;
+  [&quot;flags&quot;]=&gt;
+  array(0) {
+  }
+  [&quot;name&quot;]=&gt;
+  string(8) &quot;COUNT(*)&quot;
+  [&quot;len&quot;]=&gt;
+  int(-1)
+  [&quot;precision&quot;]=&gt;
+  int(0)
+  [&quot;pdo_type&quot;]=&gt;
+  int(2)
+}
+
+</pre></div>
+    </div>
+   </div>
+  </p>
+ </div>
+
+
+ <div class="refsect1 seealso" id="refsect1-pdostatement.getcolumnmeta-seealso">
+  <h3 class="title">See Also</h3>
+  <p class="para">
+   <ul class="simplelist">
+    <li class="member"><span class="function"><a href="pdostatement.columncount.html" class="function" rel="rdfs-seeAlso">PDOStatement::columnCount()</a> - Returns the number of columns in the result set</span></li>
+    <li class="member"><span class="function"><a href="pdostatement.rowcount.html" class="function" rel="rdfs-seeAlso">PDOStatement::rowCount()</a> - Returns the number of rows affected by the last SQL statement</span></li>
+   </ul>
+  </p>
+ </div>
+
+
+</div><hr /><div class="manualnavbar" style="text-align: center;">
+ <div class="prev" style="text-align: left; float: left;"><a href="pdostatement.getattribute.html">PDOStatement-&gt;getAttribute</a></div>
+ <div class="next" style="text-align: right; float: right;"><a href="pdostatement.nextrowset.html">PDOStatement-&gt;nextRowset</a></div>
+ <div class="up"><a href="class.pdostatement.html">PDOStatement</a></div>
+ <div class="home"><a href="index.html">PHP Manual</a></div>
+</div></body></html>

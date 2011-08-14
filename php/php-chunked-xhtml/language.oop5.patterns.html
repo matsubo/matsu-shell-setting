@@ -1,0 +1,105 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+ <head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>Patterns</title>
+
+ </head>
+ <body><div class="manualnavbar" style="text-align: center;">
+ <div class="prev" style="text-align: left; float: left;"><a href="language.oop5.iterations.html">Object Iteration</a></div>
+ <div class="next" style="text-align: right; float: right;"><a href="language.oop5.magic.html">Magic Methods</a></div>
+ <div class="up"><a href="language.oop5.html">Classes and Objects</a></div>
+ <div class="home"><a href="index.html">PHP Manual</a></div>
+</div><hr /><div id="language.oop5.patterns" class="sect1">
+ <h2 class="title">Patterns</h2>
+ <p class="para">
+  Patterns are ways to describe best practices and good designs.
+  They show a flexible solution to common programming problems.
+ </p>
+ 
+ <div class="sect2" id="language.oop5.patterns.factory">
+  <h3 class="title">Factory</h3>
+  <p class="para">
+   The Factory pattern allows for the instantiation of objects
+   at runtime. It is called a Factory Pattern since it is
+   responsible for &quot;manufacturing&quot; an object. A Parameterized Factory receives
+   the name of the class to instantiate as argument.
+  </p>
+  <div class="example" id="example-201">
+   <p><b>Example #1 Parameterized Factory Method</b></p>
+   <div class="example-contents">
+<div class="phpcode"><code><span style="color: #000000">
+<span style="color: #0000BB">&lt;?php<br /></span><span style="color: #007700">class&nbsp;</span><span style="color: #0000BB">Example<br /></span><span style="color: #007700">{<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #FF8000">//&nbsp;The&nbsp;parameterized&nbsp;factory&nbsp;method<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #007700">public&nbsp;static&nbsp;function&nbsp;</span><span style="color: #0000BB">factory</span><span style="color: #007700">(</span><span style="color: #0000BB">$type</span><span style="color: #007700">)<br />&nbsp;&nbsp;&nbsp;&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;(include_once&nbsp;</span><span style="color: #DD0000">'Drivers/'&nbsp;</span><span style="color: #007700">.&nbsp;</span><span style="color: #0000BB">$type&nbsp;</span><span style="color: #007700">.&nbsp;</span><span style="color: #DD0000">'.php'</span><span style="color: #007700">)&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$classname&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #DD0000">'Driver_'&nbsp;</span><span style="color: #007700">.&nbsp;</span><span style="color: #0000BB">$type</span><span style="color: #007700">;<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;new&nbsp;</span><span style="color: #0000BB">$classname</span><span style="color: #007700">;<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}&nbsp;else&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;throw&nbsp;new&nbsp;</span><span style="color: #0000BB">Exception</span><span style="color: #007700">(</span><span style="color: #DD0000">'Driver&nbsp;not&nbsp;found'</span><span style="color: #007700">);<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br />&nbsp;&nbsp;&nbsp;&nbsp;}<br />}<br /></span><span style="color: #0000BB">?&gt;</span>
+</span>
+</code></div>
+   </div>
+
+   <div class="example-contents"><p>
+    Defining this method in a class allows drivers to be loaded on the
+    fly. If the <i>Example</i> class was a database
+    abstraction class, loading a <i>MySQL</i> and
+    <i>SQLite</i> driver could be done as follows:
+   </p></div>
+   <div class="example-contents">
+<div class="phpcode"><code><span style="color: #000000">
+<span style="color: #0000BB">&lt;?php<br /></span><span style="color: #FF8000">//&nbsp;Load&nbsp;a&nbsp;MySQL&nbsp;Driver<br /></span><span style="color: #0000BB">$mysql&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">Example</span><span style="color: #007700">::</span><span style="color: #0000BB">factory</span><span style="color: #007700">(</span><span style="color: #DD0000">'MySQL'</span><span style="color: #007700">);<br /><br /></span><span style="color: #FF8000">//&nbsp;Load&nbsp;an&nbsp;SQLite&nbsp;Driver<br /></span><span style="color: #0000BB">$sqlite&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">Example</span><span style="color: #007700">::</span><span style="color: #0000BB">factory</span><span style="color: #007700">(</span><span style="color: #DD0000">'SQLite'</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">?&gt;</span>
+</span>
+</code></div>
+   </div>
+
+  </div>
+ </div>
+ 
+ <div class="sect2" id="language.oop5.patterns.singleton">
+  <h3 class="title">Singleton</h3>
+  <p class="para">
+   The Singleton ensures that there can be only one instance of a Class and provides a 
+   global access point to that instance. Singleton is a &quot;Gang of Four&quot; Creational Pattern.
+  </p>
+  <p class="para">The Singleton pattern is often implemented in Database Classes, Loggers, Front 
+   Controllers or Request and Response objects.
+  </p>
+  
+  <div class="example" id="example-202">
+   <p><b>Example #2 Singleton example</b></p>
+   <div class="example-contents"><div class="phpcode"><code><span style="color: #000000">
+<span style="color: #0000BB">&lt;?php<br /></span><span style="color: #007700">class&nbsp;</span><span style="color: #0000BB">Example<br /></span><span style="color: #007700">{<br />&nbsp;&nbsp;&nbsp;&nbsp;private&nbsp;static&nbsp;</span><span style="color: #0000BB">$instance</span><span style="color: #007700">;<br />&nbsp;&nbsp;&nbsp;&nbsp;private&nbsp;</span><span style="color: #0000BB">$count&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">0</span><span style="color: #007700">;<br /><br />&nbsp;&nbsp;&nbsp;&nbsp;private&nbsp;function&nbsp;</span><span style="color: #0000BB">__construct</span><span style="color: #007700">()<br />&nbsp;&nbsp;&nbsp;&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;}<br /><br />&nbsp;&nbsp;&nbsp;&nbsp;public&nbsp;static&nbsp;function&nbsp;</span><span style="color: #0000BB">singleton</span><span style="color: #007700">()<br />&nbsp;&nbsp;&nbsp;&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;(!isset(</span><span style="color: #0000BB">self</span><span style="color: #007700">::</span><span style="color: #0000BB">$instance</span><span style="color: #007700">))&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;echo&nbsp;</span><span style="color: #DD0000">'Creating&nbsp;new&nbsp;instance.'</span><span style="color: #007700">;<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$className&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">__CLASS__</span><span style="color: #007700">;<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">self</span><span style="color: #007700">::</span><span style="color: #0000BB">$instance&nbsp;</span><span style="color: #007700">=&nbsp;new&nbsp;</span><span style="color: #0000BB">$className</span><span style="color: #007700">;<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;</span><span style="color: #0000BB">self</span><span style="color: #007700">::</span><span style="color: #0000BB">$instance</span><span style="color: #007700">;<br />&nbsp;&nbsp;&nbsp;&nbsp;}<br /><br />&nbsp;&nbsp;&nbsp;&nbsp;public&nbsp;function&nbsp;</span><span style="color: #0000BB">increment</span><span style="color: #007700">()<br />&nbsp;&nbsp;&nbsp;&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">count</span><span style="color: #007700">++;<br />&nbsp;&nbsp;&nbsp;&nbsp;}<br /><br />&nbsp;&nbsp;&nbsp;&nbsp;public&nbsp;function&nbsp;</span><span style="color: #0000BB">__clone</span><span style="color: #007700">()<br />&nbsp;&nbsp;&nbsp;&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">trigger_error</span><span style="color: #007700">(</span><span style="color: #DD0000">'Clone&nbsp;is&nbsp;not&nbsp;allowed.'</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">E_USER_ERROR</span><span style="color: #007700">);<br />&nbsp;&nbsp;&nbsp;&nbsp;}<br /><br />&nbsp;&nbsp;&nbsp;&nbsp;public&nbsp;function&nbsp;</span><span style="color: #0000BB">__wakeup</span><span style="color: #007700">()<br />&nbsp;&nbsp;&nbsp;&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">trigger_error</span><span style="color: #007700">(</span><span style="color: #DD0000">'Unserializing&nbsp;is&nbsp;not&nbsp;allowed.'</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">E_USER_ERROR</span><span style="color: #007700">);<br />&nbsp;&nbsp;&nbsp;&nbsp;}<br />}<br /></span><span style="color: #0000BB">?&gt;</span>
+</span>
+</code></div>
+   </div>
+
+   <div class="example-contents"><p>Illustrated below is how the Singleton behaves</p></div>
+   <div class="example-contents"><div class="phpcode"><code><span style="color: #000000">
+<span style="color: #0000BB">&lt;?php<br />$singleton&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">Example</span><span style="color: #007700">::</span><span style="color: #0000BB">singleton</span><span style="color: #007700">();&nbsp;</span><span style="color: #FF8000">//&nbsp;prints&nbsp;"Creating&nbsp;new&nbsp;instance."<br /></span><span style="color: #007700">echo&nbsp;</span><span style="color: #0000BB">$singleton</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">increment</span><span style="color: #007700">();&nbsp;</span><span style="color: #FF8000">//&nbsp;0<br /></span><span style="color: #007700">echo&nbsp;</span><span style="color: #0000BB">$singleton</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">increment</span><span style="color: #007700">();&nbsp;</span><span style="color: #FF8000">//&nbsp;1<br /><br /></span><span style="color: #0000BB">$singleton&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">Example</span><span style="color: #007700">::</span><span style="color: #0000BB">singleton</span><span style="color: #007700">();&nbsp;</span><span style="color: #FF8000">//&nbsp;reuses&nbsp;existing&nbsp;instance&nbsp;now<br /></span><span style="color: #007700">echo&nbsp;</span><span style="color: #0000BB">$singleton</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">increment</span><span style="color: #007700">();&nbsp;</span><span style="color: #FF8000">//&nbsp;2<br /></span><span style="color: #007700">echo&nbsp;</span><span style="color: #0000BB">$singleton</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">increment</span><span style="color: #007700">();&nbsp;</span><span style="color: #FF8000">//&nbsp;3<br /><br />//&nbsp;all&nbsp;of&nbsp;these&nbsp;will&nbsp;raise&nbsp;a&nbsp;Fatal&nbsp;Error<br /></span><span style="color: #0000BB">$singleton2&nbsp;</span><span style="color: #007700">=&nbsp;new&nbsp;</span><span style="color: #0000BB">Example</span><span style="color: #007700">;<br /></span><span style="color: #0000BB">$singleton3&nbsp;</span><span style="color: #007700">=&nbsp;clone&nbsp;</span><span style="color: #0000BB">$singleton</span><span style="color: #007700">;<br /></span><span style="color: #0000BB">$singleton4&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">unserialize</span><span style="color: #007700">(</span><span style="color: #0000BB">serialize</span><span style="color: #007700">(</span><span style="color: #0000BB">$singleton</span><span style="color: #007700">));<br /></span><span style="color: #0000BB">?&gt;</span>
+</span>
+</code></div>
+   </div>
+
+  </div>
+  <div class="warning"><b class="warning">Warning</b>
+   <p class="para">
+    The Singleton pattern is one of the more controversial patterns. Critics argue that 
+    Singletons introduce Global State into an application and tightly couple the Singleton 
+    and its consuming classes. This leads to hidden dependencies and unexpected side-effects, 
+    which in turn leads to code that is harder to test and maintain.
+   </p>
+   <p class="para">
+    Critics further argue that it is pointless to use a Singleton in a Shared Nothing Architecture 
+    like PHP where objects are unique within the Request only anyways. It is easier and cleaner to 
+    create collaborator object graphs by using Builders and Factory patterns once at the beginning 
+    of the Request.
+   </p>
+   <p class="para">
+    Singletons also violate several of the &quot;SOLID&quot; OOP design principles and the Law of Demeter.
+    Singletons cannot be serialized. They cannot be subtyped (before PHP 5.3) and won&#039;t be Garbage
+    Collected because of the instance being stored as a static attribute of the Singleton.
+   </p>   
+  </div>
+ </div>
+ 
+</div><hr /><div class="manualnavbar" style="text-align: center;">
+ <div class="prev" style="text-align: left; float: left;"><a href="language.oop5.iterations.html">Object Iteration</a></div>
+ <div class="next" style="text-align: right; float: right;"><a href="language.oop5.magic.html">Magic Methods</a></div>
+ <div class="up"><a href="language.oop5.html">Classes and Objects</a></div>
+ <div class="home"><a href="index.html">PHP Manual</a></div>
+</div></body></html>

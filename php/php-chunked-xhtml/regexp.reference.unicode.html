@@ -1,0 +1,345 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+ <head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>Unicode character properties</title>
+
+ </head>
+ <body><div class="manualnavbar" style="text-align: center;">
+ <div class="prev" style="text-align: left; float: left;"><a href="regexp.reference.escape.html">Escape sequences</a></div>
+ <div class="next" style="text-align: right; float: right;"><a href="regexp.reference.anchors.html">Anchors</a></div>
+ <div class="up"><a href="reference.pcre.pattern.syntax.html">PCRE regex syntax</a></div>
+ <div class="home"><a href="index.html">PHP Manual</a></div>
+</div><hr /><div id="regexp.reference.unicode" class="section">
+  <h2 class="title">Unicode character properties</h2>
+  <p class="para">
+   Since 5.1.0, three
+   additional escape sequences to match generic character types are available
+   when <em class="emphasis">UTF-8 mode</em> is selected. They are:
+  </p>
+  <dl>
+
+   <dt>
+
+    <span class="term"><em class="emphasis">\p{xx}</em></span>
+    <dd>
+<span class="simpara">a character with the xx property</span></dd>
+
+   </dt>
+
+   <dt>
+
+    <span class="term"><em class="emphasis">\P{xx}</em></span>
+    <dd>
+<span class="simpara">a character without the xx property</span></dd>
+
+   </dt>
+
+   <dt>
+
+    <span class="term"><em class="emphasis">\X</em></span>
+    <dd>
+<span class="simpara">an extended Unicode sequence</span></dd>
+
+   </dt>
+
+  </dl>
+
+  <p class="para">
+   The property names represented by <i>xx</i> above are limited 
+   to the Unicode general category properties. Each character has exactly one 
+   such property, specified by a two-letter abbreviation. For compatibility with
+   Perl, negation can be specified by including a circumflex between the
+   opening brace and the property name. For example, <i>\p{^Lu}</i> 
+   is the same as <i>\P{Lu}</i>.
+  </p>
+  <p class="para">
+   If only one letter is specified with <i>\p</i> or 
+   <i>\P</i>, it includes all the properties that start with that
+   letter. In this case, in the absence of negation, the curly brackets in the 
+   escape sequence are optional; these two examples have the same effect:
+  </p>
+  <div class="informalexample">
+   <div class="example-contents">
+<div class="cdata"><pre>
+\p{L}
+\pL
+</pre></div>
+   </div>
+
+  </div>
+  <table class="doctable table">
+   <caption><b>Supported property codes</b></caption>
+   
+    <thead valign="middle">
+     <tr valign="middle">
+      <th>Property</th>
+      <th>Matches</th>
+      <th>Notes</th>
+     </tr>
+
+    </thead>
+
+    <tbody valign="middle" class="tbody">
+     <tr valign="middle">
+      <td align="left"><i>C</i></td>
+      <td align="left">Other</td>
+      <td class="empty">&nbsp;</td>
+     </tr>
+
+     <tr valign="middle">
+      <td align="left"><i>Cc</i></td>
+      <td align="left">Control</td>
+      <td class="empty">&nbsp;</td>
+     </tr>
+
+     <tr valign="middle">
+      <td align="left"><i>Cf</i></td>
+      <td align="left">Format</td>
+      <td class="empty">&nbsp;</td>
+     </tr>
+
+     <tr valign="middle">
+      <td align="left"><i>Cn</i></td>
+      <td align="left">Unassigned</td>
+      <td class="empty">&nbsp;</td>
+     </tr>
+
+     <tr valign="middle">
+      <td align="left"><i>Co</i></td>
+      <td align="left">Private use</td>
+      <td class="empty">&nbsp;</td>
+     </tr>
+
+     <tr valign="middle">
+      <td align="left"><i>Cs</i></td>
+      <td align="left">Surrogate</td>
+      <td class="empty">&nbsp;</td>
+     </tr>
+
+     <tr valign="middle">
+      <td align="left"><i>L</i></td>
+      <td align="left">Letter</td>
+      <td align="left">
+       Includes the following properties: <i>Ll</i>, 
+       <i>Lm</i>, <i>Lo</i>, <i>Lt</i> and 
+       <i>Lu</i>.
+      </td>
+     </tr>
+
+     <tr valign="middle">
+      <td align="left"><i>Ll</i></td>
+      <td align="left">Lower case letter</td>
+      <td class="empty">&nbsp;</td>
+     </tr>
+
+     <tr valign="middle">
+      <td align="left"><i>Lm</i></td>
+      <td align="left">Modifier letter</td>
+      <td class="empty">&nbsp;</td>
+     </tr>
+
+     <tr valign="middle">
+      <td align="left"><i>Lo</i></td>
+      <td align="left">Other letter</td>
+      <td class="empty">&nbsp;</td>
+     </tr>
+
+     <tr valign="middle">
+      <td align="left"><i>Lt</i></td>
+      <td align="left">Title case letter</td>
+      <td class="empty">&nbsp;</td>
+     </tr>
+
+     <tr valign="middle">
+      <td align="left"><i>Lu</i></td>
+      <td align="left">Upper case letter</td>
+      <td class="empty">&nbsp;</td>
+     </tr>
+
+     <tr valign="middle">
+      <td align="left"><i>M</i></td>
+      <td align="left">Mark</td>
+      <td class="empty">&nbsp;</td>
+     </tr>
+
+     <tr valign="middle">
+      <td align="left"><i>Mc</i></td>
+      <td align="left">Spacing mark</td>
+      <td class="empty">&nbsp;</td>
+     </tr>
+
+     <tr valign="middle">
+      <td align="left"><i>Me</i></td>
+      <td align="left">Enclosing mark</td>
+      <td class="empty">&nbsp;</td>
+     </tr>
+
+     <tr valign="middle">
+      <td align="left"><i>Mn</i></td>
+      <td align="left">Non-spacing mark</td>
+      <td class="empty">&nbsp;</td>
+     </tr>
+
+     <tr valign="middle">
+      <td align="left"><i>N</i></td>
+      <td align="left">Number</td>
+      <td class="empty">&nbsp;</td>
+     </tr>
+
+     <tr valign="middle">
+      <td align="left"><i>Nd</i></td>
+      <td align="left">Decimal number</td>
+      <td class="empty">&nbsp;</td>
+     </tr>
+
+     <tr valign="middle">
+      <td align="left"><i>Nl</i></td>
+      <td align="left">Letter number</td>
+      <td class="empty">&nbsp;</td>
+     </tr>
+
+     <tr valign="middle">
+      <td align="left"><i>No</i></td>
+      <td align="left">Other number</td>
+      <td class="empty">&nbsp;</td>
+     </tr>
+
+     <tr valign="middle">
+      <td align="left"><i>P</i></td>
+      <td align="left">Punctuation</td>
+      <td class="empty">&nbsp;</td>
+     </tr>
+
+     <tr valign="middle">
+      <td align="left"><i>Pc</i></td>
+      <td align="left">Connector punctuation</td>
+      <td class="empty">&nbsp;</td>
+     </tr>
+
+     <tr valign="middle">
+      <td align="left"><i>Pd</i></td>
+      <td align="left">Dash punctuation</td>
+      <td class="empty">&nbsp;</td>
+     </tr>
+
+     <tr valign="middle">
+      <td align="left"><i>Pe</i></td>
+      <td align="left">Close punctuation</td>
+      <td class="empty">&nbsp;</td>
+     </tr>
+
+     <tr valign="middle">
+      <td align="left"><i>Pf</i></td>
+      <td align="left">Final punctuation</td>
+      <td class="empty">&nbsp;</td>
+     </tr>
+
+     <tr valign="middle">
+      <td align="left"><i>Pi</i></td>
+      <td align="left">Initial punctuation</td>
+      <td class="empty">&nbsp;</td>
+     </tr>
+
+     <tr valign="middle">
+      <td align="left"><i>Po</i></td>
+      <td align="left">Other punctuation</td>
+      <td class="empty">&nbsp;</td>
+     </tr>
+
+     <tr valign="middle">
+      <td align="left"><i>Ps</i></td>
+      <td align="left">Open punctuation</td>
+      <td class="empty">&nbsp;</td>
+     </tr>
+
+     <tr valign="middle">
+      <td align="left"><i>S</i></td>
+      <td align="left">Symbol</td>
+      <td class="empty">&nbsp;</td>
+     </tr>
+
+     <tr valign="middle">
+      <td align="left"><i>Sc</i></td>
+      <td align="left">Currency symbol</td>
+      <td class="empty">&nbsp;</td>
+     </tr>
+
+     <tr valign="middle">
+      <td align="left"><i>Sk</i></td>
+      <td align="left">Modifier symbol</td>
+      <td class="empty">&nbsp;</td>
+     </tr>
+
+     <tr valign="middle">
+      <td align="left"><i>Sm</i></td>
+      <td align="left">Mathematical symbol</td>
+      <td class="empty">&nbsp;</td>
+     </tr>
+
+     <tr valign="middle">
+      <td align="left"><i>So</i></td>
+      <td align="left">Other symbol</td>
+      <td class="empty">&nbsp;</td>
+     </tr>
+
+     <tr valign="middle">
+      <td align="left"><i>Z</i></td>
+      <td align="left">Separator</td>
+      <td class="empty">&nbsp;</td>
+     </tr>
+
+     <tr valign="middle">
+      <td align="left"><i>Zl</i></td>
+      <td align="left">Line separator</td>
+      <td class="empty">&nbsp;</td>
+     </tr>
+
+     <tr valign="middle">
+      <td align="left"><i>Zp</i></td>
+      <td align="left">Paragraph separator</td>
+      <td class="empty">&nbsp;</td>
+     </tr>
+
+     <tr valign="middle">
+      <td align="left"><i>Zs</i></td>
+      <td align="left">Space separator</td>
+      <td class="empty">&nbsp;</td>
+     </tr>
+
+    </tbody>
+   
+  </table>
+
+  <p class="para">
+   Extended properties such as &quot;Greek&quot; or &quot;InMusicalSymbols&quot; are not
+   supported by PCRE.
+  </p>
+  <p class="para">
+   Specifying case-insensitive (caseless) matching does not affect these escape sequences.
+   For example, <i>\p{Lu}</i> always matches only upper case letters.
+  </p>
+  <p class="para">
+   The <i>\X</i> escape matches any number of Unicode characters 
+   that form an extended Unicode sequence. <i>\X</i> is equivalent 
+   to <i>(?&gt;\PM\pM*)</i>.
+  </p>
+  <p class="para">
+   That is, it matches a character without the &quot;mark&quot; property, followed
+   by zero or more characters with the &quot;mark&quot; property, and treats the
+   sequence as an atomic group (see below). Characters with the &quot;mark&quot;
+   property are typically accents that affect the preceding character.
+  </p>
+  <p class="para">
+   Matching characters by Unicode property is not fast, because PCRE has
+   to search a structure that contains data for over fifteen thousand
+   characters. That is why the traditional escape sequences such as 
+   <i>\d</i> and <i>\w</i> do not use Unicode properties 
+   in PCRE.
+  </p>
+ </div><hr /><div class="manualnavbar" style="text-align: center;">
+ <div class="prev" style="text-align: left; float: left;"><a href="regexp.reference.escape.html">Escape sequences</a></div>
+ <div class="next" style="text-align: right; float: right;"><a href="regexp.reference.anchors.html">Anchors</a></div>
+ <div class="up"><a href="reference.pcre.pattern.syntax.html">PCRE regex syntax</a></div>
+ <div class="home"><a href="index.html">PHP Manual</a></div>
+</div></body></html>

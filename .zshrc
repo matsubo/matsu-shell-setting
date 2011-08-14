@@ -15,7 +15,7 @@ setopt pushd_ignore_dups rm_star_silent sun_keyboard_hack
 setopt extended_glob list_types no_beep always_last_prompt
 setopt cdable_vars sh_word_split auto_param_keys
 setopt NO_flow_control
-setopt autopushd pushd_ignore_dups list_packed list_types EXTENDED_HISTORY
+setopt auto_pushd pushd_ignore_dups list_packed list_types EXTENDED_HISTORY
 
 unsetopt promptcr
 
@@ -114,8 +114,8 @@ alias -g W='| wc'
 
 alias upgrade='sudo aptitude update && sudo aptitude safe-upgrade'
 
-alias cd="pushd"
-alias bd="popd"
+#alias cd="pushd"
+#alias bd="popd"
 
 # super shortcut
 # ex: g TestAction
@@ -131,6 +131,9 @@ alias -g A='| awk'
 alias -g W='| wc'
 
 
+# for work
+alias findgrep="find -type d -name '.svn' -prune -o -type f -print | xargs grep -n"
+
 
 
 export EDITOR=vi
@@ -142,8 +145,9 @@ export SAMBA=/usr/local/samba
 export SVN_EDITOR=vi
 
 export JAVA_HOME=/usr/local/java
-export PATH=$MYSQL/bin/:$SAMBA/bin:/usr/local/bin:/bin:/usr/bin:/sbin:/usr/sbin:$JAVA_HOME/bin
+export PATH=$MYSQL/bin/:$SAMBA/bin:/usr/local/bin:/bin:/usr/bin:/sbin:/usr/sbin:$JAVA_HOME/bin:/opt/local/bin
 export PATH=~/archive/screen-4.0.3:$PATH
+export PATH="/opt/local/bin":$PATH
 
 
 # Hit ^ = cd ..
@@ -162,17 +166,15 @@ bindkey '\^' cdup
 # OS specific setting
 #########################################
 if [ -d /Users/ ]; then
+  # mac
+  alias updatedb=/usr/libexec/locate.updatedb
+  alias ls='ls -G -p'
+	export PATH=$PATH:/usr/local/git/bin
+fi
 
-  if [ -f ~/.setting/.zshrc_mac ]; then
-    source ~/.setting/.zshrc_mac
-  fi
-
-else
-
-  if [ -d /Users/ ]; then
-     source ~/.setting/.zshrc_linux
-  fi
-
+if [ -f /usr/bin/ccache ];then
+	export CC='ccache gcc'
+	export CXX='ccache g++'
 fi
 
 if [ -f /usr/bin/ccache ];then
@@ -236,6 +238,21 @@ compdef _rake rake
 
 
 #########################################
+# VCS setting
+#########################################
+# http://d.hatena.ne.jp/mollifier/20090814/p1
+autoload -Uz vcs_info
+zstyle ':vcs_info:*' formats '(%s)-[%b]'
+zstyle ':vcs_info:*' actionformats '(%s)-[%b|%a]'
+precmd () {
+	psvar=()
+	LANG=en_US.UTF-8 vcs_info
+	[[ -n "$vcs_info_msg_0_" ]] && psvar[1]="$vcs_info_msg_0_"
+}
+RPROMPT="%1(v|%F{green}%1v%f|)"
+
+
+#########################################
 # local setting. 
 #########################################
 LOCAL_SETTING="~/.zshrc_local"
@@ -258,6 +275,7 @@ fi
 # startup command
 #########################################
 
-screen -r 
+#screen -xrU
+screen -r
 
 

@@ -1,0 +1,157 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+ <head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>VARIANT class</title>
+
+ </head>
+ <body><div class="manualnavbar" style="text-align: center;">
+ <div class="prev" style="text-align: left; float: left;"><a href="class.dotnet.html">DOTNET</a></div>
+ <div class="next" style="text-align: right; float: right;"><a href="function.com-addref.html">com_addref</a></div>
+ <div class="up"><a href="ref.com.html">COM Functions</a></div>
+ <div class="home"><a href="index.html">PHP Manual</a></div>
+</div><hr /><div id="class.variant" class="refentry">
+ <div class="refnamediv">
+  <h1 class="refname">VARIANT</h1>
+  <p class="verinfo">(PHP 4 &gt;= 4.1.0, PHP 5)</p><p class="refpurpose"><span class="refname">VARIANT</span> &mdash; <span class="dc-title">VARIANT class</span></p>
+
+ </div>
+ <div class="refsynopsisdiv">
+ <pre class="synopsis">$vVar = new <b class="classname">VARIANT</b>($var)</pre>
+ </div>
+ <div class="refsect1 unknown" id="refsect1-class.variant-unknown">
+  <h3 class="title">Description</h3>
+  <p class="simpara">
+   The VARIANT is COM&#039;s equivalent of the PHP zval; it is a structure that
+   can contain a value with a range of different possible types.  The VARIANT
+   class provided by the COM extension allows you to have more control over
+   the way that PHP passes values to and from COM.
+  </p>
+ </div>
+
+ <div class="refsect1 unknown" id="refsect1-class.variant-unknown">
+  <h3 class="title">Methods</h3>
+  <div class="methodsynopsis dc-description">
+   <span class="type">object</span> <span class="methodname"><b>VARIANT::VARIANT</b></span>
+    ([ <span class="methodparam"><span class="type"><a href="language.pseudo-types.html#language.types.mixed" class="type mixed">mixed</a></span> <tt class="parameter">$value</tt></span>
+   [, <span class="methodparam"><span class="type">int</span> <tt class="parameter">$type</tt></span>
+   [, <span class="methodparam"><span class="type">int</span> <tt class="parameter">$codepage</tt></span>
+  ]]] )</div>
+
+  <p class="para rdfs-comment">
+   VARIANT class constructor. Parameters:
+   <dl>
+
+   <dt>
+<span class="term">value</span>
+   <dd>
+
+    <span class="simpara">
+     initial value. if omitted, or set to <b><tt>NULL</tt></b> an VT_EMPTY object is created.
+    </span>
+   </dd>
+
+   </dt>
+
+   <dt>
+<span class="term">type</span>
+   <dd>
+
+    <span class="simpara">
+     specifies the content type of the VARIANT object. Possible values are
+     one of the <b><tt>VT_XXX</tt></b> <a href="com.constants.html" class="xref">Predefined Constants</a>.
+    </span>
+    <span class="simpara">
+     In PHP versions prior to PHP 5, you could force PHP to pass a variant
+     object by reference by OR&#039;ing <b><tt>VT_BYREF</tt></b>
+     with the <i><tt class="parameter">type</tt></i>.  In PHP 5, this hack is not
+     supported; instead, PHP 5 can detect parameters passed by reference
+     automatically; they do not even need to be passed as VARIANT objects.
+    </span>
+    <span class="simpara">
+     Consult the <acronym title="Microsoft Developer Network">MSDN</acronym> library for additional information
+     on the VARIANT type.
+    </span>
+   </dd>
+
+   </dt>
+
+   <dt>
+<span class="term">codepage</span>
+   <dd>
+
+    <span class="simpara">
+     specifies the codepage that is used to convert strings to
+     unicode.  See the parameter of the same name in the
+     <a href="class.com.html" class="xref">COM</a> class for more information.
+    </span>
+   </dd>
+
+   </dt>
+
+   </dl>
+
+  </p>
+  <p class="para">
+   PHP versions prior to PHP 5 define a number of (undocumented) virtual properties
+   for instances of the VARIANT class; these properties have all been removed in
+   PHP 5 in favour of its more natural syntax; these differences are best
+   highlighted by example:
+  </p>
+  <p class="para">
+   <div class="example" id="com.variant.example.php4">
+    <p><b>Example #1 Variant example, PHP 4.x style</b></p>
+    <div class="example-contents">
+<div class="phpcode"><code><span style="color: #000000">
+<span style="color: #0000BB">&lt;?php<br />$v&nbsp;</span><span style="color: #007700">=&nbsp;new&nbsp;</span><span style="color: #0000BB">VARIANT</span><span style="color: #007700">(</span><span style="color: #0000BB">42</span><span style="color: #007700">);<br />print&nbsp;</span><span style="color: #DD0000">"The&nbsp;type&nbsp;is&nbsp;"&nbsp;</span><span style="color: #007700">.&nbsp;</span><span style="color: #0000BB">$v</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">type&nbsp;</span><span style="color: #007700">.&nbsp;</span><span style="color: #DD0000">"&lt;br/&gt;"</span><span style="color: #007700">;<br />print&nbsp;</span><span style="color: #DD0000">"The&nbsp;value&nbsp;is&nbsp;"&nbsp;</span><span style="color: #007700">.&nbsp;</span><span style="color: #0000BB">$v</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">value&nbsp;</span><span style="color: #007700">.&nbsp;</span><span style="color: #DD0000">"&lt;br/&gt;"</span><span style="color: #007700">;<br /></span><span style="color: #0000BB">?&gt;</span>
+</span>
+</code></div>
+    </div>
+
+   </div>
+  </p>
+  <p class="para">
+   <div class="example" id="com.variant.example.php5">
+    <p><b>Example #2 Variant example, PHP 5 style</b></p>
+    <div class="example-contents">
+<div class="phpcode"><code><span style="color: #000000">
+<span style="color: #0000BB">&lt;?php<br />$v&nbsp;</span><span style="color: #007700">=&nbsp;new&nbsp;</span><span style="color: #0000BB">VARIANT</span><span style="color: #007700">(</span><span style="color: #0000BB">42</span><span style="color: #007700">);<br />print&nbsp;</span><span style="color: #DD0000">"The&nbsp;type&nbsp;is&nbsp;"&nbsp;</span><span style="color: #007700">.&nbsp;</span><span style="color: #0000BB">variant_get_type</span><span style="color: #007700">(</span><span style="color: #0000BB">$v</span><span style="color: #007700">)&nbsp;.&nbsp;</span><span style="color: #DD0000">"&lt;br/&gt;"</span><span style="color: #007700">;<br />print&nbsp;</span><span style="color: #DD0000">"The&nbsp;value&nbsp;is&nbsp;"&nbsp;</span><span style="color: #007700">.&nbsp;</span><span style="color: #0000BB">$v&nbsp;</span><span style="color: #007700">.&nbsp;</span><span style="color: #DD0000">"&lt;br/&gt;"</span><span style="color: #007700">;<br /></span><span style="color: #0000BB">?&gt;</span>
+</span>
+</code></div>
+    </div>
+
+   </div>
+  </p>
+  <p class="para">
+   The reason for the change is that, internally, the COM extension sees
+   VARIANT, COM and DOTNET classes as the same thing, and the design
+   philosophy for these classes is that all property and member accesses are
+   passed through to COM with no interference.  The new syntax is more
+   natural and less effort, and most of the removed virtual properties didn&#039;t
+   make any sense in a PHP context in any case.
+  </p>
+  <blockquote class="note"><p><b class="note">Note</b>: 
+   <p class="para">
+    PHP 5 takes a much simpler approach to handling VARIANTs; when returning
+    a value or fetching a variant property, the variant is converted to a PHP
+    value only when there is a direct mapping between the types that would
+    not result in a loss of information.  In all other cases, the result is
+    returned as an instance of the VARIANT class.  You can force PHP to
+    convert or evaluate the variant as a PHP native type by using a casting
+    operator explicitly, or implicitly casting to a string by
+    <span class="function"><a href="function.print.html" class="function">print()</a></span>ing it.  You may use the wide range of variant
+    functions to perform arithmetic operations on variants without forcing a
+    conversion or risking a loss of data.
+   </p>
+  </p></blockquote>
+  <p class="para">
+   See also <span class="function"><a href="function.variant-get-type.html" class="function">variant_get_type()</a></span>.
+  </p>
+ </div>
+
+</div><hr /><div class="manualnavbar" style="text-align: center;">
+ <div class="prev" style="text-align: left; float: left;"><a href="class.dotnet.html">DOTNET</a></div>
+ <div class="next" style="text-align: right; float: right;"><a href="function.com-addref.html">com_addref</a></div>
+ <div class="up"><a href="ref.com.html">COM Functions</a></div>
+ <div class="home"><a href="index.html">PHP Manual</a></div>
+</div></body></html>

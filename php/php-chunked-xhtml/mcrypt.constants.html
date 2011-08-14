@@ -1,0 +1,167 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+ <head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>Predefined Constants</title>
+
+ </head>
+ <body><div class="manualnavbar" style="text-align: center;">
+ <div class="prev" style="text-align: left; float: left;"><a href="mcrypt.resources.html">Resource Types</a></div>
+ <div class="next" style="text-align: right; float: right;"><a href="mcrypt.ciphers.html">Mcrypt ciphers</a></div>
+ <div class="up"><a href="book.mcrypt.html">Mcrypt</a></div>
+ <div class="home"><a href="index.html">PHP Manual</a></div>
+</div><hr /><div id="mcrypt.constants" class="appendix">
+ <h1>Predefined Constants</h1>
+
+ <p class="simpara">
+The constants below are defined by this extension, and
+will only be available when the extension has either
+been compiled into PHP or dynamically loaded at runtime.
+</p>
+ <p class="para">
+  Mcrypt can operate in four block cipher modes (<i>CBC</i>,
+  <i>OFB</i>, <i>CFB</i>, and
+  <i>ECB</i>). If linked against libmcrypt-2.4.x or higher the
+  functions can also operate in the block cipher mode <i>nOFB</i>
+  and in <i>STREAM</i> mode. Below you find a list with all
+  supported encryption modes together with the constants that are
+  defines for the encryption mode.  For a more complete reference and
+  discussion see Applied Cryptography by Schneier (ISBN 0-471-11709-9).
+  <ul class="itemizedlist">
+   <li class="listitem">
+    <span class="simpara">
+     <b><tt>MCRYPT_MODE_ECB</tt></b> (<i>electronic
+     codebook</i>) is suitable for random data,
+     such as encrypting other keys. Since data there is short and random,
+     the disadvantages of ECB have a favorable negative effect.
+    </span>
+   </li>
+   <li class="listitem">
+    <span class="simpara">
+     <b><tt>MCRYPT_MODE_CBC</tt></b> (<i>cipher block
+     chaining</i>) is especially suitable for
+     encrypting files where the security is increased over <i>ECB</i>
+     significantly.
+    </span>
+   </li>
+   <li class="listitem">
+    <span class="simpara">
+     <b><tt>MCRYPT_MODE_CFB</tt></b> (<i>cipher
+     feedback</i>) is the best mode for encrypting byte
+     streams where single bytes must be encrypted.
+    </span>
+   </li>
+   <li class="listitem">
+    <span class="simpara">
+     <b><tt>MCRYPT_MODE_OFB</tt></b> (<i>output feedback, in
+     8bit</i>) is comparable to <i>CFB</i>, but
+     can be used in applications where error propagation cannot
+     be tolerated. It&#039;s insecure (because it operates in 8bit
+     mode) so it is not recommended to use it.
+    </span>
+   </li>
+   <li class="listitem">
+    <span class="simpara">
+     <b><tt>MCRYPT_MODE_NOFB</tt></b> (<i>output feedback,
+     in nbit</i>) is comparable to OFB, but
+     more secure because it operates on the block size of the algorithm.
+    </span>
+   </li> 
+   <li class="listitem">
+    <span class="simpara">
+     <b><tt>MCRYPT_MODE_STREAM</tt></b> is an extra mode to include
+     some stream algorithms like <i>&quot;WAKE&quot;</i> or <i>&quot;RC4&quot;</i>.
+    </span>
+   </li> 
+  </ul>
+ </p>
+
+ <p class="para">
+  Some other mode and random device constants:
+  <dl>
+
+   <dt>
+
+    <span class="term">
+     <b><tt>MCRYPT_ENCRYPT</tt></b> 
+     (<span class="type"><a href="language.types.integer.html" class="type integer">integer</a></span>)
+    </span>
+    <dd>
+
+     <span class="simpara">
+      
+     </span>
+    </dd>
+
+   </dt>
+
+   <dt>
+
+    <span class="term">
+     <b><tt>MCRYPT_DECRYPT</tt></b> 
+     (<span class="type"><a href="language.types.integer.html" class="type integer">integer</a></span>)
+    </span>
+    <dd>
+
+     <span class="simpara">
+      
+     </span>
+    </dd>
+
+   </dt>
+
+   <dt>
+
+    <span class="term">
+     <b><tt>MCRYPT_DEV_RANDOM</tt></b> 
+     (<span class="type"><a href="language.types.integer.html" class="type integer">integer</a></span>)
+    </span>
+    <dd>
+
+     <span class="simpara">
+      
+     </span>
+    </dd>
+
+   </dt>
+
+   <dt>
+
+    <span class="term">
+     <b><tt>MCRYPT_DEV_URANDOM</tt></b> 
+     (<span class="type"><a href="language.types.integer.html" class="type integer">integer</a></span>)
+    </span>
+    <dd>
+
+     <span class="simpara">
+      
+     </span>
+    </dd>
+
+   </dt>
+
+   <dt>
+
+    <span class="term">
+     <b><tt>MCRYPT_RAND</tt></b> 
+     (<span class="type"><a href="language.types.integer.html" class="type integer">integer</a></span>)
+    </span>
+    <dd>
+
+     <span class="simpara">
+      
+     </span>
+    </dd>
+
+   </dt>
+
+  </dl>
+
+ </p>
+</div>
+<hr /><div class="manualnavbar" style="text-align: center;">
+ <div class="prev" style="text-align: left; float: left;"><a href="mcrypt.resources.html">Resource Types</a></div>
+ <div class="next" style="text-align: right; float: right;"><a href="mcrypt.ciphers.html">Mcrypt ciphers</a></div>
+ <div class="up"><a href="book.mcrypt.html">Mcrypt</a></div>
+ <div class="home"><a href="index.html">PHP Manual</a></div>
+</div></body></html>

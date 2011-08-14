@@ -1,0 +1,134 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+ <head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>Querys this collection, returning a single element</title>
+
+ </head>
+ <body><div class="manualnavbar" style="text-align: center;">
+ <div class="prev" style="text-align: left; float: left;"><a href="mongocollection.find.html">MongoCollection::find</a></div>
+ <div class="next" style="text-align: right; float: right;"><a href="mongocollection.get.html">MongoCollection::__get</a></div>
+ <div class="up"><a href="class.mongocollection.html">MongoCollection</a></div>
+ <div class="home"><a href="index.html">PHP Manual</a></div>
+</div><hr /><div id="mongocollection.findone" class="refentry">
+ <div class="refnamediv">
+  <h1 class="refname">MongoCollection::findOne</h1>
+  <p class="verinfo">(PECL mongo &gt;=0.9.0)</p><p class="refpurpose"><span class="refname">MongoCollection::findOne</span> &mdash; <span class="dc-title">Querys this collection, returning a single element</span></p>
+
+ </div>
+
+ <div class="refsect1 description" id="refsect1-mongocollection.findone-description">
+  <h3 class="title">Description</h3>
+  <div class="methodsynopsis dc-description">
+   <span class="modifier">public</span> <span class="type">array</span> <span class="methodname"><b>MongoCollection::findOne</b></span>
+    ([ <span class="methodparam"><span class="type">array</span> <tt class="parameter">$query</tt><span class="initializer"> = array()</span></span>
+   [, <span class="methodparam"><span class="type">array</span> <tt class="parameter">$fields</tt><span class="initializer"> = array()</span></span>
+  ]] )</div>
+
+ </div>
+
+
+ <div class="refsect1 parameters" id="refsect1-mongocollection.findone-parameters">
+  <h3 class="title">Parameters</h3>
+  <p class="para">
+   <dl>
+
+    <dt>
+
+     <span class="term">
+      <i><tt class="parameter">query</tt></i>
+     </span>
+     <dd>
+
+      <p class="para">
+       The fields for which to search.
+      </p>
+     </dd>
+
+    </dt>
+   
+    <dt>
+
+     <span class="term">
+      <i><tt class="parameter">fields</tt></i>
+     </span>
+     <dd>
+
+      <p class="para">
+       Fields of the results to return.
+      </p>
+     </dd>
+
+    </dt>
+   
+   </dl>
+
+  </p>
+ </div>
+
+ <div class="refsect1 returnvalues" id="refsect1-mongocollection.findone-returnvalues">
+  <h3 class="title">Return Values</h3>
+  <p class="para">
+   Returns record matching the search or <b><tt>NULL</tt></b>.
+  </p>
+ </div>
+
+ <div class="refsect1 errors" id="refsect1-mongocollection.findone-errors">
+  <h3 class="title">Errors/Exceptions</h3>
+  <p class="para">
+   Throws <a href="class.mongoconnectionexception.html" class="classname">MongoConnectionException</a> if it cannot reach the 
+   database.
+  </p>
+ </div>
+
+ 
+ <div class="refsect1 examples" id="refsect1-mongocollection.findone-examples">
+  <h3 class="title">Examples</h3>
+  <div class="example" id="example-1396">
+   <p><b>Example #1  <span class="methodname"><b>MongoCollection::findOne()</b></span> document by its id.</b></p>
+   <div class="example-contents"><p>This example demonstrates how to find a single document in a collection by its id.</p></div>
+   <div class="example-contents">
+<div class="phpcode"><code><span style="color: #000000">
+<span style="color: #0000BB">&lt;?php<br /><br />$articles&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">$mongo</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">my_db</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">articles</span><span style="color: #007700">;<br /><br /></span><span style="color: #0000BB">$article&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">$articles</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">findOne</span><span style="color: #007700">(array(</span><span style="color: #DD0000">'_id'&nbsp;</span><span style="color: #007700">=&gt;&nbsp;new&nbsp;</span><span style="color: #0000BB">MongoId</span><span style="color: #007700">(</span><span style="color: #DD0000">'47cc67093475061e3d9536d2'</span><span style="color: #007700">)));<br /><br /></span><span style="color: #0000BB">?&gt;</span>
+</span>
+</code></div>
+   </div>
+
+  </div>
+  <div class="example" id="example-1397">
+   <p><b>Example #2  <span class="methodname"><b>MongoCollection::findOne()</b></span> document by some condition.</b></p>
+   <div class="example-contents"><p>This example demonstrates how to find a single document in a collection by some condition and limiting the returned fields.</p></div>
+   <div class="example-contents">
+<div class="phpcode"><code><span style="color: #000000">
+<span style="color: #0000BB">&lt;?php<br /><br />$users&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">$mongo</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">my_db</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">users</span><span style="color: #007700">;<br /></span><span style="color: #0000BB">$user&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">$users</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">findOne</span><span style="color: #007700">(array(</span><span style="color: #DD0000">'username'&nbsp;</span><span style="color: #007700">=&gt;&nbsp;</span><span style="color: #DD0000">'jwage'</span><span style="color: #007700">),&nbsp;array(</span><span style="color: #DD0000">'password'</span><span style="color: #007700">));<br /></span><span style="color: #0000BB">print_r</span><span style="color: #007700">(</span><span style="color: #0000BB">$user</span><span style="color: #007700">);<br /><br /></span><span style="color: #0000BB">?&gt;</span>
+</span>
+</code></div>
+   </div>
+
+   <div class="example-contents"><p>The above example will output
+something similar to:</p></div>
+   <div class="example-contents screen">
+<div class="cdata"><pre>
+Array
+(
+    [_id] =&gt; MongoId Object
+        (
+        )
+
+    [password] =&gt; test
+)
+</pre></div>
+   </div>
+   <div class="example-contents"><p>
+    Notice how even though the document does have a username field, we limited the results
+    to only contain the password field.
+   </p></div>
+  </div>
+ </div>
+
+</div><hr /><div class="manualnavbar" style="text-align: center;">
+ <div class="prev" style="text-align: left; float: left;"><a href="mongocollection.find.html">MongoCollection::find</a></div>
+ <div class="next" style="text-align: right; float: right;"><a href="mongocollection.get.html">MongoCollection::__get</a></div>
+ <div class="up"><a href="class.mongocollection.html">MongoCollection</a></div>
+ <div class="home"><a href="index.html">PHP Manual</a></div>
+</div></body></html>

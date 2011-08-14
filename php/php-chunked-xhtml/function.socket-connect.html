@@ -1,0 +1,128 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+ <head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>Initiates a connection on a socket</title>
+
+ </head>
+ <body><div class="manualnavbar" style="text-align: center;">
+ <div class="prev" style="text-align: left; float: left;"><a href="function.socket-close.html">socket_close</a></div>
+ <div class="next" style="text-align: right; float: right;"><a href="function.socket-create-listen.html">socket_create_listen</a></div>
+ <div class="up"><a href="ref.sockets.html">Socket Functions</a></div>
+ <div class="home"><a href="index.html">PHP Manual</a></div>
+</div><hr /><div id="function.socket-connect" class="refentry">
+ <div class="refnamediv">
+  <h1 class="refname">socket_connect</h1>
+  <p class="verinfo">(PHP 4 &gt;= 4.1.0, PHP 5)</p><p class="refpurpose"><span class="refname">socket_connect</span> &mdash; <span class="dc-title">Initiates a connection on a socket</span></p>
+
+ </div>
+ 
+ <div class="refsect1 description" id="refsect1-function.socket-connect-description">
+  <h3 class="title">Description</h3>
+  <div class="methodsynopsis dc-description">
+   <span class="type">bool</span> <span class="methodname"><b>socket_connect</b></span>
+    ( <span class="methodparam"><span class="type">resource</span> <tt class="parameter">$socket</tt></span>
+   , <span class="methodparam"><span class="type">string</span> <tt class="parameter">$address</tt></span>
+   [, <span class="methodparam"><span class="type">int</span> <tt class="parameter">$port</tt><span class="initializer"> = 0</span></span>
+  ] )</div>
+
+  <p class="para rdfs-comment">
+   Initiate a connection to <i><tt class="parameter">address</tt></i> using the socket resource
+   <i><tt class="parameter">socket</tt></i>, which must be a valid socket
+   resource created with <span class="function"><a href="function.socket-create.html" class="function">socket_create()</a></span>.
+  </p>
+ </div>
+
+
+ <div class="refsect1 parameters" id="refsect1-function.socket-connect-parameters">
+  <h3 class="title">Parameters</h3>
+  <p class="para">
+   <dl>
+
+    <dt>
+
+     <span class="term"><i><tt class="parameter">socket</tt></i></span>
+     <dd>
+
+      <p class="para">
+      </p>
+     </dd>
+
+    </dt>
+
+    <dt>
+
+     <span class="term"><i><tt class="parameter">address</tt></i></span>
+     <dd>
+
+      <p class="para">
+       The <i><tt class="parameter">address</tt></i> parameter is either an IPv4 address
+       in dotted-quad notation (e.g. <i>127.0.0.1</i>) if 
+       <i><tt class="parameter">socket</tt></i> is <b><tt>AF_INET</tt></b>, a valid 
+       IPv6 address (e.g. <i>::1</i>) if IPv6 support is enabled and 
+       <i><tt class="parameter">socket</tt></i> is <b><tt>AF_INET6</tt></b>
+       or the pathname of a Unix domain socket, if the socket family is
+       <b><tt>AF_UNIX</tt></b>.
+      </p>
+     </dd>
+
+    </dt>
+
+    <dt>
+
+     <span class="term"><i><tt class="parameter">port</tt></i></span>
+     <dd>
+
+      <p class="para">
+       The <i><tt class="parameter">port</tt></i> parameter is only used and is mandatory
+       when connecting to an <b><tt>AF_INET</tt></b> or an 
+       <b><tt>AF_INET6</tt></b> socket, and designates
+       the port on the remote host to which a connection should be made.
+      </p>
+     </dd>
+
+    </dt>
+
+   </dl>
+
+  </p>
+ </div>
+
+
+ <div class="refsect1 returnvalues" id="refsect1-function.socket-connect-returnvalues">
+  <h3 class="title">Return Values</h3>
+  <p class="para">
+   Returns <b><tt>TRUE</tt></b> on success or <b><tt>FALSE</tt></b> on failure. The error code can be retrieved with
+   <span class="function"><a href="function.socket-last-error.html" class="function">socket_last_error()</a></span>. This code may be passed to
+   <span class="function"><a href="function.socket-strerror.html" class="function">socket_strerror()</a></span> to get a textual explanation of the
+   error.
+  </p>
+  <blockquote class="note"><p><b class="note">Note</b>: 
+   <p class="para">
+    If the socket is non-blocking then this function returns <b><tt>FALSE</tt></b> with an
+    error <i>Operation now in progress</i>.
+   </p>
+  </p></blockquote>
+ </div>
+
+
+ <div class="refsect1 seealso" id="refsect1-function.socket-connect-seealso">
+  <h3 class="title">See Also</h3>
+  <p class="para">
+   <ul class="simplelist">
+    <li class="member"><span class="function"><a href="function.socket-bind.html" class="function" rel="rdfs-seeAlso">socket_bind()</a> - Binds a name to a socket</span></li>
+    <li class="member"><span class="function"><a href="function.socket-listen.html" class="function" rel="rdfs-seeAlso">socket_listen()</a> - Listens for a connection on a socket</span></li>
+    <li class="member"><span class="function"><a href="function.socket-create.html" class="function" rel="rdfs-seeAlso">socket_create()</a> - Create a socket (endpoint for communication)</span></li>
+    <li class="member"><span class="function"><a href="function.socket-last-error.html" class="function" rel="rdfs-seeAlso">socket_last_error()</a> - Returns the last error on the socket</span></li>
+    <li class="member"><span class="function"><a href="function.socket-strerror.html" class="function" rel="rdfs-seeAlso">socket_strerror()</a> - Return a string describing a socket error</span></li>
+   </ul>
+  </p>
+ </div>
+
+
+</div><hr /><div class="manualnavbar" style="text-align: center;">
+ <div class="prev" style="text-align: left; float: left;"><a href="function.socket-close.html">socket_close</a></div>
+ <div class="next" style="text-align: right; float: right;"><a href="function.socket-create-listen.html">socket_create_listen</a></div>
+ <div class="up"><a href="ref.sockets.html">Socket Functions</a></div>
+ <div class="home"><a href="index.html">PHP Manual</a></div>
+</div></body></html>

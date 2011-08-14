@@ -1,0 +1,179 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+ <head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>SQL types with PDO_4D and PHP</title>
+
+ </head>
+ <body><div class="manualnavbar" style="text-align: center;">
+ <div class="prev" style="text-align: left; float: left;"><a href="pdo-4d.constants.html">Constants for PDO_4D</a></div>
+ <div class="next" style="text-align: right; float: right;"><a href="ref.pdo-4d.sql4d.html">SQL acceptable by 4D</a></div>
+ <div class="up"><a href="ref.pdo-4d.html">4D (PDO)</a></div>
+ <div class="home"><a href="index.html">PHP Manual</a></div>
+</div><hr /><div id="pdo-4d.sqltypes" class="refentry">
+ <div class="refnamediv">
+  <h1 class="refname">SQL types with PDO_4D and PHP</h1>
+  <p class="verinfo">(No version information available, might only be in SVN)</p><p class="refpurpose"><span class="refname">SQL types with PDO_4D and PHP</span> &mdash; <span class="dc-title">SQL types with PDO_4D and PHP</span></p>
+
+ </div>
+
+ <div class="refsect1 description" id="refsect1-pdo-4d.sqltypes-description">
+  <p class="para">
+    <table class="doctable table">
+     <caption><b>Supported SQL types</b></caption>
+     
+      <thead valign="middle">
+       <tr valign="middle">
+        <th>Type SQL 4D</th>
+        <th>Equivalent 4D</th>
+        <th>Note</th>
+       </tr>
+
+      </thead>
+
+      <tbody valign="middle" class="tbody">
+       <tr valign="middle">
+        <td align="left">ALPHA_NUMERIC</td>
+        <td align="left">TEXT</td>
+        <td class="empty">&nbsp;</td>
+       </tr>
+
+       <tr valign="middle">
+        <td align="left">VARCHAR</td>
+        <td align="left">TEXT</td>
+        <td class="empty">&nbsp;</td>
+       </tr>
+
+       <tr valign="middle">
+        <td align="left">TEXT</td>
+        <td align="left">TEXT</td>
+        <td class="empty">&nbsp;</td>
+       </tr>
+
+       <tr valign="middle">
+        <td align="left">TIMESTAMP</td>
+        <td align="left">DATE</td>
+        <td class="empty">&nbsp;</td>
+       </tr>
+
+       <tr valign="middle">
+        <td align="left">INTERVAL</td>
+        <td align="left">HOUR</td>
+        <td class="empty">&nbsp;</td>
+       </tr>
+
+       <tr valign="middle">
+        <td align="left">DURATION</td>
+        <td align="left">HOUR</td>
+        <td class="empty">&nbsp;</td>
+       </tr>
+
+       <tr valign="middle">
+        <td align="left">BOOLEAN</td>
+        <td align="left">BOOLEAN</td>
+        <td class="empty">&nbsp;</td>
+       </tr>
+
+       <tr valign="middle">
+        <td align="left">BIT</td>
+        <td align="left">BOOLEAN</td>
+        <td class="empty">&nbsp;</td>
+       </tr>
+
+       <tr valign="middle">
+        <td align="left">BYTE</td>
+        <td align="left">INT32</td>
+        <td class="empty">&nbsp;</td>
+       </tr>
+
+       <tr valign="middle">
+        <td align="left">INT16</td>
+        <td align="left">SMALLINT</td>
+        <td class="empty">&nbsp;</td>
+       </tr>
+
+       <tr valign="middle">
+        <td align="left">SMALLINT</td>
+        <td align="left">SMALLINT</td>
+        <td class="empty">&nbsp;</td>
+       </tr>
+
+       <tr valign="middle">
+        <td align="left">INT32</td>
+        <td align="left">INT32</td>
+        <td class="empty">&nbsp;</td>
+       </tr>
+
+       <tr valign="middle">
+        <td align="left">INT</td>
+        <td align="left">INT32</td>
+        <td class="empty">&nbsp;</td>
+       </tr>
+
+       <tr valign="middle">
+        <td align="left">INT64</td>
+        <td align="left">INT64</td>
+        <td class="empty">&nbsp;</td>
+       </tr>
+
+       <tr valign="middle">
+        <td align="left">NUMERIC</td>
+        <td align="left">INT64</td>
+        <td class="empty">&nbsp;</td>
+       </tr>
+
+       <tr valign="middle">
+        <td align="left">REAL</td>
+        <td align="left">REAL</td>
+        <td align="left">Unsupported (use VARCHAR conversion)</td>
+       </tr>
+
+       <tr valign="middle">
+        <td align="left">FLOAT</td>
+        <td align="left">FLOAT</td>
+        <td align="left">Unsupported (use VARCHAR conversion)</td>
+       </tr>
+
+       <tr valign="middle">
+        <td align="left">DOUBLE PRECISION</td>
+        <td align="left">FLOAT</td>
+        <td class="empty">&nbsp;</td>
+       </tr>
+
+       <tr valign="middle">
+        <td align="left">BLOB</td>
+        <td align="left">BLOB</td>
+        <td align="left">Must use a prepared statement, and <b><tt>PDO::PARAM_LOB</tt></b></td>
+       </tr>
+
+       <tr valign="middle">
+        <td align="left">BIT VARYING</td>
+        <td align="left">BLOB</td>
+        <td align="left">Must use a prepared statement, and <b><tt>PDO::PARAM_LOB</tt></b></td>
+       </tr>
+
+       <tr valign="middle">
+        <td align="left">CLOB</td>
+        <td align="left">TEXT</td>
+        <td class="empty">&nbsp;</td>
+       </tr>
+
+       <tr valign="middle">
+        <td align="left">PICTURE</td>
+        <td align="left">PICTURE</td>
+        <td align="left">Must use a prepared statement, and <b><tt>PDO::PARAM_LOB</tt></b></td>
+       </tr>
+
+      </tbody>
+     
+    </table>
+
+   </p>
+  </div>
+
+ </div><hr /><div class="manualnavbar" style="text-align: center;">
+ <div class="prev" style="text-align: left; float: left;"><a href="pdo-4d.constants.html">Constants for PDO_4D</a></div>
+ <div class="next" style="text-align: right; float: right;"><a href="ref.pdo-4d.sql4d.html">SQL acceptable by 4D</a></div>
+ <div class="up"><a href="ref.pdo-4d.html">4D (PDO)</a></div>
+ <div class="home"><a href="index.html">PHP Manual</a></div>
+</div></body></html>

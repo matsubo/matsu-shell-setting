@@ -1,0 +1,230 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+ <head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>Returns an array with the key details</title>
+
+ </head>
+ <body><div class="manualnavbar" style="text-align: center;">
+ <div class="prev" style="text-align: left; float: left;"><a href="function.openssl-pkey-free.html">openssl_pkey_free</a></div>
+ <div class="next" style="text-align: right; float: right;"><a href="function.openssl-pkey-get-private.html">openssl_pkey_get_private</a></div>
+ <div class="up"><a href="ref.openssl.html">OpenSSL Functions</a></div>
+ <div class="home"><a href="index.html">PHP Manual</a></div>
+</div><hr /><div id="function.openssl-pkey-get-details" class="refentry">
+ <div class="refnamediv">
+  <h1 class="refname">openssl_pkey_get_details</h1>
+  <p class="verinfo">(PHP 5 &gt;= 5.2.0)</p><p class="refpurpose"><span class="refname">openssl_pkey_get_details</span> &mdash; <span class="dc-title">Returns an array with the key details</span></p>
+
+ </div>
+
+ <div class="refsect1 description" id="refsect1-function.openssl-pkey-get-details-description">
+  <h3 class="title">Description</h3>
+  <div class="methodsynopsis dc-description">
+   <span class="type">array</span> <span class="methodname"><b>openssl_pkey_get_details</b></span>
+    ( <span class="methodparam"><span class="type">resource</span> <tt class="parameter">$key</tt></span>
+   )</div>
+
+  <p class="para rdfs-comment">
+   This function returns the key details (bits, key, type).
+  </p>
+ </div>
+
+
+ <div class="refsect1 parameters" id="refsect1-function.openssl-pkey-get-details-parameters">
+  <h3 class="title">Parameters</h3>
+  <p class="para">
+   <dl>
+
+    <dt>
+
+     <span class="term"><i><tt class="parameter">key</tt></i></span>
+     <dd>
+
+      <p class="para">
+       Resource holding the key.
+      </p>
+     </dd>
+
+    </dt>
+
+   </dl>
+
+  </p>
+ </div>
+
+
+ <div class="refsect1 returnvalues" id="refsect1-function.openssl-pkey-get-details-returnvalues">
+  <h3 class="title">Return Values</h3>
+  <p class="para">
+   Returns an array with the key details in success or <b><tt>FALSE</tt></b> in failure.
+   Returned array has indexes <i>bits</i> (number of bits),
+   <i>key</i> (string representation of the public key) and
+   <i>type</i> (type of the key which is one of
+   <b><tt>OPENSSL_KEYTYPE_RSA</tt></b>,
+   <b><tt>OPENSSL_KEYTYPE_DSA</tt></b>,
+   <b><tt>OPENSSL_KEYTYPE_DH</tt></b>,
+   <b><tt>OPENSSL_KEYTYPE_EC</tt></b> or -1 meaning unknown).
+  </p>
+  <p class="para">
+   Depending on the key type used, additional details may be returned. Note that 
+   some elements may not always be available.
+  </p>
+  <ul class="itemizedlist">
+   <li class="listitem">
+    <span class="simpara">
+     <b><tt>OPENSSL_KEYTYPE_RSA</tt></b>, an additional array key named <i>&quot;rsa&quot;</i>, 
+     containing the key data is returned.
+    </span>
+     <table class="doctable informaltable">
+      
+       <thead valign="middle">
+        <tr valign="middle">
+         <th>Key</th>
+         <th>Description</th>
+        </tr>
+
+       </thead>
+
+       <tbody valign="middle" class="tbody">
+        <tr valign="middle">
+         <td align="left"><i>&quot;n&quot;</i></td>
+         <td class="empty">&nbsp;</td>
+        </tr>
+
+        <tr valign="middle">
+         <td align="left"><i>&quot;e&quot;</i></td>
+         <td class="empty">&nbsp;</td>
+        </tr>
+
+        <tr valign="middle">
+         <td align="left"><i>&quot;d&quot;</i></td>
+         <td class="empty">&nbsp;</td>
+        </tr>
+
+        <tr valign="middle">
+         <td align="left"><i>&quot;p&quot;</i></td>
+         <td class="empty">&nbsp;</td>
+        </tr>
+
+        <tr valign="middle">
+         <td align="left"><i>&quot;q&quot;</i></td>
+         <td class="empty">&nbsp;</td>
+        </tr>
+
+        <tr valign="middle">
+         <td align="left"><i>&quot;dmp1&quot;</i></td>
+         <td class="empty">&nbsp;</td>
+        </tr>
+
+        <tr valign="middle">
+         <td align="left"><i>&quot;dmq1&quot;</i></td>
+         <td class="empty">&nbsp;</td>
+        </tr>
+
+        <tr valign="middle">
+         <td align="left"><i>&quot;iqmp&quot;</i></td>
+         <td class="empty">&nbsp;</td>
+        </tr>
+
+       </tbody>
+      
+     </table>
+
+   </li>
+   <li class="listitem">
+    <span class="simpara">
+     <b><tt>OPENSSL_KEYTYPE_DSA</tt></b>, an additional array key named <i>&quot;dsa&quot;</i>, 
+     containing the key data is returned.
+    </span>
+     <table class="doctable informaltable">
+      
+       <thead valign="middle">
+        <tr valign="middle">
+         <th>Key</th>
+         <th>Description</th>
+        </tr>
+
+       </thead>
+
+       <tbody valign="middle" class="tbody">
+        <tr valign="middle">
+         <td align="left"><i>&quot;p&quot;</i></td>
+         <td class="empty">&nbsp;</td>
+        </tr>
+
+        <tr valign="middle">
+         <td align="left"><i>&quot;q&quot;</i></td>
+         <td class="empty">&nbsp;</td>
+        </tr>
+
+        <tr valign="middle">
+         <td align="left"><i>&quot;g&quot;</i></td>
+         <td class="empty">&nbsp;</td>
+        </tr>
+
+        <tr valign="middle">
+         <td align="left"><i>&quot;priv_key&quot;</i></td>
+         <td class="empty">&nbsp;</td>
+        </tr>
+
+        <tr valign="middle">
+         <td align="left"><i>&quot;pub_key&quot;</i></td>
+         <td class="empty">&nbsp;</td>
+        </tr>
+
+       </tbody>
+      
+     </table>
+
+   </li>
+   <li class="listitem">
+    <span class="simpara">
+     <b><tt>OPENSSL_KEYTYPE_DH</tt></b>, an additional array key named <i>&quot;dh&quot;</i>, 
+     containing the key data is returned.
+    </span>
+     <table class="doctable informaltable">
+      
+       <thead valign="middle">
+        <tr valign="middle">
+         <th>Key</th>
+         <th>Description</th>
+        </tr>
+
+       </thead>
+
+       <tbody valign="middle" class="tbody">
+        <tr valign="middle">
+         <td align="left"><i>&quot;p&quot;</i></td>
+         <td class="empty">&nbsp;</td>
+        </tr>
+
+        <tr valign="middle">
+         <td align="left"><i>&quot;g&quot;</i></td>
+         <td class="empty">&nbsp;</td>
+        </tr>
+
+        <tr valign="middle">
+         <td align="left"><i>&quot;priv_key&quot;</i></td>
+         <td class="empty">&nbsp;</td>
+        </tr>
+
+        <tr valign="middle">
+         <td align="left"><i>&quot;pub_key&quot;</i></td>
+         <td class="empty">&nbsp;</td>
+        </tr>
+
+       </tbody>
+      
+     </table>
+
+   </li>
+  </ul>
+ </div>
+
+
+</div><hr /><div class="manualnavbar" style="text-align: center;">
+ <div class="prev" style="text-align: left; float: left;"><a href="function.openssl-pkey-free.html">openssl_pkey_free</a></div>
+ <div class="next" style="text-align: right; float: right;"><a href="function.openssl-pkey-get-private.html">openssl_pkey_get_private</a></div>
+ <div class="up"><a href="ref.openssl.html">OpenSSL Functions</a></div>
+ <div class="home"><a href="index.html">PHP Manual</a></div>
+</div></body></html>

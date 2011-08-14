@@ -1,0 +1,350 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+ <head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>Initializes all syslog related variables</title>
+
+ </head>
+ <body><div class="manualnavbar" style="text-align: center;">
+ <div class="prev" style="text-align: left; float: left;"><a href="function.closelog.html">closelog</a></div>
+ <div class="next" style="text-align: right; float: right;"><a href="function.dns-check-record.html">dns_check_record</a></div>
+ <div class="up"><a href="ref.network.html">Network Functions</a></div>
+ <div class="home"><a href="index.html">PHP Manual</a></div>
+</div><hr /><div id="function.define-syslog-variables" class="refentry">
+ <div class="refnamediv">
+  <h1 class="refname">define_syslog_variables</h1>
+  <p class="verinfo">(PHP 4, PHP 5)</p><p class="refpurpose"><span class="refname">define_syslog_variables</span> &mdash; <span class="dc-title">Initializes all syslog related variables</span></p>
+
+ </div>
+ 
+ <div class="refsect1 description" id="refsect1-function.define-syslog-variables-description">
+  <h3 class="title">Description</h3>
+  <div class="methodsynopsis dc-description">
+   <span class="type"><span class="type void">void</span></span> <span class="methodname"><b>define_syslog_variables</b></span>
+    ( <span class="methodparam">void</span>
+   )</div>
+
+  <p class="para rdfs-comment">
+   Initializes all variables used in the syslog functions.
+  </p>
+ </div>
+
+
+ <div class="refsect1 returnvalues" id="refsect1-function.define-syslog-variables-returnvalues">
+  <h3 class="title">Return Values</h3>
+  <p class="para">
+   No value is returned.
+  </p>
+  <table class="doctable table">
+   <caption><b>Syslog variables</b></caption>
+   
+    <thead valign="middle">
+     <tr valign="middle">
+      <th>Variable</th>
+      <th>Constant equal</th>
+      <th>Meaning</th>
+      <th>Notes</th>
+     </tr>
+
+    </thead>
+
+    <tbody valign="middle" class="tbody">
+     <tr valign="middle">
+      <td align="left"><var class="varname"><var class="varname">$LOG_EMERG</var></var></td>
+      <td align="left"><b><tt>LOG_EMERG</tt></b></td>
+      <td align="left">System is unusable</td>
+      <td class="empty">&nbsp;</td>
+     </tr>
+
+     <tr valign="middle">
+      <td align="left"><var class="varname"><var class="varname">$LOG_ALERT</var></var></td>
+      <td align="left"><b><tt>LOG_ALERT</tt></b></td>
+      <td align="left">Immediate action required</td>
+      <td class="empty">&nbsp;</td>
+     </tr>
+
+     <tr valign="middle">
+      <td align="left"><var class="varname"><var class="varname">$LOG_CRIT</var></var></td>
+      <td align="left"><b><tt>LOG_CRIT</tt></b></td>
+      <td align="left">Critical conditions</td>
+      <td class="empty">&nbsp;</td>
+     </tr>
+
+     <tr valign="middle">
+      <td align="left"><var class="varname"><var class="varname">$LOG_ERR</var></var></td>
+      <td align="left"><b><tt>LOG_ERR</tt></b></td>
+      <td class="empty">&nbsp;</td>
+      <td class="empty">&nbsp;</td>
+     </tr>
+
+     <tr valign="middle">
+      <td align="left"><var class="varname"><var class="varname">$LOG_WARNING</var></var></td>
+      <td align="left"><b><tt>LOG_WARNING</tt></b></td>
+      <td class="empty">&nbsp;</td>
+      <td class="empty">&nbsp;</td>
+     </tr>
+
+     <tr valign="middle">
+      <td align="left"><var class="varname"><var class="varname">$LOG_NOTICE</var></var></td>
+      <td align="left"><b><tt>LOG_NOTICE</tt></b></td>
+      <td class="empty">&nbsp;</td>
+      <td class="empty">&nbsp;</td>
+     </tr>
+
+     <tr valign="middle">
+      <td align="left"><var class="varname"><var class="varname">$LOG_INFO</var></var></td>
+      <td align="left"><b><tt>LOG_INFO</tt></b></td>
+      <td class="empty">&nbsp;</td>
+      <td class="empty">&nbsp;</td>
+     </tr>
+
+     <tr valign="middle">
+      <td align="left"><var class="varname"><var class="varname">$LOG_DEBUG</var></var></td>
+      <td align="left"><b><tt>LOG_DEBUG</tt></b></td>
+      <td class="empty">&nbsp;</td>
+      <td class="empty">&nbsp;</td>
+     </tr>
+
+     <tr valign="middle">
+      <td align="left"><var class="varname"><var class="varname">$LOG_KERN</var></var></td>
+      <td align="left"><b><tt>LOG_KERN</tt></b></td>
+      <td class="empty">&nbsp;</td>
+      <td class="empty">&nbsp;</td>
+     </tr>
+
+     <tr valign="middle">
+      <td align="left"><var class="varname"><var class="varname">$LOG_USER</var></var></td>
+      <td align="left"><b><tt>LOG_USER</tt></b></td>
+      <td align="left">Genetic user level</td>
+      <td class="empty">&nbsp;</td>
+     </tr>
+
+     <tr valign="middle">
+      <td align="left"><var class="varname"><var class="varname">$LOG_MAIL</var></var></td>
+      <td align="left"><b><tt>LOG_MAIL</tt></b></td>
+      <td align="left">Log to email</td>
+      <td class="empty">&nbsp;</td>
+     </tr>
+
+     <tr valign="middle">
+      <td align="left"><var class="varname"><var class="varname">$LOG_DAEMON</var></var></td>
+      <td align="left"><b><tt>LOG_DAEMON</tt></b></td>
+      <td align="left">Other system daemons</td>
+      <td class="empty">&nbsp;</td>
+     </tr>
+
+     <tr valign="middle">
+      <td align="left"><var class="varname"><var class="varname">$LOG_AUTH</var></var></td>
+      <td align="left"><b><tt>LOG_AUTH</tt></b></td>
+      <td class="empty">&nbsp;</td>
+      <td class="empty">&nbsp;</td>
+     </tr>
+
+     <tr valign="middle">
+      <td align="left"><var class="varname"><var class="varname">$LOG_SYSLOG</var></var></td>
+      <td align="left"><b><tt>LOG_SYSLOG</tt></b></td>
+      <td class="empty">&nbsp;</td>
+      <td align="left">Not available on Netware</td>
+     </tr>
+
+     <tr valign="middle">
+      <td align="left"><var class="varname"><var class="varname">$LOG_LPR</var></var></td>
+      <td align="left"><b><tt>LOG_LPR</tt></b></td>
+      <td class="empty">&nbsp;</td>
+      <td class="empty">&nbsp;</td>
+     </tr>
+
+     <tr valign="middle">
+      <td align="left"><var class="varname"><var class="varname">$LOG_NEWS</var></var></td>
+      <td align="left"><b><tt>LOG_NEWS</tt></b></td>
+      <td align="left">Usenet new</td>
+      <td align="left">Not available on HP-UX</td>
+     </tr>
+
+     <tr valign="middle">
+      <td align="left"><var class="varname"><var class="varname">$LOG_CRON</var></var></td>
+      <td align="left"><b><tt>LOG_CRON</tt></b></td>
+      <td class="empty">&nbsp;</td>
+      <td align="left">Not available on all platforms</td>
+     </tr>
+
+     <tr valign="middle">
+      <td align="left"><var class="varname"><var class="varname">$LOG_AUTHPRIV</var></var></td>
+      <td align="left"><b><tt>LOG_AUTHPRIV</tt></b></td>
+      <td class="empty">&nbsp;</td>
+      <td align="left">Not available on AIX</td>
+     </tr>
+
+     <tr valign="middle">
+      <td align="left"><var class="varname"><var class="varname">$LOG_LOCAL0</var></var></td>
+      <td align="left"><b><tt>LOG_LOCAL0</tt></b></td>
+      <td class="empty">&nbsp;</td>
+      <td align="left">Not available on Windows and Netware</td>
+     </tr>
+
+     <tr valign="middle">
+      <td align="left"><var class="varname"><var class="varname">$LOG_LOCAL1</var></var></td>
+      <td align="left"><b><tt>LOG_LOCAL1</tt></b></td>
+      <td class="empty">&nbsp;</td>
+      <td align="left">Not available on Windows and Netware</td>
+     </tr>
+
+     <tr valign="middle">
+      <td align="left"><var class="varname"><var class="varname">$LOG_LOCAL2</var></var></td>
+      <td align="left"><b><tt>LOG_LOCAL2</tt></b></td>
+      <td class="empty">&nbsp;</td>
+      <td align="left">Not available on Windows and Netware</td>
+     </tr>
+
+     <tr valign="middle">
+      <td align="left"><var class="varname"><var class="varname">$LOG_LOCAL3</var></var></td>
+      <td align="left"><b><tt>LOG_LOCAL3</tt></b></td>
+      <td class="empty">&nbsp;</td>
+      <td align="left">Not available on Windows and Netware</td>
+     </tr>
+
+     <tr valign="middle">
+      <td align="left"><var class="varname"><var class="varname">$LOG_LOCAL4</var></var></td>
+      <td align="left"><b><tt>LOG_LOCAL4</tt></b></td>
+      <td class="empty">&nbsp;</td>
+      <td align="left">Not available on Windows and Netware</td>
+     </tr>
+
+     <tr valign="middle">
+      <td align="left"><var class="varname"><var class="varname">$LOG_LOCAL5</var></var></td>
+      <td align="left"><b><tt>LOG_LOCAL5</tt></b></td>
+      <td class="empty">&nbsp;</td>
+      <td align="left">Not available on Windows and Netware</td>
+     </tr>
+
+     <tr valign="middle">
+      <td align="left"><var class="varname"><var class="varname">$LOG_LOCAL6</var></var></td>
+      <td align="left"><b><tt>LOG_LOCAL6</tt></b></td>
+      <td class="empty">&nbsp;</td>
+      <td align="left">Not available on Windows and Netware</td>
+     </tr>
+
+     <tr valign="middle">
+      <td align="left"><var class="varname"><var class="varname">$LOG_LOCAL7</var></var></td>
+      <td align="left"><b><tt>LOG_LOCAL7</tt></b></td>
+      <td class="empty">&nbsp;</td>
+      <td align="left">Not available on Windows and Netware</td>
+     </tr>
+
+     <tr valign="middle">
+      <td align="left"><var class="varname"><var class="varname">$LOG_PID</var></var></td>
+      <td align="left"><b><tt>LOG_PID</tt></b></td>
+      <td class="empty">&nbsp;</td>
+      <td class="empty">&nbsp;</td>
+     </tr>
+
+     <tr valign="middle">
+      <td align="left"><var class="varname"><var class="varname">$LOG_CONS</var></var></td>
+      <td align="left"><b><tt>LOG_CONS</tt></b></td>
+      <td class="empty">&nbsp;</td>
+      <td class="empty">&nbsp;</td>
+     </tr>
+
+     <tr valign="middle">
+      <td align="left"><var class="varname"><var class="varname">$LOG_ODELAY</var></var></td>
+      <td align="left"><b><tt>LOG_ODELAY</tt></b></td>
+      <td class="empty">&nbsp;</td>
+      <td class="empty">&nbsp;</td>
+     </tr>
+
+     <tr valign="middle">
+      <td align="left"><var class="varname"><var class="varname">$LOG_NDELAY</var></var></td>
+      <td align="left"><b><tt>LOG_NDELAY</tt></b></td>
+      <td class="empty">&nbsp;</td>
+      <td class="empty">&nbsp;</td>
+     </tr>
+
+     <tr valign="middle">
+      <td align="left"><var class="varname"><var class="varname">$LOG_NOWAIT</var></var></td>
+      <td align="left"><b><tt>LOG_NOWAIT</tt></b></td>
+      <td class="empty">&nbsp;</td>
+      <td align="left">Not available on BeOS</td>
+     </tr>
+
+     <tr valign="middle">
+      <td align="left"><var class="varname"><var class="varname">$LOG_PERROR</var></var></td>
+      <td align="left"><b><tt>LOG_PERROR</tt></b></td>
+      <td class="empty">&nbsp;</td>
+      <td align="left">Not available on AIX</td>
+     </tr>
+
+    </tbody>
+   
+  </table>
+
+  <div class="warning"><b class="warning">Warning</b><p class="simpara">This function has been
+<em class="emphasis">DEPRECATED</em> as of PHP 5.3.0. Relying on this feature is
+highly discouraged.</p></div>
+ </div>
+
+
+ <div class="refsect1 examples" id="refsect1-function.define-syslog-variables-examples">
+  <h3 class="title">Examples</h3>
+  <p class="para">
+   <div class="example" id="example-3737">
+    <p><b>Example #1 <span class="function"><b>define_syslog_variables()</b></span> example</b></p>
+    <div class="example-contents">
+<div class="phpcode"><code><span style="color: #000000">
+<span style="color: #0000BB">&lt;?php<br /></span><span style="color: #FF8000">//&nbsp;Check&nbsp;if&nbsp;syslog&nbsp;variables&nbsp;already&nbsp;is&nbsp;defined<br /></span><span style="color: #007700">if(!</span><span style="color: #0000BB">get_cfg_var</span><span style="color: #007700">(</span><span style="color: #DD0000">'define_syslog_variables'</span><span style="color: #007700">))<br />{<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">define_syslog_variables</span><span style="color: #007700">();<br />}<br /><br /></span><span style="color: #FF8000">//&nbsp;Open&nbsp;the&nbsp;log<br /></span><span style="color: #0000BB">openlog</span><span style="color: #007700">(</span><span style="color: #DD0000">''</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$LOG_ODELAY</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$LOG_MAIL&nbsp;</span><span style="color: #007700">|&nbsp;</span><span style="color: #0000BB">$LOG_USER</span><span style="color: #007700">);<br /><br /></span><span style="color: #FF8000">//&nbsp;Continue&nbsp;script&nbsp;...<br /></span><span style="color: #0000BB">?&gt;</span>
+</span>
+</code></div>
+    </div>
+
+   </div>
+  </p>
+ </div>
+
+
+ <div class="refsect1 changelog" id="refsect1-function.define-syslog-variables-changelog">
+  <h3 class="title">Changelog</h3>
+  <p class="para">
+   <table class="doctable informaltable">
+    
+     <thead valign="middle">
+      <tr valign="middle">
+       <th>Version</th>
+       <th>Description</th>
+      </tr>
+
+     </thead>
+
+     <tbody valign="middle" class="tbody">
+      
+      <tr valign="middle">
+       <td align="left">5.3.0</td>
+       <td align="left">
+        This function now throws an E_DEPRECATED notice.
+       </td>
+      </tr>
+
+     </tbody>
+    
+   </table>
+
+  </p>
+ </div>
+
+
+ <div class="refsect1 seealso" id="refsect1-function.define-syslog-variables-seealso">
+  <h3 class="title">See Also</h3>
+  <p class="para">
+   <ul class="simplelist">
+    <li class="member"><span class="function"><a href="function.openlog.html" class="function" rel="rdfs-seeAlso">openlog()</a> - Open connection to system logger</span></li>
+    <li class="member"><span class="function"><a href="function.syslog.html" class="function" rel="rdfs-seeAlso">syslog()</a> - Generate a system log message</span></li>
+    <li class="member"><span class="function"><a href="function.closelog.html" class="function" rel="rdfs-seeAlso">closelog()</a> - Close connection to system logger</span></li>
+   </ul>
+  </p>
+ </div>
+
+
+</div><hr /><div class="manualnavbar" style="text-align: center;">
+ <div class="prev" style="text-align: left; float: left;"><a href="function.closelog.html">closelog</a></div>
+ <div class="next" style="text-align: right; float: right;"><a href="function.dns-check-record.html">dns_check_record</a></div>
+ <div class="up"><a href="ref.network.html">Network Functions</a></div>
+ <div class="home"><a href="index.html">PHP Manual</a></div>
+</div></body></html>

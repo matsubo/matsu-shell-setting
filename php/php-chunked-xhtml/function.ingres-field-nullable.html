@@ -1,0 +1,119 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+ <head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>Test if a field is nullable</title>
+
+ </head>
+ <body><div class="manualnavbar" style="text-align: center;">
+ <div class="prev" style="text-align: left; float: left;"><a href="function.ingres-field-name.html">ingres_field_name</a></div>
+ <div class="next" style="text-align: right; float: right;"><a href="function.ingres-field-precision.html">ingres_field_precision</a></div>
+ <div class="up"><a href="ref.ingres.html">Ingres Functions</a></div>
+ <div class="home"><a href="index.html">PHP Manual</a></div>
+</div><hr /><div id="function.ingres-field-nullable" class="refentry">
+ <div class="refnamediv">
+  <h1 class="refname">ingres_field_nullable</h1>
+  <p class="verinfo">(PHP 4 &gt;= 4.0.2, PHP 5 &lt;= 5.0.5, PECL ingres &gt;= 1.0.0)</p><p class="refpurpose"><span class="refname">ingres_field_nullable</span> &mdash; <span class="dc-title">Test if a field is nullable</span></p>
+
+ </div>
+ 
+ <div class="refsect1 description" id="refsect1-function.ingres-field-nullable-description">
+  <h3 class="title">Description</h3>
+  <div class="methodsynopsis dc-description">
+   <span class="type">bool</span> <span class="methodname"><b>ingres_field_nullable</b></span>
+    ( <span class="methodparam"><span class="type">resource</span> <tt class="parameter">$result</tt></span>
+   , <span class="methodparam"><span class="type">int</span> <tt class="parameter">$index</tt></span>
+   )</div>
+
+  <p class="para rdfs-comment">
+   Test if a field is nullable.
+  </p>
+  <blockquote class="note"><p><b class="note">Note</b>: 
+   <b>Related Configurations</b><br />
+   <p class="para">
+    See <a href="ingres.configuration.html#ini.ingres.array-index-start" class="link">ingres.array_index_start</a>
+    in <a href="ingres.configuration.html" class="link">Runtime Configuration</a>
+   </p>
+  </p></blockquote>
+ </div>
+
+
+ <div class="refsect1 parameters" id="refsect1-function.ingres-field-nullable-parameters">
+  <h3 class="title">Parameters</h3>
+  <p class="para">
+   <dl>
+
+    <dt>
+
+     <span class="term"><i><tt class="parameter">result</tt></i></span>
+     <dd>
+
+      <p class="para">
+       The query result identifier
+      </p>
+     </dd>
+
+    </dt>
+
+    <dt>
+
+     <span class="term"><i><tt class="parameter">index</tt></i></span>
+     <dd>
+
+      <p class="para">
+       <i><tt class="parameter">index</tt></i> is the field whose nullability will be
+       retrieved.
+      </p>
+      <p class="para">
+       The possible values of <i><tt class="parameter">index</tt></i> depend upon
+       the value
+       of <a href="ingres.configuration.html#ini.ingres.array-index-start" class="link">ingres.array_index_start</a>.
+       If <a href="ingres.configuration.html#ini.ingres.array-index-start" class="link">ingres.array_index_start</a>
+       is <i>1</i> (the default)
+       then <i><tt class="parameter">index</tt></i> must be
+       between <i>1</i> and the value returned
+       by <span class="function"><a href="function.ingres-num-fields.html" class="function">ingres_num_fields()</a></span>. If <a href="ingres.configuration.html#ini.ingres.array-index-start" class="link">ingres.array_index_start</a>
+       is <i>0</i> then <i><tt class="parameter">index</tt></i> must
+       be between <i>0</i>
+       and <span class="function"><a href="function.ingres-num-fields.html" class="function">ingres_num_fields()</a></span><i> -
+       1</i>.
+      </p>
+     </dd>
+
+    </dt>
+
+   </dl>
+
+  </p>
+ </div>
+
+
+ <div class="refsect1 returnvalues" id="refsect1-function.ingres-field-nullable-returnvalues">
+  <h3 class="title">Return Values</h3>
+  <p class="para">
+   <span class="function"><b>ingres_field_nullable()</b></span> returns <b><tt>TRUE</tt></b> if the
+   field can be set to the <b><tt>NULL</tt></b> value and <b><tt>FALSE</tt></b> if it cannot
+  </p>
+ </div>
+
+
+ <div class="refsect1 seealso" id="refsect1-function.ingres-field-nullable-seealso">
+  <h3 class="title">See Also</h3>
+  <p class="para">
+   <ul class="simplelist">
+    <li class="member"><span class="function"><a href="function.ingres-query.html" class="function" rel="rdfs-seeAlso">ingres_query()</a> - Send an SQL query to Ingres</span></li>
+    <li class="member"><span class="function"><a href="function.ingres-fetch-array.html" class="function" rel="rdfs-seeAlso">ingres_fetch_array()</a> - Fetch a row of result into an array</span></li>
+    <li class="member"><span class="function"><a href="function.ingres-fetch-assoc.html" class="function" rel="rdfs-seeAlso">ingres_fetch_assoc()</a> - Fetch a row of result into an associative array</span></li>
+    <li class="member"><span class="function"><a href="function.ingres-fetch-object.html" class="function" rel="rdfs-seeAlso">ingres_fetch_object()</a> - Fetch a row of result into an object</span></li>
+    <li class="member"><span class="function"><a href="function.ingres-fetch-row.html" class="function" rel="rdfs-seeAlso">ingres_fetch_row()</a> - Fetch a row of result into an enumerated array</span></li>
+   </ul>
+  </p>
+ </div>
+
+
+</div><hr /><div class="manualnavbar" style="text-align: center;">
+ <div class="prev" style="text-align: left; float: left;"><a href="function.ingres-field-name.html">ingres_field_name</a></div>
+ <div class="next" style="text-align: right; float: right;"><a href="function.ingres-field-precision.html">ingres_field_precision</a></div>
+ <div class="up"><a href="ref.ingres.html">Ingres Functions</a></div>
+ <div class="home"><a href="index.html">PHP Manual</a></div>
+</div></body></html>

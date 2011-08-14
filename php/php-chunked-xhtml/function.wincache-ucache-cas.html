@@ -1,0 +1,134 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+ <head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>Compares the variable with old value and assigns new value to it</title>
+
+ </head>
+ <body><div class="manualnavbar" style="text-align: center;">
+ <div class="prev" style="text-align: left; float: left;"><a href="function.wincache-ucache-add.html">wincache_ucache_add</a></div>
+ <div class="next" style="text-align: right; float: right;"><a href="function.wincache-ucache-clear.html">wincache_ucache_clear</a></div>
+ <div class="up"><a href="ref.wincache.html">WinCache Functions</a></div>
+ <div class="home"><a href="index.html">PHP Manual</a></div>
+</div><hr /><div id="function.wincache-ucache-cas" class="refentry">
+ <div class="refnamediv">
+  <h1 class="refname">wincache_ucache_cas</h1>
+  <p class="verinfo">(PECL wincache &gt;= 1.1.0)</p><p class="refpurpose"><span class="refname">wincache_ucache_cas</span> &mdash; <span class="dc-title">
+   Compares the variable with old value and assigns new value to it
+  </span></p>
+
+ </div>
+ <div class="refsect1 description" id="refsect1-function.wincache-ucache-cas-description">
+  <h3 class="title">Description</h3>
+  <div class="methodsynopsis dc-description">
+   <span class="type">bool</span> <span class="methodname"><b>wincache_ucache_cas</b></span>
+    ( <span class="methodparam"><span class="type">string</span> <tt class="parameter">$key</tt></span>
+   , <span class="methodparam"><span class="type">int</span> <tt class="parameter">$old_value</tt></span>
+   , <span class="methodparam"><span class="type">int</span> <tt class="parameter">$new_value</tt></span>
+   )</div>
+
+  <p class="para rdfs-comment">
+   Compares the variable associated with the <i><tt class="parameter">key</tt></i> with <i><tt class="parameter">old_value</tt></i> 
+   and if it matches then assigns the <i><tt class="parameter">new_value</tt></i> to it.
+  </p>
+ </div>
+
+ <div class="refsect1 parameters" id="refsect1-function.wincache-ucache-cas-parameters">
+  <h3 class="title">Parameters</h3>
+  <p class="para">
+   <dl>
+
+    <dt>
+
+     <span class="term"><i><tt class="parameter">key</tt></i></span>
+     <dd>
+
+      <p class="para">
+       The <i><tt class="parameter">key</tt></i> that is used to store the variable in the cache. 
+       <i><tt class="parameter">key</tt></i> is case sensitive.
+      </p>
+     </dd>
+
+    </dt>
+
+    <dt>
+
+     <span class="term"><i><tt class="parameter">old_value</tt></i></span>
+     <dd>
+
+      <p class="para">
+       Old value of the variable pointed by <i><tt class="parameter">key</tt></i> in the user cache. 
+       The value should be of type <i>long</i>, otherwise the function returns 
+       <i>FALSE</i>.
+      </p>
+     </dd>
+
+    </dt>
+
+    <dt>
+
+     <span class="term"><i><tt class="parameter">new_value</tt></i></span>
+     <dd>
+
+      <p class="para">
+       New value which will get assigned to variable pointer by <i><tt class="parameter">key</tt></i> if a 
+       match is found. The value should be of type <i>long</i>, otherwise 
+       the function returns <i>FALSE</i>.
+      </p>
+     </dd>
+
+    </dt>
+
+   </dl>
+
+  </p>
+ </div>
+
+ <div class="refsect1 returnvalues" id="refsect1-function.wincache-ucache-cas-returnvalues">
+  <h3 class="title">Return Values</h3>
+  <p class="para">
+   Returns <b><tt>TRUE</tt></b> on success or <b><tt>FALSE</tt></b> on failure.
+  </p>
+ </div>
+
+ <div class="refsect1 examples" id="refsect1-function.wincache-ucache-cas-examples">
+  <h3 class="title">Examples</h3>
+  <p class="para">
+   <div class="example" id="example-527">
+    <p><b>Example #1 Using <span class="function"><b>wincache_ucache_cas()</b></span></b></p>
+    <div class="example-contents">
+<div class="phpcode"><code><span style="color: #000000">
+<span style="color: #0000BB">&lt;?php<br />wincache_ucache_set</span><span style="color: #007700">(</span><span style="color: #DD0000">'counter'</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">2922</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">var_dump</span><span style="color: #007700">(</span><span style="color: #0000BB">wincache_ucache_cas</span><span style="color: #007700">(</span><span style="color: #DD0000">'counter'</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">2922</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">1</span><span style="color: #007700">));<br /></span><span style="color: #0000BB">var_dump</span><span style="color: #007700">(</span><span style="color: #0000BB">wincache_ucache_get</span><span style="color: #007700">(</span><span style="color: #DD0000">'counter'</span><span style="color: #007700">));<br /></span><span style="color: #0000BB">?&gt;</span>
+</span>
+</code></div>
+    </div>
+
+    <div class="example-contents"><p>The above example will output:</p></div>
+    <div class="example-contents screen">
+<div class="cdata"><pre>
+bool(true) 
+int(1)
+</pre></div>
+    </div>    
+   </div>
+  </p>
+ </div>
+
+
+ <div class="refsect1 seealso" id="refsect1-function.wincache-ucache-cas-seealso">
+  <h3 class="title">See Also</h3>
+  <p class="para">
+   <ul class="simplelist">
+    <li class="member"><span class="function"><a href="function.wincache-ucache-inc.html" class="function" rel="rdfs-seeAlso">wincache_ucache_inc()</a> - Increments the value associated with the key</span></li>
+    <li class="member"><span class="function"><a href="function.wincache-ucache-dec.html" class="function" rel="rdfs-seeAlso">wincache_ucache_dec()</a> - Decrements the value associated with the key</span></li>
+   </ul>
+  </p>
+ </div>
+
+
+</div><hr /><div class="manualnavbar" style="text-align: center;">
+ <div class="prev" style="text-align: left; float: left;"><a href="function.wincache-ucache-add.html">wincache_ucache_add</a></div>
+ <div class="next" style="text-align: right; float: right;"><a href="function.wincache-ucache-clear.html">wincache_ucache_clear</a></div>
+ <div class="up"><a href="ref.wincache.html">WinCache Functions</a></div>
+ <div class="home"><a href="index.html">PHP Manual</a></div>
+</div></body></html>

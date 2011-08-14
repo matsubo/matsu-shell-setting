@@ -18,3 +18,4 @@ Session.vim
 .zshrc_local
 .zsh_alias
 .vim/.netrwhist
+.vim/bundle

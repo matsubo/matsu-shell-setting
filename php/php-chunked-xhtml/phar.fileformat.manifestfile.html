@@ -1,0 +1,134 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+ <head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>Phar manifest file entry definition</title>
+
+ </head>
+ <body><div class="manualnavbar" style="text-align: center;">
+ <div class="prev" style="text-align: left; float: left;"><a href="phar.fileformat.flags.html">Global Phar bitmapped flags</a></div>
+ <div class="next" style="text-align: right; float: right;"><a href="phar.fileformat.signature.html">Phar Signature format</a></div>
+ <div class="up"><a href="phar.fileformat.html">What makes a phar a phar and not a tar or a zip?</a></div>
+ <div class="home"><a href="index.html">PHP Manual</a></div>
+</div><hr /><div id="phar.fileformat.manifestfile" class="section">
+ <h2 class="title">Phar manifest file entry definition</h2>
+ <p class="para">
+  Each file in the manifest contains the following information:
+ </p>
+ <p class="para">
+  <table class="doctable table">
+   <caption><b>Phar Manifest file entry</b></caption>
+   
+    <thead valign="middle">
+     <tr valign="middle">
+      <th>Size in bytes</th>
+      <th>Description</th>
+     </tr>
+
+    </thead>
+
+    <tbody valign="middle" class="tbody">
+     <tr valign="middle">
+      <td align="left">4 bytes</td>
+      <td align="left">Filename length in bytes</td>
+     </tr>
+
+     <tr valign="middle">
+      <td align="left">??</td>
+      <td align="left">Filename (length specified in previous)</td>
+     </tr>
+
+     <tr valign="middle">
+      <td align="left">4 bytes</td>
+      <td align="left">Un-compressed file size in bytes</td>
+     </tr>
+
+     <tr valign="middle">
+      <td align="left">4 bytes</td>
+      <td align="left">Unix timestamp of file</td>
+     </tr>
+
+     <tr valign="middle">
+      <td align="left">4 bytes</td>
+      <td align="left">Compressed file size in bytes</td>
+     </tr>
+
+     <tr valign="middle">
+      <td align="left">4 bytes</td>
+      <td align="left">CRC32 checksum of un-compressed file contents</td>
+     </tr>
+
+     <tr valign="middle">
+      <td align="left">4 bytes</td>
+      <td align="left">Bit-mapped File-specific flags</td>
+     </tr>
+
+     <tr valign="middle">
+      <td align="left">4 bytes</td>
+      <td align="left">Serialized File Meta-data length (<i>0</i> for none)</td>
+     </tr>
+
+     <tr valign="middle">
+      <td align="left">??</td>
+      <td align="left">Serialized File Meta-data, stored in <span class="function"><a href="function.serialize.html" class="function">serialize()</a></span> format</td>
+     </tr>
+
+    </tbody>
+   
+  </table>
+
+ </p>
+ <p class="para">
+  Note that as of API version 1.1.1, empty directories are stored as filenames
+  with a trailing slash like <i>my/directory/</i>
+ </p>
+ <p class="para">
+  The File-specific bitmap values recognized are:
+ </p>
+ <p class="para">
+  <table class="doctable table">
+   <caption><b>Bitmap values recognized</b></caption>
+   
+    <thead valign="middle">
+     <tr valign="middle">
+      <th>Value</th>
+      <th>Description</th>
+     </tr>
+
+    </thead>
+
+    <tbody valign="middle" class="tbody">
+     <tr valign="middle">
+      <td align="left"><i>0x000001FF</i></td>
+      <td align="left">
+       These bits are reserved for defining specific file permissions
+       of a file.  Permissions are used for <span class="function"><a href="function.fstat.html" class="function">fstat()</a></span>
+       and can be used to recreate desired permissions upon extraction.
+      </td>
+     </tr>
+
+     <tr valign="middle">
+      <td align="left"><i>0x00001000</i></td>
+      <td align="left">
+       If set, this file is compressed with zlib compression
+      </td>
+     </tr>
+
+     <tr valign="middle">
+      <td align="left"><i>0x00002000</i></td>
+      <td align="left">
+       If set, this file is compressed with bzip compression
+      </td>
+     </tr>
+
+    </tbody>
+   
+  </table>
+
+ </p>
+</div><hr /><div class="manualnavbar" style="text-align: center;">
+ <div class="prev" style="text-align: left; float: left;"><a href="phar.fileformat.flags.html">Global Phar bitmapped flags</a></div>
+ <div class="next" style="text-align: right; float: right;"><a href="phar.fileformat.signature.html">Phar Signature format</a></div>
+ <div class="up"><a href="phar.fileformat.html">What makes a phar a phar and not a tar or a zip?</a></div>
+ <div class="home"><a href="index.html">PHP Manual</a></div>
+</div></body></html>

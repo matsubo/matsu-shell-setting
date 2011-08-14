@@ -1,0 +1,273 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+ <head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>Open a connection to a MySQL Server</title>
+
+ </head>
+ <body><div class="manualnavbar" style="text-align: center;">
+ <div class="prev" style="text-align: left; float: left;"><a href="function.mysql-close.html">mysql_close</a></div>
+ <div class="next" style="text-align: right; float: right;"><a href="function.mysql-create-db.html">mysql_create_db</a></div>
+ <div class="up"><a href="ref.mysql.html">MySQL Functions</a></div>
+ <div class="home"><a href="index.html">PHP Manual</a></div>
+</div><hr /><div id="function.mysql-connect" class="refentry">
+ <div class="refnamediv">
+  <h1 class="refname">mysql_connect</h1>
+  <p class="verinfo">(PHP 4, PHP 5)</p><p class="refpurpose"><span class="refname">mysql_connect</span> &mdash; <span class="dc-title">Open a connection to a MySQL Server</span></p>
+
+ </div>
+
+ <div class="refsect1 description" id="refsect1-function.mysql-connect-description">
+  <h3 class="title">Description</h3>
+  <div class="methodsynopsis dc-description">
+   <span class="type">resource</span> <span class="methodname"><b>mysql_connect</b></span>
+    ([ <span class="methodparam"><span class="type">string</span> <tt class="parameter">$server</tt><span class="initializer"> = ini_get(&quot;mysql.default_host&quot;)</span></span>
+   [, <span class="methodparam"><span class="type">string</span> <tt class="parameter">$username</tt><span class="initializer"> = ini_get(&quot;mysql.default_user&quot;)</span></span>
+   [, <span class="methodparam"><span class="type">string</span> <tt class="parameter">$password</tt><span class="initializer"> = ini_get(&quot;mysql.default_password&quot;)</span></span>
+   [, <span class="methodparam"><span class="type">bool</span> <tt class="parameter">$new_link</tt><span class="initializer"> = false</span></span>
+   [, <span class="methodparam"><span class="type">int</span> <tt class="parameter">$client_flags</tt><span class="initializer"> = 0</span></span>
+  ]]]]] )</div>
+
+  <p class="para rdfs-comment">
+   Opens or reuses a connection to a MySQL server. 
+  </p>
+ </div>
+
+
+ <div class="refsect1 parameters" id="refsect1-function.mysql-connect-parameters">
+  <h3 class="title">Parameters</h3>
+  <p class="para">
+   <dl>
+
+    <dt>
+
+     <span class="term"><i><tt class="parameter">server</tt></i></span>
+     <dd>
+
+      <p class="para">
+       The MySQL server. It can also include a port number. e.g. 
+       &quot;hostname:port&quot; or a path to a local socket e.g. &quot;:/path/to/socket&quot; for 
+       the localhost.
+      </p>
+      <p class="para">
+       If the PHP directive <a href="mysql.configuration.html#ini.mysql.default-host" class="link">
+       mysql.default_host</a> is undefined (default), then the default 
+       value is &#039;localhost:3306&#039;. In <a href="ini.core.html#ini.sql.safe-mode" class="link">SQL safe mode</a>, this parameter is ignored
+       and value &#039;localhost:3306&#039; is always used.
+      </p>
+     </dd>
+
+    </dt>
+
+    <dt>
+
+     <span class="term"><i><tt class="parameter">username</tt></i></span>
+     <dd>
+
+      <p class="para">
+       The username. Default value is defined by <a href="mysql.configuration.html#ini.mysql.default-user" class="link">mysql.default_user</a>. In
+       <a href="ini.core.html#ini.sql.safe-mode" class="link">SQL safe mode</a>, this parameter is ignored and the name of the user that
+       owns the server process is used.
+      </p>
+     </dd>
+
+    </dt>
+
+    <dt>
+
+     <span class="term"><i><tt class="parameter">password</tt></i></span>
+     <dd>
+
+      <p class="para">
+       The password. Default value is defined by <a href="mysql.configuration.html#ini.mysql.default-password" class="link">mysql.default_password</a>. In
+       <a href="ini.core.html#ini.sql.safe-mode" class="link">SQL safe mode</a>, this parameter is ignored and empty password is used.
+      </p>
+     </dd>
+
+    </dt>
+   
+    <dt>
+
+     <span class="term"><i><tt class="parameter">new_link</tt></i></span>
+     <dd>
+
+      <p class="para">
+       If a second call is made to <span class="function"><b>mysql_connect()</b></span>
+       with the same arguments, no new link will be established, but
+       instead, the link identifier of the already opened link will be
+       returned. The <i><tt class="parameter">new_link</tt></i> parameter modifies this 
+       behavior and makes <span class="function"><b>mysql_connect()</b></span> always open 
+       a new link, even if <span class="function"><b>mysql_connect()</b></span> was called 
+       before with the same parameters.
+       In <a href="ini.core.html#ini.sql.safe-mode" class="link">SQL safe mode</a>, this parameter is ignored.
+      </p>
+     </dd>
+
+    </dt>
+
+    <dt>
+
+     <span class="term"><i><tt class="parameter">client_flags</tt></i></span>
+     <dd>
+
+      <p class="para">
+       The <i><tt class="parameter">client_flags</tt></i> parameter can be a combination 
+       of the following constants:
+       128 (enable <i>LOAD DATA LOCAL</i> handling),
+       <b><tt>MYSQL_CLIENT_SSL</tt></b>,
+       <b><tt>MYSQL_CLIENT_COMPRESS</tt></b>, 
+       <b><tt>MYSQL_CLIENT_IGNORE_SPACE</tt></b> or
+       <b><tt>MYSQL_CLIENT_INTERACTIVE</tt></b>.
+       Read the section about <a href="mysql.constants.html#mysql.client-flags" class="xref">MySQL client constants</a> for further information.
+       In <a href="ini.core.html#ini.sql.safe-mode" class="link">SQL safe mode</a>, this parameter is ignored.
+      </p>
+     </dd>
+
+    </dt>
+ 
+   </dl>
+
+  </p>
+ </div>
+
+
+ <div class="refsect1 returnvalues" id="refsect1-function.mysql-connect-returnvalues">
+  <h3 class="title">Return Values</h3>
+  <p class="para">
+   Returns a MySQL link identifier on success or <b><tt>FALSE</tt></b> on failure.
+  </p>
+ </div>
+
+
+ <div class="refsect1 changelog" id="refsect1-function.mysql-connect-changelog">
+  <h3 class="title">Changelog</h3>
+  <p class="para">
+   <table class="doctable informaltable">
+    
+     <thead valign="middle">
+      <tr valign="middle">
+       <th>Version</th>
+       <th>Description</th>
+      </tr>
+
+     </thead>
+
+     <tbody valign="middle" class="tbody">
+      <tr valign="middle">
+       <td align="left">4.3.0</td>
+       <td align="left">
+        Added the <i><tt class="parameter">client_flags</tt></i> parameter.
+       </td>
+      </tr>
+
+      <tr valign="middle">
+       <td align="left">4.2.0</td>
+       <td align="left">
+        Added the <i><tt class="parameter">new_link</tt></i> parameter.
+       </td>
+      </tr>
+
+     </tbody>
+    
+   </table>
+
+  </p>
+ </div>
+
+
+ <div class="refsect1 examples" id="refsect1-function.mysql-connect-examples">
+  <h3 class="title">Examples</h3>
+  <p class="para">
+   <div class="example" id="example-1476">
+    <p><b>Example #1 <span class="function"><b>mysql_connect()</b></span> example</b></p>
+    <div class="example-contents">
+<div class="phpcode"><code><span style="color: #000000">
+<span style="color: #0000BB">&lt;?php<br />$link&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">mysql_connect</span><span style="color: #007700">(</span><span style="color: #DD0000">'localhost'</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">'mysql_user'</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">'mysql_password'</span><span style="color: #007700">);<br />if&nbsp;(!</span><span style="color: #0000BB">$link</span><span style="color: #007700">)&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;die(</span><span style="color: #DD0000">'Could&nbsp;not&nbsp;connect:&nbsp;'&nbsp;</span><span style="color: #007700">.&nbsp;</span><span style="color: #0000BB">mysql_error</span><span style="color: #007700">());<br />}<br />echo&nbsp;</span><span style="color: #DD0000">'Connected&nbsp;successfully'</span><span style="color: #007700">;<br /></span><span style="color: #0000BB">mysql_close</span><span style="color: #007700">(</span><span style="color: #0000BB">$link</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">?&gt;</span>
+</span>
+</code></div>
+    </div>
+
+   </div>
+  </p>
+  <p class="para">
+   <div class="example" id="example-1477">
+    <p><b>Example #2 <span class="function"><b>mysql_connect()</b></span> example using <i>hostname:port</i> syntax</b></p>
+    <div class="example-contents">
+<div class="phpcode"><code><span style="color: #000000">
+<span style="color: #0000BB">&lt;?php<br /></span><span style="color: #FF8000">//&nbsp;we&nbsp;connect&nbsp;to&nbsp;example.com&nbsp;and&nbsp;port&nbsp;3307<br /></span><span style="color: #0000BB">$link&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">mysql_connect</span><span style="color: #007700">(</span><span style="color: #DD0000">'example.com:3307'</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">'mysql_user'</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">'mysql_password'</span><span style="color: #007700">);<br />if&nbsp;(!</span><span style="color: #0000BB">$link</span><span style="color: #007700">)&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;die(</span><span style="color: #DD0000">'Could&nbsp;not&nbsp;connect:&nbsp;'&nbsp;</span><span style="color: #007700">.&nbsp;</span><span style="color: #0000BB">mysql_error</span><span style="color: #007700">());<br />}<br />echo&nbsp;</span><span style="color: #DD0000">'Connected&nbsp;successfully'</span><span style="color: #007700">;<br /></span><span style="color: #0000BB">mysql_close</span><span style="color: #007700">(</span><span style="color: #0000BB">$link</span><span style="color: #007700">);<br /><br /></span><span style="color: #FF8000">//&nbsp;we&nbsp;connect&nbsp;to&nbsp;localhost&nbsp;at&nbsp;port&nbsp;3307<br /></span><span style="color: #0000BB">$link&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">mysql_connect</span><span style="color: #007700">(</span><span style="color: #DD0000">'127.0.0.1:3307'</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">'mysql_user'</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">'mysql_password'</span><span style="color: #007700">);<br />if&nbsp;(!</span><span style="color: #0000BB">$link</span><span style="color: #007700">)&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;die(</span><span style="color: #DD0000">'Could&nbsp;not&nbsp;connect:&nbsp;'&nbsp;</span><span style="color: #007700">.&nbsp;</span><span style="color: #0000BB">mysql_error</span><span style="color: #007700">());<br />}<br />echo&nbsp;</span><span style="color: #DD0000">'Connected&nbsp;successfully'</span><span style="color: #007700">;<br /></span><span style="color: #0000BB">mysql_close</span><span style="color: #007700">(</span><span style="color: #0000BB">$link</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">?&gt;</span>
+</span>
+</code></div>
+    </div>
+
+   </div>
+  </p>
+  <p class="para">
+   <div class="example" id="example-1478">
+    <p><b>Example #3 <span class="function"><b>mysql_connect()</b></span> example using  &quot;:/path/to/socket&quot; syntax</b></p>
+    <div class="example-contents">
+<div class="phpcode"><code><span style="color: #000000">
+<span style="color: #0000BB">&lt;?php<br /></span><span style="color: #FF8000">//&nbsp;we&nbsp;connect&nbsp;to&nbsp;localhost&nbsp;and&nbsp;socket&nbsp;e.g.&nbsp;/tmp/mysql.sock<br /><br />//&nbsp;variant&nbsp;1:&nbsp;omit&nbsp;localhost<br /></span><span style="color: #0000BB">$link&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">mysql_connect</span><span style="color: #007700">(</span><span style="color: #DD0000">':/tmp/mysql'</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">'mysql_user'</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">'mysql_password'</span><span style="color: #007700">);<br />if&nbsp;(!</span><span style="color: #0000BB">$link</span><span style="color: #007700">)&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;die(</span><span style="color: #DD0000">'Could&nbsp;not&nbsp;connect:&nbsp;'&nbsp;</span><span style="color: #007700">.&nbsp;</span><span style="color: #0000BB">mysql_error</span><span style="color: #007700">());<br />}<br />echo&nbsp;</span><span style="color: #DD0000">'Connected&nbsp;successfully'</span><span style="color: #007700">;<br /></span><span style="color: #0000BB">mysql_close</span><span style="color: #007700">(</span><span style="color: #0000BB">$link</span><span style="color: #007700">);<br /><br /><br /></span><span style="color: #FF8000">//&nbsp;variant&nbsp;2:&nbsp;with&nbsp;localhost<br /></span><span style="color: #0000BB">$link&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">mysql_connect</span><span style="color: #007700">(</span><span style="color: #DD0000">'localhost:/tmp/mysql.sock'</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">'mysql_user'</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">'mysql_password'</span><span style="color: #007700">);<br />if&nbsp;(!</span><span style="color: #0000BB">$link</span><span style="color: #007700">)&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;die(</span><span style="color: #DD0000">'Could&nbsp;not&nbsp;connect:&nbsp;'&nbsp;</span><span style="color: #007700">.&nbsp;</span><span style="color: #0000BB">mysql_error</span><span style="color: #007700">());<br />}<br />echo&nbsp;</span><span style="color: #DD0000">'Connected&nbsp;successfully'</span><span style="color: #007700">;<br /></span><span style="color: #0000BB">mysql_close</span><span style="color: #007700">(</span><span style="color: #0000BB">$link</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">?&gt;</span>
+</span>
+</code></div>
+    </div>
+
+   </div>
+  </p>
+ </div>
+
+
+ <div class="refsect1 notes" id="refsect1-function.mysql-connect-notes">
+  <h3 class="title">Notes</h3>
+  <blockquote class="note"><p><b class="note">Note</b>: 
+   <p class="para">
+    Whenever you specify &quot;localhost&quot; or
+    &quot;localhost:port&quot; as server, the MySQL client library will
+    override this and try to connect to a local socket (named pipe on
+    Windows). If you want to use TCP/IP, use &quot;127.0.0.1&quot;
+    instead of &quot;localhost&quot;. If the MySQL client library tries to
+    connect to the wrong local socket, you should set the correct path as
+    <a href="mysql.configuration.html#ini.mysql.default-host" class="xref"></a> in your PHP configuration and leave the server field
+    blank.
+   </p>
+  </p></blockquote>
+  <blockquote class="note"><p><b class="note">Note</b>: 
+   <p class="para">
+    The link to the server will be closed as soon as the execution of
+    the script ends, unless it&#039;s closed earlier by explicitly calling
+    <span class="function"><a href="function.mysql-close.html" class="function">mysql_close()</a></span>.
+   </p>
+  </p></blockquote>
+  <blockquote class="note"><p><b class="note">Note</b>: 
+   <p class="para">
+    You can suppress the error message on failure by prepending 
+    a <a href="language.operators.errorcontrol.html" class="link">@</a>
+    to the function name.
+   </p>
+  </p></blockquote>
+  <blockquote class="note"><p><b class="note">Note</b>: 
+   <p class="para">
+    Error &quot;Can&#039;t create TCP/IP socket (10106)&quot; usually means that the <a href="ini.core.html#ini.variables-order" class="link">variables_order</a> configure directive
+    doesn&#039;t contain character <i>E</i>. On Windows, if the
+    environment is not copied the <i>SYSTEMROOT</i> environment
+    variable won&#039;t be available and PHP will have problems loading Winsock.
+   </p>
+  </p></blockquote>
+ </div>
+
+
+ <div class="refsect1 seealso" id="refsect1-function.mysql-connect-seealso">
+  <h3 class="title">See Also</h3>
+  <p class="para">
+   <ul class="simplelist">
+    <li class="member"><span class="function"><a href="function.mysql-pconnect.html" class="function" rel="rdfs-seeAlso">mysql_pconnect()</a> - Open a persistent connection to a MySQL server</span></li>
+    <li class="member"><span class="function"><a href="function.mysql-close.html" class="function" rel="rdfs-seeAlso">mysql_close()</a> - Close MySQL connection</span></li>
+   </ul>
+  </p>
+ </div>
+
+</div><hr /><div class="manualnavbar" style="text-align: center;">
+ <div class="prev" style="text-align: left; float: left;"><a href="function.mysql-close.html">mysql_close</a></div>
+ <div class="next" style="text-align: right; float: right;"><a href="function.mysql-create-db.html">mysql_create_db</a></div>
+ <div class="up"><a href="ref.mysql.html">MySQL Functions</a></div>
+ <div class="home"><a href="index.html">PHP Manual</a></div>
+</div></body></html>
