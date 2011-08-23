@@ -1,0 +1,271 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+ <head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>Runtime Configuration</title>
+
+ </head>
+ <body><div class="manualnavbar" style="text-align: center;">
+ <div class="prev" style="text-align: left; float: left;"><a href="http.install.html">Installing the HTTP extension</a></div>
+ <div class="next" style="text-align: right; float: right;"><a href="http.resources.html">Resource Types</a></div>
+ <div class="up"><a href="http.setup.html">Installing/Configuring</a></div>
+ <div class="home"><a href="index.html">PHP Manual</a></div>
+</div><hr /><div id="http.configuration" class="section">
+ <h2 class="title">Runtime Configuration</h2>
+ <p class="simpara">
+The behaviour of these functions is affected by settings in <var class="filename">php.ini</var>.
+</p>
+ <p class="para">
+  <table class="doctable table">
+   <caption><b>HTTP Configuration Options</b></caption>
+
+   
+    <thead valign="middle">
+     <tr valign="middle">
+      <th>Name</th>
+      <th>Default</th>
+      <th>Changeable</th>
+      <th>Description</th>
+     </tr>
+
+    </thead>
+
+    <tbody valign="middle" class="tbody">
+
+     <tr id="http.configuration.etag.mode" valign="middle">
+      <td align="left">http.etag.mode</td>
+      <td align="left">&quot;MD5&quot;</td>
+      <td align="left">PHP_INI_ALL</td>
+      <td align="left">
+       The hashing algorithm used to generate the ETag.  MD5, SHA1, and CRC32
+       are always available.  If the <a href="ref.hash.html" class="link">hash</a>
+       extension is enabled, any hashing algorithms this extension provides 
+       are available, too.
+      </td>
+     </tr>
+
+
+     <tr id="http.configuration.log.cache" valign="middle">
+      <td align="left">http.log.cache</td>
+      <td align="left">&quot;&quot;</td>
+      <td align="left">PHP_INI_ALL</td>
+      <td align="left">
+       The path (or stream wrapper url) to a log file in which to write successful cache hits.
+      </td>
+     </tr>
+
+
+     <tr id="http.configuration.log.redirect" valign="middle">
+      <td align="left">http.log.redirect</td>
+      <td align="left">&quot;&quot;</td>
+      <td align="left">PHP_INI_ALL</td>
+      <td align="left">
+       The path (or stream wrapper url) to a log file in which to write redirects.
+      </td>
+     </tr>
+
+
+     <tr id="http.configuration.log.not-found" valign="middle">
+      <td align="left">http.log.not_found</td>
+      <td align="left">&quot;&quot;</td>
+      <td align="left">PHP_INI_ALL</td>
+      <td align="left">
+       The path (or stream wrapper url) to a log file in which to write &quot;file not found&quot; errors.
+      </td>
+     </tr>
+
+
+     <tr id="http.configuration.log.allowed-methods" valign="middle">
+      <td align="left">http.log.allowed_methods</td>
+      <td align="left">&quot;&quot;</td>
+      <td align="left">PHP_INI_ALL</td>
+      <td align="left">
+       The path (or stream wrapper url) to a log file in which to write &quot;allowed methods&quot; violations.
+      </td>
+     </tr>
+
+
+     <tr id="http.configuration.log.composite" valign="middle">
+      <td align="left">http.log.composite</td>
+      <td align="left">&quot;&quot;</td>
+      <td align="left">PHP_INI_ALL</td>
+      <td align="left">
+       The path (or stream wrapper url) to a log file in which to write all events.
+      </td>
+     </tr>
+
+
+     <tr id="http.configuration.request.methods.allowed" valign="middle">
+      <td align="left">http.request.methods.allowed</td>
+      <td align="left">&quot;&quot;</td>
+      <td align="left">PHP_INI_ALL</td>
+      <td align="left">
+       Allowed request methods.  If a client issues a request with a request method
+       other than listed here, PHP exits with a status of &quot;405 Method not allowed&quot;.
+       See the <a href="http.configuration.html" class="link">INI setting</a> 
+<a href="http.configuration.html#http.configuration.force-exit" class="link">http.force_exit</a> for what &quot;exits&quot; means.
+      </td>
+     </tr>
+
+
+     <tr id="http.configuration.request.methods.custom" valign="middle">
+      <td align="left">http.request.methods.custom</td>
+      <td align="left">&quot;&quot;</td>
+      <td align="left">PHP_INI_PERDIR|PHP_INI_SYSTEM</td>
+      <td align="left">
+       Custom request methods.  If you want to use any non-standard request methods,
+       you can register them with this INI setting or <span class="function"><a href="function.http-request-method-register.html" class="function">http_request_method_register()</a></span>.
+      </td>
+     </tr>
+
+
+     <tr id="http.configuration.request.datashare.cookie" valign="middle">
+      <td align="left">http.request.datashare.cookie</td>
+      <td align="left">&quot;0&quot;</td>
+      <td align="left">PHP_INI_SYSTEM</td>
+      <td align="left">
+       Whether the global <b class="classname">HttpRequestDataShare</b> should by default share cookie information.
+      </td>
+     </tr>
+
+
+     <tr id="http.configuration.request.datashare.dns" valign="middle">
+      <td align="left">http.request.datashare.dns</td>
+      <td align="left">&quot;1&quot;</td>
+      <td align="left">PHP_INI_SYSTEM</td>
+      <td align="left">
+       Whether the global <b class="classname">HttpRequestDataShare</b> should by default share name lookup information.
+      </td>
+     </tr>
+
+
+     <tr id="http.configuration.request.datashare.ssl" valign="middle">
+      <td align="left">http.request.datashare.ssl</td>
+      <td align="left">&quot;0&quot;</td>
+      <td align="left">PHP_INI_SYSTEM</td>
+      <td align="left">
+       Whether the global <b class="classname">HttpRequestDataShare</b> should by default share SSL session information.
+       This is not yet implemented in libcurl.
+      </td>
+     </tr>
+
+
+     <tr id="http.configuration.request.datashare.connect" valign="middle">
+      <td align="left">http.request.datashare.connect</td>
+      <td align="left">&quot;0&quot;</td>
+      <td align="left">PHP_INI_SYSTEM</td>
+      <td align="left">
+       Whether the global <b class="classname">HttpRequestDataShare</b> should by default share connect information.
+       This is not yet implemented in libcurl.
+      </td>
+     </tr>
+
+
+     <tr id="http.configuration.persistent.handles.limit" valign="middle">
+      <td align="left">http.persistent.handles.limit</td>
+      <td align="left">&quot;-1&quot;</td>
+      <td align="left">PHP_INI_SYSTEM</td>
+      <td align="left">
+       The maximum amount of persistent handles to keep alive.
+      </td>
+     </tr>
+
+
+     <tr id="http.configuration.persistent.handles.ident" valign="middle">
+      <td align="left">http.persistent.handles.ident</td>
+      <td align="left">&quot;GLOBAL&quot;</td>
+      <td align="left">PHP_INI_ALL</td>
+      <td align="left">
+       The ident of persistent handles.
+      </td>
+     </tr>
+
+
+     <tr id="http.configuration.send.inflate.start-auto" valign="middle">
+      <td align="left">http.send.inflate.start_auto</td>
+      <td align="left">&quot;0&quot;</td>
+      <td align="left">PHP_INI_PERDIR|PHP_INI_SYSTEM</td>
+      <td align="left">
+       Whether to automatically start the inflate output handler.
+      </td>
+     </tr>
+
+
+     <tr id="http.configuration.send.inflate.start-flags" valign="middle">
+      <td align="left">http.send.inflate.start_flags</td>
+      <td align="left">&quot;0&quot;</td>
+      <td align="left">PHP_INI_ALL</td>
+      <td align="left">
+       Initialization settings for the inflate output handler.
+      </td>
+     </tr>
+
+
+     <tr id="http.configuration.send.deflate.start-auto" valign="middle">
+      <td align="left">http.send.deflate.start_auto</td>
+      <td align="left">&quot;0&quot;</td>
+      <td align="left">PHP_INI_PERDIR|PHP_INI_SYSTEM</td>
+      <td align="left">
+       Whether to automatically start the deflate output handler.
+      </td>
+     </tr>
+
+
+     <tr id="http.configuration.send.deflate.start-flags" valign="middle">
+      <td align="left">http.send.deflate.start_flags</td>
+      <td align="left">&quot;0&quot;</td>
+      <td align="left">PHP_INI_ALL</td>
+      <td align="left">
+       Initialization settings for the deflate output handler.
+       See <a href="http.constants.html#http.constants.deflate" class="link">deflate constants</a>.
+      </td>
+     </tr>
+
+
+     <tr id="http.configuration.send.not-found-404" valign="middle">
+      <td align="left">http.send.not_found_404</td>
+      <td align="left">&quot;1&quot;</td>
+      <td align="left">PHP_INI_ALL</td>
+      <td align="left">
+       Whether to automatically exit with a status of &quot;404 Not found&quot;,
+       if <span class="function"><a href="function.http-send-file.html" class="function">http_send_file()</a></span> was not able to find the specified file.
+       See the <a href="http.configuration.html" class="link">INI setting</a> 
+<a href="http.configuration.html#http.configuration.force-exit" class="link">http.force_exit</a> for what &quot;exits&quot; means.
+      </td>
+     </tr>
+
+
+     <tr id="http.configuration.only-exceptions" valign="middle">
+      <td align="left">http.only_exceptions</td>
+      <td align="left">&quot;0&quot;</td>
+      <td align="left">PHP_INI_ALL</td>
+      <td align="left">
+       Whether all notices/warnings/errors should be thrown as exceptions.
+      </td>
+     </tr>
+
+
+     <tr id="http.configuration.force-exit" valign="middle">
+      <td align="left">http.force_exit</td>
+      <td align="left">&quot;1&quot;</td>
+      <td align="left">PHP_INI_ALL</td>
+      <td align="left">
+       Each occasion where &quot;exits with a status of...&quot; is mentioned, usually causes 
+       the halt of the scripting engine.  Disable this option if you alternatively
+       want to start a discarding (dev/null) output handler and continue script 
+       execution.
+      </td>
+     </tr>
+
+
+    </tbody>
+   
+  </table>
+
+ </p>
+</div><hr /><div class="manualnavbar" style="text-align: center;">
+ <div class="prev" style="text-align: left; float: left;"><a href="http.install.html">Installing the HTTP extension</a></div>
+ <div class="next" style="text-align: right; float: right;"><a href="http.resources.html">Resource Types</a></div>
+ <div class="up"><a href="http.setup.html">Installing/Configuring</a></div>
+ <div class="home"><a href="index.html">PHP Manual</a></div>
+</div></body></html>

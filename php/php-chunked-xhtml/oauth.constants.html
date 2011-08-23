@@ -1,0 +1,462 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+ <head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>Predefined Constants</title>
+
+ </head>
+ <body><div class="manualnavbar" style="text-align: center;">
+ <div class="prev" style="text-align: left; float: left;"><a href="oauth.resources.html">Resource Types</a></div>
+ <div class="next" style="text-align: right; float: right;"><a href="oauth.examples.html">Examples</a></div>
+ <div class="up"><a href="book.oauth.html">OAuth</a></div>
+ <div class="home"><a href="index.html">PHP Manual</a></div>
+</div><hr /><div id="oauth.constants" class="appendix">
+ <h1>Predefined Constants</h1>
+
+ <p class="simpara">
+The constants below are defined by this extension, and
+will only be available when the extension has either
+been compiled into PHP or dynamically loaded at runtime.
+</p>
+ <p class="para">
+  Most of these constants involve problems, which are also described within the official
+  OAuth <a href="http://wiki.oauth.net/ProblemReporting" class="link external">&raquo;&nbsp;Problem Reporting</a>
+  documentation. Note however, that these constant names are specific to PHP, although
+  the naming scheme is similar.
+ </p>
+ <p class="para">
+  <dl>
+
+   
+   <dt>
+
+    <span class="term">
+     <b><tt>OAUTH_SIG_METHOD_RSASHA1</tt></b>
+     (<span class="type"><a href="language.types.string.html" class="type string">string</a></span>)
+    </span>
+    <dd>
+
+     <span class="simpara">
+      OAuth <em class="emphasis">RSA-SHA1</em> signature method.
+     </span>
+    </dd>
+
+   </dt>
+
+   <dt>
+
+    <span class="term">
+     <b><tt>OAUTH_SIG_METHOD_HMACSHA1</tt></b>
+     (<span class="type"><a href="language.types.string.html" class="type string">string</a></span>)
+    </span>
+    <dd>
+
+     <p class="para">
+      OAuth <em class="emphasis">HMAC-SHA1</em> signature method.
+     </p>
+    </dd>
+
+   </dt>
+
+   <dt>
+
+    <span class="term">
+     <b><tt>OAUTH_SIG_METHOD_HMACSHA256</tt></b>
+     (<span class="type"><a href="language.types.string.html" class="type string">string</a></span>)
+    </span>
+    <dd>
+
+     <span class="simpara">
+      OAuth <em class="emphasis">HMAC-SHA256</em> signature method.
+     </span>
+    </dd>
+
+   </dt>
+
+   <dt>
+
+    <span class="term">
+     <b><tt>OAUTH_AUTH_TYPE_AUTHORIZATION</tt></b>
+     (<span class="type"><a href="language.types.string.html" class="type string">string</a></span>)
+    </span>
+    <dd>
+
+     <p class="para">
+      This constant represents putting OAuth parameters in the
+      <i>Authorization</i> header.
+     </p>
+    </dd>
+
+   </dt>
+
+   <dt>
+
+    <span class="term">
+     <b><tt>OAUTH_AUTH_TYPE_NONE</tt></b>
+     (<span class="type"><a href="language.types.string.html" class="type string">string</a></span>)
+    </span>
+    <dd>
+
+     <p class="para">
+      This constant indicates a NoAuth OAuth request.
+     </p>
+    </dd>
+
+   </dt>
+
+   <dt>
+
+    <span class="term">
+     <b><tt>OAUTH_AUTH_TYPE_URI</tt></b>
+     (<span class="type"><a href="language.types.string.html" class="type string">string</a></span>)
+    </span>
+    <dd>
+
+     <p class="para">
+      This constant represents putting OAuth parameters in the request
+      <acronym title="Uniform Resource Identifier">URI</acronym>.
+     </p>
+    </dd>
+
+   </dt>
+
+   <dt>
+
+    <span class="term">
+     <b><tt>OAUTH_AUTH_TYPE_FORM</tt></b>
+     (<span class="type"><a href="language.types.string.html" class="type string">string</a></span>)
+    </span>
+    <dd>
+
+     <p class="para">
+      This constant represents putting OAuth parameters as part of the
+      HTTP POST body.
+     </p>
+    </dd>
+
+   </dt>
+
+   <dt>
+
+    <span class="term">
+     <b><tt>OAUTH_HTTP_METHOD_GET</tt></b>
+     (<span class="type"><a href="language.types.string.html" class="type string">string</a></span>)
+    </span>
+    <dd>
+
+     <p class="para">
+      Use the <em class="emphasis">GET</em> method for the OAuth request.
+     </p>
+    </dd>
+
+   </dt>
+
+   <dt>
+
+    <span class="term">
+     <b><tt>OAUTH_HTTP_METHOD_POST</tt></b>
+     (<span class="type"><a href="language.types.string.html" class="type string">string</a></span>)
+    </span>
+    <dd>
+
+     <p class="para">
+      Use the <em class="emphasis">POST</em> method for the OAuth request.
+     </p>
+    </dd>
+
+   </dt>
+
+   <dt>
+
+    <span class="term">
+     <b><tt>OAUTH_HTTP_METHOD_PUT</tt></b>
+     (<span class="type"><a href="language.types.string.html" class="type string">string</a></span>)
+    </span>
+    <dd>
+
+     <p class="para">
+      Use the <em class="emphasis">PUT</em> method for the OAuth request.
+     </p>
+    </dd>
+
+   </dt>
+
+   <dt>
+
+    <span class="term">
+     <b><tt>OAUTH_HTTP_METHOD_HEAD</tt></b>
+     (<span class="type"><a href="language.types.string.html" class="type string">string</a></span>)
+    </span>
+    <dd>
+
+     <p class="para">
+      Use the <em class="emphasis">HEAD</em> method for the OAuth request.
+     </p>
+    </dd>
+
+   </dt>
+
+   <dt>
+
+    <span class="term">
+     <b><tt>OAUTH_HTTP_METHOD_DELETE</tt></b>
+     (<span class="type"><a href="language.types.string.html" class="type string">string</a></span>)
+    </span>
+    <dd>
+
+     <span class="simpara">
+      Use the <em class="emphasis">DELETE</em> method for the OAuth request.
+     </span>
+    </dd>
+
+   </dt>
+
+   <dt>
+
+    <span class="term">
+     <b><tt>OAUTH_REQENGINE_STREAMS</tt></b>
+     (<span class="type"><a href="language.types.integer.html" class="type integer">integer</a></span>)
+    </span>
+    <dd>
+
+     <span class="simpara">
+      Used by  <span class="methodname"><b>Oauth::setReqeustEngine()</b></span> to set the engine to 
+      <a href="book.stream.html" class="link">PHP streams</a>,
+      as opposed to <b><tt>OAUTH_REQENGINE_CURL</tt></b> for 
+      <a href="book.curl.html" class="link">Curl</a>.
+     </span>
+    </dd>
+
+   </dt>
+
+   <dt>
+
+    <span class="term">
+     <b><tt>OAUTH_REQENGINE_CURL</tt></b>
+     (<span class="type"><a href="language.types.integer.html" class="type integer">integer</a></span>)
+    </span>
+    <dd>
+
+     <span class="simpara">
+      Used by  <span class="methodname"><b>Oauth::setReqeustEngine()</b></span> to set the engine to 
+      <a href="book.curl.html" class="link">Curl</a>, as opposed to 
+      <b><tt>OAUTH_REQENGINE_STREAMS</tt></b> for <a href="book.stream.html" class="link">PHP streams</a>.
+     </span>
+    </dd>
+
+   </dt>
+
+   <dt>
+
+    <span class="term">
+     <b><tt>OAUTH_OK</tt></b>
+     (<span class="type"><a href="language.types.integer.html" class="type integer">integer</a></span>)
+    </span>
+    <dd>
+
+     <span class="simpara">
+      Life is good.
+     </span>
+    </dd>
+
+   </dt>
+
+   <dt>
+
+    <span class="term">
+     <b><tt>OAUTH_BAD_NONCE</tt></b>
+     (<span class="type"><a href="language.types.integer.html" class="type integer">integer</a></span>)
+    </span>
+    <dd>
+
+     <span class="simpara">
+       The <em class="emphasis">oauth_nonce</em> value was used in a previous request,
+       therefore it cannot be used now.
+     </span>
+    </dd>
+
+   </dt>
+
+   <dt>
+
+    <span class="term">
+     <b><tt>OAUTH_BAD_TIMESTAMP</tt></b>
+     (<span class="type"><a href="language.types.integer.html" class="type integer">integer</a></span>)
+    </span>
+    <dd>
+
+     <span class="simpara">
+       The <em class="emphasis">oauth_timestamp</em> value was not accepted by the service provider. In
+       this case, the response should also contain the <em class="emphasis">oauth_acceptable_timestamps</em>
+       parameter.
+     </span>
+    </dd>
+
+   </dt>
+
+   <dt>
+
+    <span class="term">
+     <b><tt>OAUTH_CONSUMER_KEY_UNKNOWN</tt></b>
+     (<span class="type"><a href="language.types.integer.html" class="type integer">integer</a></span>)
+    </span>
+    <dd>
+
+     <span class="simpara">
+      The <em class="emphasis">oauth_consumer_key</em> is temporarily unacceptable to the service provider.
+      For example, the service provider may be throttling the consumer.
+     </span>
+    </dd>
+
+   </dt>
+
+   <dt>
+
+    <span class="term">
+     <b><tt>OAUTH_CONSUMER_KEY_REFUSED</tt></b>
+     (<span class="type"><a href="language.types.integer.html" class="type integer">integer</a></span>)
+    </span>
+    <dd>
+
+     <span class="simpara">
+      The consumer key was refused.
+     </span>
+    </dd>
+
+   </dt>
+
+   <dt>
+
+    <span class="term">
+     <b><tt>OAUTH_INVALID_SIGNATURE</tt></b>
+     (<span class="type"><a href="language.types.integer.html" class="type integer">integer</a></span>)
+    </span>
+    <dd>
+
+     <span class="simpara">
+       The <em class="emphasis">oauth_signature</em> is invalid, as it does not match the
+       signature computed by the service provider.
+     </span>
+    </dd>
+
+   </dt>
+
+   <dt>
+
+    <span class="term">
+     <b><tt>OAUTH_TOKEN_USED</tt></b>
+     (<span class="type"><a href="language.types.integer.html" class="type integer">integer</a></span>)
+    </span>
+    <dd>
+
+     <span class="simpara">
+      The <em class="emphasis">oauth_token</em> has been consumed. It can no longer be
+      used because it has already been used in the previous request (or requests).
+     </span>
+    </dd>
+
+   </dt>
+
+   <dt>
+
+    <span class="term">
+     <b><tt>OAUTH_TOKEN_EXPIRED</tt></b>
+     (<span class="type"><a href="language.types.integer.html" class="type integer">integer</a></span>)
+    </span>
+    <dd>
+
+     <span class="simpara">
+      The <em class="emphasis">oauth_token</em> has expired. 
+     </span>
+    </dd>
+
+   </dt>
+
+   <dt>
+
+    <span class="term">
+     <b><tt>OAUTH_TOKEN_REVOKED</tt></b>
+     (<span class="type"><a href="language.types.integer.html" class="type integer">integer</a></span>)
+    </span>
+    <dd>
+
+     <span class="simpara">
+      The <em class="emphasis">oauth_token</em> has been revoked, and will never be accepted.
+     </span>
+    </dd>
+
+   </dt>
+
+   <dt>
+
+    <span class="term">
+     <b><tt>OAUTH_TOKEN_REJECTED</tt></b>
+     (<span class="type"><a href="language.types.integer.html" class="type integer">integer</a></span>)
+    </span>
+    <dd>
+
+     <span class="simpara">
+      The <em class="emphasis">oauth_token</em> was not accepted by the service provider.
+      The reason is not known, but it might be because the token was never issued,
+      already consumed, expired, and/or forgotten by the service provider.
+     </span>
+    </dd>
+
+   </dt>
+
+   <dt>
+
+    <span class="term">
+     <b><tt>OAUTH_VERIFIER_INVALID</tt></b>
+     (<span class="type"><a href="language.types.integer.html" class="type integer">integer</a></span>)
+    </span>
+    <dd>
+
+     <span class="simpara">
+      The <em class="emphasis">oauth_verifier</em> is incorrect.
+     </span>
+    </dd>
+
+   </dt>
+
+   <dt>
+
+    <span class="term">
+     <b><tt>OAUTH_PARAMETER_ABSENT</tt></b>
+     (<span class="type"><a href="language.types.integer.html" class="type integer">integer</a></span>)
+    </span>
+    <dd>
+
+     <span class="simpara">
+      A required parameter was not received. In this case, the response should also
+      contain the <em class="emphasis">oauth_parameters_absent</em> parameter.
+     </span>
+    </dd>
+
+   </dt>
+
+   <dt>
+
+    <span class="term">
+     <b><tt>OAUTH_SIGNATURE_METHOD_REJECTED</tt></b>
+     (<span class="type"><a href="language.types.integer.html" class="type integer">integer</a></span>)
+    </span>
+    <dd>
+
+     <span class="simpara">
+      The <em class="emphasis">oauth_signature_method</em> was not accepted by service provider.
+     </span>
+    </dd>
+
+   </dt>
+
+  </dl>
+
+ </p>
+</div>
+<hr /><div class="manualnavbar" style="text-align: center;">
+ <div class="prev" style="text-align: left; float: left;"><a href="oauth.resources.html">Resource Types</a></div>
+ <div class="next" style="text-align: right; float: right;"><a href="oauth.examples.html">Examples</a></div>
+ <div class="up"><a href="book.oauth.html">OAuth</a></div>
+ <div class="home"><a href="index.html">PHP Manual</a></div>
+</div></body></html>

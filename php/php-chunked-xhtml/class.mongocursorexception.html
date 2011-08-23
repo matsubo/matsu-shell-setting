@@ -1,0 +1,321 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+ <head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>The MongoCursorException class</title>
+
+ </head>
+ <body><div class="manualnavbar" style="text-align: center;">
+ <div class="prev" style="text-align: left; float: left;"><a href="class.mongoexception.html">MongoException</a></div>
+ <div class="next" style="text-align: right; float: right;"><a href="class.mongocursortimeoutexception.html">MongoCursorTimeoutException</a></div>
+ <div class="up"><a href="mongo.exceptions.html">Exceptions</a></div>
+ <div class="home"><a href="index.html">PHP Manual</a></div>
+</div><hr /><div id="class.mongocursorexception" class="reference">
+
+ <h1 class="title">The MongoCursorException class</h1>
+ 
+
+ <div class="partintro">
+
+  
+  <div class="section" id="mongocursorexception.intro">
+   <h2 class="title">Introduction</h2>
+   <p class="para">
+    Caused by accessing a cursor incorrectly or a error receiving a reply.
+   </p>
+
+   <p class="para">
+    If there is an error receiving a reply, there will be a more 
+    specific error message to help diagnose the problem.  As it is a bit 
+    programmatically awkward to parse an exception message, there is also an
+    error code associated with each cause of the exception.  
+   </p>
+
+   <ul class="itemizedlist">
+    <li class="listitem">
+     <p class="para">
+      <i>cannot modify cursor after beginning iteration</i>
+     </p>
+     <p class="para">
+      Code: 0
+     </p>
+     <p class="para">
+      You are calling a method that sets up the query after executing the query.
+      Reset the cursor and try again.
+     </p>
+    </li>
+
+    <li class="listitem">
+     <p class="para">
+      Get next batch send errors
+     </p>
+     <p class="para">
+      Code: 1
+     </p>
+     <p class="para">
+      Could not send the query to the database.  Make sure the database is 
+      still up and the network is okay.
+     </p>
+    </li>
+
+    <li class="listitem">
+     <p class="para">
+      <i>cursor not found</i>
+     </p>
+     <p class="para">
+      Code: 2
+     </p>
+     <p class="para">
+      The driver was trying to fetch more results from the database, but the
+      database did not have a record of the query.  This usually means that the
+      cursor timed out on the server side: after a few minutes of inactivity, 
+      the database will kill a cursor (see 
+      <span class="function"><a href="mongocursor.immortal.html" class="function">MongoCursor::immortal()</a></span> for information on preventing
+      this).
+     </p>
+    </li>
+
+    <li class="listitem">
+     <p class="para">
+      Couldn&#039;t get response header.
+     </p>
+     <p class="para">
+      Code: 4
+     </p>
+    </li>
+
+    <li class="listitem">
+     <p class="para">
+      <i>cursor-&gt;buf.pos is null</i>
+     </p>
+     <p class="para">
+      Code: 3
+     </p>
+     <p class="para">
+      This may indicate you are out of hard driver space or some other 
+      extraordinary circumstance.
+     </p>
+    </li>
+
+    <li class="listitem">
+     <p class="para">
+      <i>couldn&#039;t get response header</i>
+     </p>
+     <p class="para">
+      Code: 4
+     </p>
+     <p class="para">
+      The driver could not fetch a reply header from the database, so it gave 
+      up.  Check if the database is still up and the network is connected and 
+      try the query again.
+     </p>
+    </li>
+
+    <li class="listitem">
+     <p class="para">
+      <i>no db response</i>
+     </p>
+     <p class="para">
+      Code: 5
+     </p>
+     <p class="para">
+      This may not even be an error, for example, the database command 
+      &quot;shutdown&quot; returns no response.  However, if you were expecting a 
+      response, this means the database didn&#039;t give one.
+     </p>
+    </li>
+
+    <li class="listitem">
+     <p class="para">
+      <i>bad response length: %d, max: %d, did the db assert?</i>
+     </p>
+     <p class="para">
+      Code: 6
+     </p>
+     <p class="para">
+      This means that the database said that its response was greater than 4Mb 
+      or less than 0.  Generally, a number greater than 5Mb should be reported 
+      to the developers as a potential database bug (max response length is 
+      4Mb).  A response of less than 0 often means a database assertion occured.
+     </p>
+    </li>
+
+    <li class="listitem">
+     <p class="para">
+      <i>incomplete header</i>
+     </p>
+     <p class="para">
+      Code: 7
+     </p>
+     <p class="para">
+      Highly unusual.  Occurs if the database response started out correctly, 
+      but broke off in the middle.  Probably indicates a network problem.
+     </p>
+    </li>
+
+    <li class="listitem">
+     <p class="para">
+      <i>incomplete response</i>
+     </p>
+     <p class="para">
+      Code: 8
+     </p>
+     <p class="para">
+      Highly unusual.  Occurs if the database response started out correctly, 
+      but broke off in the middle.  Probably indicates a network problem.
+     </p>
+    </li>
+
+    <li class="listitem">
+     <p class="para">
+      <i>couldn&#039;t find a response</i>
+     </p>
+     <p class="para">
+      Code: 9
+     </p>
+     <p class="para">
+      If the response was cached and now cannot be located.
+     </p>
+    </li>
+
+    <li class="listitem">
+     <p class="para">
+      <i>error getting socket</i>
+     </p>
+     <p class="para">
+      Code: 10
+     </p>
+     <p class="para">
+      The socket was closed or encountered an error.  The driver should 
+      automatically reconnect (if possible) on the next operation.
+     </p>
+    </li>
+
+    <li class="listitem">
+     <p class="para">
+      <i>couldn&#039;t find reply, please try again</i>
+     </p>
+     <p class="para">
+      Code: 11
+     </p>
+     <p class="para">
+      The driver saves any database responses it cannot immediately match with a 
+      request. This exception occurs if the driver has already passed your 
+      request&#039;s response and cannot find your response in its cache.
+     </p>
+    </li>
+
+    <li class="listitem">
+     <p class="para">
+      <i>error getting database response: errstr</i>
+     </p>
+     <p class="para">
+      <i>WSA error getting database response: errstr</i>
+     </p>
+     <p class="para">
+      &quot;errstr&quot; is an io error reported directly from the C socket 
+      subsystem.  On Windows, the error message is prefixed with &quot;WSA&quot;.
+     </p>
+    </li>
+
+    <li class="listitem">
+     <p class="para">
+      <i>Timeout error</i>
+     </p>
+     <p class="para">
+      Code: 13
+     </p>
+     <p class="para">
+      If there was an error while waiting for a query to complete.
+     </p>
+    </li>
+
+    <li class="listitem">
+     <p class="para">
+      <i>couldn&#039;t send query: &lt;various&gt;</i>
+     </p>
+     <p class="para">
+      Code: 14
+     </p>
+     <p class="para">
+      C socket error on send.
+     </p>
+    </li>
+   </ul>
+  </div>
+
+
+  <div class="section">
+   <h2 class="title">Errors passed through by the database</h2>
+   <p class="para">
+    Database errors should always trigger MongoCursorExceptions on queries. 
+    Error messages and codes are sent directly from the database and you should
+    be able to see matching errors in the database log.
+   </p>
+
+   <p class="para">
+    A few common database errors are listed below:
+   </p>
+
+   <ul class="itemizedlist">
+    <li class="listitem">
+     <p class="para">
+      <i>E11000 duplicate key error index: foo.bar.$X  dup key: { /* ... */ }</i>
+     </p>
+     <p class="para">
+      Code: 11000
+     </p>
+     <p class="para">
+      Database error for duplicate keys.
+     </p>
+    </li>
+
+    <li class="listitem">
+     <p class="para">
+      <i>not master</i>
+     </p>
+     <p class="para">
+      Codes: 10107, 13435, and 10058
+     </p>
+     <p class="para">
+      Not master errors, piped through by the database.  Each of these will 
+      cause the driver to disconnect and attempt to find a new master.  The
+      actual error you get on failover may not be a &quot;not master&quot; error, 
+      depending on when the change in master occurs.
+     </p>
+    </li>
+   </ul>
+
+  </div>
+  
+
+  <div class="section" id="mongocursorexception.synopsis">
+   <h2 class="title">Class synopsis</h2>
+
+   
+   <div class="classsynopsis">
+    <div class="ooclass"></div>
+
+    
+    <div class="classsynopsisinfo">
+     <span class="ooclass">
+      <span class="modifier">extends</span>
+      <a href="class.mongoexception.html" class="classname">MongoException</a>
+     </span>
+     {</div>
+    
+    
+   }</div>
+   
+
+  </div>
+
+ </div>
+
+</div>
+<hr /><div class="manualnavbar" style="text-align: center;">
+ <div class="prev" style="text-align: left; float: left;"><a href="class.mongoexception.html">MongoException</a></div>
+ <div class="next" style="text-align: right; float: right;"><a href="class.mongocursortimeoutexception.html">MongoCursorTimeoutException</a></div>
+ <div class="up"><a href="mongo.exceptions.html">Exceptions</a></div>
+ <div class="home"><a href="index.html">PHP Manual</a></div>
+</div></body></html>

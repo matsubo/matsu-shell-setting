@@ -1,0 +1,105 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+ <head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>Updates status for all hosts associated with this</title>
+
+ </head>
+ <body><div class="manualnavbar" style="text-align: center;">
+ <div class="prev" style="text-align: left; float: left;"><a href="mongo.get.html">Mongo::__get</a></div>
+ <div class="next" style="text-align: right; float: right;"><a href="mongo.getpoolsize.html">Mongo::getPoolSize</a></div>
+ <div class="up"><a href="class.mongo.html">Mongo</a></div>
+ <div class="home"><a href="index.html">PHP Manual</a></div>
+</div><hr /><div id="mongo.getHosts" class="refentry">
+ <div class="refnamediv">
+  <h1 class="refname">Mongo::getHosts</h1>
+  <p class="verinfo">(PECL mongo &gt;=1.1.0)</p><p class="refpurpose"><span class="refname">Mongo::getHosts</span> &mdash; <span class="dc-title">Updates status for all hosts associated with this</span></p>
+
+ </div>
+
+ <div class="refsect1 description" id="refsect1-mongo.getHosts-description">
+  <h3 class="title">Description</h3>
+  <div class="methodsynopsis dc-description">
+   <span class="modifier">public</span> <span class="type">array</span> <span class="methodname"><b>Mongo::getHosts</b></span>
+    ( <span class="methodparam">void</span>
+   )</div>
+
+
+  <p class="para rdfs-comment">
+   This method can only be used with a connection to a replica set.  It returns
+   the status of all of the hosts in the set.
+  </p>
+
+  <p class="para">
+   See <a href="mongo.queries.html" class="link">the query section</a> of this manual for
+   information on distributing reads to slaves.
+  </p>
+ </div>
+
+
+ <div class="refsect1 parameters" id="refsect1-mongo.getHosts-parameters">
+  <h3 class="title">Parameters</h3>
+  <p class="para">This function has no parameters.</p>
+ </div>
+
+
+ <div class="refsect1 returnvalues" id="refsect1-mongo.getHosts-returnvalues">
+  <h3 class="title">Return Values</h3>
+  <p class="para">
+   Returns an array of information about the hosts in the set.  Includes each
+   host&#039;s hostname, its health (1 is healthy), its state (1 is primary, 2 is
+   secondary, 0 is anything else), the amount of time it took to ping the
+   server, and when the last ping occurred. For example, on a three-member
+   replica set, it might look something like:
+  </p>
+  <div class="example-contents screen">
+<div class="returnvaluescode"><pre class="returnvaluescode">array(2) {
+  [&quot;A:27017&quot;]=&gt;
+  array(4) {
+    [&quot;health&quot;]=&gt;
+    int(1)
+    [&quot;state&quot;]=&gt;
+    int(2)
+    [&quot;ping&quot;]=&gt;
+    int(369)
+    [&quot;lastPing&quot;]=&gt;
+    int(1309470644)
+  }
+  [&quot;B:27017&quot;]=&gt;
+  array(4) {
+    [&quot;health&quot;]=&gt;
+    int(1)
+    [&quot;state&quot;]=&gt;
+    int(1)
+    [&quot;ping&quot;]=&gt;
+    int(139)
+    [&quot;lastPing&quot;]=&gt;
+    int(1309470644)
+  }
+  [&quot;C:27017&quot;]=&gt;
+  array(4) {
+    [&quot;health&quot;]=&gt;
+    int(1)
+    [&quot;state&quot;]=&gt;
+    int(2)
+    [&quot;ping&quot;]=&gt;
+    int(1012)
+    [&quot;lastPing&quot;]=&gt;
+    int(1309470644)
+  }
+}</pre>
+</div>
+  </div>
+  <p class="para">
+   In the example above, B and C are secondaries (state 2). B is likely to be
+   selected for queries if slaveOkay is set, as it has a lower ping time (and
+   thus is likely closer or handling less load) than C.
+  </p>
+ </div>
+
+</div><hr /><div class="manualnavbar" style="text-align: center;">
+ <div class="prev" style="text-align: left; float: left;"><a href="mongo.get.html">Mongo::__get</a></div>
+ <div class="next" style="text-align: right; float: right;"><a href="mongo.getpoolsize.html">Mongo::getPoolSize</a></div>
+ <div class="up"><a href="class.mongo.html">Mongo</a></div>
+ <div class="home"><a href="index.html">PHP Manual</a></div>
+</div></body></html>

@@ -1,0 +1,200 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+ <head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>Publish a message to an exchange.</title>
+
+ </head>
+ <body><div class="manualnavbar" style="text-align: center;">
+ <div class="prev" style="text-align: left; float: left;"><a href="amqpexchange.delete.html">AMQPExchange::delete</a></div>
+ <div class="next" style="text-align: right; float: right;"><a href="class.amqpqueue.html">AMQPQueue</a></div>
+ <div class="up"><a href="class.amqpexchange.html">AMQPExchange</a></div>
+ <div class="home"><a href="index.html">PHP Manual</a></div>
+</div><hr /><div id="amqpexchange.publish" class="refentry">
+ <div class="refnamediv">
+  <h1 class="refname">AMQPExchange::publish</h1>
+  <p class="verinfo">(PECL amqp &gt;= Unknown)</p><p class="refpurpose"><span class="refname">AMQPExchange::publish</span> &mdash; <span class="dc-title">Publish a message to an exchange.</span></p>
+
+ </div>
+
+ <div class="refsect1 description" id="refsect1-amqpexchange.publish-description">
+  <h3 class="title">Description</h3>
+  <div class="methodsynopsis dc-description">
+   <span class="modifier">public</span> <span class="type">bool</span> <span class="methodname"><b>AMQPExchange::publish</b></span>
+    ( <span class="methodparam"><span class="type">string</span> <tt class="parameter">$message</tt></span>
+   , <span class="methodparam"><span class="type">string</span> <tt class="parameter">$routing_key</tt></span>
+   [, <span class="methodparam"><span class="type">int</span> <tt class="parameter">$params</tt><span class="initializer"> = 0</span></span>
+   [, <span class="methodparam"><span class="type">array</span> <tt class="parameter">$attributes</tt></span>
+  ]] )</div>
+
+  <p class="para rdfs-comment">
+    Publish a message to the exchange represented by the <a href="class.amqpexchange.html" class="classname">AMQPExchange</a> object.
+  </p>
+
+ </div>
+
+
+ <div class="refsect1 parameters" id="refsect1-amqpexchange.publish-parameters">
+  <h3 class="title">Parameters</h3>
+  <p class="para">
+   <dl>
+
+    <dt>
+
+     <span class="term"><i><tt class="parameter">message</tt></i></span>
+     <dd>
+
+      <p class="para">
+       The message to publish.
+      </p>
+     </dd>
+
+    </dt>
+
+    <dt>
+
+     <span class="term"><i><tt class="parameter">routing_key</tt></i></span>
+     <dd>
+
+      <p class="para">
+       The routing key to which to publish.
+      </p>
+     </dd>
+
+    </dt>
+
+    <dt>
+
+     <span class="term"><i><tt class="parameter">params</tt></i></span>
+     <dd>
+
+      <p class="para">
+       One or more of <b><tt>AMQP_MANDATORY</tt></b> and
+       <b><tt>AMQP_MANDATORY</tt></b>.
+      </p>
+     </dd>
+
+    </dt>
+
+    <dt>
+
+     <span class="term"></span>
+     <dd>
+
+      <p class="para">
+       <table class="doctable table">
+        <caption><b>Supported indexes</b></caption>
+        
+         <thead valign="middle">
+          <tr valign="middle">
+           <th>key</th>
+           <th>Description</th>
+           <th>Default value</th>
+          </tr>
+
+         </thead>
+
+         <tbody valign="middle" class="tbody">
+          <tr valign="middle">
+           <td align="left"><em class="emphasis">Content-type</em></td>
+           <td class="empty">&nbsp;</td>
+           <td align="left"><i>text/plain</i></td>
+          </tr>
+
+          <tr valign="middle">
+           <td align="left"><em class="emphasis">Content-encoding</em></td>
+           <td class="empty">&nbsp;</td>
+           <td align="left">NULL</td>
+          </tr>
+
+          <tr valign="middle">
+           <td align="left"><em class="emphasis">message_id</em></td>
+           <td class="empty">&nbsp;</td>
+           <td align="left">NULL</td>
+          </tr>
+
+          <tr valign="middle">
+           <td align="left"><em class="emphasis">user_id</em></td>
+           <td class="empty">&nbsp;</td>
+           <td align="left">NULL</td>
+          </tr>
+
+          <tr valign="middle">
+           <td align="left"><em class="emphasis">app_id</em></td>
+           <td class="empty">&nbsp;</td>
+           <td align="left">NULL</td>
+          </tr>
+
+          <tr valign="middle">
+           <td align="left"><em class="emphasis">delivery_mode</em></td>
+           <td class="empty">&nbsp;</td>
+           <td align="left">NULL</td>
+          </tr>
+
+          <tr valign="middle">
+           <td align="left"><em class="emphasis">priority</em></td>
+           <td class="empty">&nbsp;</td>
+           <td align="left">NULL</td>
+          </tr>
+
+          <tr valign="middle">
+           <td align="left"><em class="emphasis">timestamp</em></td>
+           <td class="empty">&nbsp;</td>
+           <td align="left">NULL</td>
+          </tr>
+
+          <tr valign="middle">
+           <td align="left"><em class="emphasis">expiration</em></td>
+           <td class="empty">&nbsp;</td>
+           <td align="left">NULL</td>
+          </tr>
+
+          <tr valign="middle">
+           <td align="left"><em class="emphasis">type</em></td>
+           <td class="empty">&nbsp;</td>
+           <td align="left">NULL</td>
+          </tr>
+
+          <tr valign="middle">
+           <td align="left"><em class="emphasis">reply_to</em></td>
+           <td class="empty">&nbsp;</td>
+           <td align="left">NULL</td>
+          </tr>
+
+         </tbody>
+        
+       </table>
+
+      </p>
+     </dd>
+
+    </dt>
+
+   </dl>
+
+  </p>
+ </div>
+
+
+ <div class="refsect1 returnvalues" id="refsect1-amqpexchange.publish-returnvalues">
+  <h3 class="title">Return Values</h3>
+  <p class="para">
+   Returns <b><tt>TRUE</tt></b> on success or <b><tt>FALSE</tt></b> on failure.
+  </p>
+ </div>
+
+
+ <div class="refsect1 errors" id="refsect1-amqpexchange.publish-errors">
+  <h3 class="title">Errors/Exceptions</h3>
+  <p class="para">
+   Throws an <b class="classname">AMQPExchangeException</b> on failure.
+  </p>
+ </div>
+
+
+</div><hr /><div class="manualnavbar" style="text-align: center;">
+ <div class="prev" style="text-align: left; float: left;"><a href="amqpexchange.delete.html">AMQPExchange::delete</a></div>
+ <div class="next" style="text-align: right; float: right;"><a href="class.amqpqueue.html">AMQPQueue</a></div>
+ <div class="up"><a href="class.amqpexchange.html">AMQPExchange</a></div>
+ <div class="home"><a href="index.html">PHP Manual</a></div>
+</div></body></html>

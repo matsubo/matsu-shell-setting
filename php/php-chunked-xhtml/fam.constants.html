@@ -1,0 +1,115 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+ <head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>Predefined Constants</title>
+
+ </head>
+ <body><div class="manualnavbar" style="text-align: center;">
+ <div class="prev" style="text-align: left; float: left;"><a href="fam.resources.html">Resource Types</a></div>
+ <div class="next" style="text-align: right; float: right;"><a href="ref.fam.html">FAM Functions</a></div>
+ <div class="up"><a href="book.fam.html">FAM</a></div>
+ <div class="home"><a href="index.html">PHP Manual</a></div>
+</div><hr /><div id="fam.constants" class="appendix">
+ <h1>Predefined Constants</h1>
+
+ <p class="simpara">
+The constants below are defined by this extension, and
+will only be available when the extension has either
+been compiled into PHP or dynamically loaded at runtime.
+</p>
+ <table class="doctable table">
+  <caption><b>FAM event constants</b></caption>
+   
+    <thead valign="middle">
+     <tr valign="middle">
+      <th>Constant</th>
+      <th>Description</th>
+     </tr>
+
+    </thead>
+
+    <tbody valign="middle" class="tbody">
+     <tr valign="middle">
+      <td align="left">
+       <b><tt>FAMChanged</tt></b> (<span class="type"><a href="language.types.integer.html" class="type integer">integer</a></span>)
+      </td>
+      <td align="left">
+       Some value which can be obtained with fstat(1) changed for a
+       file or directory.
+      </td>
+     </tr>
+
+     <tr valign="middle">
+      <td align="left">
+       <b><tt>FAMDeleted</tt></b> (<span class="type"><a href="language.types.integer.html" class="type integer">integer</a></span>)
+      </td>
+      <td align="left">A file or directory was deleted or renamed.</td>
+     </tr>
+
+     <tr valign="middle">
+      <td align="left">
+       <b><tt>FAMStartExecuting</tt></b> (<span class="type"><a href="language.types.integer.html" class="type integer">integer</a></span>)
+      </td>
+      <td align="left">An executable file started executing.</td>
+     </tr>
+
+     <tr valign="middle">
+      <td align="left">
+       <b><tt>FAMStopExecuting</tt></b> (<span class="type"><a href="language.types.integer.html" class="type integer">integer</a></span>)
+      </td>
+      <td align="left">An executable file that was running finished.</td>
+     </tr>
+
+     <tr valign="middle">
+      <td align="left">
+       <b><tt>FAMCreated</tt></b> (<span class="type"><a href="language.types.integer.html" class="type integer">integer</a></span>)
+      </td>
+      <td align="left">A file was created in a directory.</td>
+     </tr>
+
+     <tr valign="middle">
+      <td align="left">
+       <b><tt>FAMMoved</tt></b> (<span class="type"><a href="language.types.integer.html" class="type integer">integer</a></span>)
+      </td>
+      <td align="left">This event never occurs.</td>
+     </tr>
+
+     <tr valign="middle">
+      <td align="left">
+       <b><tt>FAMAcknowledge</tt></b> (<span class="type"><a href="language.types.integer.html" class="type integer">integer</a></span>)
+      </td>
+      <td align="left">
+       An event in response to <span class="function"><a href="function.fam-cancel-monitor.html" class="function">fam_cancel_monitor()</a></span>.
+      </td>
+     </tr>
+
+     <tr valign="middle">
+      <td align="left">
+       <b><tt>FAMExists</tt></b> (<span class="type"><a href="language.types.integer.html" class="type integer">integer</a></span>)
+      </td>
+      <td align="left">
+       An event upon request to monitor a file or directory. When a
+       directory is monitored, an event for that directory and every file
+       contained in that directory is issued.
+      </td>
+     </tr>
+
+     <tr valign="middle">
+      <td align="left">
+       <b><tt>FAMEndExist</tt></b> (<span class="type"><a href="language.types.integer.html" class="type integer">integer</a></span>)
+      </td>
+      <td align="left">Event after the last FAMEExists event.</td>
+     </tr>
+
+    </tbody>
+   
+  </table>
+
+ </div>
+<hr /><div class="manualnavbar" style="text-align: center;">
+ <div class="prev" style="text-align: left; float: left;"><a href="fam.resources.html">Resource Types</a></div>
+ <div class="next" style="text-align: right; float: right;"><a href="ref.fam.html">FAM Functions</a></div>
+ <div class="up"><a href="book.fam.html">FAM</a></div>
+ <div class="home"><a href="index.html">PHP Manual</a></div>
+</div></body></html>

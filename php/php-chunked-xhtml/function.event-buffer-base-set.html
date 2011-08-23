@@ -1,0 +1,83 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+ <head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>Associate buffered event with an event base</title>
+
+ </head>
+ <body><div class="manualnavbar" style="text-align: center;">
+ <div class="prev" style="text-align: left; float: left;"><a href="function.event-base-set.html">event_base_set</a></div>
+ <div class="next" style="text-align: right; float: right;"><a href="function.event-buffer-disable.html">event_buffer_disable</a></div>
+ <div class="up"><a href="ref.libevent.html">Libevent Functions</a></div>
+ <div class="home"><a href="index.html">PHP Manual</a></div>
+</div><hr /><div id="function.event-buffer-base-set" class="refentry">
+ <div class="refnamediv">
+  <h1 class="refname">event_buffer_base_set</h1>
+  <p class="verinfo">(PECL libevent &gt;= 0.0.1)</p><p class="refpurpose"><span class="refname">event_buffer_base_set</span> &mdash; <span class="dc-title">Associate buffered event with an event base</span></p>
+
+ </div>
+ 
+ <div class="refsect1 description" id="refsect1-function.event-buffer-base-set-description">
+  <h3 class="title">Description</h3>
+  <div class="methodsynopsis dc-description">
+   <span class="type">bool</span> <span class="methodname"><b>event_buffer_base_set</b></span>
+    ( <span class="methodparam"><span class="type">resource</span> <tt class="parameter">$bevent</tt></span>
+   , <span class="methodparam"><span class="type">resource</span> <tt class="parameter">$event_base</tt></span>
+   )</div>
+
+  <p class="para rdfs-comment">
+   Assign the specified <i><tt class="parameter">bevent</tt></i> to the
+   <i><tt class="parameter">event_base</tt></i>.
+  </p>
+ </div>
+
+
+ <div class="refsect1 parameters" id="refsect1-function.event-buffer-base-set-parameters">
+  <h3 class="title">Parameters</h3>
+  <p class="para">
+   <dl>
+
+    <dt>
+
+     <span class="term"><i><tt class="parameter">bevent</tt></i></span>
+     <dd>
+
+      <p class="para">
+       Valid buffered event resource.
+      </p>
+     </dd>
+
+    </dt>
+
+    <dt>
+
+     <span class="term"><i><tt class="parameter">event_base</tt></i></span>
+     <dd>
+
+      <p class="para">
+       Valid event base resource.
+      </p>
+     </dd>
+
+    </dt>
+
+   </dl>
+
+  </p>
+ </div>
+
+
+ <div class="refsect1 returnvalues" id="refsect1-function.event-buffer-base-set-returnvalues">
+  <h3 class="title">Return Values</h3>
+  <p class="para">
+   <span class="function"><b>event_buffer_base_set()</b></span> returns <b><tt>TRUE</tt></b> on success or <b><tt>FALSE</tt></b> on error.
+  </p>
+ </div>
+
+
+</div><hr /><div class="manualnavbar" style="text-align: center;">
+ <div class="prev" style="text-align: left; float: left;"><a href="function.event-base-set.html">event_base_set</a></div>
+ <div class="next" style="text-align: right; float: right;"><a href="function.event-buffer-disable.html">event_buffer_disable</a></div>
+ <div class="up"><a href="ref.libevent.html">Libevent Functions</a></div>
+ <div class="home"><a href="index.html">PHP Manual</a></div>
+</div></body></html>

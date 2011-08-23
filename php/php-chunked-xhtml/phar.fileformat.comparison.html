@@ -1,0 +1,154 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+ <head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>Head-to-head comparison of Phar, Tar and Zip</title>
+
+ </head>
+ <body><div class="manualnavbar" style="text-align: center;">
+ <div class="prev" style="text-align: left; float: left;"><a href="phar.fileformat.stub.html">Phar file stub</a></div>
+ <div class="next" style="text-align: right; float: right;"><a href="phar.fileformat.tar.html">Tar-based phars</a></div>
+ <div class="up"><a href="phar.fileformat.html">What makes a phar a phar and not a tar or a zip?</a></div>
+ <div class="home"><a href="index.html">PHP Manual</a></div>
+</div><hr /><div id="phar.fileformat.comparison" class="section">
+  <h2 class="title">Head-to-head comparison of Phar, Tar and Zip</h2>
+  <p class="para">
+   What are the good and the bad things about the three supported file formats in
+   the phar extension?  This table attempts to address that question.
+  <table class="doctable table">
+   <caption><b>Feature matrix: Phar vs. Tar vs. Zip</b></caption>
+   
+    <thead valign="middle">
+     <tr valign="middle">
+      <th>Feature</th>
+      <th>Phar</th>
+      <th>Tar</th>
+      <th>Zip</th>
+     </tr>
+
+    </thead>
+
+    <tbody valign="middle" class="tbody">
+     <tr valign="middle">
+      <td align="left">Standard File Format</td>
+      <td align="left">No</td>
+      <td align="left">Yes</td>
+      <td align="left">Yes</td>
+     </tr>
+
+     <tr valign="middle">
+      <td align="left">Can be executed without the Phar Extension
+       <a href="phar.fileformat.comparison.html#phar.fileformat.phartip" class="link">[1]</a>
+      </td>
+      <td align="left">Yes</td>
+      <td align="left">No</td>
+      <td align="left">No</td>
+     </tr>
+
+     <tr valign="middle">
+      <td align="left">Per-file compression</td>
+      <td align="left">Yes</td>
+      <td align="left">No</td>
+      <td align="left">Yes</td>
+     </tr>
+
+     <tr valign="middle">
+      <td align="left">Whole-archive compression</td>
+      <td align="left">Yes</td>
+      <td align="left">Yes</td>
+      <td align="left">No</td>
+     </tr>
+
+     <tr valign="middle">
+      <td align="left">Whole-archive signature validation</td>
+      <td align="left">Yes</td>
+      <td align="left">Yes</td>
+      <td align="left">Yes (PHP 5.3.1+)</td>
+     </tr>
+
+     <tr valign="middle">
+      <td align="left">Web-specific application support</td>
+      <td align="left">Yes</td>
+      <td align="left">Yes</td>
+      <td align="left">Yes</td>
+     </tr>
+
+     <tr valign="middle">
+      <td align="left">Per-file Meta-data</td>
+      <td align="left">Yes</td>
+      <td align="left">Yes</td>
+      <td align="left">Yes</td>
+     </tr>
+
+     <tr valign="middle">
+      <td align="left">Whole-Archive Meta-data</td>
+      <td align="left">Yes</td>
+      <td align="left">Yes</td>
+      <td align="left">Yes</td>
+     </tr>
+
+     <tr valign="middle">
+      <td align="left">Archive creation/modification
+       <a href="phar.fileformat.comparison.html#phar.fileformat.phartip2" class="link">[2]</a>
+      </td>
+      <td align="left">Yes</td>
+      <td align="left">Yes</td>
+      <td align="left">Yes</td>
+     </tr>
+
+     <tr valign="middle">
+      <td align="left">Full support for all stream wrapper functions</td>
+      <td align="left">Yes</td>
+      <td align="left">Yes</td>
+      <td align="left">Yes</td>
+     </tr>
+
+     <tr valign="middle">
+      <td align="left">Can be created/modified even if phar.readonly=1
+       <a href="phar.fileformat.comparison.html#phar.fileformat.phartip3" class="link">[3]</a>
+      </td>
+      <td align="left">No</td>
+      <td align="left">Yes</td>
+      <td align="left">Yes</td>
+     </tr>
+
+    </tbody>
+   
+  </table>
+
+  </p>
+  <p class="para" id="phar.fileformat.phartip">
+   <div class="tip"><b class="tip">Tip</b>
+    <p class="para">
+    [1] PHP can only directly access the contents of a Phar archive
+    without the Phar extension if it is using a <i>stub</i>
+    that extracts the contents of the phar archive.  The stub
+    created by <span class="function"><a href="phar.createdefaultstub.html" class="function">Phar::createDefaultStub()</a></span> extracts
+    the phar archive and runs its contents from a temporary directory
+    if no phar extension is found.
+    </p>
+   </div>
+  </p>
+  <p class="para" id="phar.fileformat.phartip2">
+   <div class="tip"><b class="tip">Tip</b>
+    <p class="para">
+    [2] All write access requires <i>phar.readonly</i> to
+    be disabled in php.ini or on the command-line directly.
+    </p>
+   </div>
+  </p>
+  <p class="para" id="phar.fileformat.phartip3">
+   <div class="tip"><b class="tip">Tip</b>
+    <p class="para">
+    [3] Only tar and zip archives without <i>.phar</i> in their
+    filename and without an executable stub <i>.phar/stub.php</i>
+    can be created if phar.readonly=1.
+    </p>
+   </div>
+  </p>
+ </div><hr /><div class="manualnavbar" style="text-align: center;">
+ <div class="prev" style="text-align: left; float: left;"><a href="phar.fileformat.stub.html">Phar file stub</a></div>
+ <div class="next" style="text-align: right; float: right;"><a href="phar.fileformat.tar.html">Tar-based phars</a></div>
+ <div class="up"><a href="phar.fileformat.html">What makes a phar a phar and not a tar or a zip?</a></div>
+ <div class="home"><a href="index.html">PHP Manual</a></div>
+</div></body></html>

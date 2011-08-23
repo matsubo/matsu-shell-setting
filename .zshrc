@@ -15,7 +15,7 @@ setopt pushd_ignore_dups rm_star_silent sun_keyboard_hack
 setopt extended_glob list_types no_beep always_last_prompt
 setopt cdable_vars sh_word_split auto_param_keys
 setopt NO_flow_control
-setopt autopushd pushd_ignore_dups list_packed list_types EXTENDED_HISTORY
+setopt auto_pushd pushd_ignore_dups list_packed list_types EXTENDED_HISTORY no_case_glob
 
 unsetopt promptcr
 
@@ -235,6 +235,21 @@ _rake () {
 
 compdef _rake rake
 
+
+
+#########################################
+# VCS setting
+#########################################
+# http://d.hatena.ne.jp/mollifier/20090814/p1
+autoload -Uz vcs_info
+zstyle ':vcs_info:*' formats '(%s)-[%b]'
+zstyle ':vcs_info:*' actionformats '(%s)-[%b|%a]'
+precmd () {
+	psvar=()
+	LANG=en_US.UTF-8 vcs_info
+	[[ -n "$vcs_info_msg_0_" ]] && psvar[1]="$vcs_info_msg_0_"
+}
+RPROMPT="%1(v|%F{green}%1v%f|)"
 
 
 #########################################

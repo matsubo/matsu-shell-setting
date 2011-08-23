@@ -1,0 +1,878 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+ <head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>List of Parser Tokens</title>
+
+ </head>
+ <body><div class="manualnavbar" style="text-align: center;">
+ <div class="prev" style="text-align: left; float: left;"><a href="types.comparisons.html">PHP type comparison tables</a></div>
+ <div class="next" style="text-align: right; float: right;"><a href="userlandnaming.html">Userland Naming Guide</a></div>
+ <div class="up"><a href="appendices.html">Appendices</a></div>
+ <div class="home"><a href="index.html">PHP Manual</a></div>
+</div><hr /><div id="tokens" class="appendix">
+ <h1>List of Parser Tokens</h1>
+
+ <p class="para">
+  Various parts of the PHP language are represented internally by types like
+  T_SR. PHP outputs identifiers like this one in parse errors, like 
+  <i>&quot;Parse error: unexpected T_SR, expecting &#039;,&#039; or &#039;;&#039; in script.php on line 10.&quot;</i>
+ </p>
+ <p class="para">
+  You&#039;re supposed to know what T_SR means. For everybody who doesn&#039;t 
+  know that, here is a table with those identifiers, PHP-syntax and 
+  references to the appropriate places in the manual.
+ </p>
+ <table class="doctable table">
+  <caption><b>Tokens</b></caption>
+  
+   <thead valign="middle">
+    <tr valign="middle">
+     <th>Token</th>
+     <th>Syntax</th>
+     <th>Reference</th>
+    </tr>
+
+   </thead>
+
+   <tbody valign="middle" class="tbody">
+    <tr valign="middle">
+     <td align="left"><b><tt>T_ABSTRACT</tt></b></td>
+     <td align="left">abstract</td>
+     <td align="left"><a href="language.oop5.abstract.html" class="xref">Class Abstraction</a> (available since PHP 5.0.0)</td>
+    </tr>
+
+    <tr valign="middle">
+     <td align="left"><b><tt>T_AND_EQUAL</tt></b></td>
+     <td align="left">&amp;=</td>
+     <td align="left"><a href="language.operators.assignment.html" class="link">assignment
+     operators</a></td>
+    </tr>
+
+    <tr valign="middle">
+     <td align="left"><b><tt>T_ARRAY</tt></b></td>
+     <td align="left">array()</td>
+     <td align="left"><span class="function"><a href="function.array.html" class="function">array()</a></span>, <a href="language.types.array.html#language.types.array.syntax" class="link">array syntax</a></td>
+    </tr>
+
+    <tr valign="middle">
+     <td align="left"><b><tt>T_ARRAY_CAST</tt></b></td>
+     <td align="left">(array)</td>
+     <td align="left"><a href="language.types.type-juggling.html#language.types.typecasting" class="link">type-casting</a></td>
+    </tr>
+
+     <tr valign="middle">
+     <td align="left"><b><tt>T_AS</tt></b></td>
+     <td align="left">as</td>
+     <td align="left"><a href="control-structures.foreach.html" class="link">foreach</a></td>
+    </tr>
+
+    <tr valign="middle">
+     <td align="left"><b><tt>T_BAD_CHARACTER</tt></b></td>
+     <td class="empty">&nbsp;</td>
+     <td align="left">anything below ASCII 32 except \t (0x09), \n (0x0a) and \r (0x0d)</td>
+    </tr>
+
+    <tr valign="middle">
+     <td align="left"><b><tt>T_BOOLEAN_AND</tt></b></td>
+     <td align="left">&amp;&amp;</td>
+     <td align="left"><a href="language.operators.logical.html" class="link">logical operators</a></td>
+    </tr>
+
+    <tr valign="middle">
+     <td align="left"><b><tt>T_BOOLEAN_OR</tt></b></td>
+     <td align="left">||</td>
+     <td align="left"><a href="language.operators.logical.html" class="link">logical operators</a></td>
+    </tr>
+
+    <tr valign="middle">
+     <td align="left"><b><tt>T_BOOL_CAST</tt></b></td>
+     <td align="left">(bool) or (boolean)</td>
+     <td align="left"><a href="language.types.type-juggling.html#language.types.typecasting" class="link">type-casting</a></td>
+    </tr>
+
+    <tr valign="middle">
+     <td align="left"><b><tt>T_BREAK</tt></b></td>
+     <td align="left">break</td>
+     <td align="left"><a href="control-structures.break.html" class="link">break</a></td>
+    </tr>
+
+    <tr valign="middle">
+     <td align="left"><b><tt>T_CASE</tt></b></td>
+     <td align="left">case</td>
+     <td align="left"><a href="control-structures.switch.html" class="link">switch</a></td>
+    </tr>
+
+    <tr valign="middle">
+     <td align="left"><b><tt>T_CATCH</tt></b></td>
+     <td align="left">catch</td>
+     <td align="left"><a href="language.exceptions.html" class="xref">Exceptions</a> (available since PHP 5.0.0)</td>
+    </tr>
+
+    <tr valign="middle">
+     <td align="left"><b><tt>T_CHARACTER</tt></b></td>
+     <td class="empty">&nbsp;</td>
+     <td align="left">not used anymore</td>
+    </tr>
+
+    <tr valign="middle">
+     <td align="left"><b><tt>T_CLASS</tt></b></td>
+     <td align="left">class</td>
+     <td align="left"><a href="language.oop5.html" class="link">classes and objects</a></td>
+    </tr>
+
+    <tr valign="middle">
+     <td align="left"><b><tt>T_CLASS_C</tt></b></td>
+     <td align="left">__CLASS__</td>
+     <td align="left">
+      <a href="language.constants.predefined.html" class="link">magic constants</a>
+      (available since PHP 4.3.0)
+     </td>
+    </tr>
+
+    <tr valign="middle">
+     <td align="left"><b><tt>T_CLONE</tt></b></td>
+     <td align="left">clone</td>
+     <td align="left">
+      <a href="language.oop5.html" class="link">classes and objects</a>
+      (available since PHP 5.0.0)
+     </td>
+    </tr>
+
+    <tr valign="middle">
+     <td align="left"><b><tt>T_CLOSE_TAG</tt></b></td>
+     <td align="left">?&gt; or %&gt;</td>
+     <td align="left"><a href="language.basic-syntax.phpmode.html" class="link">escaping
+     from HTML</a></td>
+    </tr>
+
+    <tr valign="middle">
+     <td align="left"><b><tt>T_COMMENT</tt></b></td>
+     <td align="left">// or #, and /* */ in PHP 5</td>
+     <td align="left"><a href="language.basic-syntax.comments.html" class="link">comments</a></td>
+    </tr>
+
+    <tr valign="middle">
+     <td align="left"><b><tt>T_CONCAT_EQUAL</tt></b></td>
+     <td align="left">.=</td>
+     <td align="left"><a href="language.operators.assignment.html" class="link">assignment
+     operators</a></td>
+    </tr>
+
+    <tr valign="middle">
+     <td align="left"><b><tt>T_CONST</tt></b></td>
+     <td align="left">const</td>
+     <td align="left"><a href="language.constants.html" class="link">class constants</a></td>
+    </tr>
+
+    <tr valign="middle">
+     <td align="left"><b><tt>T_CONSTANT_ENCAPSED_STRING</tt></b></td>
+     <td align="left">&quot;foo&quot; or &#039;bar&#039;</td>
+     <td align="left"><a href="language.types.string.html#language.types.string.syntax" class="link">string syntax</a></td>
+    </tr>
+
+    <tr valign="middle">
+     <td align="left"><b><tt>T_CONTINUE</tt></b></td>
+     <td align="left">continue</td>
+     <td align="left"><a href="control-structures.continue.html" class="link">continue</a></td>
+    </tr>
+
+    <tr valign="middle">
+     <td align="left"><b><tt>T_CURLY_OPEN</tt></b></td>
+     <td align="left">{$</td>
+     <td align="left"><a href="language.types.string.html#language.types.string.parsing.complex" class="link">complex
+     variable parsed syntax</a></td>
+    </tr>
+
+    <tr valign="middle">
+     <td align="left"><b><tt>T_DEC</tt></b></td>
+     <td align="left">--</td>
+     <td align="left"><a href="language.operators.increment.html" class="link">incrementing/decrementing
+     operators</a></td>
+    </tr>
+
+    <tr valign="middle">
+     <td align="left"><b><tt>T_DECLARE</tt></b></td>
+     <td align="left">declare</td>
+     <td align="left"><a href="control-structures.declare.html" class="link">declare</a></td>
+    </tr>
+
+    <tr valign="middle">
+     <td align="left"><b><tt>T_DEFAULT</tt></b></td>
+     <td align="left">default</td>
+     <td align="left"><a href="control-structures.switch.html" class="link">switch</a></td>
+    </tr>
+
+    <tr valign="middle">
+     <td align="left"><b><tt>T_DIR</tt></b></td>
+     <td align="left">__DIR__</td>
+     <td align="left"><a href="language.constants.predefined.html" class="link">magic constants</a> (available
+     since PHP 5.3.0)</td>
+    </tr>
+
+    <tr valign="middle">
+     <td align="left"><b><tt>T_DIV_EQUAL</tt></b></td>
+     <td align="left">/=</td>
+     <td align="left"><a href="language.operators.assignment.html" class="link">assignment
+     operators</a></td>
+    </tr>
+
+    <tr valign="middle">
+     <td align="left"><b><tt>T_DNUMBER</tt></b></td>
+     <td align="left">0.12, etc</td>
+     <td align="left"><a href="language.types.float.html" class="link">floating point numbers</a></td>
+    </tr>
+
+    <tr valign="middle">
+     <td align="left"><b><tt>T_DOC_COMMENT</tt></b></td>
+     <td align="left">/** */</td>
+     <td align="left">
+      <a href="language.basic-syntax.comments.html" class="link">PHPDoc style comments</a>
+      (available since PHP 5.0.0)
+     </td>
+    </tr>
+
+    <tr valign="middle">
+     <td align="left"><b><tt>T_DO</tt></b></td>
+     <td align="left">do</td>
+     <td align="left"><a href="control-structures.do.while.html" class="link">do..while</a></td>
+    </tr>
+
+    <tr valign="middle">
+     <td align="left"><b><tt>T_DOLLAR_OPEN_CURLY_BRACES</tt></b></td>
+     <td align="left">${</td>
+     <td align="left"><a href="language.types.string.html#language.types.string.parsing.complex" class="link">complex
+     variable parsed syntax</a></td>
+    </tr>
+
+    <tr valign="middle">
+     <td align="left"><b><tt>T_DOUBLE_ARROW</tt></b></td>
+     <td align="left">=&gt;</td>
+     <td align="left"><a href="language.types.array.html#language.types.array.syntax" class="link">array syntax</a></td>
+    </tr>
+
+    <tr valign="middle">
+     <td align="left"><b><tt>T_DOUBLE_CAST</tt></b></td>
+     <td align="left">(real), (double) or (float)</td>
+     <td align="left"><a href="language.types.type-juggling.html#language.types.typecasting" class="link">type-casting</a></td>
+    </tr>
+
+    <tr valign="middle">
+     <td align="left"><b><tt>T_DOUBLE_COLON</tt></b></td>
+     <td align="left">::</td>
+     <td align="left">see <b><tt>T_PAAMAYIM_NEKUDOTAYIM</tt></b> below</td>
+    </tr>
+
+    <tr valign="middle">
+     <td align="left"><b><tt>T_ECHO</tt></b></td>
+     <td align="left">echo</td>
+     <td align="left"><span class="function"><a href="function.echo.html" class="function">echo()</a></span></td>
+    </tr>
+
+    <tr valign="middle">
+     <td align="left"><b><tt>T_ELSE</tt></b></td>
+     <td align="left">else</td>
+     <td align="left"><a href="control-structures.else.html" class="link">else</a></td>
+    </tr>
+
+    <tr valign="middle">
+     <td align="left"><b><tt>T_ELSEIF</tt></b></td>
+     <td align="left">elseif</td>
+     <td align="left"><a href="control-structures.elseif.html" class="link">elseif</a></td>
+    </tr>
+
+    <tr valign="middle">
+     <td align="left"><b><tt>T_EMPTY</tt></b></td>
+     <td align="left">empty</td>
+     <td align="left"><span class="function"><a href="function.empty.html" class="function">empty()</a></span></td>
+    </tr>
+
+    <tr valign="middle">
+     <td align="left"><b><tt>T_ENCAPSED_AND_WHITESPACE</tt></b></td>
+     <td align="left">&quot; $a&quot;</td>
+     <td align="left"><a href="language.types.string.html#language.types.string.parsing" class="link">constant part of
+     string with variables</a></td>
+    </tr>
+
+    <tr valign="middle">
+     <td align="left"><b><tt>T_ENDDECLARE</tt></b></td>
+     <td align="left">enddeclare</td>
+     <td align="left"><a href="control-structures.declare.html" class="link">declare</a>, <a href="control-structures.alternative-syntax.html" class="link">alternative syntax</a></td>
+    </tr>
+
+    <tr valign="middle">
+     <td align="left"><b><tt>T_ENDFOR</tt></b></td>
+     <td align="left">endfor</td>
+     <td align="left"><a href="control-structures.for.html" class="link">for</a>, <a href="control-structures.alternative-syntax.html" class="link">alternative syntax</a></td>
+    </tr>
+
+    <tr valign="middle">
+     <td align="left"><b><tt>T_ENDFOREACH</tt></b></td>
+     <td align="left">endforeach</td>
+     <td align="left"><a href="control-structures.foreach.html" class="link">foreach</a>, <a href="control-structures.alternative-syntax.html" class="link">alternative syntax</a></td>
+    </tr>
+
+    <tr valign="middle">
+     <td align="left"><b><tt>T_ENDIF</tt></b></td>
+     <td align="left">endif</td>
+     <td align="left"><a href="control-structures.if.html" class="link">if</a>, <a href="control-structures.alternative-syntax.html" class="link">alternative syntax</a></td>
+    </tr>
+
+    <tr valign="middle">
+     <td align="left"><b><tt>T_ENDSWITCH</tt></b></td>
+     <td align="left">endswitch</td>
+     <td align="left"><a href="control-structures.switch.html" class="link">switch</a>, <a href="control-structures.alternative-syntax.html" class="link">alternative syntax</a></td>
+    </tr>
+
+    <tr valign="middle">
+     <td align="left"><b><tt>T_ENDWHILE</tt></b></td>
+     <td align="left">endwhile</td>
+     <td align="left"><a href="control-structures.while.html" class="link">while</a>, <a href="control-structures.alternative-syntax.html" class="link">alternative syntax</a></td>
+    </tr>
+
+    <tr valign="middle">
+     <td align="left"><b><tt>T_END_HEREDOC</tt></b></td>
+     <td class="empty">&nbsp;</td>
+     <td align="left"><a href="language.types.string.html#language.types.string.syntax.heredoc" class="link">heredoc
+     syntax</a></td>
+    </tr>
+
+    <tr valign="middle">
+     <td align="left"><b><tt>T_EVAL</tt></b></td>
+     <td align="left">eval()</td>
+     <td align="left"><span class="function"><a href="function.eval.html" class="function">eval()</a></span></td>
+    </tr>
+
+    <tr valign="middle">
+     <td align="left"><b><tt>T_EXIT</tt></b></td>
+     <td align="left">exit or die</td>
+     <td align="left"><span class="function"><a href="function.exit.html" class="function">exit()</a></span>, <span class="function"><a href="function.die.html" class="function">die()</a></span></td>
+    </tr>
+
+    <tr valign="middle">
+     <td align="left"><b><tt>T_EXTENDS</tt></b></td>
+     <td align="left">extends</td>
+     <td align="left"><a href="language.oop5.basic.html#language.oop5.basic.extends" class="link">extends</a>, <a href="language.oop5.html" class="link">classes and objects</a></td>
+    </tr>
+
+    <tr valign="middle">
+     <td align="left"><b><tt>T_FILE</tt></b></td>
+     <td align="left">__FILE__</td>
+     <td align="left"><a href="language.constants.predefined.html" class="link">magic constants</a></td>
+    </tr>
+
+    <tr valign="middle">
+     <td align="left"><b><tt>T_FINAL</tt></b></td>
+     <td align="left">final</td>
+     <td align="left"><a href="language.oop5.final.html" class="xref">Final Keyword</a> (available since PHP 5.0.0)</td>
+    </tr>
+
+    <tr valign="middle">
+     <td align="left"><b><tt>T_FOR</tt></b></td>
+     <td align="left">for</td>
+     <td align="left"><a href="control-structures.for.html" class="link">for</a></td>
+    </tr>
+
+    <tr valign="middle">
+     <td align="left"><b><tt>T_FOREACH</tt></b></td>
+     <td align="left">foreach</td>
+     <td align="left"><a href="control-structures.foreach.html" class="link">foreach</a></td>
+    </tr>
+
+    <tr valign="middle">
+     <td align="left"><b><tt>T_FUNCTION</tt></b></td>
+     <td align="left">function or cfunction</td>
+     <td align="left"><a href="language.functions.html" class="link">functions</a></td>
+    </tr>
+
+    <tr valign="middle">
+     <td align="left"><b><tt>T_FUNC_C</tt></b></td>
+     <td align="left">__FUNCTION__</td>
+     <td align="left">
+      <a href="language.constants.predefined.html" class="link">magic constants</a>
+      (available since PHP 4.3.0)
+     </td>
+    </tr>
+
+    <tr valign="middle">
+     <td align="left"><b><tt>T_GLOBAL</tt></b></td>
+     <td align="left">global</td>
+     <td align="left"><a href="language.variables.scope.html" class="link">variable scope</a></td>
+    </tr>
+
+    <tr valign="middle">
+     <td align="left"><b><tt>T_GOTO</tt></b></td>
+     <td align="left">goto</td>
+     <td align="left"><a href="control-structures.goto.html" class="link"> (available since PHP 5.3.0)</a></td>
+    </tr>
+
+    <tr valign="middle">
+     <td align="left"><b><tt>T_HALT_COMPILER</tt></b></td>
+     <td align="left">__halt_compiler()</td>
+     <td align="left"><a href="function.halt-compiler.html" class="xref">__halt_compiler</a> (available since PHP 5.1.0)</td>
+    </tr>
+
+    <tr valign="middle">
+     <td align="left"><b><tt>T_IF</tt></b></td>
+     <td align="left">if</td>
+     <td align="left"><a href="control-structures.if.html" class="link">if</a></td>
+    </tr>
+
+    <tr valign="middle">
+     <td align="left"><b><tt>T_IMPLEMENTS</tt></b></td>
+     <td align="left">implements</td>
+     <td align="left"><a href="language.oop5.interfaces.html" class="xref">Object Interfaces</a> (available since PHP 5.0.0)</td>
+    </tr>
+
+    <tr valign="middle">
+     <td align="left"><b><tt>T_INC</tt></b></td>
+     <td align="left">++</td>
+     <td align="left"><a href="language.operators.increment.html" class="link">incrementing/decrementing
+     operators</a></td>
+    </tr>
+
+    <tr valign="middle">
+     <td align="left"><b><tt>T_INCLUDE</tt></b></td>
+     <td align="left">include()</td>
+     <td align="left"><span class="function"><a href="function.include.html" class="function">include()</a></span></td>
+    </tr>
+
+    <tr valign="middle">
+     <td align="left"><b><tt>T_INCLUDE_ONCE</tt></b></td>
+     <td align="left">include_once()</td>
+     <td align="left"><span class="function"><a href="function.include-once.html" class="function">include_once()</a></span></td>
+    </tr>
+
+    <tr valign="middle">
+     <td align="left"><b><tt>T_INLINE_HTML</tt></b></td>
+     <td class="empty">&nbsp;</td>
+     <td align="left"><a href="language.basic-syntax.phpmode.html" class="link">text outside PHP</a></td>
+    </tr>
+
+    <tr valign="middle">
+     <td align="left"><b><tt>T_INSTANCEOF</tt></b></td>
+     <td align="left">instanceof</td>
+     <td align="left">
+      <a href="language.operators.type.html" class="link">type operators</a>
+      (available since PHP 5.0.0)
+     </td>
+    </tr>
+
+    <tr valign="middle">
+     <td align="left"><b><tt>T_INT_CAST</tt></b></td>
+     <td align="left">(int) or (integer)</td>
+     <td align="left"><a href="language.types.type-juggling.html#language.types.typecasting" class="link">type-casting</a></td>
+    </tr>
+
+    <tr valign="middle">
+     <td align="left"><b><tt>T_INTERFACE</tt></b></td>
+     <td align="left">interface</td>
+     <td align="left"><a href="language.oop5.interfaces.html" class="xref">Object Interfaces</a> (available since PHP 5.0.0)</td>
+    </tr>
+
+    <tr valign="middle">
+     <td align="left"><b><tt>T_ISSET</tt></b></td>
+     <td align="left">isset()</td>
+     <td align="left"><span class="function"><a href="function.isset.html" class="function">isset()</a></span></td>
+    </tr>
+
+    <tr valign="middle">
+     <td align="left"><b><tt>T_IS_EQUAL</tt></b></td>
+     <td align="left">==</td>
+     <td align="left"><a href="language.operators.comparison.html" class="link">comparison operators</a></td>
+    </tr>
+
+    <tr valign="middle">
+     <td align="left"><b><tt>T_IS_GREATER_OR_EQUAL</tt></b></td>
+     <td align="left">&gt;=</td>
+     <td align="left"><a href="language.operators.comparison.html" class="link">comparison operators</a></td>
+    </tr>
+
+    <tr valign="middle">
+     <td align="left"><b><tt>T_IS_IDENTICAL</tt></b></td>
+     <td align="left">===</td>
+     <td align="left"><a href="language.operators.comparison.html" class="link">comparison operators</a></td>
+    </tr>
+
+    <tr valign="middle">
+     <td align="left"><b><tt>T_IS_NOT_EQUAL</tt></b></td>
+     <td align="left">!= or &lt;&gt;</td>
+     <td align="left"><a href="language.operators.comparison.html" class="link">comparison operators</a></td>
+    </tr>
+
+    <tr valign="middle">
+     <td align="left"><b><tt>T_IS_NOT_IDENTICAL</tt></b></td>
+     <td align="left">!==</td>
+     <td align="left"><a href="language.operators.comparison.html" class="link">comparison operators</a></td>
+    </tr>
+
+    <tr valign="middle">
+     <td align="left"><b><tt>T_IS_SMALLER_OR_EQUAL</tt></b></td>
+     <td align="left">&lt;=</td>
+     <td align="left"><a href="language.operators.comparison.html" class="link">comparison operators</a></td>
+    </tr>
+
+    <tr valign="middle">
+     <td align="left"><b><tt>T_LINE</tt></b></td>
+     <td align="left">__LINE__</td>
+     <td align="left"><a href="language.constants.predefined.html" class="link">magic constants</a></td>
+    </tr>
+
+    <tr valign="middle">
+     <td align="left"><b><tt>T_LIST</tt></b></td>
+     <td align="left">list()</td>
+     <td align="left"><span class="function"><a href="function.list.html" class="function">list()</a></span></td>
+    </tr>
+
+    <tr valign="middle">
+     <td align="left"><b><tt>T_LNUMBER</tt></b></td>
+     <td align="left">123, 012, 0x1ac, etc</td>
+     <td align="left"><a href="language.types.integer.html" class="link">integers</a></td>
+    </tr>
+
+    <tr valign="middle">
+     <td align="left"><b><tt>T_LOGICAL_AND</tt></b></td>
+     <td align="left">and</td>
+     <td align="left"><a href="language.operators.logical.html" class="link">logical operators</a></td>
+    </tr>
+
+    <tr valign="middle">
+     <td align="left"><b><tt>T_LOGICAL_OR</tt></b></td>
+     <td align="left">or</td>
+     <td align="left"><a href="language.operators.logical.html" class="link">logical operators</a></td>
+    </tr>
+
+    <tr valign="middle">
+     <td align="left"><b><tt>T_LOGICAL_XOR</tt></b></td>
+     <td align="left">xor</td>
+     <td align="left"><a href="language.operators.logical.html" class="link">logical operators</a></td>
+    </tr>
+
+    <tr valign="middle">
+     <td align="left"><b><tt>T_METHOD_C</tt></b></td>
+     <td align="left">__METHOD__</td>
+     <td align="left">
+      <a href="language.constants.predefined.html" class="link">magic constants</a>
+      (available since PHP 5.0.0)
+     </td>
+    </tr>
+
+    <tr valign="middle">
+     <td align="left"><b><tt>T_MINUS_EQUAL</tt></b></td>
+     <td align="left">-=</td>
+     <td align="left"><a href="language.operators.assignment.html" class="link">assignment
+     operators</a></td>
+    </tr>
+
+    <tr valign="middle">
+     <td align="left"><b><tt>T_ML_COMMENT</tt></b></td>
+     <td align="left">/* and */</td>
+     <td align="left"><a href="language.basic-syntax.comments.html" class="link">comments</a>
+      (PHP 4 only)</td>
+    </tr>
+
+    <tr valign="middle">
+     <td align="left"><b><tt>T_MOD_EQUAL</tt></b></td>
+     <td align="left">%=</td>
+     <td align="left"><a href="language.operators.assignment.html" class="link">assignment
+     operators</a></td>
+    </tr>
+
+    <tr valign="middle">
+     <td align="left"><b><tt>T_MUL_EQUAL</tt></b></td>
+     <td align="left">*=</td>
+     <td align="left"><a href="language.operators.assignment.html" class="link">assignment
+     operators</a></td>
+    </tr>
+
+    <tr valign="middle">
+     <td align="left"><b><tt>T_NAMESPACE</tt></b></td>
+     <td align="left">namespace</td>
+     <td align="left">
+      <a href="language.namespaces.html" class="link">namespaces</a> (available since PHP
+      5.3.0)
+     </td>
+    </tr>
+
+    <tr valign="middle">
+     <td align="left"><b><tt>T_NS_C</tt></b></td>
+     <td align="left">__NAMESPACE__</td>
+     <td align="left">
+      <a href="language.namespaces.html" class="link">namespaces</a>
+      (available since PHP 5.3.0)
+     </td>
+    </tr>
+
+    <tr valign="middle">
+     <td align="left"><b><tt>T_NS_SEPARATOR</tt></b></td>
+     <td align="left">\</td>
+     <td align="left">
+      <a href="language.namespaces.html" class="link">namespaces</a>
+      (available since PHP 5.3.0)
+     </td>
+    </tr>
+
+    <tr valign="middle">
+     <td align="left"><b><tt>T_NEW</tt></b></td>
+     <td align="left">new</td>
+     <td align="left"><a href="language.oop5.html" class="link">classes and objects</a></td>
+    </tr>
+
+    <tr valign="middle">
+     <td align="left"><b><tt>T_NUM_STRING</tt></b></td>
+     <td align="left">&quot;$a[0]&quot;</td>
+     <td align="left"><a href="language.types.string.html#language.types.string.parsing" class="link">numeric array index
+     inside string</a></td>
+    </tr>
+
+    <tr valign="middle">
+     <td align="left"><b><tt>T_OBJECT_CAST</tt></b></td>
+     <td align="left">(object)</td>
+     <td align="left"><a href="language.types.type-juggling.html#language.types.typecasting" class="link">type-casting</a></td>
+    </tr>
+
+    <tr valign="middle">
+     <td align="left"><b><tt>T_OBJECT_OPERATOR</tt></b></td>
+     <td align="left">-&gt;</td>
+     <td align="left"><a href="language.oop5.html" class="link">classes and objects</a></td>
+    </tr>
+
+    <tr valign="middle">
+     <td align="left"><b><tt>T_OLD_FUNCTION</tt></b></td>
+     <td align="left">old_function</td>
+     <td align="left">(PHP 4 Only)</td>
+    </tr>
+
+    <tr valign="middle">
+     <td align="left"><b><tt>T_OPEN_TAG</tt></b></td>
+     <td align="left">&lt;?php, &lt;? or &lt;%</td>
+     <td align="left"><a href="language.basic-syntax.phpmode.html" class="link">escaping
+     from HTML</a></td>
+    </tr>
+
+    <tr valign="middle">
+     <td align="left"><b><tt>T_OPEN_TAG_WITH_ECHO</tt></b></td>
+     <td align="left">&lt;?= or &lt;%=</td>
+     <td align="left"><a href="language.basic-syntax.phpmode.html" class="link">escaping
+     from HTML</a></td>
+    </tr>
+
+    <tr valign="middle">
+     <td align="left"><b><tt>T_OR_EQUAL</tt></b></td>
+     <td align="left">|=</td>
+     <td align="left"><a href="language.operators.assignment.html" class="link">assignment
+     operators</a></td>
+    </tr>
+
+    <tr valign="middle">
+     <td align="left"><b><tt>T_PAAMAYIM_NEKUDOTAYIM</tt></b></td>
+     <td align="left">::</td>
+     <td align="left"><a href="language.oop5.paamayim-nekudotayim.html" class="link">::</a>. Also defined as
+      <b><tt>T_DOUBLE_COLON</tt></b>.</td>
+    </tr>
+
+    <tr valign="middle">
+     <td align="left"><b><tt>T_PLUS_EQUAL</tt></b></td>
+     <td align="left">+=</td>
+     <td align="left"><a href="language.operators.assignment.html" class="link">assignment
+     operators</a></td>
+    </tr>
+
+    <tr valign="middle">
+     <td align="left"><b><tt>T_PRINT</tt></b></td>
+     <td align="left">print()</td>
+     <td align="left"><span class="function"><a href="function.print.html" class="function">print()</a></span></td>
+    </tr>
+
+    <tr valign="middle">
+     <td align="left"><b><tt>T_PRIVATE</tt></b></td>
+     <td align="left">private</td>
+     <td align="left">
+      <a href="language.oop5.html" class="link">classes and objects</a>
+      (available since PHP 5.0.0)
+     </td>
+    </tr>
+
+    <tr valign="middle">
+     <td align="left"><b><tt>T_PUBLIC</tt></b></td>
+     <td align="left">public</td>
+     <td align="left">
+      <a href="language.oop5.html" class="link">classes and objects</a>
+      (available since PHP 5.0.0)
+     </td>
+    </tr>
+
+    <tr valign="middle">
+     <td align="left"><b><tt>T_PROTECTED</tt></b></td>
+     <td align="left">protected</td>
+     <td align="left">
+      <a href="language.oop5.html" class="link">classes and objects</a>
+      (available since PHP 5.0.0)
+     </td>
+    </tr>
+
+    <tr valign="middle">
+     <td align="left"><b><tt>T_REQUIRE</tt></b></td>
+     <td align="left">require()</td>
+     <td align="left"><span class="function"><a href="function.require.html" class="function">require()</a></span></td>
+    </tr>
+
+    <tr valign="middle">
+     <td align="left"><b><tt>T_REQUIRE_ONCE</tt></b></td>
+     <td align="left">require_once()</td>
+     <td align="left"><span class="function"><a href="function.require-once.html" class="function">require_once()</a></span></td>
+    </tr>
+
+    <tr valign="middle">
+     <td align="left"><b><tt>T_RETURN</tt></b></td>
+     <td align="left">return</td>
+     <td align="left"><a href="functions.returning-values.html" class="link">returning values</a></td>
+    </tr>
+
+    <tr valign="middle">
+     <td align="left"><b><tt>T_SL</tt></b></td>
+     <td align="left">&lt;&lt;</td>
+     <td align="left"><a href="language.operators.bitwise.html" class="link">bitwise
+     operators</a></td>
+    </tr>
+
+    <tr valign="middle">
+     <td align="left"><b><tt>T_SL_EQUAL</tt></b></td>
+     <td align="left">&lt;&lt;=</td>
+     <td align="left"><a href="language.operators.assignment.html" class="link">assignment
+     operators</a></td>
+    </tr>
+
+    <tr valign="middle">
+     <td align="left"><b><tt>T_SR</tt></b></td>
+     <td align="left">&gt;&gt;</td>
+     <td align="left"><a href="language.operators.bitwise.html" class="link">bitwise
+     operators</a></td>
+    </tr>
+
+    <tr valign="middle">
+     <td align="left"><b><tt>T_SR_EQUAL</tt></b></td>
+     <td align="left">&gt;&gt;=</td>
+     <td align="left"><a href="language.operators.assignment.html" class="link">assignment
+     operators</a></td>
+    </tr>
+
+    <tr valign="middle">
+     <td align="left"><b><tt>T_START_HEREDOC</tt></b></td>
+     <td align="left">&lt;&lt;&lt;</td>
+     <td align="left"><a href="language.types.string.html#language.types.string.syntax.heredoc" class="link">heredoc
+     syntax</a></td>
+    </tr>
+
+    <tr valign="middle">
+     <td align="left"><b><tt>T_STATIC</tt></b></td>
+     <td align="left">static</td>
+     <td align="left"><a href="language.variables.scope.html" class="link">variable scope</a></td>
+    </tr>
+
+    <tr valign="middle">
+     <td align="left"><b><tt>T_STRING</tt></b></td>
+     <td align="left">&quot;parent&quot;</td>
+     <td align="left">
+      identifiers, e.g. <a href="language.types.string.html#language.types.string.parsing" class="link">strings</a>, 
+      object oriented keywords like <i>parent</i> and <i>self</i>, 
+      functions, classes and more are matched.
+     </td>
+    </tr>
+
+    <tr valign="middle">
+     <td align="left"><b><tt>T_STRING_CAST</tt></b></td>
+     <td align="left">(string)</td>
+     <td align="left"><a href="language.types.type-juggling.html#language.types.typecasting" class="link">type-casting</a></td>
+    </tr>
+
+    <tr valign="middle">
+     <td align="left"><b><tt>T_STRING_VARNAME</tt></b></td>
+     <td align="left">&quot;${a</td>
+     <td align="left"><a href="language.types.string.html#language.types.string.parsing.complex" class="link">complex
+     variable parsed syntax</a></td>
+    </tr>
+
+    <tr valign="middle">
+     <td align="left"><b><tt>T_SWITCH</tt></b></td>
+     <td align="left">switch</td>
+     <td align="left"><a href="control-structures.switch.html" class="link">switch</a></td>
+    </tr>
+
+    <tr valign="middle">
+     <td align="left"><b><tt>T_THROW</tt></b></td>
+     <td align="left">throw</td>
+     <td align="left"><a href="language.exceptions.html" class="xref">Exceptions</a> (available since PHP 5.0.0)</td>
+    </tr>
+
+    <tr valign="middle">
+     <td align="left"><b><tt>T_TRY</tt></b></td>
+     <td align="left">try</td>
+     <td align="left"><a href="language.exceptions.html" class="xref">Exceptions</a> (available since PHP 5.0.0)</td>
+    </tr>
+
+    <tr valign="middle">
+     <td align="left"><b><tt>T_UNSET</tt></b></td>
+     <td align="left">unset()</td>
+     <td align="left"><span class="function"><a href="function.unset.html" class="function">unset()</a></span></td>
+    </tr>
+
+    <tr valign="middle">
+     <td align="left"><b><tt>T_UNSET_CAST</tt></b></td>
+     <td align="left">(unset)</td>
+     <td align="left"><a href="language.types.type-juggling.html#language.types.typecasting" class="link">type-casting</a>
+     (available since PHP 5.0.0)</td>
+    </tr>
+
+    <tr valign="middle">
+     <td align="left"><b><tt>T_USE</tt></b></td>
+     <td align="left">use</td>
+     <td align="left"><a href="language.namespaces.html" class="link">namespaces</a>
+     (available since PHP 5.3.0; reserved since PHP 4.0.0)</td>
+    </tr>
+
+    <tr valign="middle">
+     <td align="left"><b><tt>T_VAR</tt></b></td>
+     <td align="left">var</td>
+     <td align="left"><a href="language.oop5.html" class="link">classes and objects</a></td>
+    </tr>
+
+    <tr valign="middle">
+     <td align="left"><b><tt>T_VARIABLE</tt></b></td>
+     <td align="left">$foo</td>
+     <td align="left"><a href="language.variables.html" class="link">variables</a></td>
+    </tr>
+
+    <tr valign="middle">
+     <td align="left"><b><tt>T_WHILE</tt></b></td>
+     <td align="left">while</td>
+     <td align="left"><a href="control-structures.while.html" class="link">while</a>, <a href="control-structures.do.while.html" class="link">do..while</a></td>
+    </tr>
+
+    <tr valign="middle">
+     <td align="left"><b><tt>T_WHITESPACE</tt></b></td>
+     <td align="left">\t \r\n</td>
+     <td class="empty">&nbsp;</td>
+    </tr>
+
+    <tr valign="middle">
+     <td align="left"><b><tt>T_XOR_EQUAL</tt></b></td>
+     <td align="left">^=</td>
+     <td align="left"><a href="language.operators.assignment.html" class="link">assignment
+     operators</a></td>
+    </tr>
+
+   </tbody> 
+  
+ </table>
+
+ <p class="para">
+  See also <span class="function"><a href="function.token-name.html" class="function">token_name()</a></span>.
+ </p>
+</div>
+<hr /><div class="manualnavbar" style="text-align: center;">
+ <div class="prev" style="text-align: left; float: left;"><a href="types.comparisons.html">PHP type comparison tables</a></div>
+ <div class="next" style="text-align: right; float: right;"><a href="userlandnaming.html">Userland Naming Guide</a></div>
+ <div class="up"><a href="appendices.html">Appendices</a></div>
+ <div class="home"><a href="index.html">PHP Manual</a></div>
+</div></body></html>

@@ -1,0 +1,466 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+ <head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>Hyperwave API Functions</title>
+
+ </head>
+ <body><div class="manualnavbar" style="text-align: center;">
+ <div class="prev" style="text-align: left; float: left;"><a href="hwapi.constants.html">Predefined Constants</a></div>
+ <div class="next" style="text-align: right; float: right;"><a href="function.hwapi-attribute-key.html">hw_api_attribute-&gt;key</a></div>
+ <div class="up"><a href="book.hwapi.html">Hyperwave API</a></div>
+ <div class="home"><a href="index.html">PHP Manual</a></div>
+</div><hr /><div id="ref.hwapi" class="reference">
+  <h1 class="title">Hyperwave API Functions</h1>
+
+  <div class="partintro">
+   <div class="section" id="hwapi.apache">
+    <h2 class="title">Integration with Apache</h2>
+    <p class="para">
+     The integration with Apache and possible other servers is already
+     described in the <a href="ref.hw.html" class="link">Hyperwave module</a>
+     which has been the first extension to connect a Hyperwave Server.
+    </p>
+   </div>
+
+   
+   <div class="section" id="hwapi.classes">
+    <h2 class="title">Classes</h2>
+    <p class="para">
+     The API provided by the HW_API extension is fully object oriented.
+     It is very similar to the C++ interface of the Hyperwave SDK.
+     It consist of the following classes.
+     <ul class="itemizedlist">
+      <li class="listitem">
+       <span class="simpara">
+        <b class="classname">HW_API</b>
+          </span>
+         </li>
+      <li class="listitem">
+       <span class="simpara">
+        <b class="classname">HW_API_Object</b>
+          </span>
+         </li>
+      <li class="listitem">
+       <span class="simpara">
+        <b class="classname">HW_API_Attribute</b>
+          </span>
+         </li>
+      <li class="listitem">
+       <span class="simpara">
+        <b class="classname">HW_API_Error</b>
+          </span>
+         </li>
+      <li class="listitem">
+       <span class="simpara">
+        <b class="classname">HW_API_Content</b>
+          </span>
+         </li>
+      <li class="listitem">
+       <span class="simpara">
+        <b class="classname">HW_API_Reason</b>
+          </span>
+         </li>
+     </ul>
+     Some basic classes like <b class="classname">HW_API_String</b>,
+     <b class="classname">HW_API_String_Array</b>, etc., which exist in the
+     Hyperwave SDK have not been implemented since PHP has powerful
+     replacements for them.
+    </p>
+    <p class="para">
+     Each class has certain method, whose names are identical to its
+     counterparts in the Hyperwave SDK. Passing arguments to this function
+     differs from all the other PHP extensions but is close to the C++ API of
+     the HW SDK. Instead of passing several parameters they are all put into
+     an associated array and passed as one parameter. The names of the keys
+     are identical to those documented in the HW SDK. The common parameters
+     are listed below. If other parameters are required they will be
+     documented if needed.
+     <ul class="itemizedlist">
+      <li class="listitem">
+       <span class="simpara">
+        <b class="classname">objectIdentifier</b> The name or id of an object,
+        e.g. &quot;rootcollection&quot;, &quot;0x873A8768 0x00000002&quot;.
+          </span>
+         </li>
+      <li class="listitem">
+       <span class="simpara">
+        <b class="classname">parentIdentifier</b> The name or id of an object
+        which is considered to be a parent.
+          </span>
+         </li>
+      <li class="listitem">
+       <span class="simpara">
+        <b class="classname">object</b> An instance of class HW_API_Object.
+          </span>
+         </li>
+      <li class="listitem">
+       <span class="simpara">
+        <b class="classname">parameters</b> An instance of class HW_API_Object.
+          </span>
+         </li>
+      <li class="listitem">
+       <span class="simpara">
+        <b class="classname">version</b> The version of an object.
+          </span>
+         </li>
+      <li class="listitem">
+       <span class="simpara">
+        <b class="classname">mode</b> An integer value determine the way an
+        operation is executed.
+          </span>
+         </li>
+      <li class="listitem">
+       <span class="simpara">
+        <b class="classname">attributeSelector</b> Any array of strings, each
+        containing a name of an attribute. This is used if you retrieve the
+        object record and want to include certain attributes.
+          </span>
+         </li>
+      <li class="listitem">
+       <span class="simpara">
+        <b class="classname">objectQuery</b> A query to select certain object
+        out of a list of objects. This is used to reduce the number of objects
+        which was delivered by a function like
+        <span class="function"><a href="function.hwapi-children.html" class="function">hw_api->children()</a></span> or <span class="function"><a href="function.hwapi-find.html" class="function">hw_api->find()</a></span>.
+          </span>
+         </li>
+     </ul>
+    </p>
+    <blockquote class="note"><p><b class="note">Note</b>: 
+     <p class="para">
+      Methods returning <span class="type"><a href="language.types.boolean.html" class="type boolean">boolean</a></span> can return <b><tt>TRUE</tt></b>, <b><tt>FALSE</tt></b> or
+      <b class="classname">HW_API_Error</b> object.
+     </p>
+    </p></blockquote>
+   </div>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ <h2>Table of Contents</h2><ul class="chunklist chunklist_reference"><li><a href="function.hwapi-attribute-key.html">hw_api_attribute-&gt;key</a> — Returns key of the attribute</li><li><a href="function.hwapi-attribute-langdepvalue.html">hw_api_attribute-&gt;langdepvalue</a> — Returns value for a given language</li><li><a href="function.hwapi-attribute-value.html">hw_api_attribute-&gt;value</a> — Returns value of the attribute</li><li><a href="function.hwapi-attribute-values.html">hw_api_attribute-&gt;values</a> — Returns all values of the attribute</li><li><a href="function.hwapi-attribute.html">hw_api_attribute</a> — Creates instance of class hw_api_attribute</li><li><a href="function.hwapi-checkin.html">hw_api-&gt;checkin</a> — Checks in an object</li><li><a href="function.hwapi-checkout.html">hw_api-&gt;checkout</a> — Checks out an object</li><li><a href="function.hwapi-children.html">hw_api-&gt;children</a> — Returns children of an object</li><li><a href="function.hwapi-content-mimetype.html">hw_api_content-&gt;mimetype</a> — Returns mimetype</li><li><a href="function.hwapi-content-read.html">hw_api_content-&gt;read</a> — Read content</li><li><a href="function.hwapi-content.html">hw_api-&gt;content</a> — Returns content of an object</li><li><a href="function.hwapi-copy.html">hw_api-&gt;copy</a> — Copies physically</li><li><a href="function.hwapi-dbstat.html">hw_api-&gt;dbstat</a> — Returns statistics about database server</li><li><a href="function.hwapi-dcstat.html">hw_api-&gt;dcstat</a> — Returns statistics about document cache server</li><li><a href="function.hwapi-dstanchors.html">hw_api-&gt;dstanchors</a> — Returns a list of all destination anchors</li><li><a href="function.hwapi-dstofsrcanchor.html">hw_api-&gt;dstofsrcanchor</a> — Returns destination of a source anchor</li><li><a href="function.hwapi-error-count.html">hw_api_error-&gt;count</a> — Returns number of reasons</li><li><a href="function.hwapi-error-reason.html">hw_api_error-&gt;reason</a> — Returns reason of error</li><li><a href="function.hwapi-find.html">hw_api-&gt;find</a> — Search for objects</li><li><a href="function.hwapi-ftstat.html">hw_api-&gt;ftstat</a> — Returns statistics about fulltext server</li><li><a href="function.hwapi-hgcsp.html">hwapi_hgcsp</a> — Returns object of class hw_api</li><li><a href="function.hwapi-hwstat.html">hw_api-&gt;hwstat</a> — Returns statistics about Hyperwave server</li><li><a href="function.hwapi-identify.html">hw_api-&gt;identify</a> — Log into Hyperwave Server</li><li><a href="function.hwapi-info.html">hw_api-&gt;info</a> — Returns information about server configuration</li><li><a href="function.hwapi-insert.html">hw_api-&gt;insert</a> — Inserts a new object</li><li><a href="function.hwapi-insertanchor.html">hw_api-&gt;insertanchor</a> — Inserts a new object of type anchor</li><li><a href="function.hwapi-insertcollection.html">hw_api-&gt;insertcollection</a> — Inserts a new object of type collection</li><li><a href="function.hwapi-insertdocument.html">hw_api-&gt;insertdocument</a> — Inserts a new object of type document</li><li><a href="function.hwapi-link.html">hw_api-&gt;link</a> — Creates a link to an object</li><li><a href="function.hwapi-lock.html">hw_api-&gt;lock</a> — Locks an object</li><li><a href="function.hwapi-move.html">hw_api-&gt;move</a> — Moves object between collections</li><li><a href="function.hwapi-new-content.html">hw_api_content</a> — Create new instance of class hw_api_content</li><li><a href="function.hwapi-object-assign.html">hw_api_object-&gt;assign</a> — Clones object</li><li><a href="function.hwapi-object-attreditable.html">hw_api_object-&gt;attreditable</a> — Checks whether an attribute is editable</li><li><a href="function.hwapi-object-count.html">hw_api_object-&gt;count</a> — Returns number of attributes</li><li><a href="function.hwapi-object-insert.html">hw_api_object-&gt;insert</a> — Inserts new attribute</li><li><a href="function.hwapi-object-new.html">hw_api_object</a> — Creates a new instance of class hw_api_object</li><li><a href="function.hwapi-object-remove.html">hw_api_object-&gt;remove</a> — Removes attribute</li><li><a href="function.hwapi-object-title.html">hw_api_object-&gt;title</a> — Returns the title attribute</li><li><a href="function.hwapi-object-value.html">hw_api_object-&gt;value</a> — Returns value of attribute</li><li><a href="function.hwapi-object.html">hw_api-&gt;object</a> — Retrieve attribute information</li><li><a href="function.hwapi-objectbyanchor.html">hw_api-&gt;objectbyanchor</a> — Returns the object an anchor belongs to</li><li><a href="function.hwapi-parents.html">hw_api-&gt;parents</a> — Returns parents of an object</li><li><a href="function.hwapi-reason-description.html">hw_api_reason-&gt;description</a> — Returns description of reason</li><li><a href="function.hwapi-reason-type.html">hw_api_reason-&gt;type</a> — Returns type of reason</li><li><a href="function.hwapi-remove.html">hw_api-&gt;remove</a> — Delete an object</li><li><a href="function.hwapi-replace.html">hw_api-&gt;replace</a> — Replaces an object</li><li><a href="function.hwapi-setcommittedversion.html">hw_api-&gt;setcommittedversion</a> — Commits version other than last version</li><li><a href="function.hwapi-srcanchors.html">hw_api-&gt;srcanchors</a> — Returns a list of all source anchors</li><li><a href="function.hwapi-srcsofdst.html">hw_api-&gt;srcsofdst</a> — Returns source of a destination object</li><li><a href="function.hwapi-unlock.html">hw_api-&gt;unlock</a> — Unlocks a locked object</li><li><a href="function.hwapi-user.html">hw_api-&gt;user</a> — Returns the own user object</li><li><a href="function.hwapi-userlist.html">hw_api-&gt;userlist</a> — Returns a list of all logged in users</li></ul>
+</div>
+<hr /><div class="manualnavbar" style="text-align: center;">
+ <div class="prev" style="text-align: left; float: left;"><a href="hwapi.constants.html">Predefined Constants</a></div>
+ <div class="next" style="text-align: right; float: right;"><a href="function.hwapi-attribute-key.html">hw_api_attribute-&gt;key</a></div>
+ <div class="up"><a href="book.hwapi.html">Hyperwave API</a></div>
+ <div class="home"><a href="index.html">PHP Manual</a></div>
+</div></body></html>

@@ -24,18 +24,6 @@ git submodule init
 git submodule update
 
 
-
--------------------------------------------------
-* git tips
--------------------------------------------------
-- how to add new plugin as a submodule
-  % git submodule add  git://github.com/vim-scripts/PDV--phpDocumentor-for-Vim.git .vim/bundle/PDV--phpDocumentor-for-Vim
-
-- update submodules
-  % git submodule update
-
-
-
 -------------------------------------------------
 * Copyright
 -------------------------------------------------
@@ -45,4 +33,7 @@ http://creativecommons.org/licenses/by/3.0/
 
 thanks to:
 http://d.hatena.ne.jp/vimtaku/20110219
+
+
+
 

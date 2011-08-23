@@ -1,0 +1,193 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+ <head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>Attach a filter to a stream</title>
+
+ </head>
+ <body><div class="manualnavbar" style="text-align: center;">
+ <div class="prev" style="text-align: left; float: left;"><a href="function.stream-filter-append.html">stream_filter_append</a></div>
+ <div class="next" style="text-align: right; float: right;"><a href="function.stream-filter-register.html">stream_filter_register</a></div>
+ <div class="up"><a href="ref.stream.html">Stream Functions</a></div>
+ <div class="home"><a href="index.html">PHP Manual</a></div>
+</div><hr /><div id="function.stream-filter-prepend" class="refentry">
+ <div class="refnamediv">
+  <h1 class="refname">stream_filter_prepend</h1>
+  <p class="verinfo">(PHP 4 &gt;= 4.3.0, PHP 5)</p><p class="refpurpose"><span class="refname">stream_filter_prepend</span> &mdash; <span class="dc-title">Attach a filter to a stream</span></p>
+
+ </div>
+ <div class="refsect1 description" id="refsect1-function.stream-filter-prepend-description">
+  <h3 class="title">Description</h3>
+  <div class="methodsynopsis dc-description">
+   <span class="type">resource</span> <span class="methodname"><b>stream_filter_prepend</b></span>
+    ( <span class="methodparam"><span class="type">resource</span> <tt class="parameter">$stream</tt></span>
+   , <span class="methodparam"><span class="type">string</span> <tt class="parameter">$filtername</tt></span>
+   [, <span class="methodparam"><span class="type">int</span> <tt class="parameter">$read_write</tt></span>
+   [, <span class="methodparam"><span class="type"><a href="language.pseudo-types.html#language.types.mixed" class="type mixed">mixed</a></span> <tt class="parameter">$params</tt></span>
+  ]] )</div>
+
+  <p class="para rdfs-comment">
+   Adds <i><tt class="parameter">filtername</tt></i> to the list of filters
+   attached to <i><tt class="parameter">stream</tt></i>.
+  </p>
+ </div>
+
+
+ <div class="refsect1 parameters" id="refsect1-function.stream-filter-prepend-parameters">
+  <h3 class="title">Parameters</h3>
+  <p class="para">
+   <dl>
+
+    <dt>
+
+     <span class="term"><i><tt class="parameter">stream</tt></i></span>
+     <dd>
+
+      <p class="para">
+       The target stream.
+      </p>
+     </dd>
+
+    </dt>
+
+    <dt>
+
+     <span class="term"><i><tt class="parameter">filtername</tt></i></span>
+     <dd>
+
+      <p class="para">
+       The filter name.
+      </p>
+     </dd>
+
+    </dt>
+
+    <dt>
+
+     <span class="term"><i><tt class="parameter">read_write</tt></i></span>
+     <dd>
+
+      <p class="para">
+       By default, <span class="function"><b>stream_filter_prepend()</b></span> will
+       attach the filter to the <i>read filter chain</i>
+       if the file was opened for reading (i.e. File Mode:
+       <i>r</i>, and/or <i>+</i>).  The filter
+       will also be attached to the <i>write filter chain</i>
+       if the file was opened for writing (i.e. File Mode:
+       <i>w</i>, <i>a</i>, and/or <i>+</i>).
+       <b><tt>STREAM_FILTER_READ</tt></b>,
+       <b><tt>STREAM_FILTER_WRITE</tt></b>, and/or
+       <b><tt>STREAM_FILTER_ALL</tt></b> can also be passed to the
+       <i><tt class="parameter">read_write</tt></i> parameter to override this behavior.
+       See <span class="function"><a href="function.stream-filter-append.html" class="function">stream_filter_append()</a></span> for an example of
+       using this parameter.
+      </p>
+     </dd>
+
+    </dt>
+
+    <dt>
+
+     <span class="term"><i><tt class="parameter">params</tt></i></span>
+     <dd>
+
+      <p class="para">
+       This filter will be added with the specified <i><tt class="parameter">params</tt></i>
+       to the <em class="emphasis">beginning</em> of the list and will therefore be
+       called first during stream operations.  To add a filter to the end of the
+       list, use <span class="function"><a href="function.stream-filter-append.html" class="function">stream_filter_append()</a></span>.
+      </p>
+     </dd>
+
+    </dt>
+
+   </dl>
+
+  </p>
+ </div>
+
+
+ <div class="refsect1 returnvalues" id="refsect1-function.stream-filter-prepend-returnvalues">
+  <h3 class="title">Return Values</h3>
+  <p class="para">
+   Returns a resource which can be used to refer to this filter
+   instance during a call to <span class="function"><a href="function.stream-filter-remove.html" class="function">stream_filter_remove()</a></span>.
+  </p>
+ </div>
+
+
+ <div class="refsect1 changelog" id="refsect1-function.stream-filter-prepend-changelog">
+  <h3 class="title">Changelog</h3>
+  <p class="para">
+   <table class="doctable informaltable">
+    
+     <thead valign="middle">
+      <tr valign="middle">
+       <th>Version</th>
+       <th>Description</th>
+      </tr>
+
+     </thead>
+
+     <tbody valign="middle" class="tbody">
+      <tr valign="middle">
+       <td align="left">5.1.0</td>
+       <td align="left">
+        Prior to PHP 5.1.0, this function returns <b><tt>TRUE</tt></b> on success
+        or <b><tt>FALSE</tt></b> on failure.
+       </td>
+      </tr>
+
+     </tbody>
+    
+   </table>
+
+  </p>
+ </div>
+
+
+ <div class="refsect1 notes" id="refsect1-function.stream-filter-prepend-notes">
+  <h3 class="title">Notes</h3>
+  <blockquote class="note"><p><b class="note">Note</b>: 
+   <b>When using custom (user) filters</b><br />
+   <span class="simpara">
+    <span class="function"><a href="function.stream-filter-register.html" class="function">stream_filter_register()</a></span> must be called first
+    in order to register the desired user filter to <i><tt class="parameter">filtername</tt></i>.
+   </span>
+  </p></blockquote>
+  <blockquote class="note"><p><b class="note">Note</b>: 
+   <span class="simpara">
+    Stream data is read from resources (both local and remote) in chunks,
+    with any unconsumed data kept in internal buffers.  When a new
+    filter is prepended to a stream, data in the internal buffers,
+    which has already been processed through other filters will
+    <em class="emphasis">not</em> be reprocessed through the new filter
+    at that time.  This differs from the behavior of
+    <span class="function"><a href="function.stream-filter-append.html" class="function">stream_filter_append()</a></span>.
+   </span>
+  </p></blockquote>
+  <blockquote class="note"><p><b class="note">Note</b>: 
+   <span class="simpara">
+    When a filter is added for read and write, two instances of the filter
+    are created. <span class="function"><b>stream_filter_prepend()</b></span> must be called twice 
+    with <b><tt>STREAM_FILTER_READ</tt></b> and 
+    <b><tt>STREAM_FILTER_WRITE</tt></b> to get both filter resources.
+   </span>
+  </p></blockquote>
+ </div>
+
+
+ <div class="refsect1 seealso" id="refsect1-function.stream-filter-prepend-seealso">
+  <h3 class="title">See Also</h3>
+  <ul class="simplelist">
+   <li class="member"><span class="function"><a href="function.stream-filter-register.html" class="function" rel="rdfs-seeAlso">stream_filter_register()</a> - Register a user defined stream filter</span></li>
+   <li class="member"><span class="function"><a href="function.stream-filter-append.html" class="function" rel="rdfs-seeAlso">stream_filter_append()</a> - Attach a filter to a stream</span></li>
+  </ul>
+ </div>
+
+</div><hr /><div class="manualnavbar" style="text-align: center;">
+ <div class="prev" style="text-align: left; float: left;"><a href="function.stream-filter-append.html">stream_filter_append</a></div>
+ <div class="next" style="text-align: right; float: right;"><a href="function.stream-filter-register.html">stream_filter_register</a></div>
+ <div class="up"><a href="ref.stream.html">Stream Functions</a></div>
+ <div class="home"><a href="index.html">PHP Manual</a></div>
+</div></body></html>

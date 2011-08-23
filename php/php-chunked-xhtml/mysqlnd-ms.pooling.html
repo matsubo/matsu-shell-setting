@@ -1,0 +1,133 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+ <head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>Connection pooling and switching</title>
+
+ </head>
+ <body><div class="manualnavbar" style="text-align: center;">
+ <div class="prev" style="text-align: left; float: left;"><a href="mysqlnd-ms.architecture.html">Architecture</a></div>
+ <div class="next" style="text-align: right; float: right;"><a href="mysqlnd-ms.transaction.html">Transaction handling</a></div>
+ <div class="up"><a href="mysqlnd-ms.concepts.html">Concepts</a></div>
+ <div class="home"><a href="index.html">PHP Manual</a></div>
+</div><hr /><div id="mysqlnd-ms.pooling" class="section">
+  <h2 class="title">Connection pooling and switching</h2>
+  <p class="para">
+   The replication and load balancing plugin changes the semantics of a PHP
+   MySQL connection handle. The existing API of the PHP MySQL extensions
+   (<a href="ref.mysqli.html" class="link">mysqli</a>,
+  <a href="ref.mysql.html" class="link">mysql</a>,
+  <a href="ref.pdo-mysql.html" class="link">PDO_MYSQL</a>) are not changed in
+  a way that functions are added or removed. But their behaviour
+  changes when using the plugin. Existing applications do not need to
+  be adapted to a new API. But they may need to be modified because of
+  the behaviour changes.
+  </p>
+  <p class="para">
+   The plugin breaks the one-by-one relationship between a
+   <a href="ref.mysqli.html" class="link">mysqli</a>,
+   <a href="ref.mysql.html" class="link">mysql</a>,
+   <a href="ref.pdo-mysql.html" class="link">PDO_MYSQL</a> connection
+   handle and a MySQL wire connection. If using the plugin a
+   <a href="ref.mysqli.html" class="link">mysqli</a>,
+   <a href="ref.mysql.html" class="link">mysql</a>,
+   <a href="ref.pdo-mysql.html" class="link">PDO_MYSQL</a> connection
+   handle represents a local pool of connections to the configured
+   MySQL replication master and the MySQL replication slave servers.
+   The plugin redirects queries to the master and slave servers.
+   At some point in time one and the same PHP connection handle
+   may point to the MySQL master server. Later on, it may point
+   to one of the slave servers or still the master. Manipulating
+   and replacing the wire connection referenced by a PHP MySQL 
+   connection handle is not a transparent operation.
+  </p>
+  <p class="para">
+   Every MySQL connection has a state. The state of the connections in
+   the connection pool of the plugin can differ. Whenever the
+   plugin switches from one wire connection to another, the current state of
+   the user connection may change. The applications must be aware of this.
+  </p>
+  <p class="para">
+   The following listshows what the connection state consists of.
+  </p>
+  <p class="para">
+    <ul class="itemizedlist">
+     <li class="listitem">
+      <span class="simpara">
+       Transaction status
+      </span>
+     </li>
+     <li class="listitem">
+      <span class="simpara">
+       Temporary tables
+      </span>
+    </li>
+    <li class="listitem">
+      <span class="simpara">
+       Table locks
+      </span>
+    </li>
+    <li class="listitem">
+     <span class="simpara">
+      Session system variables and session user variables
+     </span>
+    </li>
+    <li class="listitem">
+     <span class="simpara">
+      Session system variables and session user variables
+     </span>
+    </li>
+    <li class="listitem">
+      <span class="simpara">
+       Prepared statements
+      </span>
+    </li>
+    <li class="listitem">
+      <span class="simpara">
+       <i>HANDLER</i> variables
+      </span>
+    </li>
+    <li class="listitem">
+      <span class="simpara">
+       Locks acquired with <i>GET_LOCK()</i>
+      </span>
+    </li>
+   </ul>
+  </p>
+  <p class="para">
+   The plugins philosophy is to align the state of connections in the
+   pool only if the state is under full control of the plugin, or if it is
+   necessary for security reasons. Just a few  actions that change the
+   state of the connection fall into this category. The plugin does broadcast
+   the following state changing client calls to all currently open
+   connections in the connection pool: <i>change_user</i>,
+   <i>select_db</i>, <i>set_charset</i>,
+   <i>set_server_option</i>, <i>set_client_option</i>,
+   <i>autocommit</i>. 
+  </p>
+  <p class="para">
+   The plugin does not proxy or
+   "<span class="quote">remember</span>" settings to apply them on connections
+   opened in the future. This is important to remember, if
+   using 
+   <a href="mysqlnd-ms.plugin-ini.html#ini.mysqlnd-ms-plugin-config.lazy_connections" class="link">lazy connections</a>.
+   Lazy connections are connections which are not 
+   opened before the client sends the first connection.  
+   Use of lazy connections is the default plugin action.
+  </p>
+  <p class="para">
+    Connection switches happen right before queries are run. The plugin does
+    not switch the current connection until the moment in time when
+ the next statement is executed.
+  </p>
+  <p class="para">
+   Please, do not miss the MySQL reference manual chapter on 
+   replication features and issues. Some restrictions you hit may not be related
+   to the PHP plugin but are properties of the MySQL replication system.   
+  </p>
+ </div><hr /><div class="manualnavbar" style="text-align: center;">
+ <div class="prev" style="text-align: left; float: left;"><a href="mysqlnd-ms.architecture.html">Architecture</a></div>
+ <div class="next" style="text-align: right; float: right;"><a href="mysqlnd-ms.transaction.html">Transaction handling</a></div>
+ <div class="up"><a href="mysqlnd-ms.concepts.html">Concepts</a></div>
+ <div class="home"><a href="index.html">PHP Manual</a></div>
+</div></body></html>

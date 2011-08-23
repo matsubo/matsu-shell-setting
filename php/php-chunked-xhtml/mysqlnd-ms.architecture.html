@@ -1,0 +1,57 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+ <head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>Architecture</title>
+
+ </head>
+ <body><div class="manualnavbar" style="text-align: center;">
+ <div class="prev" style="text-align: left; float: left;"><a href="mysqlnd-ms.concepts.html">Concepts</a></div>
+ <div class="next" style="text-align: right; float: right;"><a href="mysqlnd-ms.pooling.html">Connection pooling and switching</a></div>
+ <div class="up"><a href="mysqlnd-ms.concepts.html">Concepts</a></div>
+ <div class="home"><a href="index.html">PHP Manual</a></div>
+</div><hr /><div id="mysqlnd-ms.architecture" class="section">
+  <h2 class="title">Architecture</h2>
+  <p class="para">
+   The mysqlnd replication and load balancing plugin is 
+   implemented as a PHP extension.
+   It is written in C and operates under the hood of PHP. During the
+   startup of the PHP interpreter, in the module init phase of the 
+   PHP engine, it gets registered as a
+   <a href="book.mysqlnd.html" class="link">mysqlnd</a> plugin to replace selected
+   mysqlnd C methods.
+  </p>
+  <p class="para">
+   At PHP run time it inspects queries send from
+   mysqlnd (PHP) to the MySQL server. If a query is recognized as read-only
+   it will be sent to one of the configured slave servers. Statements are
+   considered read-only if they either start with <i>SELECT</i>,
+   the SQL hint <i>/*ms=slave*/</i> or a slave had been choose for
+   running the previous query and the query starts with the SQL hint
+   <i>/*ms=last_used*/</i>. In all other cases the query will
+   be sent to the MySQL replication master server.
+  </p>
+  <p class="para">
+   The plugin takes care internally of opening and closing the database connections
+   to the master server and the slave servers. From an application
+   point of view there continues to be only one connection handle. However,
+   internally, this one public connection handle represents a pool of
+   internal connections managed by the plugin. The plugin proxies queries
+   to the master server and the slave ones using multiple connections.
+  </p>
+  <p class="para">
+    Database connections have a state consisting, for example, transaction
+    status, transaction settings, character set settings, temporary tables.
+    The plugin will try to maintain the same state among all internal
+    connections, whenever this can be done in an automatic and transparent way.
+    In cases where it is not easily possible to maintain state among all
+    connections, such as when using <i>BEGIN TRANSACTION</i>, the
+    plugin leaves it to the user to handle. Please, find further details below.
+  </p>
+  
+ </div><hr /><div class="manualnavbar" style="text-align: center;">
+ <div class="prev" style="text-align: left; float: left;"><a href="mysqlnd-ms.concepts.html">Concepts</a></div>
+ <div class="next" style="text-align: right; float: right;"><a href="mysqlnd-ms.pooling.html">Connection pooling and switching</a></div>
+ <div class="up"><a href="mysqlnd-ms.concepts.html">Concepts</a></div>
+ <div class="home"><a href="index.html">PHP Manual</a></div>
+</div></body></html>

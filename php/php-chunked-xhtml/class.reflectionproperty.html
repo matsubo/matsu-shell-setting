@@ -1,0 +1,374 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+ <head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>The ReflectionProperty class</title>
+
+ </head>
+ <body><div class="manualnavbar" style="text-align: center;">
+ <div class="prev" style="text-align: left; float: left;"><a href="reflectionparameter.tostring.html">ReflectionParameter::__toString</a></div>
+ <div class="next" style="text-align: right; float: right;"><a href="reflectionproperty.clone.html">ReflectionProperty::__clone</a></div>
+ <div class="up"><a href="book.reflection.html">Reflection</a></div>
+ <div class="home"><a href="index.html">PHP Manual</a></div>
+</div><hr /><div id="class.reflectionproperty" class="reference">
+
+ <h1 class="title">The ReflectionProperty class</h1>
+ 
+
+ <div class="partintro">
+
+
+  <div class="section" id="reflectionproperty.intro">
+   <h2 class="title">Introduction</h2>
+   <p class="para">
+    The <b class="classname">ReflectionProperty</b> class reports
+    information about a classes properties.
+   </p>
+  </div>
+
+
+  <div class="section" id="reflectionproperty.synopsis">
+   <h2 class="title">Class synopsis</h2>
+
+
+   <div class="classsynopsis">
+    <div class="ooclass"></div>
+
+
+    <div class="classsynopsisinfo">
+     <span class="ooclass">
+      <b class="classname">ReflectionProperty</b>
+     </span>
+     
+     <span class="oointerface">implements 
+      <span class="interfacename"><a href="class.reflector.html" class="interfacename">Reflector</a></span>
+     </span>
+     {</div>
+
+    <div class="classsynopsisinfo classsynopsisinfo_comment">/* Constants */</div>
+    <div class="fieldsynopsis">
+     <span class="modifier">const</span>
+     <span class="type">integer</span>
+      <var class="fieldsynopsis_varname"><a href="class.reflectionproperty.html#reflectionproperty.constants.is-static"><var class="varname">IS_STATIC</var></a></var>
+     <span class="initializer"> = 1</span>
+    ;</div>
+
+    <div class="fieldsynopsis">
+     <span class="modifier">const</span>
+     <span class="type">integer</span>
+      <var class="fieldsynopsis_varname"><a href="class.reflectionproperty.html#reflectionproperty.constants.is-public"><var class="varname">IS_PUBLIC</var></a></var>
+     <span class="initializer"> = 256</span>
+    ;</div>
+
+    <div class="fieldsynopsis">
+     <span class="modifier">const</span>
+     <span class="type">integer</span>
+      <var class="fieldsynopsis_varname"><a href="class.reflectionproperty.html#reflectionproperty.constants.is-protected"><var class="varname">IS_PROTECTED</var></a></var>
+     <span class="initializer"> = 512</span>
+    ;</div>
+
+    <div class="fieldsynopsis">
+     <span class="modifier">const</span>
+     <span class="type">integer</span>
+      <var class="fieldsynopsis_varname"><a href="class.reflectionproperty.html#reflectionproperty.constants.is-private"><var class="varname">IS_PRIVATE</var></a></var>
+     <span class="initializer"> = 1024</span>
+    ;</div>
+
+
+    <div class="classsynopsisinfo classsynopsisinfo_comment">/* Properties */</div>
+    <div class="fieldsynopsis">
+     <span class="modifier">public</span>
+      <var class="varname"><a href="class.reflectionproperty.html#reflectionproperty.props.name">$<var class="varname">ReflectionProperty-&gt;name</var></a></var>
+    ;</div>
+
+    <div class="fieldsynopsis">
+     <span class="modifier">public</span>
+      <var class="varname"><a href="class.reflectionproperty.html#reflectionproperty.props.class">$<var class="varname">class</var></a></var>
+    ;</div>
+
+
+    
+    <div class="classsynopsisinfo classsynopsisinfo_comment">/* Methods */</div>
+    <div class="methodsynopsis dc-description">
+   <span class="modifier">final</span> <span class="modifier">private</span> <span class="type">void</span> <span class="methodname"><a href="reflectionproperty.clone.html" class="methodname">ReflectionProperty::__clone</a></span>
+    ( <span class="methodparam">void</span>
+   )</div>
+<div class="methodsynopsis dc-description">
+    <span class="methodname"><a href="reflectionproperty.construct.html" class="methodname">ReflectionProperty::__construct</a></span>
+    ( <span class="methodparam"><span class="type"><a href="language.pseudo-types.html#language.types.mixed" class="type mixed">mixed</a></span> <tt class="parameter">$class</tt></span>
+   , <span class="methodparam"><span class="type">string</span> <tt class="parameter">$name</tt></span>
+   )</div>
+<div class="methodsynopsis dc-description">
+   <span class="modifier">public</span> <span class="modifier">static</span> <span class="type">string</span> <span class="methodname"><a href="reflectionproperty.export.html" class="methodname">ReflectionProperty::export</a></span>
+    ( <span class="methodparam"><span class="type"><a href="language.pseudo-types.html#language.types.mixed" class="type mixed">mixed</a></span> <tt class="parameter">$class</tt></span>
+   , <span class="methodparam"><span class="type">string</span> <tt class="parameter">$name</tt></span>
+   [, <span class="methodparam"><span class="type">bool</span> <tt class="parameter">$return</tt></span>
+  ] )</div>
+<div class="methodsynopsis dc-description">
+   <span class="modifier">public</span> <span class="type">ReflectionClass</span> <span class="methodname"><a href="reflectionproperty.getdeclaringclass.html" class="methodname">ReflectionProperty::getDeclaringClass</a></span>
+    ( <span class="methodparam">void</span>
+   )</div>
+<div class="methodsynopsis dc-description">
+   <span class="modifier">public</span> <span class="type">string</span> <span class="methodname"><a href="reflectionproperty.getdoccomment.html" class="methodname">ReflectionProperty::getDocComment</a></span>
+    ( <span class="methodparam">void</span>
+   )</div>
+<div class="methodsynopsis dc-description">
+   <span class="modifier">public</span> <span class="type">int</span> <span class="methodname"><a href="reflectionproperty.getmodifiers.html" class="methodname">ReflectionProperty::getModifiers</a></span>
+    ( <span class="methodparam">void</span>
+   )</div>
+<div class="methodsynopsis dc-description">
+   <span class="modifier">public</span> <span class="type">string</span> <span class="methodname"><a href="reflectionproperty.getname.html" class="methodname">ReflectionProperty::getName</a></span>
+    ( <span class="methodparam">void</span>
+   )</div>
+<div class="methodsynopsis dc-description">
+   <span class="modifier">public</span> <span class="type">mixed</span> <span class="methodname"><a href="reflectionproperty.getvalue.html" class="methodname">ReflectionProperty::getValue</a></span>
+    ( <span class="methodparam"><span class="type">object</span> <tt class="parameter">$object</tt></span>
+   )</div>
+<div class="methodsynopsis dc-description">
+   <span class="modifier">public</span> <span class="type">bool</span> <span class="methodname"><a href="reflectionproperty.isdefault.html" class="methodname">ReflectionProperty::isDefault</a></span>
+    ( <span class="methodparam">void</span>
+   )</div>
+<div class="methodsynopsis dc-description">
+   <span class="modifier">public</span> <span class="type">bool</span> <span class="methodname"><a href="reflectionproperty.isprivate.html" class="methodname">ReflectionProperty::isPrivate</a></span>
+    ( <span class="methodparam">void</span>
+   )</div>
+<div class="methodsynopsis dc-description">
+   <span class="modifier">public</span> <span class="type">bool</span> <span class="methodname"><a href="reflectionproperty.isprotected.html" class="methodname">ReflectionProperty::isProtected</a></span>
+    ( <span class="methodparam">void</span>
+   )</div>
+<div class="methodsynopsis dc-description">
+   <span class="modifier">public</span> <span class="type">bool</span> <span class="methodname"><a href="reflectionproperty.ispublic.html" class="methodname">ReflectionProperty::isPublic</a></span>
+    ( <span class="methodparam">void</span>
+   )</div>
+<div class="methodsynopsis dc-description">
+   <span class="modifier">public</span> <span class="type">bool</span> <span class="methodname"><a href="reflectionproperty.isstatic.html" class="methodname">ReflectionProperty::isStatic</a></span>
+    ( <span class="methodparam">void</span>
+   )</div>
+<div class="methodsynopsis dc-description">
+   <span class="modifier">public</span> <span class="type">void</span> <span class="methodname"><a href="reflectionproperty.setaccessible.html" class="methodname">ReflectionProperty::setAccessible</a></span>
+    ( <span class="methodparam"><span class="type">bool</span> <tt class="parameter">$accessible</tt></span>
+   )</div>
+<div class="methodsynopsis dc-description">
+   <span class="modifier">public</span> <span class="type">void</span> <span class="methodname"><a href="reflectionproperty.setvalue.html" class="methodname">ReflectionProperty::setValue</a></span>
+    ( <span class="methodparam"><span class="type">object</span> <tt class="parameter">$object</tt></span>
+   , <span class="methodparam"><span class="type"><a href="language.pseudo-types.html#language.types.mixed" class="type mixed">mixed</a></span> <tt class="parameter">$value</tt></span>
+   )</div>
+<div class="methodsynopsis dc-description">
+   <span class="modifier">public</span> <span class="type">string</span> <span class="methodname"><a href="reflectionproperty.tostring.html" class="methodname">ReflectionProperty::__toString</a></span>
+    ( <span class="methodparam">void</span>
+   )</div>
+
+   }</div>
+
+
+  </div>
+
+  
+
+  <div class="section" id="reflectionproperty.props">
+   <h2 class="title">Properties</h2>
+   <dl>
+
+    <dt id="reflectionproperty.props.name">
+     <span class="term"><var class="varname"><var class="varname">name</var></var></span>
+     <dd>
+
+      <p class="para">Prop description</p>
+     </dd>
+
+    </dt>
+
+    <dt id="reflectionproperty.props.class">
+     <span class="term"><var class="varname"><var class="varname">class</var></var></span>
+     <dd>
+
+      <p class="para">Prop description</p>
+     </dd>
+
+    </dt>
+
+   </dl>
+
+  </div>
+
+
+  
+
+  <div class="section" id="reflectionproperty.constants">
+   <h2 class="title">Predefined Constants</h2>
+   <div class="section" id="reflectionproperty.constants.types">
+    <h2 class="title">ReflectionProperty Node Types</h2>
+    <dl>
+
+
+     <dt id="reflectionproperty.constants.is-static">
+      <span class="term"><b><tt>ReflectionProperty::IS_STATIC</tt></b></span>
+      <dd>
+
+       <p class="para">Description here...</p>
+      </dd>
+
+     </dt>
+
+
+     <dt id="reflectionproperty.constants.is-public">
+      <span class="term"><b><tt>ReflectionProperty::IS_PUBLIC</tt></b></span>
+      <dd>
+
+       <p class="para">Description here...</p>
+      </dd>
+
+     </dt>
+
+
+     <dt id="reflectionproperty.constants.is-protected">
+      <span class="term"><b><tt>ReflectionProperty::IS_PROTECTED</tt></b></span>
+      <dd>
+
+       <p class="para">Description here...</p>
+      </dd>
+
+     </dt>
+
+
+     <dt id="reflectionproperty.constants.is-private">
+      <span class="term"><b><tt>ReflectionProperty::IS_PRIVATE</tt></b></span>
+      <dd>
+
+       <p class="para">Description here...</p>
+      </dd>
+
+     </dt>
+
+
+    </dl>
+
+   </div>
+  </div>
+
+
+
+ </div>
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h2>Table of Contents</h2><ul class="chunklist chunklist_reference"><li><a href="reflectionproperty.clone.html">ReflectionProperty::__clone</a> — Clone</li><li><a href="reflectionproperty.construct.html">ReflectionProperty::__construct</a> — Construct a ReflectionProperty object</li><li><a href="reflectionproperty.export.html">ReflectionProperty::export</a> — Export</li><li><a href="reflectionproperty.getdeclaringclass.html">ReflectionProperty::getDeclaringClass</a> — Gets declaring class</li><li><a href="reflectionproperty.getdoccomment.html">ReflectionProperty::getDocComment</a> — Gets doc comment</li><li><a href="reflectionproperty.getmodifiers.html">ReflectionProperty::getModifiers</a> — Gets modifiers</li><li><a href="reflectionproperty.getname.html">ReflectionProperty::getName</a> — Gets property name</li><li><a href="reflectionproperty.getvalue.html">ReflectionProperty::getValue</a> — Gets value</li><li><a href="reflectionproperty.isdefault.html">ReflectionProperty::isDefault</a> — Checks if default value</li><li><a href="reflectionproperty.isprivate.html">ReflectionProperty::isPrivate</a> — Checks if property is private</li><li><a href="reflectionproperty.isprotected.html">ReflectionProperty::isProtected</a> — Checks if property is protected</li><li><a href="reflectionproperty.ispublic.html">ReflectionProperty::isPublic</a> — Checks if property is public</li><li><a href="reflectionproperty.isstatic.html">ReflectionProperty::isStatic</a> — Checks if property is static</li><li><a href="reflectionproperty.setaccessible.html">ReflectionProperty::setAccessible</a> — Set property accessibility</li><li><a href="reflectionproperty.setvalue.html">ReflectionProperty::setValue</a> — Set property value</li><li><a href="reflectionproperty.tostring.html">ReflectionProperty::__toString</a> — To string</li></ul>
+</div>
+<hr /><div class="manualnavbar" style="text-align: center;">
+ <div class="prev" style="text-align: left; float: left;"><a href="reflectionparameter.tostring.html">ReflectionParameter::__toString</a></div>
+ <div class="next" style="text-align: right; float: right;"><a href="reflectionproperty.clone.html">ReflectionProperty::__clone</a></div>
+ <div class="up"><a href="book.reflection.html">Reflection</a></div>
+ <div class="home"><a href="index.html">PHP Manual</a></div>
+</div></body></html>

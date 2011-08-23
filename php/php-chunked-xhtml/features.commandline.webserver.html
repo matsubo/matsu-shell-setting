@@ -1,0 +1,143 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+ <head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>Built-in web server</title>
+
+ </head>
+ <body><div class="manualnavbar" style="text-align: center;">
+ <div class="prev" style="text-align: left; float: left;"><a href="features.commandline.interactive.html">Interactive shell</a></div>
+ <div class="next" style="text-align: right; float: right;"><a href="features.gc.html">Garbage Collection</a></div>
+ <div class="up"><a href="features.commandline.html">Command line usage</a></div>
+ <div class="home"><a href="index.html">PHP Manual</a></div>
+</div><hr /><div id="features.commandline.webserver" class="section">
+  <h2 class="title">Built-in web server</h2>
+
+  <p class="para">
+   As of PHP 5.4.0, the <acronym title="Command Line Interpreter/Interface">CLI</acronym> <acronym title="Server Application Programming Interface">SAPI</acronym> provides a built-in web server.
+  </p>
+
+  <p class="para">
+   This web server is designed for developmental purposes only, and should not
+   be used in production.
+  </p>
+
+  <p class="para">
+    URI requests are served from the current working directory where
+    PHP was started, unless the -t option is used to specify an
+    explicit document root.
+  </p>
+
+  <p class="para">
+    If a URI request does not specify a file, then either index.php
+    or index.html in the given directory are returned.  If neither file
+    exists, then a 404 response code is returned.
+  </p>
+
+  <p class="para">
+    If a PHP file is given on the command line when the web server is
+    started it is treated as a &quot;router&quot; script for the web server.
+    The script is run at the start of each HTTP request.  If this
+    script returns <b><tt>FALSE</tt></b>, then the requested resource is returned
+    as-is.  Otherwise the script&#039;s output is returned to the browser.
+  </p>
+
+  <div class="example" id="example-355">
+   <p><b>Example #1 Starting the web server</b></p> 
+   <div class="example-contents">
+<div class="shellcode"><pre class="shellcode">$ cd ~/public_html
+$ php -S localhost:8000</pre>
+</div>
+   </div>
+
+   <div class="example-contents"><p>
+     The terminal will show:
+   </p></div>
+   <div class="example-contents screen">
+<div class="cdata"><pre>
+PHP 5.4.0 Development Server started at Thu Jul 21 10:43:28 2011
+Listening on localhost:8000
+Document root is /home/me/public_html
+Press Ctrl-C to quit
+</pre></div>
+   </div>
+   <div class="example-contents"><p>
+     After URI requests for http://localhost:8000/ and
+     http://localhost:8000/myscript.html the terminal will show
+     something similar to:
+   </p></div>
+   <div class="example-contents screen">
+<div class="cdata"><pre>
+PHP 5.4.0 Development Server started at Thu Jul 21 10:43:28 2011
+Listening on localhost:8000
+Document root is /home/me/public_html
+Press Ctrl-C to quit.
+[Thu Jul 21 10:48:48 2011] ::1:39144 GET /favicon.ico - Request read
+[Thu Jul 21 10:48:50 2011] ::1:39146 GET / - Request read
+[Thu Jul 21 10:48:50 2011] ::1:39147 GET /favicon.ico - Request read
+[Thu Jul 21 10:48:52 2011] ::1:39148 GET /myscript.html - Request read
+[Thu Jul 21 10:48:52 2011] ::1:39149 GET /favicon.ico - Request read
+</pre></div>
+   </div>
+  </div>
+
+  <div class="example" id="example-356">
+   <p><b>Example #2 Starting with a specific document root directory</b></p> 
+   <div class="example-contents">
+<div class="shellcode"><pre class="shellcode">$ cd ~/public_html
+$ php -S localhost:8000 -t foo/</pre>
+</div>
+   </div>
+
+   <div class="example-contents"><p>
+     The terminal will show:
+   </p></div>
+   <div class="example-contents screen">
+<div class="cdata"><pre>
+PHP 5.4.0 Development Server started at Thu Jul 21 10:50:26 2011
+Listening on localhost:8000
+Document root is /home/me/public_html/foo
+Press Ctrl-C to quit
+</pre></div>
+   </div>
+  </div>
+
+  <div class="example" id="example-357">
+   <p><b>Example #3 Using a Router Script</b></p> 
+<div class="example-contents"><p>
+  Requests for images will display them, but requests for HTML files will display &quot;Welcome to PHP&quot;
+</p></div>
+   <div class="example-contents">
+<div class="phpcode"><code><span style="color: #000000">
+<span style="color: #0000BB">&lt;?php<br /></span><span style="color: #FF8000">//&nbsp;router.php<br /></span><span style="color: #007700">if&nbsp;(</span><span style="color: #0000BB">preg_match</span><span style="color: #007700">(</span><span style="color: #DD0000">'/\.(?:png|jpg|jpeg|gif)$/'</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$_SERVER</span><span style="color: #007700">[</span><span style="color: #DD0000">"REQUEST_URI"</span><span style="color: #007700">]))<br />&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;</span><span style="color: #0000BB">false</span><span style="color: #007700">;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #FF8000">//&nbsp;serve&nbsp;the&nbsp;requested&nbsp;resource&nbsp;as-is.<br /></span><span style="color: #007700">else&nbsp;{&nbsp;<br />&nbsp;&nbsp;&nbsp;&nbsp;echo&nbsp;</span><span style="color: #DD0000">"&lt;p&gt;Welcome&nbsp;to&nbsp;PHP&lt;/p&gt;"</span><span style="color: #007700">;<br />}<br /></span><span style="color: #0000BB">?&gt;</span>
+</span>
+</code></div>
+   </div>
+
+   <div class="example-contents">
+<div class="shellcode"><pre class="shellcode">$ php -S localhost:8000 router.php</pre>
+</div>
+   </div>
+
+   <div class="example-contents"><p>
+     After several URI requests the terminal will show something similar to:
+   </p></div>
+   <div class="example-contents screen">
+<div class="cdata"><pre>
+PHP 5.4.0 Development Server started at Thu Jul 21 10:53:19 2011
+Listening on localhost:8000
+Document root is /home/me/public_html
+Press Ctrl-C to quit.
+[Thu Jul 21 10:53:45 2011] ::1:55801 GET /mylogo.jpg - Request read
+[Thu Jul 21 10:53:52 2011] ::1:55803 GET /abc.html - Request read
+[Thu Jul 21 10:53:52 2011] ::1:55804 GET /favicon.ico - Request read
+</pre></div>
+   </div>
+  </div>
+
+ </div><hr /><div class="manualnavbar" style="text-align: center;">
+ <div class="prev" style="text-align: left; float: left;"><a href="features.commandline.interactive.html">Interactive shell</a></div>
+ <div class="next" style="text-align: right; float: right;"><a href="features.gc.html">Garbage Collection</a></div>
+ <div class="up"><a href="features.commandline.html">Command line usage</a></div>
+ <div class="home"><a href="index.html">PHP Manual</a></div>
+</div></body></html>
