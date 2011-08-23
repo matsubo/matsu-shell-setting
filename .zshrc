@@ -151,13 +151,13 @@ export PATH="/opt/local/bin":$PATH
 
 
 # Hit ^ = cd ..
-function cdup() {
-  echo
-  cd ..
-  zle reset-prompt
-}
-zle -N cdup
-bindkey '\^' cdup
+#function cdup() {
+#  echo
+#  cd ..
+#  zle reset-prompt
+#}
+#zle -N cdup
+#bindkey '\^' cdup
 
 
 
