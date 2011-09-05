@@ -16,6 +16,8 @@ setopt extended_glob list_types no_beep always_last_prompt
 setopt cdable_vars sh_word_split auto_param_keys
 setopt NO_flow_control
 setopt auto_pushd pushd_ignore_dups list_packed list_types EXTENDED_HISTORY no_case_glob
+setopt complete_in_word
+s3etopt magic_equal_subst
 
 unsetopt promptcr
 
@@ -83,6 +85,9 @@ export LSCOLORS=cxfxcxdxbxegedabagacad
 export WORDCHARS="*?_-.[]~=&;!#$%^(){}<>"
 NAME='Yuki Matsukura'
 
+REPORTTIME=2
+
+
 #########################################
 # alias
 #########################################
@@ -137,8 +142,6 @@ alias findgrep="find -type d -name '.svn' -prune -o -type f -print | xargs grep 
 
 
 export EDITOR=vi
-export PAGER=less
-
 export MYSQL=/usr/local/mysql
 export SAMBA=/usr/local/samba
 
@@ -160,6 +163,13 @@ zle -N cdup
 bindkey '\^' cdup
 
 
+if type lv > /dev/null 2>&1; then
+	export PAGER="lv"
+	export LV="-c -l -Ou8"
+	alias less="lv"
+else
+	export PAGER="less"
+fi
 
 
 #########################################
@@ -187,7 +197,12 @@ fi
 #########################################
 function chpwd() { ll }
 
+zstyle ':completion:*:default' menu select=2
+zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z} r:|[._-]=*'
 zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS}
+zstyle ':completion:*' use-cache yes
+
+
 
 bindkey -e
 
@@ -235,6 +250,33 @@ _rake () {
 
 compdef _rake rake
 
+
+#########################################
+# grep setting
+#########################################
+## GNU grepがあったら優先して使う。
+if type ggrep > /dev/null 2>&1; then
+	alias grep=ggrep
+fi
+## デフォルトオプションの設定
+export GREP_OPTIONS
+### バイナリファイルにはマッチさせない。
+GREP_OPTIONS="--binary-files=without-match"
+### grep対象としてディレクトリを指定したらディレクトリ内を再帰的にgrepする。
+GREP_OPTIONS="--directories=recurse $GREP_OPTIONS"
+### 拡張子が.tmpのファイルは無視する。
+GREP_OPTIONS="--exclude=\*.tmp $GREP_OPTIONS"
+## 管理用ディレクトリを無視する。
+if grep --help | grep -q -- --exclude-dir; then
+	GREP_OPTIONS="--exclude-dir=.svn $GREP_OPTIONS"
+	GREP_OPTIONS="--exclude-dir=.git $GREP_OPTIONS"
+	GREP_OPTIONS="--exclude-dir=.deps $GREP_OPTIONS"
+	GREP_OPTIONS="--exclude-dir=.libs $GREP_OPTIONS"
+fi
+### 可能なら色を付ける。
+if grep --help | grep -q -- --color; then
+	GREP_OPTIONS="--color=auto $GREP_OPTIONS"
+fi
 
 
 #########################################

@@ -126,7 +126,7 @@ set shiftwidth=2
 autocmd FileType php set omnifunc=phpcomplete#CompletePHP
 
 " disable auto comment out after the line break
-set formatoptions-=ro
+" set formatoptions-=ro
 
 "新しい行を作ったときに高度な自動インデントを行う
 " http://www.ispern.com/?p=324
