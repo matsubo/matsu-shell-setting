@@ -1,0 +1,1350 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+ <head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>DOM XML (PHP 4) Functions</title>
+
+ </head>
+ <body><div class="manualnavbar" style="text-align: center;">
+ <div class="prev" style="text-align: left; float: left;"><a href="domxml.constants.html">Predefined Constants</a></div>
+ <div class="next" style="text-align: right; float: right;"><a href="function.domattribute-name.html">DomAttribute-&gt;name</a></div>
+ <div class="up"><a href="book.domxml.html">DOM XML (PHP 4)</a></div>
+ <div class="home"><a href="index.html">PHP Manual</a></div>
+</div><hr /><div id="ref.domxml" class="reference">
+  <h1 class="title">DOM XML (PHP 4) Functions</h1>
+
+  <div class="partintro">
+   <div class="section" id="domxml.deprecated">
+    <h2 class="title">Deprecated functions</h2>
+    <p class="para">
+     There are quite a few functions that do not fit into the DOM standard and
+     should no longer be used. These functions are listed in the following table.
+     The function <span class="function"><a href="function.domnode-append-child.html" class="function">DomNode_append_child()</a></span> has changed its
+     behaviour. It now adds a child and not a sibling. If this
+     breaks your application, use the non-DOM function
+     <span class="function"><a href="function.domnode-append-sibling.html" class="function">DomNode_append_sibling()</a></span>.
+    </p>
+    <p class="para">
+    <table class="doctable table">
+     <caption><b>Deprecated functions and their replacements</b></caption>
+     
+      <thead valign="middle">
+       <tr valign="middle">
+        <th>Old function</th>
+        <th>New function</th>
+       </tr>
+
+      </thead>
+
+      <tbody valign="middle" class="tbody">
+       <tr valign="middle">
+        <td align="left">xmldoc</td>
+        <td align="left"><span class="function"><a href="function.domxml-open-mem.html" class="function">domxml_open_mem()</a></span></td>
+       </tr>
+
+       <tr valign="middle">
+        <td align="left">xmldocfile</td>
+        <td align="left"><span class="function"><a href="function.domxml-open-file.html" class="function">domxml_open_file()</a></span></td>
+       </tr>
+
+       <tr valign="middle">
+        <td align="left">domxml_new_xmldoc</td>
+        <td align="left"><span class="function"><a href="function.domxml-new-doc.html" class="function">domxml_new_doc()</a></span></td>
+       </tr>
+
+       <tr valign="middle">
+        <td align="left">domxml_dump_mem</td>
+        <td align="left"><span class="function"><a href="function.domdocument-dump-mem.html" class="function">DomDocument_dump_mem()</a></span></td>
+       </tr>
+
+       <tr valign="middle">
+        <td align="left">domxml_dump_mem_file</td>
+        <td align="left"><span class="function"><a href="function.domdocument-dump-file.html" class="function">DomDocument_dump_file()</a></span></td>
+       </tr>
+
+       <tr valign="middle">
+        <td align="left">DomDocument_dump_mem_file</td>
+        <td align="left"><span class="function"><a href="function.domdocument-dump-file.html" class="function">DomDocument_dump_file()</a></span></td>
+       </tr>
+
+       <tr valign="middle">
+        <td align="left">DomDocument_add_root</td>
+        <td align="left"><span class="function"><a href="function.domdocument-create-element.html" class="function">DomDocument_create_element()</a></span> followed by
+               <span class="function"><a href="function.domnode-append-child.html" class="function">DomNode_append_child()</a></span></td>
+       </tr>
+
+       <tr valign="middle">
+        <td align="left">DomDocument_dtd</td>
+        <td align="left"><span class="function"><a href="function.domdocument-doctype.html" class="function">DomDocument_doctype()</a></span></td>
+       </tr>
+
+       <tr valign="middle">
+        <td align="left">DomDocument_root</td>
+        <td align="left"><span class="function"><a href="function.domdocument-document-element.html" class="function">DomDocument_document_element()</a></span></td>
+       </tr>
+
+       <tr valign="middle">
+        <td align="left">DomDocument_children</td>
+        <td align="left"><span class="function"><a href="function.domnode-child-nodes.html" class="function">DomNode_child_nodes()</a></span></td>
+       </tr>
+
+       <tr valign="middle">
+        <td align="left">DomDocument_imported_node</td>
+        <td align="left">No replacement.</td>
+       </tr>
+
+       <tr valign="middle">
+        <td align="left">DomNode_add_child</td>
+        <td align="left">Create a new node with e.g.
+         <span class="function"><a href="function.domdocument-create-element.html" class="function">DomDocument_create_element()</a></span> and add it with
+         <span class="function"><a href="function.domnode-append-child.html" class="function">DomNode_append_child()</a></span>.
+        </td>
+       </tr>
+
+       <tr valign="middle">
+        <td align="left">DomNode_children</td>
+        <td align="left"><span class="function"><a href="function.domnode-child-nodes.html" class="function">DomNode_child_nodes()</a></span></td>
+       </tr>
+
+       <tr valign="middle">
+        <td align="left">DomNode_parent</td>
+        <td align="left"><span class="function"><a href="function.domnode-parent-node.html" class="function">DomNode_parent_node()</a></span></td>
+       </tr>
+
+       <tr valign="middle">
+        <td align="left">DomNode_new_child</td>
+        <td align="left">Create a new node with e.g.
+         <span class="function"><a href="function.domdocument-create-element.html" class="function">DomDocument_create_element()</a></span> and add it with
+         <span class="function"><a href="function.domnode-append-child.html" class="function">DomNode_append_child()</a></span>.
+        </td>
+       </tr>
+
+       <tr valign="middle">
+        <td align="left">DomNode_set_content</td>
+        <td align="left">Create a new node with e.g.
+         <span class="function"><a href="function.domdocument-create-text-node.html" class="function">DomDocument_create_text_node()</a></span> and add it with
+         <span class="function"><a href="function.domnode-append-child.html" class="function">DomNode_append_child()</a></span>.
+        </td>
+       </tr>
+
+       <tr valign="middle">
+        <td align="left">DomNode_get_content</td>
+        <td align="left">Content is just a text node and can be accessed with
+         <span class="function"><a href="function.domnode-child-nodes.html" class="function">DomNode_child_nodes()</a></span>.
+        </td>
+       </tr>
+
+       <tr valign="middle">
+        <td align="left">DomNode_set_content</td>
+        <td align="left">Content is just a text node and can be added with
+         <span class="function"><a href="function.domnode-append-child.html" class="function">DomNode_append_child()</a></span>.
+        </td>
+       </tr>
+
+      </tbody>
+     
+    </table>
+
+    </p>
+   </div>
+
+   
+   <div class="section" id="domxml.classes">
+    <h2 class="title">Classes</h2>
+    <p class="para">
+     The API of the module follows the DOM Level 2 standard as closely
+     as possible. Consequently, the API is fully object-oriented.
+     It is a good idea to have the DOM standard available when
+     using this module.
+     Though the API is object-oriented, there are many functions which can
+     be called in a non-object-oriented way by passing the object to operate
+     on as the first argument. These functions are mainly to retain compatibility
+     to older versions of the extension, and should not be used when creating new
+     scripts.
+    </p>
+    <p class="para">
+     This API differs from the official DOM API in two ways. First, all
+     class attributes are implemented as functions with the same name.
+     Secondly, the function names follow the PHP naming convention. This means
+     that a DOM function lastChild() will be written as last_child().
+    </p>
+    <p class="para">
+     This module defines a number of classes, which are listed -
+     including their
+     method - in the following tables. Classes with an equivalent in the
+     DOM standard are named DOMxxx.
+    </p>
+ 
+    <p class="para">
+    <table class="doctable table">
+     <caption><b>List of classes</b></caption>
+     
+      <thead valign="middle">
+       <tr valign="middle">
+        <th>Class name</th>
+        <th>Parent classes</th>
+       </tr>
+
+      </thead>
+
+      <tbody valign="middle" class="tbody">
+       <tr valign="middle">
+        <td align="left">DomAttribute</td>
+        <td align="left">DomNode</td>
+       </tr>
+
+       <tr valign="middle">
+        <td align="left">DomCData</td>
+        <td align="left">DomNode</td>
+       </tr>
+
+       <tr valign="middle">
+        <td align="left">DomComment</td>
+        <td align="left">DomCData : DomNode</td>
+       </tr>
+
+       <tr valign="middle">
+        <td align="left">DomDocument</td>
+        <td align="left">DomNode</td>
+       </tr>
+
+       <tr valign="middle">
+        <td align="left">DomDocumentType</td>
+        <td align="left">DomNode</td>
+       </tr>
+
+       <tr valign="middle">
+        <td align="left">DomElement</td>
+        <td align="left">DomNode</td>
+       </tr>
+
+       <tr valign="middle">
+        <td align="left">DomEntity</td>
+        <td align="left">DomNode</td>
+       </tr>
+
+       <tr valign="middle">
+        <td align="left">DomEntityReference</td>
+        <td align="left">DomNode</td>
+       </tr>
+
+       <tr valign="middle">
+        <td align="left">DomProcessingInstruction</td>
+        <td align="left">DomNode</td>
+       </tr>
+
+       <tr valign="middle">
+        <td align="left">DomText</td>
+        <td align="left">DomCData : DomNode</td>
+       </tr>
+
+       <tr valign="middle">
+        <td align="left">Parser</td>
+        <td align="left">Currently still called DomParser</td>
+       </tr>
+
+       <tr valign="middle">
+        <td align="left">XPathContext</td>
+        <td class="empty">&nbsp;</td>
+       </tr>
+
+      </tbody>
+     
+    </table>
+
+    </p>
+
+    <p class="para">
+    <table class="doctable table">
+     <caption><b>DomDocument class (DomDocument : DomNode)</b></caption>
+     
+      <thead valign="middle">
+       <tr valign="middle">
+        <th>Method name</th>
+        <th>Function name</th>
+        <th>Remark</th>
+       </tr>
+
+      </thead>
+
+      <tbody valign="middle" class="tbody">
+       <tr valign="middle">
+        <td align="left">doctype</td>
+        <td align="left"><span class="function"><a href="function.domdocument-doctype.html" class="function">DomDocument_doctype()</a></span></td>
+        <td class="empty">&nbsp;</td>
+       </tr>
+
+       <tr valign="middle">
+        <td align="left">document_element</td>
+        <td align="left"><span class="function"><a href="function.domdocument-document-element.html" class="function">DomDocument_document_element()</a></span></td>
+        <td class="empty">&nbsp;</td>
+       </tr>
+
+       <tr valign="middle">
+        <td align="left">create_element</td>
+        <td align="left"><span class="function"><a href="function.domdocument-create-element.html" class="function">DomDocument_create_element()</a></span></td>
+        <td class="empty">&nbsp;</td>
+       </tr>
+
+       <tr valign="middle">
+        <td align="left">create_text_node</td>
+        <td align="left"><span class="function"><a href="function.domdocument-create-text-node.html" class="function">DomDocument_create_text_node()</a></span></td>
+        <td class="empty">&nbsp;</td>
+       </tr>
+
+       <tr valign="middle">
+        <td align="left">create_comment</td>
+        <td align="left"><span class="function"><a href="function.domdocument-create-comment.html" class="function">DomDocument_create_comment()</a></span></td>
+        <td class="empty">&nbsp;</td>
+       </tr>
+
+       <tr valign="middle">
+        <td align="left">create_cdata_section</td>
+        <td align="left"><span class="function"><a href="function.domdocument-create-cdata-section.html" class="function">DomDocument_create_cdata_section()</a></span></td>
+        <td class="empty">&nbsp;</td>
+       </tr>
+
+       <tr valign="middle">
+        <td align="left">create_processing_instruction</td>
+        <td align="left"><span class="function"><a href="function.domdocument-create-processing-instruction.html" class="function">DomDocument_create_processing_instruction()</a></span></td>
+        <td class="empty">&nbsp;</td>
+       </tr>
+
+       <tr valign="middle">
+        <td align="left">create_attribute</td>
+        <td align="left"><span class="function"><a href="function.domdocument-create-attribute.html" class="function">DomDocument_create_attribute()</a></span></td>
+        <td class="empty">&nbsp;</td>
+       </tr>
+
+       <tr valign="middle">
+        <td align="left">create_entity_reference</td>
+        <td align="left"><span class="function"><a href="function.domdocument-create-entity-reference.html" class="function">DomDocument_create_entity_reference()</a></span></td>
+        <td class="empty">&nbsp;</td>
+       </tr>
+
+       <tr valign="middle">
+        <td align="left">get_elements_by_tagname</td>
+        <td align="left"><span class="function"><a href="function.domdocument-get-elements-by-tagname.html" class="function">DomDocument_get_elements_by_tagname()</a></span></td>
+        <td class="empty">&nbsp;</td>
+       </tr>
+
+       <tr valign="middle">
+        <td align="left">get_element_by_id</td>
+        <td align="left"><span class="function"><a href="function.domdocument-get-element-by-id.html" class="function">DomDocument_get_element_by_id()</a></span></td>
+        <td class="empty">&nbsp;</td>
+       </tr>
+
+       <tr valign="middle">
+        <td align="left">dump_mem</td>
+        <td align="left"><span class="function"><a href="function.domdocument-dump-mem.html" class="function">DomDocument_dump_mem()</a></span></td>
+        <td align="left">not DOM standard</td>
+       </tr>
+
+       <tr valign="middle">
+        <td align="left">dump_file</td>
+        <td align="left"><span class="function"><a href="function.domdocument-dump-file.html" class="function">DomDocument_dump_file()</a></span></td>
+        <td align="left">not DOM standard</td>
+       </tr>
+
+       <tr valign="middle">
+        <td align="left">html_dump_mem</td>
+        <td align="left"><span class="function"><a href="function.domdocument-html-dump-mem.html" class="function">DomDocument_html_dump_mem()</a></span></td>
+        <td align="left">not DOM standard</td>
+       </tr>
+
+       <tr valign="middle">
+        <td align="left">xpath_init</td>
+        <td align="left">xpath_init</td>
+        <td align="left">not DOM standard</td>
+       </tr>
+
+       <tr valign="middle">
+        <td align="left">xpath_new_context</td>
+        <td align="left">xpath_new_context</td>
+        <td align="left">not DOM standard</td>
+       </tr>
+
+       <tr valign="middle">
+        <td align="left">xptr_new_context</td>
+        <td align="left">xptr_new_context</td>
+        <td align="left">not DOM standard</td>
+       </tr>
+
+      </tbody>
+     
+    </table>
+
+    </p>
+
+    <p class="para">
+    <table class="doctable table">
+     <caption><b>DomElement class (DomElement : DomNode)</b></caption>
+     
+      <thead valign="middle">
+       <tr valign="middle">
+        <th>Method name</th>
+        <th>Function name</th>
+        <th>Remark</th>
+       </tr>
+
+      </thead>
+
+      <tbody valign="middle" class="tbody">
+       <tr valign="middle">
+        <td align="left">tagname</td>
+        <td align="left"><span class="function"><a href="function.domelement-tagname.html" class="function">DomElement_tagname()</a></span></td>
+        <td class="empty">&nbsp;</td>
+       </tr>
+
+       <tr valign="middle">
+        <td align="left">get_attribute</td>
+        <td align="left"><span class="function"><a href="function.domelement-get-attribute.html" class="function">DomElement_get_attribute()</a></span></td>
+        <td class="empty">&nbsp;</td>
+       </tr>
+
+       <tr valign="middle">
+        <td align="left">set_attribute</td>
+        <td align="left"><span class="function"><a href="function.domelement-set-attribute.html" class="function">DomElement_set_attribute()</a></span></td>
+        <td class="empty">&nbsp;</td>
+       </tr>
+
+       <tr valign="middle">
+        <td align="left">remove_attribute</td>
+        <td align="left"><span class="function"><a href="function.domelement-remove-attribute.html" class="function">DomElement_remove_attribute()</a></span></td>
+        <td class="empty">&nbsp;</td>
+       </tr>
+
+       <tr valign="middle">
+        <td align="left">get_attribute_node</td>
+        <td align="left"><span class="function"><a href="function.domelement-get-attribute-node.html" class="function">DomElement_get_attribute_node()</a></span></td>
+        <td class="empty">&nbsp;</td>
+       </tr>
+
+       <tr valign="middle">
+        <td align="left">set_attribute_node</td>
+        <td align="left"><span class="function"><a href="function.domelement-set-attribute-node.html" class="function">DomElement_set_attribute_node()</a></span></td>
+        <td class="empty">&nbsp;</td>
+       </tr>
+
+   
+       <tr valign="middle">
+        <td align="left">get_elements_by_tagname</td>
+        <td align="left"><span class="function"><a href="function.domelement-get-elements-by-tagname.html" class="function">DomElement_get_elements_by_tagname()</a></span></td>
+        <td class="empty">&nbsp;</td>
+       </tr>
+
+       <tr valign="middle">
+        <td align="left">has_attribute</td>
+        <td align="left"><span class="function"><a href="function.domelement-has-attribute.html" class="function">DomElement_has_attribute()</a></span></td>
+        <td class="empty">&nbsp;</td>
+       </tr>
+
+      </tbody>
+     
+    </table>
+
+    </p>
+
+    <p class="para">
+    <table class="doctable table">
+     <caption><b>DomNode class</b></caption>
+     
+      <thead valign="middle">
+       <tr valign="middle">
+        <th>Method name</th>
+        <th>Remark</th>
+       </tr>
+
+      </thead>
+
+      <tbody valign="middle" class="tbody">
+       <tr valign="middle">
+        <td align="left"><span class="function"><a href="function.domnode-node-name.html" class="function">DomNode_node_name()</a></span></td>
+        <td class="empty">&nbsp;</td>
+       </tr>
+
+       <tr valign="middle">
+        <td align="left"><span class="function"><a href="function.domnode-node-value.html" class="function">DomNode_node_value()</a></span></td>
+        <td class="empty">&nbsp;</td>
+       </tr>
+
+       <tr valign="middle">
+        <td align="left"><span class="function"><a href="function.domnode-node-type.html" class="function">DomNode_node_type()</a></span></td>
+        <td class="empty">&nbsp;</td>
+       </tr>
+
+       <tr valign="middle">
+        <td align="left"><span class="function"><a href="function.domnode-last-child.html" class="function">DomNode_last_child()</a></span></td>
+        <td class="empty">&nbsp;</td>
+       </tr>
+
+       <tr valign="middle">
+        <td align="left"><span class="function"><a href="function.domnode-first-child.html" class="function">DomNode_first_child()</a></span></td>
+        <td class="empty">&nbsp;</td>
+       </tr>
+
+       <tr valign="middle">
+        <td align="left"><span class="function"><a href="function.domnode-child-nodes.html" class="function">DomNode_child_nodes()</a></span></td>
+        <td class="empty">&nbsp;</td>
+       </tr>
+
+       <tr valign="middle">
+        <td align="left"><span class="function"><a href="function.domnode-previous-sibling.html" class="function">DomNode_previous_sibling()</a></span></td>
+        <td class="empty">&nbsp;</td>
+       </tr>
+
+       <tr valign="middle">
+        <td align="left"><span class="function"><a href="function.domnode-next-sibling.html" class="function">DomNode_next_sibling()</a></span></td>
+        <td class="empty">&nbsp;</td>
+       </tr>
+
+       <tr valign="middle">
+        <td align="left"><span class="function"><a href="function.domnode-parent-node.html" class="function">DomNode_parent_node()</a></span></td>
+        <td class="empty">&nbsp;</td>
+       </tr>
+
+       <tr valign="middle">
+        <td align="left"><span class="function"><a href="function.domnode-owner-document.html" class="function">DomNode_owner_document()</a></span></td>
+        <td class="empty">&nbsp;</td>
+       </tr>
+
+       <tr valign="middle">
+        <td align="left"><span class="function"><a href="function.domnode-insert-before.html" class="function">DomNode_insert_before()</a></span></td>
+        <td class="empty">&nbsp;</td>
+       </tr>
+
+       <tr valign="middle">
+        <td align="left"><span class="function"><a href="function.domnode-append-child.html" class="function">DomNode_append_child()</a></span></td>
+        <td class="empty">&nbsp;</td>
+       </tr>
+
+       <tr valign="middle">
+        <td align="left"><span class="function"><a href="function.domnode-append-sibling.html" class="function">DomNode_append_sibling()</a></span></td>
+        <td align="left">Not in DOM standard. This function emulates the former
+         behaviour of <span class="function"><a href="function.domnode-append-child.html" class="function">DomNode_append_child()</a></span>.</td>
+       </tr>
+
+       <tr valign="middle">
+        <td align="left"><span class="function"><a href="function.domnode-remove-child.html" class="function">DomNode_remove_child()</a></span></td>
+        <td class="empty">&nbsp;</td>
+       </tr>
+
+       <tr valign="middle">
+        <td align="left"><span class="function"><a href="function.domnode-has-child-nodes.html" class="function">DomNode_has_child_nodes()</a></span></td>
+        <td class="empty">&nbsp;</td>
+       </tr>
+
+       <tr valign="middle">
+        <td align="left"><span class="function"><a href="function.domnode-has-attributes.html" class="function">DomNode_has_attributes()</a></span></td>
+        <td class="empty">&nbsp;</td>
+       </tr>
+
+       <tr valign="middle">
+        <td align="left"><span class="function"><a href="function.domnode-clone-node.html" class="function">DomNode_clone_node()</a></span></td>
+        <td class="empty">&nbsp;</td>
+       </tr>
+
+       <tr valign="middle">
+        <td align="left"><span class="function"><a href="function.domnode-attributes.html" class="function">DomNode_attributes()</a></span></td>
+        <td class="empty">&nbsp;</td>
+       </tr>
+
+       <tr valign="middle">
+        <td align="left"><span class="function"><a href="function.domnode-unlink-node.html" class="function">DomNode_unlink_node()</a></span></td>
+        <td align="left">Not in DOM standard</td>
+       </tr>
+
+       <tr valign="middle">
+        <td align="left"><span class="function"><a href="function.domnode-replace-node.html" class="function">DomNode_replace_node()</a></span></td>
+        <td align="left">Not in DOM standard</td>
+       </tr>
+
+       <tr valign="middle">
+        <td align="left"><span class="function"><a href="function.domnode-set-content.html" class="function">DomNode_set_content()</a></span></td>
+        <td align="left">Not in DOM standard, deprecated</td>
+       </tr>
+
+       <tr valign="middle">
+        <td align="left"><span class="function"><a href="function.domnode-get-content.html" class="function">DomNode_get_content()</a></span></td>
+        <td align="left">Not in DOM standard, deprecated</td>
+       </tr>
+
+       <tr valign="middle">
+        <td align="left"><span class="function"><a href="function.domnode-dump-node.html" class="function">DomNode_dump_node()</a></span></td>
+        <td align="left">Not in DOM standard</td>
+       </tr>
+
+       <tr valign="middle">
+        <td align="left"><span class="function"><a href="function.domnode-is-blank-node.html" class="function">DomNode_is_blank_node()</a></span></td>
+        <td align="left">Not in DOM standard</td>
+       </tr>
+
+      </tbody>
+     
+    </table>
+
+    </p>
+
+    <p class="para">
+    <table class="doctable table">
+     <caption><b>DomAttribute class (DomAttribute : DomNode)</b></caption>
+     
+      <thead valign="middle">
+       <tr valign="middle">
+        <th>Method name</th>
+        <th class="empty">&nbsp;</th>
+        <th>Remark</th>
+       </tr>
+
+      </thead>
+
+      <tbody valign="middle" class="tbody">
+       <tr valign="middle">
+        <td align="left">name</td>
+        <td align="left"><span class="function"><a href="function.domattribute-name.html" class="function">DomAttribute_name()</a></span></td>
+        <td class="empty">&nbsp;</td>
+       </tr>
+
+       <tr valign="middle">
+        <td align="left">value</td>
+        <td align="left"><span class="function"><a href="function.domattribute-value.html" class="function">DomAttribute_value()</a></span></td>
+        <td class="empty">&nbsp;</td>
+       </tr>
+
+       <tr valign="middle">
+        <td align="left">specified</td>
+        <td align="left"><span class="function"><a href="function.domattribute-specified.html" class="function">DomAttribute_specified()</a></span></td>
+        <td class="empty">&nbsp;</td>
+       </tr>
+
+      </tbody>
+     
+    </table>
+
+    </p>
+
+    <p class="para">
+    <table class="doctable table">
+     <caption><b>DomProcessingInstruction class (DomProcessingInstruction : DomNode)</b></caption>
+     
+      <thead valign="middle">
+       <tr valign="middle">
+        <th>Method name</th>
+        <th>Function name</th>
+        <th>Remark</th>
+       </tr>
+
+      </thead>
+
+      <tbody valign="middle" class="tbody">
+       <tr valign="middle">
+        <td align="left">target</td>
+        <td align="left"><span class="function"><a href="function.domprocessinginstruction-target.html" class="function">DomProcessingInstruction_target()</a></span></td>
+        <td class="empty">&nbsp;</td>
+       </tr>
+
+       <tr valign="middle">
+        <td align="left">data</td>
+        <td align="left"><span class="function"><a href="function.domprocessinginstruction-data.html" class="function">DomProcessingInstruction_data()</a></span></td>
+        <td class="empty">&nbsp;</td>
+       </tr>
+
+      </tbody>
+     
+    </table>
+
+    </p>
+
+    <p class="para">
+    <table class="doctable table">
+     <caption><b>Parser class</b></caption>
+     
+      <thead valign="middle">
+       <tr valign="middle">
+        <th>Method name</th>
+        <th>Function name</th>
+        <th>Remark</th>
+       </tr>
+
+      </thead>
+
+      <tbody valign="middle" class="tbody">
+       <tr valign="middle">
+        <td align="left">add_chunk</td>
+        <td align="left"><span class="function"><b>Parser_add_chunk()</b></span></td>
+        <td class="empty">&nbsp;</td>
+       </tr>
+
+       <tr valign="middle">
+        <td align="left">end</td>
+        <td align="left"><span class="function"><b>Parser_end()</b></span></td>
+        <td class="empty">&nbsp;</td>
+       </tr>
+
+      </tbody>
+     
+    </table>
+
+    </p>
+
+    <p class="para">
+    <table class="doctable table">
+     <caption><b>XPathContext class</b></caption>
+     
+      <thead valign="middle">
+       <tr valign="middle">
+        <th>Method name</th>
+        <th>Function name</th>
+        <th>Remark</th>
+       </tr>
+
+      </thead>
+
+      <tbody valign="middle" class="tbody">
+       <tr valign="middle">
+        <td align="left">eval</td>
+        <td align="left"><span class="function"><b>XPathContext_eval()</b></span></td>
+        <td class="empty">&nbsp;</td>
+       </tr>
+
+       <tr valign="middle">
+        <td align="left">eval_expression</td>
+        <td align="left"><span class="function"><b>XPathContext_eval_expression()</b></span></td>
+        <td class="empty">&nbsp;</td>
+       </tr>
+
+       <tr valign="middle">
+        <td align="left">register_ns</td>
+        <td align="left"><span class="function"><b>XPathContext_register_ns()</b></span></td>
+        <td class="empty">&nbsp;</td>
+       </tr>
+
+      </tbody>
+     
+    </table>
+
+    </p>
+
+    <p class="para">
+    <table class="doctable table">
+      <caption><b>DomDocumentType class (DomDocumentType : DomNode)</b></caption>
+     
+      <thead valign="middle">
+       <tr valign="middle">
+        <th>Method name</th>
+        <th>Function name</th>
+        <th>Remark</th>
+       </tr>
+
+      </thead>
+
+      <tbody valign="middle" class="tbody">
+       <tr valign="middle">
+        <td align="left">name</td>
+        <td align="left"><span class="function"><a href="function.domdocumenttype-name.html" class="function">DomDocumentType_name()</a></span></td>
+        <td class="empty">&nbsp;</td>
+       </tr>
+
+       <tr valign="middle">
+        <td align="left">entities</td>
+        <td align="left"><span class="function"><a href="function.domdocumenttype-entities.html" class="function">DomDocumentType_entities()</a></span></td>
+        <td class="empty">&nbsp;</td>
+       </tr>
+
+       <tr valign="middle">
+        <td align="left">notations</td>
+        <td align="left"><span class="function"><a href="function.domdocumenttype-notations.html" class="function">DomDocumentType_notations()</a></span></td>
+        <td class="empty">&nbsp;</td>
+       </tr>
+
+       <tr valign="middle">
+        <td align="left">public_id</td>
+        <td align="left"><span class="function"><a href="function.domdocumenttype-public-id.html" class="function">DomDocumentType_public_id()</a></span></td>
+        <td class="empty">&nbsp;</td>
+       </tr>
+
+       <tr valign="middle">
+        <td align="left">system_id</td>
+        <td align="left"><span class="function"><a href="function.domdocumenttype-system-id.html" class="function">DomDocumentType_system_id()</a></span></td>
+        <td class="empty">&nbsp;</td>
+       </tr>
+
+       <tr valign="middle">
+        <td align="left">internal_subset</td>
+        <td align="left"><span class="function"><a href="function.domdocumenttype-internal-subset.html" class="function">DomDocumentType_internal_subset()</a></span></td>
+        <td class="empty">&nbsp;</td>
+       </tr>
+
+      </tbody>
+     
+    </table>
+
+    </p>
+
+    <p class="para">
+     The classes DomDtd is derived from DomNode. DomComment is derived from
+     DomCData.
+    </p>
+   </div>
+
+   <div class="section" id="domxml.examples">
+    <h2 class="title">Examples</h2>
+    <p class="para">
+     Many examples in this reference require an XML string. Instead of
+     repeating this string in every example, it will be put into a file
+     which will be included by each example. This include file is shown in the
+     following example section. Alternatively, you could create an XML document and
+     read it with <span class="function"><b>DomDocument_open_file()</b></span>.
+    </p>
+    <p class="para">
+     <div class="example" id="example-4641">
+      <p><b>Example #1 Include file example.inc with XML string</b></p>
+      <div class="example-contents">
+<div class="phpcode"><code><span style="color: #000000">
+<span style="color: #0000BB">&lt;?php<br />$xmlstr&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #DD0000">"&lt;?xml&nbsp;version='1.0'&nbsp;standalone='yes'?&gt;<br />&lt;!DOCTYPE&nbsp;chapter&nbsp;SYSTEM&nbsp;'/share/sgml/Norman_Walsh/db3xml10/db3xml10.dtd'<br />[&nbsp;&lt;!ENTITY&nbsp;sp&nbsp;\"spanish\"&gt;<br />]&gt;<br />&lt;!--&nbsp;lsfj&nbsp;&nbsp;--&gt;<br />&lt;chapter&nbsp;language='en'&gt;&lt;title&nbsp;language='en'&gt;Title&lt;/title&gt;<br />&nbsp;&lt;para&nbsp;language='ge'&gt;<br />&nbsp;&nbsp;&amp;sp;<br />&nbsp;&nbsp;&lt;!--&nbsp;comment&nbsp;--&gt;<br />&nbsp;&nbsp;&lt;informaltable&nbsp;ID='findme'&nbsp;language='&amp;sp;'&gt;<br />&nbsp;&nbsp;&nbsp;&lt;tgroup&nbsp;cols='3'&gt;<br />&nbsp;&nbsp;&nbsp;&nbsp;&lt;tbody&gt;<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;row&gt;&lt;entry&gt;a1&lt;/entry&gt;&lt;entry<br />morerows='1'&gt;b1&lt;/entry&gt;&lt;entry&gt;c1&lt;/entry&gt;&lt;/row&gt;<br />&lt;row&gt;&lt;entry&gt;a2&lt;/entry&gt;&lt;entry&gt;c2&lt;/entry&gt;&lt;/row&gt;<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;row&gt;&lt;entry&gt;a3&lt;/entry&gt;&lt;entry&gt;b3&lt;/entry&gt;&lt;entry&gt;c3&lt;/entry&gt;&lt;/row&gt;<br />&nbsp;&nbsp;&nbsp;&nbsp;&lt;/tbody&gt;<br />&nbsp;&nbsp;&nbsp;&lt;/tgroup&gt;<br />&nbsp;&nbsp;&lt;/informaltable&gt;<br />&nbsp;&lt;/para&gt;<br />&lt;/chapter&gt;"</span><span style="color: #007700">;<br /></span><span style="color: #0000BB">?&gt;</span>
+</span>
+</code></div>
+      </div>
+
+     </div>
+    </p>
+   </div>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ <h2>Table of Contents</h2><ul class="chunklist chunklist_reference"><li><a href="function.domattribute-name.html">DomAttribute-&gt;name</a> — Returns the name of attribute</li><li><a href="function.domattribute-set-value.html">DomAttribute-&gt;set_value</a> — Sets the value of an attribute</li><li><a href="function.domattribute-specified.html">DomAttribute-&gt;specified</a> — Checks if attribute is specified</li><li><a href="function.domattribute-value.html">DomAttribute-&gt;value</a> — Returns value of attribute</li><li><a href="function.domdocument-add-root.html">DomDocument-&gt;add_root</a> — Adds a root node [deprecated]</li><li><a href="function.domdocument-create-attribute.html">DomDocument-&gt;create_attribute</a> — Create new attribute</li><li><a href="function.domdocument-create-cdata-section.html">DomDocument-&gt;create_cdata_section</a> — Create new cdata node</li><li><a href="function.domdocument-create-comment.html">DomDocument-&gt;create_comment</a> — Create new comment node</li><li><a href="function.domdocument-create-element-ns.html">DomDocument-&gt;create_element_ns</a> — Create new element node with an associated namespace</li><li><a href="function.domdocument-create-element.html">DomDocument-&gt;create_element</a> — Create new element node</li><li><a href="function.domdocument-create-entity-reference.html">DomDocument-&gt;create_entity_reference</a> — Create an entity reference</li><li><a href="function.domdocument-create-processing-instruction.html">DomDocument-&gt;create_processing_instruction</a> — Creates new PI node</li><li><a href="function.domdocument-create-text-node.html">DomDocument-&gt;create_text_node</a> — Create new text node</li><li><a href="function.domdocument-doctype.html">DomDocument-&gt;doctype</a> — Returns the document type</li><li><a href="function.domdocument-document-element.html">DomDocument-&gt;document_element</a> — Returns root element node</li><li><a href="function.domdocument-dump-file.html">DomDocument-&gt;dump_file</a> — Dumps the internal XML tree back into a file</li><li><a href="function.domdocument-dump-mem.html">DomDocument-&gt;dump_mem</a> — Dumps the internal XML tree back into a string</li><li><a href="function.domdocument-get-element-by-id.html">DomDocument-&gt;get_element_by_id</a> — Searches for an element with a certain id</li><li><a href="function.domdocument-get-elements-by-tagname.html">DomDocument-&gt;get_elements_by_tagname</a> — Returns array with nodes with given tagname in document or empty array, if not found</li><li><a href="function.domdocument-html-dump-mem.html">DomDocument-&gt;html_dump_mem</a> — Dumps the internal XML tree back into a string as HTML</li><li><a href="function.domdocument-xinclude.html">DomDocument-&gt;xinclude</a> — Substitutes XIncludes in a DomDocument Object</li><li><a href="function.domdocumenttype-entities.html">DomDocumentType-&gt;entities</a> — Returns list of entities</li><li><a href="function.domdocumenttype-internal-subset.html">DomDocumentType-&gt;internal_subset</a> — Returns internal subset</li><li><a href="function.domdocumenttype-name.html">DomDocumentType-&gt;name</a> — Returns name of document type</li><li><a href="function.domdocumenttype-notations.html">DomDocumentType-&gt;notations</a> — Returns list of notations</li><li><a href="function.domdocumenttype-public-id.html">DomDocumentType-&gt;public_id</a> — Returns public id of document type</li><li><a href="function.domdocumenttype-system-id.html">DomDocumentType-&gt;system_id</a> — Returns the system id of document type</li><li><a href="function.domelement-get-attribute-node.html">DomElement-&gt;get_attribute_node</a> — Returns the node of the given attribute</li><li><a href="function.domelement-get-attribute.html">DomElement-&gt;get_attribute</a> — Returns the value of the given attribute</li><li><a href="function.domelement-get-elements-by-tagname.html">DomElement-&gt;get_elements_by_tagname</a> — Gets elements by tagname</li><li><a href="function.domelement-has-attribute.html">DomElement-&gt;has_attribute</a> — Checks to see if an attribute exists in the current node</li><li><a href="function.domelement-remove-attribute.html">DomElement-&gt;remove_attribute</a> — Removes attribute</li><li><a href="function.domelement-set-attribute-node.html">DomElement-&gt;set_attribute_node</a> — Adds new attribute</li><li><a href="function.domelement-set-attribute.html">DomElement-&gt;set_attribute</a> — Sets the value of an attribute</li><li><a href="function.domelement-tagname.html">DomElement-&gt;tagname</a> — Returns the name of the current element</li><li><a href="function.domnode-add-namespace.html">DomNode-&gt;add_namespace</a> — Adds a namespace declaration to a node</li><li><a href="function.domnode-append-child.html">DomNode-&gt;append_child</a> — Adds a new child at the end of the children</li><li><a href="function.domnode-append-sibling.html">DomNode-&gt;append_sibling</a> — Adds new sibling to a node</li><li><a href="function.domnode-attributes.html">DomNode-&gt;attributes</a> — Returns list of attributes</li><li><a href="function.domnode-child-nodes.html">DomNode-&gt;child_nodes</a> — Returns children of node</li><li><a href="function.domnode-clone-node.html">DomNode-&gt;clone_node</a> — Clones a node</li><li><a href="function.domnode-dump-node.html">DomNode-&gt;dump_node</a> — Dumps a single node</li><li><a href="function.domnode-first-child.html">DomNode-&gt;first_child</a> — Returns first child of node</li><li><a href="function.domnode-get-content.html">DomNode-&gt;get_content</a> — Gets content of node</li><li><a href="function.domnode-has-attributes.html">DomNode-&gt;has_attributes</a> — Checks if node has attributes</li><li><a href="function.domnode-has-child-nodes.html">DomNode-&gt;has_child_nodes</a> — Checks if node has children</li><li><a href="function.domnode-insert-before.html">DomNode-&gt;insert_before</a> — Inserts new node as child</li><li><a href="function.domnode-is-blank-node.html">DomNode-&gt;is_blank_node</a> — Checks if node is blank</li><li><a href="function.domnode-last-child.html">DomNode-&gt;last_child</a> — Returns last child of node</li><li><a href="function.domnode-next-sibling.html">DomNode-&gt;next_sibling</a> — Returns the next sibling of node</li><li><a href="function.domnode-node-name.html">DomNode-&gt;node_name</a> — Returns name of node</li><li><a href="function.domnode-node-type.html">DomNode-&gt;node_type</a> — Returns type of node</li><li><a href="function.domnode-node-value.html">DomNode-&gt;node_value</a> — Returns value of a node</li><li><a href="function.domnode-owner-document.html">DomNode-&gt;owner_document</a> — Returns the document this node belongs to</li><li><a href="function.domnode-parent-node.html">DomNode-&gt;parent_node</a> — Returns the parent of the node</li><li><a href="function.domnode-prefix.html">DomNode-&gt;prefix</a> — Returns name space prefix of node</li><li><a href="function.domnode-previous-sibling.html">DomNode-&gt;previous_sibling</a> — Returns the previous sibling of node</li><li><a href="function.domnode-remove-child.html">DomNode-&gt;remove_child</a> — Removes child from list of children</li><li><a href="function.domnode-replace-child.html">DomNode-&gt;replace_child</a> — Replaces a child</li><li><a href="function.domnode-replace-node.html">DomNode-&gt;replace_node</a> — Replaces node</li><li><a href="function.domnode-set-content.html">DomNode-&gt;set_content</a> — Sets content of node</li><li><a href="function.domnode-set-name.html">DomNode-&gt;set_name</a> — Sets name of node</li><li><a href="function.domnode-set-namespace.html">DomNode-&gt;set_namespace</a> — Sets namespace of a node</li><li><a href="function.domnode-unlink-node.html">DomNode-&gt;unlink_node</a> — Deletes node</li><li><a href="function.domprocessinginstruction-data.html">DomProcessingInstruction-&gt;data</a> — Returns the data of ProcessingInstruction node</li><li><a href="function.domprocessinginstruction-target.html">DomProcessingInstruction-&gt;target</a> — Returns the target of a ProcessingInstruction node</li><li><a href="function.domxsltstylesheet-process.html">DomXsltStylesheet-&gt;process</a> — Applies the XSLT-Transformation on a DomDocument Object</li><li><a href="function.domxsltstylesheet-result-dump-file.html">DomXsltStylesheet-&gt;result_dump_file</a> — Dumps the result from a XSLT-Transformation into a file</li><li><a href="function.domxsltstylesheet-result-dump-mem.html">DomXsltStylesheet-&gt;result_dump_mem</a> — Dumps the result from a XSLT-Transformation back into a string</li><li><a href="function.domxml-new-doc.html">domxml_new_doc</a> — Creates new empty XML document</li><li><a href="function.domxml-open-file.html">domxml_open_file</a> — Creates a DOM object from an XML file</li><li><a href="function.domxml-open-mem.html">domxml_open_mem</a> — Creates a DOM object of an XML document</li><li><a href="function.domxml-version.html">domxml_version</a> — Gets the XML library version</li><li><a href="function.domxml-xmltree.html">domxml_xmltree</a> — Creates a tree of PHP objects from an XML document</li><li><a href="function.domxml-xslt-stylesheet-doc.html">domxml_xslt_stylesheet_doc</a> — Creates a DomXsltStylesheet Object from a DomDocument Object</li><li><a href="function.domxml-xslt-stylesheet-file.html">domxml_xslt_stylesheet_file</a> — Creates a DomXsltStylesheet Object from an XSL document in a file</li><li><a href="function.domxml-xslt-stylesheet.html">domxml_xslt_stylesheet</a> — Creates a DomXsltStylesheet object from an XSL document in a string</li><li><a href="function.domxml-xslt-version.html">domxml_xslt_version</a> — Gets the XSLT library version</li><li><a href="function.xpath-eval-expression.html">xpath_eval_expression</a> — Evaluates the XPath Location Path in the given string</li><li><a href="function.xpath-eval.html">xpath_eval</a> — Evaluates the XPath Location Path in the given string</li><li><a href="function.xpath-new-context.html">xpath_new_context</a> — Creates new xpath context</li><li><a href="function.xpath-register-ns-auto.html">xpath_register_ns_auto</a> — Register the given namespace in the passed XPath context</li><li><a href="function.xpath-register-ns.html">xpath_register_ns</a> — Register the given namespace in the passed XPath context</li><li><a href="function.xptr-eval.html">xptr_eval</a> — Evaluate the XPtr Location Path in the given string</li><li><a href="function.xptr-new-context.html">xptr_new_context</a> — Create new XPath Context</li></ul>
+</div>
+<hr /><div class="manualnavbar" style="text-align: center;">
+ <div class="prev" style="text-align: left; float: left;"><a href="domxml.constants.html">Predefined Constants</a></div>
+ <div class="next" style="text-align: right; float: right;"><a href="function.domattribute-name.html">DomAttribute-&gt;name</a></div>
+ <div class="up"><a href="book.domxml.html">DOM XML (PHP 4)</a></div>
+ <div class="home"><a href="index.html">PHP Manual</a></div>
+</div></body></html>

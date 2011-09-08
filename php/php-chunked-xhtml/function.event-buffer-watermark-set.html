@@ -1,0 +1,105 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+ <head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>Set the watermarks for read and write events</title>
+
+ </head>
+ <body><div class="manualnavbar" style="text-align: center;">
+ <div class="prev" style="text-align: left; float: left;"><a href="function.event-buffer-timeout-set.html">event_buffer_timeout_set</a></div>
+ <div class="next" style="text-align: right; float: right;"><a href="function.event-buffer-write.html">event_buffer_write</a></div>
+ <div class="up"><a href="ref.libevent.html">Libevent Functions</a></div>
+ <div class="home"><a href="index.html">PHP Manual</a></div>
+</div><hr /><div id="function.event-buffer-watermark-set" class="refentry">
+ <div class="refnamediv">
+  <h1 class="refname">event_buffer_watermark_set</h1>
+  <p class="verinfo">(PECL libevent &gt;= 0.0.1)</p><p class="refpurpose"><span class="refname">event_buffer_watermark_set</span> &mdash; <span class="dc-title">Set the watermarks for read and write events</span></p>
+
+ </div>
+ 
+ <div class="refsect1 description" id="refsect1-function.event-buffer-watermark-set-description">
+  <h3 class="title">Description</h3>
+  <div class="methodsynopsis dc-description">
+   <span class="type"><span class="type void">void</span></span> <span class="methodname"><b>event_buffer_watermark_set</b></span>
+    ( <span class="methodparam"><span class="type">resource</span> <tt class="parameter">$bevent</tt></span>
+   , <span class="methodparam"><span class="type">int</span> <tt class="parameter">$events</tt></span>
+   , <span class="methodparam"><span class="type">int</span> <tt class="parameter">$lowmark</tt></span>
+   , <span class="methodparam"><span class="type">int</span> <tt class="parameter">$highmark</tt></span>
+   )</div>
+
+  <p class="para rdfs-comment">
+   Sets the watermarks for read and write events. Libevent does not invoke
+   read callback unless there is at least <i><tt class="parameter">lowmark</tt></i> bytes
+   in the input buffer; if the read buffer is beyond the <i><tt class="parameter">highmark</tt></i>, 
+   reading is stopped. On output, the write callback is invoked whenever the
+   buffered data falls below the <i><tt class="parameter">lowmark</tt></i>. 
+  </p>
+ </div>
+
+
+ <div class="refsect1 parameters" id="refsect1-function.event-buffer-watermark-set-parameters">
+  <h3 class="title">Parameters</h3>
+  <p class="para">
+   <dl>
+
+    <dt>
+
+     <span class="term"><i><tt class="parameter">bevent</tt></i></span>
+     <dd>
+
+      <p class="para">
+       Valid buffered event resource.
+      </p>
+     </dd>
+
+    </dt>
+
+    <dt>
+
+     <span class="term"><i><tt class="parameter">events</tt></i></span>
+     <dd>
+
+      <p class="para">
+       Any combination of <b><tt>EV_READ</tt></b> and
+       <b><tt>EV_WRITE</tt></b>.
+      </p>
+     </dd>
+
+    </dt>
+
+    <dt>
+
+     <span class="term"><i><tt class="parameter">lowmark</tt></i></span>
+     <dd>
+
+      <p class="para">
+       Low watermark.
+      </p>
+     </dd>
+
+    </dt>
+
+    <dt>
+
+     <span class="term"><i><tt class="parameter">highmark</tt></i></span>
+     <dd>
+
+      <p class="para">
+       High watermark.
+      </p>
+     </dd>
+
+    </dt>
+
+   </dl>
+
+  </p>
+ </div>
+
+
+</div><hr /><div class="manualnavbar" style="text-align: center;">
+ <div class="prev" style="text-align: left; float: left;"><a href="function.event-buffer-timeout-set.html">event_buffer_timeout_set</a></div>
+ <div class="next" style="text-align: right; float: right;"><a href="function.event-buffer-write.html">event_buffer_write</a></div>
+ <div class="up"><a href="ref.libevent.html">Libevent Functions</a></div>
+ <div class="home"><a href="index.html">PHP Manual</a></div>
+</div></body></html>

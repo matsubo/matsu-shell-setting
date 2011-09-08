@@ -1,0 +1,123 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+ <head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>SQL Hints</title>
+
+ </head>
+ <body><div class="manualnavbar" style="text-align: center;">
+ <div class="prev" style="text-align: left; float: left;"><a href="mysqlnd-ms.quickstart.connectionpooling.html">Connection state</a></div>
+ <div class="next" style="text-align: right; float: right;"><a href="mysqlnd-ms.quickstart.transactions.html">Transactions</a></div>
+ <div class="up"><a href="mysqlnd-ms.quickstart.html">Quickstart and Examples</a></div>
+ <div class="home"><a href="index.html">PHP Manual</a></div>
+</div><hr /><div id="mysqlnd-ms.quickstart.sqlhints" class="section">
+  <h2 class="title">SQL Hints</h2>
+  <p class="para">
+   SQL hints can be used to force the plugin to pick a certain server from
+   the connection pool. Hinting the plugin to use a certain server can solve
+   issues caused by connection switches and connection state.
+  </p>
+  <p class="para">
+   SQL hints are standard compliant SQL comments. Because
+   SQL comments are supposed to be ignored by SQL processing systems they
+   do not infere with other programs such as the MySQL Server, the MySQL Proxy
+   or a firewall.
+  </p>
+  <p class="para">
+   Three SQL hints are supported by the plugin: 
+   <b><tt>MYSQLND_MS_MASTER_SWITCH</tt></b>,
+   <b><tt>MYSQLND_MS_SLAVE_SWITCH</tt></b> and
+   <b><tt>MYSQLND_MS_LAST_USED_SWITCH</tt></b>. 
+   <b><tt>MYSQLND_MS_MASTER_SWITCH</tt></b> makes the plugin run a statement
+   on the master, <b><tt>MYSQLND_MS_SLAVE_SWITCH</tt></b> enforces the use
+   of the slave and <b><tt>MYSQLND_MS_MASTER_SWITCH</tt></b> will run a 
+   statement on the same server that has been used for running the previous 
+   statement.
+  </p>
+  <p class="para">
+   The plugin scans the beginning of a statement for the existance of a SQL
+   hint. SQL hints are only recognized if they appear at the very beginning of
+   the statement.
+  </p>
+   <p class="para">
+   <div class="example" id="example-1620">
+    <p><b>Example #1 Plugin config with one slave and one master</b></p>
+    <div class="example-contents">
+<div class="inicode"><pre class="inicode">[myapp]
+master[]=localhost:/tmp/mysql.sock
+slave[]=192.168.2.27:3306</pre>
+</div>
+    </div>
+
+   </div>
+  </p>
+  <p class="para">
+   <div class="example" id="example-1621">
+    <p><b>Example #2 SQL hints to prevent connection switches</b></p>
+    <div class="example-contents">
+<div class="phpcode"><code><span style="color: #000000">
+<span style="color: #0000BB">&lt;?php<br />$mysqli&nbsp;</span><span style="color: #007700">=&nbsp;new&nbsp;</span><span style="color: #0000BB">mysqli</span><span style="color: #007700">(</span><span style="color: #DD0000">"myapp"</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"username"</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"password"</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"database"</span><span style="color: #007700">);<br />if&nbsp;(!</span><span style="color: #0000BB">$mysqli</span><span style="color: #007700">)<br />&nbsp;&nbsp;</span><span style="color: #FF8000">/*&nbsp;Of&nbsp;course,&nbsp;your&nbsp;error&nbsp;handling&nbsp;is&nbsp;nicer...&nbsp;*/<br />&nbsp;&nbsp;</span><span style="color: #007700">die(</span><span style="color: #0000BB">sprintf</span><span style="color: #007700">(</span><span style="color: #DD0000">"[%d]&nbsp;%s\n"</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">mysqli_connect_errno</span><span style="color: #007700">(),&nbsp;</span><span style="color: #0000BB">mysqli_connect_error</span><span style="color: #007700">()));<br /><br /></span><span style="color: #FF8000">/*&nbsp;Connection&nbsp;1,&nbsp;connection&nbsp;bound&nbsp;SQL&nbsp;user&nbsp;variable,&nbsp;no&nbsp;SELECT&nbsp;thus&nbsp;run&nbsp;on&nbsp;master&nbsp;*/<br /></span><span style="color: #007700">if&nbsp;(!</span><span style="color: #0000BB">$mysqli</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">query</span><span style="color: #007700">(</span><span style="color: #DD0000">"SET&nbsp;@myrole='master'"</span><span style="color: #007700">))&nbsp;{<br />&nbsp;</span><span style="color: #0000BB">printf</span><span style="color: #007700">(</span><span style="color: #DD0000">"[%d]&nbsp;%s\n"</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$mysqli</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">errno</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$mysqli</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">error</span><span style="color: #007700">);<br />}<br /><br /></span><span style="color: #FF8000">/*&nbsp;Connection&nbsp;1,&nbsp;run&nbsp;on&nbsp;master&nbsp;because&nbsp;of&nbsp;SQL&nbsp;hint&nbsp;*/<br /></span><span style="color: #007700">if&nbsp;(!(</span><span style="color: #0000BB">$res&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">$mysqli</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">query</span><span style="color: #007700">(</span><span style="color: #0000BB">sprintf</span><span style="color: #007700">(</span><span style="color: #DD0000">"/*%s*/SELECT&nbsp;@myrole&nbsp;AS&nbsp;_role"</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">MYSQLND_MS_LAST_USED_SWITCH</span><span style="color: #007700">))))&nbsp;{<br />&nbsp;</span><span style="color: #0000BB">printf</span><span style="color: #007700">(</span><span style="color: #DD0000">"[%d]&nbsp;%s\n"</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$mysqli</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">errno</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$mysqli</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">error</span><span style="color: #007700">);<br />}&nbsp;else&nbsp;{<br />&nbsp;</span><span style="color: #0000BB">$row&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">$res</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">fetch_assoc</span><span style="color: #007700">();<br />&nbsp;</span><span style="color: #0000BB">$res</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">close</span><span style="color: #007700">();<br />&nbsp;</span><span style="color: #0000BB">printf</span><span style="color: #007700">(</span><span style="color: #DD0000">"@myrole&nbsp;=&nbsp;'%s'\n"</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$row</span><span style="color: #007700">[</span><span style="color: #DD0000">'_role'</span><span style="color: #007700">]);<br />}<br /></span><span style="color: #0000BB">$mysqli</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">close</span><span style="color: #007700">();<br /></span><span style="color: #0000BB">?&gt;</span>
+</span>
+</code></div>
+    </div>
+
+<div class="example-contents"><p>The above example will output:</p></div>
+    <div class="example-contents screen">
+<div class="cdata"><pre>
+@myrole = &#039;master&#039;
+</pre></div>
+    </div>
+   </div>
+  </p>
+  <p class="para">
+   In the example the session variables issue from the previous page is solved 
+   using <b><tt>MYSQLND_MS_LAST_USED_SWITCH</tt></b> to prevent switching 
+   from the master to a slave when running the <i>SELECT</i> statement.
+  </p>
+  <p class="para">
+   SQL hints can also be used to run <i>SELECT</i> statements
+   on the MySQL master server. This may be desired if the MySQL slave servers
+   tend to be behind the master but you need current data from the database.
+  </p>
+  <p class="para">
+   <div class="example" id="example-1622">
+    <p><b>Example #3 Fighting replication lag</b></p>
+    <div class="example-contents">
+<div class="phpcode"><code><span style="color: #000000">
+<span style="color: #0000BB">&lt;?php<br />$mysqli&nbsp;</span><span style="color: #007700">=&nbsp;new&nbsp;</span><span style="color: #0000BB">mysqli</span><span style="color: #007700">(</span><span style="color: #DD0000">"myapp"</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"username"</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"password"</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"database"</span><span style="color: #007700">);<br />if&nbsp;(!</span><span style="color: #0000BB">$mysqli</span><span style="color: #007700">)<br />&nbsp;&nbsp;</span><span style="color: #FF8000">/*&nbsp;Of&nbsp;course,&nbsp;your&nbsp;error&nbsp;handling&nbsp;is&nbsp;nicer...&nbsp;*/<br />&nbsp;&nbsp;</span><span style="color: #007700">die(</span><span style="color: #0000BB">sprintf</span><span style="color: #007700">(</span><span style="color: #DD0000">"[%d]&nbsp;%s\n"</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">mysqli_connect_errno</span><span style="color: #007700">(),&nbsp;</span><span style="color: #0000BB">mysqli_connect_error</span><span style="color: #007700">()));<br /><br /></span><span style="color: #FF8000">/*&nbsp;Force&nbsp;use&nbsp;of&nbsp;master,&nbsp;master&nbsp;has&nbsp;always&nbsp;fresh&nbsp;and&nbsp;current&nbsp;data&nbsp;*/<br /></span><span style="color: #007700">if&nbsp;(!</span><span style="color: #0000BB">$mysqli</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">query</span><span style="color: #007700">(</span><span style="color: #0000BB">sprintf</span><span style="color: #007700">(</span><span style="color: #DD0000">"/*%s*/SELECT&nbsp;critical_data&nbsp;FROM&nbsp;important_table"</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">MYSQLND_MS_MASTER_SWITCH</span><span style="color: #007700">)))&nbsp;{<br />&nbsp;</span><span style="color: #0000BB">printf</span><span style="color: #007700">(</span><span style="color: #DD0000">"[%d]&nbsp;%s\n"</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$mysqli</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">errno</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$mysqli</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">error</span><span style="color: #007700">);<br />}<br /></span><span style="color: #0000BB">?&gt;</span>
+</span>
+</code></div>
+    </div>
+    
+   </div>
+  </p>
+  <p class="para">
+   use case may include the creation of tables on a slave.
+   If no SQL hint is given, the plugin will send <i>CREATE</i>
+   and <i>INSERT</i> statements to the master. Use the
+   SQL hint <b><tt>MYSQLND_MS_SLAVE_SWITCH</tt></b> if you want to 
+   run any such statement on a slave, for example, to build temporary
+   reporting tables.
+  </p>
+  <p class="para">
+   <div class="example" id="example-1623">
+    <p><b>Example #4 Table creation on a slave</b></p>
+    <div class="example-contents">
+<div class="phpcode"><code><span style="color: #000000">
+<span style="color: #0000BB">&lt;?php<br />$mysqli&nbsp;</span><span style="color: #007700">=&nbsp;new&nbsp;</span><span style="color: #0000BB">mysqli</span><span style="color: #007700">(</span><span style="color: #DD0000">"myapp"</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"username"</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"password"</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"database"</span><span style="color: #007700">);<br />if&nbsp;(!</span><span style="color: #0000BB">$mysqli</span><span style="color: #007700">)<br />&nbsp;&nbsp;</span><span style="color: #FF8000">/*&nbsp;Of&nbsp;course,&nbsp;your&nbsp;error&nbsp;handling&nbsp;is&nbsp;nicer...&nbsp;*/<br />&nbsp;&nbsp;</span><span style="color: #007700">die(</span><span style="color: #0000BB">sprintf</span><span style="color: #007700">(</span><span style="color: #DD0000">"[%d]&nbsp;%s\n"</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">mysqli_connect_errno</span><span style="color: #007700">(),&nbsp;</span><span style="color: #0000BB">mysqli_connect_error</span><span style="color: #007700">()));<br /><br /></span><span style="color: #FF8000">/*&nbsp;Force&nbsp;use&nbsp;of&nbsp;slave&nbsp;*/<br /></span><span style="color: #007700">if&nbsp;(!</span><span style="color: #0000BB">$mysqli</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">query</span><span style="color: #007700">(</span><span style="color: #0000BB">sprintf</span><span style="color: #007700">(</span><span style="color: #DD0000">"/*%s*/CREATE&nbsp;TABLE&nbsp;slave_reporting(id&nbsp;INT)"</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">MYSQLND_MS_SLAVE_SWITCH</span><span style="color: #007700">)))&nbsp;{<br />&nbsp;</span><span style="color: #0000BB">printf</span><span style="color: #007700">(</span><span style="color: #DD0000">"[%d]&nbsp;%s\n"</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$mysqli</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">errno</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$mysqli</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">error</span><span style="color: #007700">);<br />}<br /></span><span style="color: #FF8000">/*&nbsp;Continue&nbsp;using&nbsp;this&nbsp;particular&nbsp;slave&nbsp;connection&nbsp;*/<br /></span><span style="color: #007700">if&nbsp;(!</span><span style="color: #0000BB">$mysqli</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">query</span><span style="color: #007700">(</span><span style="color: #0000BB">sprintf</span><span style="color: #007700">(</span><span style="color: #DD0000">"/*%s*/INSERT&nbsp;INTO&nbsp;slave_reporting(id)&nbsp;VALUES&nbsp;(1),&nbsp;(2),&nbsp;(3)"</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">MYSQLND_MS_LAST_USED_SWITCH</span><span style="color: #007700">)))&nbsp;{<br />&nbsp;</span><span style="color: #0000BB">printf</span><span style="color: #007700">(</span><span style="color: #DD0000">"[%d]&nbsp;%s\n"</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$mysqli</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">errno</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$mysqli</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">error</span><span style="color: #007700">);<br />}<br /></span><span style="color: #FF8000">/*&nbsp;Don't&nbsp;use&nbsp;MYSQLND_MS_SLAVE_SWITCH&nbsp;which&nbsp;would&nbsp;allow&nbsp;switching&nbsp;to&nbsp;another&nbsp;slave!&nbsp;*/<br /></span><span style="color: #007700">if&nbsp;(</span><span style="color: #0000BB">$res&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">$mysqli</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">query</span><span style="color: #007700">(</span><span style="color: #0000BB">sprintf</span><span style="color: #007700">(</span><span style="color: #DD0000">"/*%s*/SELECT&nbsp;COUNT(*)&nbsp;AS&nbsp;_num&nbsp;FROM&nbsp;slave_reporting"</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">MYSQLND_MS_LAST_USED_SWITCH</span><span style="color: #007700">)))&nbsp;{<br />&nbsp;&nbsp;</span><span style="color: #0000BB">$row&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">$res</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">fetch_assoc</span><span style="color: #007700">();<br />&nbsp;&nbsp;</span><span style="color: #0000BB">$res</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">close</span><span style="color: #007700">();<br />&nbsp;&nbsp;</span><span style="color: #0000BB">printf</span><span style="color: #007700">(</span><span style="color: #DD0000">"There&nbsp;are&nbsp;%d&nbsp;rows&nbsp;in&nbsp;the&nbsp;table&nbsp;'slave_reporting'"</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$row</span><span style="color: #007700">[</span><span style="color: #DD0000">'_num'</span><span style="color: #007700">]);<br />}&nbsp;else&nbsp;{<br />&nbsp;&nbsp;</span><span style="color: #0000BB">printf</span><span style="color: #007700">(</span><span style="color: #DD0000">"[%d]&nbsp;%s\n"</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$mysqli</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">errno</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$mysqli</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">error</span><span style="color: #007700">);<br />}<br /></span><span style="color: #0000BB">$mysqli</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">close</span><span style="color: #007700">();<br /></span><span style="color: #0000BB">?&gt;</span>
+</span>
+</code></div>
+    </div>
+    
+   </div>
+  </p>
+  <p class="para">
+   The SQL hint <b><tt>MYSQLND_MS_LAST_USED</tt></b> forbids switching
+   connection and forces the use of the previously used connection.   
+  </p>
+ </div><hr /><div class="manualnavbar" style="text-align: center;">
+ <div class="prev" style="text-align: left; float: left;"><a href="mysqlnd-ms.quickstart.connectionpooling.html">Connection state</a></div>
+ <div class="next" style="text-align: right; float: right;"><a href="mysqlnd-ms.quickstart.transactions.html">Transactions</a></div>
+ <div class="up"><a href="mysqlnd-ms.quickstart.html">Quickstart and Examples</a></div>
+ <div class="home"><a href="index.html">PHP Manual</a></div>
+</div></body></html>

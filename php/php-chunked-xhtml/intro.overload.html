@@ -1,0 +1,45 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+ <head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>Introduction</title>
+
+ </head>
+ <body><div class="manualnavbar" style="text-align: center;">
+ <div class="prev" style="text-align: left; float: left;"><a href="book.overload.html">Object overloading</a></div>
+ <div class="next" style="text-align: right; float: right;"><a href="overload.setup.html">Installing/Configuring</a></div>
+ <div class="up"><a href="book.overload.html">Object overloading</a></div>
+ <div class="home"><a href="index.html">PHP Manual</a></div>
+</div><hr /><div id="intro.overload" class="preface">
+  <h1 class="title">Introduction</h1>
+  <p class="para">
+   The purpose of this extension is to allow overloading of object
+   property access and method calls. Only one function is defined
+   in this extension, <span class="function"><a href="function.overload.html" class="function">overload()</a></span> which
+   takes the name of the class that should have this functionality
+   enabled. The class named has to define appropriate methods if
+   it wants to have this functionality: <i>__get()</i>,
+   <i>__set()</i> and <i>__call()</i>
+   respectively for getting/setting a property, or calling a method.
+   This way overloading can be selective. Inside these handler
+   functions the overloading is disabled so you can access object
+   properties normally.
+  </p>
+  <div class="warning"><b class="warning">Warning</b><p class="simpara">This extension is
+<em class="emphasis">EXPERIMENTAL</em>. The behaviour of this extension including
+the names of its functions and any other documentation surrounding this
+extension may change without notice in a future release of PHP.
+This extension should be used at your own risk.</p></div>
+  <div class="warning"><b class="warning">Warning</b>
+   <p class="para">
+    This extension is not a part of PHP 5. PHP 5 supports <i>__get()</i>, <i>__set()</i> and
+    <i>__call()</i> natively. See the <a href="language.oop5.overloading.html" class="link">Overloading in PHP 5</a> page
+    for more information.
+   </p>
+  </div>
+ </div><hr /><div class="manualnavbar" style="text-align: center;">
+ <div class="prev" style="text-align: left; float: left;"><a href="book.overload.html">Object overloading</a></div>
+ <div class="next" style="text-align: right; float: right;"><a href="overload.setup.html">Installing/Configuring</a></div>
+ <div class="up"><a href="book.overload.html">Object overloading</a></div>
+ <div class="home"><a href="index.html">PHP Manual</a></div>
+</div></body></html>

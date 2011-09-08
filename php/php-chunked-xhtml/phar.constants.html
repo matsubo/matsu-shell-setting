@@ -1,0 +1,235 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+ <head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>Predefined Constants</title>
+
+ </head>
+ <body><div class="manualnavbar" style="text-align: center;">
+ <div class="prev" style="text-align: left; float: left;"><a href="phar.resources.html">Resource Types</a></div>
+ <div class="next" style="text-align: right; float: right;"><a href="phar.using.html">Using Phar Archives</a></div>
+ <div class="up"><a href="book.phar.html">Phar</a></div>
+ <div class="home"><a href="index.html">PHP Manual</a></div>
+</div><hr /><div id="phar.constants" class="appendix">
+ <h1>Predefined Constants</h1>
+
+ <p class="simpara">
+The constants below are defined by this extension, and
+will only be available when the extension has either
+been compiled into PHP or dynamically loaded at runtime.
+</p>
+  <table id="phar.constants.compression" class="doctable table">
+   <caption><b>Phar compression constants</b></caption>
+   
+    <thead valign="middle">
+     <tr valign="middle">
+      <th>Constant</th>
+      <th>Value</th>
+      <th>Description</th>
+     </tr>
+
+    </thead>
+
+    <tbody valign="middle" class="tbody">
+     <tr valign="middle">
+      <td align="left">
+       <b><tt>Phar::NONE</tt></b>
+       (<span class="type"><a href="language.types.integer.html" class="type integer">integer</a></span>)
+      </td>
+      <td align="left">0x00000000</td>
+      <td align="left">no compression</td>
+     </tr>
+
+     <tr valign="middle">
+      <td align="left">
+       <b><tt>Phar::COMPRESSED</tt></b>
+       (<span class="type"><a href="language.types.integer.html" class="type integer">integer</a></span>)
+      </td>
+      <td align="left">0x0000F000</td>
+      <td align="left">bitmask that can be used with file flags to determine if any compression is present</td>
+     </tr>
+
+     <tr valign="middle">
+      <td align="left">
+       <b><tt>Phar::GZ</tt></b>
+       (<span class="type"><a href="language.types.integer.html" class="type integer">integer</a></span>)
+      </td>
+      <td align="left">0x00001000</td>
+      <td align="left">zlib (gzip) compression</td>
+     </tr>
+
+     <tr valign="middle">
+      <td align="left">
+       <b><tt>Phar::BZ2</tt></b>
+       (<span class="type"><a href="language.types.integer.html" class="type integer">integer</a></span>)
+      </td>
+      <td align="left">0x00002000</td>
+      <td align="left">bzip2 compression</td>
+     </tr>
+
+    </tbody>
+   
+  </table>
+
+  <table id="phar.constants.fileformat" class="doctable table">
+   <caption><b>Phar file format constants</b></caption>
+   
+    <thead valign="middle">
+     <tr valign="middle">
+      <th>Constant</th>
+      <th>Value</th>
+      <th>Description</th>
+     </tr>
+
+    </thead>
+
+    <tbody valign="middle" class="tbody">
+     <tr valign="middle">
+      <td align="left">
+       <b><tt>Phar::SAME</tt></b>
+       (<span class="type"><a href="language.types.integer.html" class="type integer">integer</a></span>)
+      </td>
+      <td align="left">0</td>
+      <td align="left">retain the same file format</td>
+     </tr>
+
+     <tr valign="middle">
+      <td align="left">
+       <b><tt>Phar::PHAR</tt></b>
+       (<span class="type"><a href="language.types.integer.html" class="type integer">integer</a></span>)
+      </td>
+      <td align="left">1</td>
+      <td align="left">phar file format</td>
+     </tr>
+
+     <tr valign="middle">
+      <td align="left">
+       <b><tt>Phar::TAR</tt></b>
+       (<span class="type"><a href="language.types.integer.html" class="type integer">integer</a></span>)
+      </td>
+      <td align="left">2</td>
+      <td align="left">tar file format</td>
+     </tr>
+
+     <tr valign="middle">
+      <td align="left">
+       <b><tt>Phar::ZIP</tt></b>
+       (<span class="type"><a href="language.types.integer.html" class="type integer">integer</a></span>)
+      </td>
+      <td align="left">3</td>
+      <td align="left">zip file format</td>
+     </tr>
+
+    </tbody>
+   
+  </table>
+
+  <table id="phar.constants.signature" class="doctable table">
+   <caption><b>Phar signature constants</b></caption>
+   
+    <thead valign="middle">
+     <tr valign="middle">
+      <th>Constant</th>
+      <th>Value</th>
+      <th>Description</th>
+     </tr>
+
+    </thead>
+
+    <tbody valign="middle" class="tbody">
+     <tr valign="middle">
+      <td align="left">
+       <b><tt>Phar::MD5</tt></b>
+       (<span class="type"><a href="language.types.integer.html" class="type integer">integer</a></span>)
+      </td>
+      <td align="left">0x0001</td>
+      <td align="left">signature with md5 hash algorithm</td>
+     </tr>
+
+     <tr valign="middle">
+      <td align="left">
+       <b><tt>Phar::SHA1</tt></b>
+       (<span class="type"><a href="language.types.integer.html" class="type integer">integer</a></span>)
+      </td>
+      <td align="left">0x0002</td>
+      <td align="left">signature with sha1 hash algorithm</td>
+     </tr>
+
+     <tr valign="middle">
+      <td align="left">
+       <b><tt>Phar::SHA256</tt></b>
+       (<span class="type"><a href="language.types.integer.html" class="type integer">integer</a></span>)
+      </td>
+      <td align="left">0x0003</td>
+      <td align="left">signature with sha256 hash algorithm (requires hash extension)</td>
+     </tr>
+
+     <tr valign="middle">
+      <td align="left">
+       <b><tt>Phar::SHA512</tt></b>
+       (<span class="type"><a href="language.types.integer.html" class="type integer">integer</a></span>)
+      </td>
+      <td align="left">0x0004</td>
+      <td align="left">signature with sha512 hash algorithm (requires hash extension)</td>
+     </tr>
+
+     <tr valign="middle">
+      <td align="left">
+       <b><tt>Phar::OPENSSL</tt></b>
+       (<span class="type"><a href="language.types.integer.html" class="type integer">integer</a></span>)
+      </td>
+      <td align="left">0x0010</td>
+      <td align="left">signature with OpenSSL public/private key pair.  This is a true,
+      asymmetric key signature.</td>
+     </tr>
+
+    </tbody>
+   
+  </table>
+
+  <table id="phar.constants.mimeoverride" class="doctable table">
+   <caption><b>Phar webPhar mime override constants</b></caption>
+   
+    <thead valign="middle">
+     <tr valign="middle">
+      <th>Constant</th>
+      <th>Value</th>
+      <th>Description</th>
+     </tr>
+
+    </thead>
+
+    <tbody valign="middle" class="tbody">
+     <tr valign="middle">
+      <td align="left">
+       <b><tt>Phar::PHP</tt></b>
+       (<span class="type"><a href="language.types.integer.html" class="type integer">integer</a></span>)
+      </td>
+      <td align="left">1</td>
+      <td align="left">used to instruct the mimeoverrides parameter
+      of <span class="function"><a href="phar.webphar.html" class="function">Phar::webPhar()</a></span> that the extension should be
+      parsed as a PHP file</td>
+     </tr>
+
+     <tr valign="middle">
+      <td align="left">
+       <b><tt>Phar::PHPS</tt></b>
+       (<span class="type"><a href="language.types.integer.html" class="type integer">integer</a></span>)
+      </td>
+      <td align="left">2</td>
+      <td align="left">used to instruct the mimeoverrides parameter
+      of <span class="function"><a href="phar.webphar.html" class="function">Phar::webPhar()</a></span> that the extension should be
+      parsed as a PHP source file through <span class="function"><a href="function.highlight-file.html" class="function">highlight_file()</a></span></td>
+     </tr>
+
+    </tbody>
+   
+  </table>
+
+</div>
+<hr /><div class="manualnavbar" style="text-align: center;">
+ <div class="prev" style="text-align: left; float: left;"><a href="phar.resources.html">Resource Types</a></div>
+ <div class="next" style="text-align: right; float: right;"><a href="phar.using.html">Using Phar Archives</a></div>
+ <div class="up"><a href="book.phar.html">Phar</a></div>
+ <div class="home"><a href="index.html">PHP Manual</a></div>
+</div></body></html>

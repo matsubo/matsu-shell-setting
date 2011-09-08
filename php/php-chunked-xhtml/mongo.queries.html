@@ -1,0 +1,278 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+ <head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>Querying</title>
+
+ </head>
+ <body><div class="manualnavbar" style="text-align: center;">
+ <div class="prev" style="text-align: left; float: left;"><a href="mongo.writes.html">Writes</a></div>
+ <div class="next" style="text-align: right; float: right;"><a href="mongo.updates.html">Updates</a></div>
+ <div class="up"><a href="mongo.manual.html">Manual</a></div>
+ <div class="home"><a href="index.html">PHP Manual</a></div>
+</div><hr /><div id="mongo.queries" class="section">
+ <h2 class="title">Querying</h2>
+
+ <div class="section">
+  <h2 class="title">Distributing queries to slaves</h2>
+
+  <blockquote class="note"><p><b class="note">Note</b>: 
+   <b>1.1.0+</b><br />
+   <p class="para">
+    If you are using a
+    <a href="http://www.mongodb.org/display/DOCS/Replication" class="link external">&raquo;&nbsp;replica set</a> and version
+    1.1.0 or above of the driver, the driver can automatically route reads to
+    slaves.  This behavior does not exist in earlier versions of the driver and
+    <em class="emphasis">cannot</em> be used with &quot;normal&quot; master-slave.
+   </p>
+  </p></blockquote>
+
+  <p class="para">
+   By default, the driver will send all queries to the master.  If you set the
+   &quot;slaveOkay&quot; option, the driver will send all queries to a non-primary server,
+   if possible.  The &quot;slaveOkay&quot; option can be set at every &quot;level&quot;:
+   <a href="mongo.setslaveokay.html" class="link">connection</a>,
+   <a href="mongodb.setslaveokay.html" class="link">database</a>,
+   <a href="mongocollection.setslaveokay.html" class="link">collection</a>, and
+   <a href="mongocursor.slaveokay.html" class="link">cursor</a>.  Each class inherits the
+   &quot;slaveOkay&quot; setting from the class above it, so if you do:
+  </p>
+
+  <div class="example-contents">
+<div class="phpcode"><code><span style="color: #000000">
+<span style="color: #0000BB">&lt;?php<br /><br />$db</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">setSlaveOkay</span><span style="color: #007700">(</span><span style="color: #0000BB">true</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">$c&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">$db</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">myCollection</span><span style="color: #007700">;<br /><br /></span><span style="color: #0000BB">$cursor&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">$c</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">find</span><span style="color: #007700">();<br /><br /></span><span style="color: #0000BB">?&gt;</span>
+</span>
+</code></div>
+  </div>
+
+
+  <p class="para">
+   then the query will be executed against a slave (the collection inherited
+   &quot;slaveOkay&quot; from the database and the cursor inherited it from the
+   collection).
+  </p>
+
+  <div class="section">
+   <h2 class="title">How slaves are chosen</h2>
+
+   <p class="para">
+    Each instance of <a href="class.mongo.html" class="classname">Mongo</a> chooses its own slave using
+    the available slave with the lowest ping time.  So, if we had a PHP client
+    in Europe and one in Australia and we had one secondary in each of these
+    data centers, we could do:
+   </p>
+   <div class="example-contents">
+<div class="phpcode"><code><span style="color: #000000">
+<span style="color: #0000BB">&lt;?php<br /><br /></span><span style="color: #FF8000">//&nbsp;P&nbsp;is&nbsp;the&nbsp;primary<br /><br />//&nbsp;on&nbsp;the&nbsp;Australian&nbsp;client<br /></span><span style="color: #0000BB">$m1&nbsp;</span><span style="color: #007700">=&nbsp;new&nbsp;</span><span style="color: #0000BB">Mongo</span><span style="color: #007700">(</span><span style="color: #DD0000">"mongodb://P"</span><span style="color: #007700">,&nbsp;array(</span><span style="color: #DD0000">"replicaSet"&nbsp;</span><span style="color: #007700">=&gt;&nbsp;</span><span style="color: #0000BB">true</span><span style="color: #007700">));<br /></span><span style="color: #0000BB">$m1</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">foo</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">bar</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">find</span><span style="color: #007700">()-&gt;</span><span style="color: #0000BB">slaveOkay</span><span style="color: #007700">()-&gt;</span><span style="color: #0000BB">getNext</span><span style="color: #007700">();<br />echo&nbsp;</span><span style="color: #DD0000">"m1's&nbsp;slave&nbsp;is&nbsp;"</span><span style="color: #007700">.</span><span style="color: #0000BB">$m1</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">getSlave</span><span style="color: #007700">().</span><span style="color: #DD0000">"\n"</span><span style="color: #007700">;<br /><br /></span><span style="color: #FF8000">//&nbsp;on&nbsp;the&nbsp;European&nbsp;client<br /></span><span style="color: #0000BB">$m2&nbsp;</span><span style="color: #007700">=&nbsp;new&nbsp;</span><span style="color: #0000BB">Mongo</span><span style="color: #007700">(</span><span style="color: #DD0000">"mongodb://P"</span><span style="color: #007700">,&nbsp;array(</span><span style="color: #DD0000">"replicaSet"&nbsp;</span><span style="color: #007700">=&gt;&nbsp;</span><span style="color: #0000BB">true</span><span style="color: #007700">));<br /></span><span style="color: #0000BB">$m2</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">foo</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">bar</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">find</span><span style="color: #007700">()-&gt;</span><span style="color: #0000BB">slaveOkay</span><span style="color: #007700">()-&gt;</span><span style="color: #0000BB">getNext</span><span style="color: #007700">();<br />echo&nbsp;</span><span style="color: #DD0000">"m2's&nbsp;slave&nbsp;is&nbsp;"</span><span style="color: #007700">.</span><span style="color: #0000BB">$m2</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">getSlave</span><span style="color: #007700">().</span><span style="color: #DD0000">"\n"</span><span style="color: #007700">;<br /><br /></span><span style="color: #0000BB">?&gt;</span>
+</span>
+</code></div>
+   </div>
+
+   <p class="para">
+    we&#039;d probably end up with something like:
+   </p>
+   <div class="example-contents screen"><br />
+m1&#039;s slave is: australianHost<br />
+m2&#039;s slave is: europeanHost<br />
+   </div>
+
+   <p class="para">
+    Note that we have to do a query before a slave is chosen: slaves are chosen
+    lazily by the driver.  <span class="function"><a href="mongo.getslave.html" class="function">Mongo::getSlave()</a></span> will return
+    <b><tt>NULL</tt></b> until a slave is used.
+   </p>
+
+   <p class="para">
+    You can see what the driver thinks is the current status of the set members
+    by running <span class="function"><a href="mongo.getHosts.html" class="function">Mongo::getHosts()</a></span>.
+   </p>
+
+   <p class="para">
+    If no non-primary server is readable, the driver will send
+    reads to the primary (even if &quot;slaveOkay&quot; is set).  A server is considered
+    readable if its state is 2 (SECONDARY) and its health is 1.  You can check
+    this with <span class="function"><a href="mongo.getHosts.html" class="function">Mongo::getHosts()</a></span>.
+   </p>
+
+   <p class="para">
+    If you enjoy twiddling knobs that you probably shouldn&#039;t mess with, you can
+    request the driver to use a different slave by calling
+    <span class="function"><a href="mongo.switchslave.html" class="function">Mongo::switchSlave()</a></span>.  This may choose a new slave
+    (if one is available) and shouldn&#039;t be used unless you know what you&#039;re
+    doing.
+   </p>
+
+  </div>
+  <div class="section">
+   <h2 class="title">Random notes</h2>
+
+   <p class="para">
+    Writes are always sent to the primary.  Database commands, even read-only
+    commands, are also always sent to the primary.
+   </p>
+
+   <p class="para">
+    The health and state of a slave is checked every 5 seconds or when the next
+    operation occurs after 5 seconds.  It will also recheck the configuration
+    when the driver has a problem reaching a server.
+   </p>
+
+   <p class="para">
+    Note that a non-primary server may be behind the primary in operations, so
+    your application must be okay with getting out-of-date data (or you must use
+    w for all writes).
+   </p>
+  </div>
+
+ </div>
+
+ <div class="section">
+  <h2 class="title">Querying by _id</h2>
+  <p class="para">
+   Every object inserted is automatically assigned a unique _id field, which is
+   often a useful field to use in queries.
+  </p>
+  <p class="para">
+   Suppose that we wish to find the document we just inserted.  Inserting adds
+   and _id field to the document, so we can query by that:
+
+   <div class="example-contents">
+<div class="phpcode"><code><span style="color: #000000">
+<span style="color: #0000BB">&lt;?php<br /><br />$person&nbsp;</span><span style="color: #007700">=&nbsp;array(</span><span style="color: #DD0000">"name"&nbsp;</span><span style="color: #007700">=&gt;&nbsp;</span><span style="color: #DD0000">"joe"</span><span style="color: #007700">);<br /><br /></span><span style="color: #0000BB">$people</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">insert</span><span style="color: #007700">(</span><span style="color: #0000BB">$person</span><span style="color: #007700">);<br /><br /></span><span style="color: #FF8000">//&nbsp;now&nbsp;$joe&nbsp;has&nbsp;an&nbsp;_id&nbsp;field<br /></span><span style="color: #0000BB">$joe&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">$people</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">findOne</span><span style="color: #007700">(array(</span><span style="color: #DD0000">"_id"&nbsp;</span><span style="color: #007700">=&gt;&nbsp;</span><span style="color: #0000BB">$person</span><span style="color: #007700">[</span><span style="color: #DD0000">'_id'</span><span style="color: #007700">]));<br /><br /></span><span style="color: #0000BB">?&gt;</span>
+</span>
+</code></div>
+   </div>
+
+  </p>
+  <p class="para">
+   Unless the user has specified otherwise, the _id field is a
+   <a href="class.mongoid.html" class="classname">MongoId</a>.  The most common mistake is attepting to use
+   a string to match a <a href="class.mongoid.html" class="classname">MongoId</a>.  Keep in mind that these
+   are two different datatypes, and will not match each other in the same way
+   that the string &quot;array()&quot; is not the same as an empty array.  For example:
+
+   <div class="example-contents">
+<div class="phpcode"><code><span style="color: #000000">
+<span style="color: #0000BB">&lt;?php<br /><br />$person&nbsp;</span><span style="color: #007700">=&nbsp;array(</span><span style="color: #DD0000">"name"&nbsp;</span><span style="color: #007700">=&gt;&nbsp;</span><span style="color: #DD0000">"joe"</span><span style="color: #007700">);<br /><br /></span><span style="color: #0000BB">$people</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">insert</span><span style="color: #007700">(</span><span style="color: #0000BB">$person</span><span style="color: #007700">);<br /><br /></span><span style="color: #FF8000">//&nbsp;convert&nbsp;the&nbsp;_id&nbsp;to&nbsp;a&nbsp;string<br /></span><span style="color: #0000BB">$pid&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">$person</span><span style="color: #007700">[</span><span style="color: #DD0000">'_id'</span><span style="color: #007700">]&nbsp;.&nbsp;</span><span style="color: #DD0000">""</span><span style="color: #007700">;<br /><br /></span><span style="color: #FF8000">//&nbsp;FAILS&nbsp;-&nbsp;$pid&nbsp;is&nbsp;a&nbsp;string,&nbsp;not&nbsp;a&nbsp;MongoId<br /></span><span style="color: #0000BB">$joe&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">$people</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">findOne</span><span style="color: #007700">(array(</span><span style="color: #DD0000">"_id"&nbsp;</span><span style="color: #007700">=&gt;&nbsp;</span><span style="color: #0000BB">$pid</span><span style="color: #007700">));<br /><br /></span><span style="color: #0000BB">?&gt;</span>
+</span>
+</code></div>
+   </div>
+
+  </p>
+ </div>
+
+ <div class="section">
+  <h2 class="title">Arrays</h2>
+
+  <p class="para">
+   Arrays are special in a couple ways.  First, there are two types that
+   MongoDB uses: &quot;normal&quot; arrays and associative arrays.  Associative arrays can
+   have any mix of key types and values.  &quot;Normal&quot; arrays are defined as arrays
+   with ascending numeric indexes starting at 0 and increasing by one for each
+   element.  These are, typically, just your usual PHP array.
+  </p>
+
+  <p class="para">
+   For instance, if you want to save a list of awards in a document, you could
+   say:
+  </p>
+
+  <div class="example-contents">
+<div class="phpcode"><code><span style="color: #000000">
+<span style="color: #0000BB">&lt;?php<br /><br />$collection</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">save</span><span style="color: #007700">(array(</span><span style="color: #DD0000">"awards"&nbsp;</span><span style="color: #007700">=&gt;&nbsp;array(</span><span style="color: #DD0000">"gold"</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"silver"</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"bronze"</span><span style="color: #007700">)));<br /><br /></span><span style="color: #0000BB">?&gt;</span>
+</span>
+</code></div>
+  </div>
+
+
+  <p class="para">
+   Queries can reach into arrays to search for elements.  Suppose that we wish
+   to find all documents with an array element of a given value. For example,
+   documents with a &quot;gold&quot; award, such as:
+  </p>
+
+  <div class="example-contents">
+<div class="cdata"><pre>
+{ &quot;_id&quot; : ObjectId(&quot;4b06c282edb87a281e09dad9&quot;), &quot;awards&quot; : [&quot;gold&quot;, &quot;silver&quot;, &quot;bronze&quot;]}
+</pre></div>
+  </div>
+
+
+  <p class="para">
+   This can be done with a simple query, ignoring the fact that &quot;awards&quot; is an
+   array:
+  </p>
+
+  <div class="example-contents">
+<div class="phpcode"><code><span style="color: #000000">
+<span style="color: #0000BB">&lt;?php<br /><br />&nbsp;&nbsp;$cursor&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">$collection</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">find</span><span style="color: #007700">(array(</span><span style="color: #DD0000">"awards"&nbsp;</span><span style="color: #007700">=&gt;&nbsp;</span><span style="color: #DD0000">"gold"</span><span style="color: #007700">));<br /><br /></span><span style="color: #0000BB">?&gt;</span>
+</span>
+</code></div>
+  </div>
+
+
+  <p class="para">
+   Suppose we are querying for a more complex object, if each element of the
+   array were an object itself, such as:
+  </p>
+
+  <div class="example-contents">
+<div class="cdata"><pre>
+{
+     &quot;_id&quot; : ObjectId(&quot;4b06c282edb87a281e09dad9&quot;),
+     &quot;awards&quot; :
+     [
+        {
+            &quot;first place&quot; : &quot;gold&quot;
+        },
+        {
+            &quot;second place&quot; : &quot;silver&quot;
+        },
+        {
+            &quot;third place&quot; :  &quot;bronze&quot;
+        }
+     ]
+}
+</pre></div>
+  </div>
+
+
+  <p class="para">
+   Still ignoring that this is an array, we can use dot notation to query the
+   subobject:
+  </p>
+
+  <div class="example-contents">
+<div class="phpcode"><code><span style="color: #000000">
+<span style="color: #0000BB">&lt;?php<br /><br />$cursor&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">$collection</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">find</span><span style="color: #007700">(array(</span><span style="color: #DD0000">"awards.first&nbsp;place"&nbsp;</span><span style="color: #007700">=&gt;&nbsp;</span><span style="color: #DD0000">"gold"</span><span style="color: #007700">));<br /><br /></span><span style="color: #0000BB">?&gt;</span>
+</span>
+</code></div>
+  </div>
+
+
+  <p class="para">
+   Notice that it doesn&#039;t matter that there is a space in the field name
+   (although it may be best not to use spaces, just to make things more
+   readable).
+  </p>
+
+  <p class="para">
+   You can also use an array to query for a number of possible values.  For
+   instance, if we were looking for documents &quot;gold&quot; or &quot;copper&quot;, we could do:
+  </p>
+
+  <div class="example-contents">
+<div class="phpcode"><code><span style="color: #000000">
+<span style="color: #0000BB">&lt;?php<br /><br />$cursor&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">$collection</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">find</span><span style="color: #007700">(array(</span><span style="color: #DD0000">"awards"&nbsp;</span><span style="color: #007700">=&gt;&nbsp;array(</span><span style="color: #DD0000">'$in'&nbsp;</span><span style="color: #007700">=&gt;&nbsp;array(</span><span style="color: #DD0000">"gold"</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"copper"</span><span style="color: #007700">))));<br /><br /></span><span style="color: #0000BB">?&gt;</span>
+</span>
+</code></div>
+  </div>
+
+
+ </div>
+</div><hr /><div class="manualnavbar" style="text-align: center;">
+ <div class="prev" style="text-align: left; float: left;"><a href="mongo.writes.html">Writes</a></div>
+ <div class="next" style="text-align: right; float: right;"><a href="mongo.updates.html">Updates</a></div>
+ <div class="up"><a href="mongo.manual.html">Manual</a></div>
+ <div class="home"><a href="index.html">PHP Manual</a></div>
+</div></body></html>

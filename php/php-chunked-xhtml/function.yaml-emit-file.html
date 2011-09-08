@@ -1,0 +1,132 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+ <head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>Send the YAML representation of a value to a file</title>
+
+ </head>
+ <body><div class="manualnavbar" style="text-align: center;">
+ <div class="prev" style="text-align: left; float: left;"><a href="ref.yaml.html">Yaml Functions</a></div>
+ <div class="next" style="text-align: right; float: right;"><a href="function.yaml-emit.html">yaml_emit</a></div>
+ <div class="up"><a href="ref.yaml.html">Yaml Functions</a></div>
+ <div class="home"><a href="index.html">PHP Manual</a></div>
+</div><hr /><div id="function.yaml-emit-file" class="refentry">
+ <div class="refnamediv">
+  <h1 class="refname">yaml_emit_file</h1>
+  <p class="verinfo">(PECL yaml &gt;= 0.5.0)</p><p class="refpurpose"><span class="refname">yaml_emit_file</span> &mdash; <span class="dc-title">Send the YAML representation of a value to a file</span></p>
+
+ </div>
+
+ <div class="refsect1 description" id="refsect1-function.yaml-emit-file-description">
+  <h3 class="title">Description</h3>
+  <div class="methodsynopsis dc-description">
+   <span class="type">bool</span> <span class="methodname"><b>yaml_emit_file</b></span>
+    ( <span class="methodparam"><span class="type">string</span> <tt class="parameter">$filename</tt></span>
+   , <span class="methodparam"><span class="type"><a href="language.pseudo-types.html#language.types.mixed" class="type mixed">mixed</a></span> <tt class="parameter">$data</tt></span>
+   [, <span class="methodparam"><span class="type">int</span> <tt class="parameter">$encoding</tt><span class="initializer"> = YAML_ANY_ENCODING</span></span>
+   [, <span class="methodparam"><span class="type">int</span> <tt class="parameter">$linebreak</tt><span class="initializer"> = YAML_ANY_BREAK</span></span>
+  ]] )</div>
+
+  <p class="para rdfs-comment">
+   Generate a YAML representation of the provided <i><tt class="parameter">data</tt></i>
+   in the <i><tt class="parameter">filename</tt></i>.
+  </p>
+ </div>
+
+
+ <div class="refsect1 parameters" id="refsect1-function.yaml-emit-file-parameters">
+  <h3 class="title">Parameters</h3>
+  <p class="para">
+   <dl>
+
+    <dt>
+
+     <span class="term"><i><tt class="parameter">filename</tt></i></span>
+     <dd>
+
+      <p class="para">
+       Path to the file.
+      </p>
+     </dd>
+
+    </dt>
+
+    <dt>
+
+     <span class="term"><i><tt class="parameter">data</tt></i></span>
+     <dd>
+
+      <p class="para">
+       The <i><tt class="parameter">data</tt></i> being encoded. Can be any type except
+       a <span class="type"><a href="language.types.resource.html" class="type resource">resource</a></span>.
+      </p>
+     </dd>
+
+    </dt>
+
+    <dt>
+
+     <span class="term"><i><tt class="parameter">encoding</tt></i></span>
+     <dd>
+
+      <p class="para">
+       Output character encoding chosen from
+       <b><tt>YAML_ANY_ENCODING</tt></b>,
+       <b><tt>YAML_UTF8_ENCODING</tt></b>,
+       <b><tt>YAML_UTF16LE_ENCODING</tt></b>,
+       <b><tt>YAML_UTF16BE_ENCODING</tt></b>. Defaults to
+       <b><tt>YAML_ANY_ENCODING</tt></b>.
+      </p>
+     </dd>
+
+    </dt>
+
+    <dt>
+
+     <span class="term"><i><tt class="parameter">linebreak</tt></i></span>
+     <dd>
+
+      <p class="para">
+       Output linebreak style chosen from
+       <b><tt>YAML_ANY_BREAK</tt></b>,
+       <b><tt>YAML_CR_BREAK</tt></b>,
+       <b><tt>YAML_LN_BREAK</tt></b>,
+       <b><tt>YAML_CRLN_BREAK</tt></b>. Defaults to
+       <b><tt>YAML_ANY_BREAK</tt></b>.
+      </p>
+     </dd>
+
+    </dt>
+
+   </dl>
+
+  </p>
+ </div>
+
+
+ <div class="refsect1 returnvalues" id="refsect1-function.yaml-emit-file-returnvalues">
+  <h3 class="title">Return Values</h3>
+  <p class="para">
+  Returns <i>TRUE</i> on success.
+  </p>
+ </div>
+
+
+
+ <div class="refsect1 seealso" id="refsect1-function.yaml-emit-file-seealso">
+  <h3 class="title">See Also</h3>
+  <p class="para">
+   <ul class="simplelist">
+    <li class="member"><span class="function"><a href="function.yaml-emit.html" class="function" rel="rdfs-seeAlso">yaml_emit()</a> - Returns the YAML representation of a value</span></li>
+    <li class="member"><span class="function"><a href="function.yaml-parse.html" class="function" rel="rdfs-seeAlso">yaml_parse()</a> - Parse a YAML stream</span></li>
+   </ul>
+  </p>
+ </div>
+
+
+</div><hr /><div class="manualnavbar" style="text-align: center;">
+ <div class="prev" style="text-align: left; float: left;"><a href="ref.yaml.html">Yaml Functions</a></div>
+ <div class="next" style="text-align: right; float: right;"><a href="function.yaml-emit.html">yaml_emit</a></div>
+ <div class="up"><a href="ref.yaml.html">Yaml Functions</a></div>
+ <div class="home"><a href="index.html">PHP Manual</a></div>
+</div></body></html>

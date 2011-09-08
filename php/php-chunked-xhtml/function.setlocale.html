@@ -1,0 +1,282 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+ <head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>Set locale information</title>
+
+ </head>
+ <body><div class="manualnavbar" style="text-align: center;">
+ <div class="prev" style="text-align: left; float: left;"><a href="function.rtrim.html">rtrim</a></div>
+ <div class="next" style="text-align: right; float: right;"><a href="function.sha1-file.html">sha1_file</a></div>
+ <div class="up"><a href="ref.strings.html">String Functions</a></div>
+ <div class="home"><a href="index.html">PHP Manual</a></div>
+</div><hr /><div id="function.setlocale" class="refentry">
+ <div class="refnamediv">
+  <h1 class="refname">setlocale</h1>
+  <p class="verinfo">(PHP 4, PHP 5)</p><p class="refpurpose"><span class="refname">setlocale</span> &mdash; <span class="dc-title">Set locale information</span></p>
+
+ </div>
+ 
+ <div class="refsect1 description" id="refsect1-function.setlocale-description">
+  <h3 class="title">Description</h3>
+  <div class="methodsynopsis dc-description">
+   <span class="type">string</span> <span class="methodname"><b>setlocale</b></span>
+    ( <span class="methodparam"><span class="type">int</span> <tt class="parameter">$category</tt></span>
+   , <span class="methodparam"><span class="type">string</span> <tt class="parameter">$locale</tt></span>
+   [, <span class="methodparam"><span class="type">string</span> <tt class="parameter">$...</tt></span>
+  ] )</div>
+
+  <div class="methodsynopsis dc-description">
+   <span class="type">string</span> <span class="methodname"><b>setlocale</b></span>
+    ( <span class="methodparam"><span class="type">int</span> <tt class="parameter">$category</tt></span>
+   , <span class="methodparam"><span class="type">array</span> <tt class="parameter">$locale</tt></span>
+   )</div>
+
+  <p class="para rdfs-comment">
+   Sets locale information.
+  </p>
+ </div>
+
+
+ <div class="refsect1 parameters" id="refsect1-function.setlocale-parameters">
+  <h3 class="title">Parameters</h3>
+  <p class="para">
+   <dl>
+
+    <dt>
+
+     <span class="term"><i><tt class="parameter">category</tt></i></span>
+     <dd>
+
+      <p class="para">
+       <i><tt class="parameter">category</tt></i> is a named constant specifying the
+       category of the functions affected by the locale setting:
+       <ul class="itemizedlist">
+        <li class="listitem">
+         <span class="simpara">
+          <b><tt>LC_ALL</tt></b> for all of the below
+         </span>
+        </li>
+        <li class="listitem">
+         <span class="simpara">
+          <b><tt>LC_COLLATE</tt></b> for string comparison, see
+          <span class="function"><a href="function.strcoll.html" class="function">strcoll()</a></span>
+         </span>
+        </li>
+        <li class="listitem">
+         <span class="simpara">
+          <b><tt>LC_CTYPE</tt></b> for character classification and conversion, for
+          example <span class="function"><a href="function.strtoupper.html" class="function">strtoupper()</a></span>
+         </span>
+        </li>
+        <li class="listitem">
+         <span class="simpara">
+          <b><tt>LC_MONETARY</tt></b> for <span class="function"><a href="function.localeconv.html" class="function">localeconv()</a></span>
+         </span>
+        </li>
+        <li class="listitem">
+         <span class="simpara">
+          <b><tt>LC_NUMERIC</tt></b> for decimal separator (See also
+          <span class="function"><a href="function.localeconv.html" class="function">localeconv()</a></span>)
+         </span>
+        </li>
+        <li class="listitem">
+         <span class="simpara">
+          <b><tt>LC_TIME</tt></b> for date and time formatting with
+          <span class="function"><a href="function.strftime.html" class="function">strftime()</a></span>
+         </span>
+        </li>
+        <li class="listitem">
+         <span class="simpara">
+          <b><tt>LC_MESSAGES</tt></b> for system responses (available if PHP was compiled with
+          <i>libintl</i>)
+         </span>
+        </li>
+       </ul>
+      </p>
+     </dd>
+
+    </dt>
+
+    <dt>
+
+     <span class="term"><i><tt class="parameter">locale</tt></i></span>
+     <dd>
+
+      <p class="para">
+       If <i><tt class="parameter">locale</tt></i> is <b><tt>NULL</tt></b> or the empty string
+       <i>&quot;&quot;</i>, the locale names will be set from the
+       values of environment variables with the same names as the above
+       categories, or from &quot;LANG&quot;.
+      </p>
+      <p class="para">
+       If <i><tt class="parameter">locale</tt></i> is <i>&quot;0&quot;</i>,
+       the locale setting is not affected, only the current setting is returned.
+      </p>
+      <p class="para">
+       If <i><tt class="parameter">locale</tt></i> is an array or followed by additional
+       parameters then each array element or parameter is tried to be set as
+       new locale until success. This is useful if a locale is known under
+       different names on different systems or for providing a fallback
+       for a possibly not available locale.
+      </p>
+     </dd>
+
+    </dt>
+
+    <dt>
+
+     <span class="term"><i><tt class="parameter">...</tt></i></span>
+     <dd>
+
+      <p class="para">
+       (Optional string or array parameters to try as locale settings until
+       success.)
+      </p>
+     </dd>
+
+    </dt>
+
+   </dl>
+
+   <blockquote class="note"><p><b class="note">Note</b>: 
+    <p class="para">
+     On Windows, setlocale(LC_ALL, &#039;&#039;) sets the locale names from the
+     system&#039;s regional/language settings (accessible via Control Panel).
+    </p>
+   </p></blockquote>
+  </p>
+ </div>
+
+
+ <div class="refsect1 returnvalues" id="refsect1-function.setlocale-returnvalues">
+  <h3 class="title">Return Values</h3>
+  <p class="para">
+   Returns the new current locale, or <b><tt>FALSE</tt></b> if the locale functionality is
+   not implemented on your platform, the specified locale does not exist or
+   the category name is invalid.
+  </p>
+  <p class="para">
+   An invalid category name also causes a warning message. Category/locale
+   names can be found in <a href="http://www.faqs.org/rfcs/rfc1766" class="link external">&raquo;&nbsp;RFC 1766</a>
+   and <a href="http://www.w3.org/WAI/ER/IG/ert/iso639.htm" class="link external">&raquo;&nbsp;ISO 639</a>.
+   Different systems have different naming schemes for locales.
+  </p>
+  <blockquote class="note"><p><b class="note">Note</b>: 
+   <p class="para">
+    The return value of <span class="function"><b>setlocale()</b></span> depends
+    on the system that PHP is running.  It returns exactly
+    what the system <i>setlocale</i> function returns.
+   </p>
+  </p></blockquote>
+ </div>
+
+
+ <div class="refsect1 changelog" id="refsect1-function.setlocale-changelog">
+  <h3 class="title">Changelog</h3>
+  <p class="para">
+   <table class="doctable informaltable">
+    
+     <thead valign="middle">
+      <tr valign="middle">
+       <th>Version</th>
+       <th>Description</th>
+      </tr>
+
+     </thead>
+
+     <tbody valign="middle" class="tbody">
+      <tr valign="middle">
+       <td align="left">5.3.0</td>
+       <td align="left">
+        This function now throws an <b><tt>E_DEPRECATED</tt></b> notice if a string is passed 
+        to the <i><tt class="parameter">category</tt></i> parameter instead of one of the 
+        <i>LC_*</i> constants.
+       </td>
+      </tr>
+
+      <tr valign="middle">
+       <td align="left">4.3.0</td>
+       <td align="left">
+        Passing multiple locales became possible.
+       </td>
+      </tr>
+
+      <tr valign="middle">
+       <td align="left">4.2.0</td>
+       <td align="left">
+        Passing <i><tt class="parameter">category</tt></i> as a string is now deprecated,
+        use the above constants instead.  Passing them as a string (within
+        quotes) will result in a warning message.
+       </td>
+      </tr>
+
+     </tbody>
+    
+   </table>
+
+  </p>
+ </div>
+
+
+ <div class="refsect1 examples" id="refsect1-function.setlocale-examples">
+  <h3 class="title">Examples</h3>
+  <p class="para">
+   <div class="example" id="example-4105">
+    <p><b>Example #1 <span class="function"><b>setlocale()</b></span> Examples</b></p>
+    <div class="example-contents">
+<div class="phpcode"><code><span style="color: #000000">
+<span style="color: #0000BB">&lt;?php<br /></span><span style="color: #FF8000">/*&nbsp;Set&nbsp;locale&nbsp;to&nbsp;Dutch&nbsp;*/<br /></span><span style="color: #0000BB">setlocale</span><span style="color: #007700">(</span><span style="color: #0000BB">LC_ALL</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">'nl_NL'</span><span style="color: #007700">);<br /><br /></span><span style="color: #FF8000">/*&nbsp;Output:&nbsp;vrijdag&nbsp;22&nbsp;december&nbsp;1978&nbsp;*/<br /></span><span style="color: #007700">echo&nbsp;</span><span style="color: #0000BB">strftime</span><span style="color: #007700">(</span><span style="color: #DD0000">"%A&nbsp;%e&nbsp;%B&nbsp;%Y"</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">mktime</span><span style="color: #007700">(</span><span style="color: #0000BB">0</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">0</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">0</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">12</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">22</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">1978</span><span style="color: #007700">));<br /><br /></span><span style="color: #FF8000">/*&nbsp;try&nbsp;different&nbsp;possible&nbsp;locale&nbsp;names&nbsp;for&nbsp;german&nbsp;as&nbsp;of&nbsp;PHP&nbsp;4.3.0&nbsp;*/<br /></span><span style="color: #0000BB">$loc_de&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">setlocale</span><span style="color: #007700">(</span><span style="color: #0000BB">LC_ALL</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">'de_DE@euro'</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">'de_DE'</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">'de'</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">'ge'</span><span style="color: #007700">);<br />echo&nbsp;</span><span style="color: #DD0000">"Preferred&nbsp;locale&nbsp;for&nbsp;german&nbsp;on&nbsp;this&nbsp;system&nbsp;is&nbsp;'</span><span style="color: #0000BB">$loc_de</span><span style="color: #DD0000">'"</span><span style="color: #007700">;<br /></span><span style="color: #0000BB">?&gt;</span>
+</span>
+</code></div>
+    </div>
+
+   </div>
+  </p>
+  <p class="para">
+   <div class="example" id="example-4106">
+    <p><b>Example #2 <span class="function"><b>setlocale()</b></span> Examples for Windows</b></p>
+    <div class="example-contents">
+<div class="phpcode"><code><span style="color: #000000">
+<span style="color: #0000BB">&lt;?php<br /></span><span style="color: #FF8000">/*&nbsp;Set&nbsp;locale&nbsp;to&nbsp;Dutch&nbsp;*/<br /></span><span style="color: #0000BB">setlocale</span><span style="color: #007700">(</span><span style="color: #0000BB">LC_ALL</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">'nld_nld'</span><span style="color: #007700">);<br /><br /></span><span style="color: #FF8000">/*&nbsp;Output:&nbsp;vrijdag&nbsp;22&nbsp;december&nbsp;1978&nbsp;*/<br /></span><span style="color: #007700">echo&nbsp;</span><span style="color: #0000BB">strftime</span><span style="color: #007700">(</span><span style="color: #DD0000">"%A&nbsp;%d&nbsp;%B&nbsp;%Y"</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">mktime</span><span style="color: #007700">(</span><span style="color: #0000BB">0</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">0</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">0</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">12</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">22</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">1978</span><span style="color: #007700">));<br /><br /></span><span style="color: #FF8000">/*&nbsp;try&nbsp;different&nbsp;possible&nbsp;locale&nbsp;names&nbsp;for&nbsp;german&nbsp;as&nbsp;of&nbsp;PHP&nbsp;4.3.0&nbsp;*/<br /></span><span style="color: #0000BB">$loc_de&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">setlocale</span><span style="color: #007700">(</span><span style="color: #0000BB">LC_ALL</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">'de_DE@euro'</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">'de_DE'</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">'deu_deu'</span><span style="color: #007700">);<br />echo&nbsp;</span><span style="color: #DD0000">"Preferred&nbsp;locale&nbsp;for&nbsp;german&nbsp;on&nbsp;this&nbsp;system&nbsp;is&nbsp;'</span><span style="color: #0000BB">$loc_de</span><span style="color: #DD0000">'"</span><span style="color: #007700">;<br /></span><span style="color: #0000BB">?&gt;</span>
+</span>
+</code></div>
+    </div>
+
+   </div>
+  </p>
+ </div>
+
+
+ <div class="refsect1 notes" id="refsect1-function.setlocale-notes">
+  <h3 class="title">Notes</h3>
+  <div class="warning"><b class="warning">Warning</b>
+   <p class="para">
+    The locale information is maintained per process, not per thread. If you
+    are running PHP on a multithreaded server API like IIS or Apache on
+    Windows, you may experience sudden changes in locale settings while a
+    script is running, though the script itself never called 
+    <span class="function"><b>setlocale()</b></span>. This happens due to other scripts
+    running in different threads of the same process at the same time,
+    changing the process-wide locale using <span class="function"><b>setlocale()</b></span>.
+   </p>
+  </div>
+  <div class="tip"><b class="tip">Tip</b>
+   <p class="para">
+    Windows users will find useful information about
+    <i><tt class="parameter">locale</tt></i> strings at Microsoft&#039;s
+    <acronym title="Microsoft Developer Network">MSDN</acronym> website. Supported language strings can be found
+    at <a href="http://msdn.microsoft.com/library/default.asp?url=/library/en-us/vclib/html/_crt_language_strings.asp" class="link external">&raquo;&nbsp;http://msdn.microsoft.com/library/default.asp?url=/library/en-us/vclib/html/_crt_language_strings.asp</a> and supported
+    country/region strings at
+    <a href="http://msdn.microsoft.com/library/default.asp?url=/library/en-us/vclib/html/_crt_country_strings.asp" class="link external">&raquo;&nbsp;http://msdn.microsoft.com/library/default.asp?url=/library/en-us/vclib/html/_crt_country_strings.asp</a>.
+   </p>
+  </div>
+ </div>
+
+
+</div><hr /><div class="manualnavbar" style="text-align: center;">
+ <div class="prev" style="text-align: left; float: left;"><a href="function.rtrim.html">rtrim</a></div>
+ <div class="next" style="text-align: right; float: right;"><a href="function.sha1-file.html">sha1_file</a></div>
+ <div class="up"><a href="ref.strings.html">String Functions</a></div>
+ <div class="home"><a href="index.html">PHP Manual</a></div>
+</div></body></html>

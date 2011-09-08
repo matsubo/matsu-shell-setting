@@ -1,0 +1,570 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+ <head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>Runtime Configuration</title>
+
+ </head>
+ <body><div class="manualnavbar" style="text-align: center;">
+ <div class="prev" style="text-align: left; float: left;"><a href="errorfunc.installation.html">Installation</a></div>
+ <div class="next" style="text-align: right; float: right;"><a href="errorfunc.resources.html">Resource Types</a></div>
+ <div class="up"><a href="errorfunc.setup.html">Installing/Configuring</a></div>
+ <div class="home"><a href="index.html">PHP Manual</a></div>
+</div><hr /><div id="errorfunc.configuration" class="section">
+ <h2 class="title">Runtime Configuration</h2>
+ <p class="simpara">
+The behaviour of these functions is affected by settings in <var class="filename">php.ini</var>.
+</p>
+ <p class="para">
+  <table class="doctable table">
+   <caption><b>Errors and Logging Configuration Options</b></caption>
+   
+    <thead valign="middle">
+     <tr valign="middle">
+      <th>Name</th>
+      <th>Default</th>
+      <th>Changeable</th>
+      <th>Changelog</th>
+     </tr>
+
+    </thead>
+
+    <tbody valign="middle" class="tbody">
+    <tr valign="middle">
+     <td align="left"><a href="errorfunc.configuration.html#ini.error-reporting" class="link">error_reporting</a></td>
+     <td align="left">NULL</td>
+     <td align="left">PHP_INI_ALL</td>
+     <td class="empty">&nbsp;</td>
+    </tr>
+
+    <tr valign="middle">
+     <td align="left"><a href="errorfunc.configuration.html#ini.display-errors" class="link">display_errors</a></td>
+     <td align="left">&quot;1&quot;</td>
+     <td align="left">PHP_INI_ALL</td>
+     <td class="empty">&nbsp;</td>
+    </tr>
+
+    <tr valign="middle">
+     <td align="left"><a href="errorfunc.configuration.html#ini.display-startup-errors" class="link">display_startup_errors</a></td>
+     <td align="left">&quot;0&quot;</td>
+     <td align="left">PHP_INI_ALL</td>
+     <td class="empty">&nbsp;</td>
+    </tr>
+
+    <tr valign="middle">
+     <td align="left"><a href="errorfunc.configuration.html#ini.log-errors" class="link">log_errors</a></td>
+     <td align="left">&quot;0&quot;</td>
+     <td align="left">PHP_INI_ALL</td>
+     <td class="empty">&nbsp;</td>
+    </tr>
+
+    <tr valign="middle">
+     <td align="left"><a href="errorfunc.configuration.html#ini.log-errors-max-len" class="link">log_errors_max_len</a></td>
+     <td align="left">&quot;1024&quot;</td>
+     <td align="left">PHP_INI_ALL</td>
+     <td align="left">Available since PHP 4.3.0.</td>
+    </tr>
+
+    <tr valign="middle">
+     <td align="left"><a href="errorfunc.configuration.html#ini.ignore-repeated-errors" class="link">ignore_repeated_errors</a></td>
+     <td align="left">&quot;0&quot;</td>
+     <td align="left">PHP_INI_ALL</td>
+     <td align="left">Available since PHP 4.3.0.</td>
+    </tr>
+
+    <tr valign="middle">
+     <td align="left"><a href="errorfunc.configuration.html#ini.ignore-repeated-source" class="link">ignore_repeated_source</a></td>
+     <td align="left">&quot;0&quot;</td>
+     <td align="left">PHP_INI_ALL</td>
+     <td align="left">Available since PHP 4.3.0.</td>
+    </tr>
+
+    <tr valign="middle">
+     <td align="left"><a href="errorfunc.configuration.html#ini.report-memleaks" class="link">report_memleaks</a></td>
+     <td align="left">&quot;1&quot;</td>
+     <td align="left">PHP_INI_ALL</td>
+     <td align="left">Available since PHP 4.3.0.</td>
+    </tr>
+
+    <tr valign="middle">
+     <td align="left"><a href="errorfunc.configuration.html#ini.track-errors" class="link">track_errors</a></td>
+     <td align="left">&quot;0&quot;</td>
+     <td align="left">PHP_INI_ALL</td>
+     <td class="empty">&nbsp;</td>
+    </tr>
+
+    <tr valign="middle">
+     <td align="left"><a href="errorfunc.configuration.html#ini.html-errors" class="link">html_errors</a></td>
+     <td align="left">&quot;1&quot;</td>
+     <td align="left">PHP_INI_ALL</td>
+     <td align="left">PHP_INI_SYSTEM in PHP &lt;= 4.2.3.</td>
+    </tr>
+
+    <tr valign="middle">
+     <td align="left"><a href="errorfunc.configuration.html#ini.xmlrpc-errors" class="link">xmlrpc_errors</a></td>
+     <td align="left">&quot;0&quot;</td>
+     <td align="left">PHP_INI_SYSTEM</td>
+     <td align="left">Available since PHP 4.1.0.</td>
+    </tr>
+
+    <tr valign="middle">
+     <td align="left"><a href="errorfunc.configuration.html#ini.xmlrpc-error-number" class="link">xmlrpc_error_number</a></td>
+     <td align="left">&quot;0&quot;</td>
+     <td align="left">PHP_INI_ALL</td>
+     <td align="left">Available since PHP 4.1.0.</td>
+    </tr>
+
+    <tr valign="middle">
+     <td align="left"><a href="errorfunc.configuration.html#ini.docref-root" class="link">docref_root</a></td>
+     <td align="left">&quot;&quot;</td>
+     <td align="left">PHP_INI_ALL</td>
+     <td align="left">Available since PHP 4.3.0.</td>
+    </tr>
+
+    <tr valign="middle">
+     <td align="left"><a href="errorfunc.configuration.html#ini.docref-ext" class="link">docref_ext</a></td>
+     <td align="left">&quot;&quot;</td>
+     <td align="left">PHP_INI_ALL</td>
+     <td align="left">Available since PHP 4.3.2.</td>
+    </tr>
+
+    <tr valign="middle">
+     <td align="left"><a href="errorfunc.configuration.html#ini.error-prepend-string" class="link">error_prepend_string</a></td>
+     <td align="left">NULL</td>
+     <td align="left">PHP_INI_ALL</td>
+     <td class="empty">&nbsp;</td>
+    </tr>
+
+    <tr valign="middle">
+     <td align="left"><a href="errorfunc.configuration.html#ini.error-append-string" class="link">error_append_string</a></td>
+     <td align="left">NULL</td>
+     <td align="left">PHP_INI_ALL</td>
+     <td class="empty">&nbsp;</td>
+    </tr>
+
+    <tr valign="middle">
+     <td align="left"><a href="errorfunc.configuration.html#ini.error-log" class="link">error_log</a></td>
+     <td align="left">NULL</td>
+     <td align="left">PHP_INI_ALL</td>
+     <td class="empty">&nbsp;</td>
+    </tr>
+
+    </tbody>
+   
+  </table>
+
+  For further details and definitions of the
+PHP_INI_* modes, see the <a href="configuration.changes.modes.html" class="xref">Where a configuration setting may be set</a>.
+ </p>
+
+ <p class="para">Here&#039;s a short explanation of
+the configuration directives.</p>
+
+ <p class="para">
+  <dl>
+
+   <dt id="ini.error-reporting">
+    <span class="term">
+     <i><tt class="parameter">error_reporting</tt></i>
+     <span class="type"><a href="language.types.integer.html" class="type integer">integer</a></span>
+    </span>
+    <dd>
+
+     <p class="para">
+      Set the error reporting level. The parameter is either an integer
+      representing a bit field, or named constants. The error_reporting
+      levels and constants are described in
+      <a href="errorfunc.constants.html" class="link">Predefined Constants</a>,
+      and in <var class="filename">php.ini</var>. To set at runtime, use the
+      <span class="function"><a href="function.error-reporting.html" class="function">error_reporting()</a></span> function. See also the
+      <a href="errorfunc.configuration.html#ini.display-errors" class="link">display_errors</a> directive.
+     </p>
+     <p class="para">
+      In PHP 4 and PHP 5 the default value is <b><tt>E_ALL</tt></b>
+      &amp; ~<b><tt>E_NOTICE</tt></b>.
+      This setting does not show <b><tt>E_NOTICE</tt></b> level errors. You
+      may want to show them during development.
+     </p>
+     <blockquote class="note"><p><b class="note">Note</b>: 
+      <p class="para">Enabling <b><tt>E_NOTICE</tt></b> during development has
+      some benefits. For debugging purposes: NOTICE messages will warn you
+      about possible bugs in your code. For example, use of unassigned values
+      is warned. It is extremely useful to find typos and
+      to save time for debugging. NOTICE messages will warn you about bad style.
+      For example, <i>$arr[item]</i> is better to be written as
+      <i>$arr[&#039;item&#039;]</i> since PHP tries to treat
+      <i>&quot;item&quot;</i> as constant. If it is not a constant, PHP assumes
+      it is a string index for the array.
+      </p>
+     </p></blockquote>
+     <blockquote class="note"><p><b class="note">Note</b>: 
+      <p class="para">
+       In PHP 5 a new error level <b><tt>E_STRICT</tt></b> is available.
+       As <b><tt>E_STRICT</tt></b> is not included within
+       <b><tt>E_ALL</tt></b> you have to explicitly enable this kind of
+       error level. Enabling <b><tt>E_STRICT</tt></b> during development
+       has some benefits. STRICT messages will help you to use the latest and
+       greatest suggested method of coding, for example warn you about using
+       deprecated functions.
+      </p>
+     </p></blockquote>
+     <blockquote class="note"><p><b class="note">Note</b>: 
+      <b>PHP Constants outside of PHP</b><br />
+      <p class="para">
+       Using PHP Constants outside of PHP, like in <var class="filename">httpd.conf</var>,
+       will have no useful meaning so in such cases the <span class="type"><a href="language.types.integer.html" class="type integer">integer</a></span> values 
+       are required. And since error levels will be added over time, the maximum
+       value (for <b><tt>E_ALL</tt></b>) will likely change. So in place of
+       <b><tt>E_ALL</tt></b> consider using a larger value to cover all bit
+       fields from now and well into the future, a numeric value like
+       <i>2147483647</i> (includes all errors, not just
+       <b><tt>E_ALL</tt></b>).
+      </p>
+     </p></blockquote>
+    </dd>
+
+   </dt>
+
+
+   <dt id="ini.display-errors">
+    <span class="term">
+     <i><tt class="parameter">display_errors</tt></i>
+     <span class="type"><a href="language.types.string.html" class="type string">string</a></span>
+    </span>
+    <dd>
+
+     <p class="para">
+      This determines whether errors should be printed to the screen
+      as part of the output or if they should be hidden from the user.
+     </p>
+     <p class="para">
+      Value <i>&quot;stderr&quot;</i> sends the errors to <i>stderr</i>
+      instead of <i>stdout</i>. The value is available as of PHP
+      5.2.4. In earlier versions, this directive was of type <span class="type"><a href="language.types.boolean.html" class="type boolean">boolean</a></span>.
+     </p>
+     <blockquote class="note"><p><b class="note">Note</b>: 
+      <p class="para">
+      This is a feature to support your development and should never be used 
+      on production systems (e.g. systems connected to the internet).
+      </p>
+     </p></blockquote>
+     <blockquote class="note"><p><b class="note">Note</b>: 
+      <p class="para">
+       Although display_errors may be set at runtime (with <span class="function"><a href="function.ini-set.html" class="function">ini_set()</a></span>),
+       it won&#039;t have any affect if the script has fatal errors.
+       This is because the desired runtime action does not get executed.
+      </p>
+     </p></blockquote>
+    </dd>
+
+   </dt>
+
+
+   <dt id="ini.display-startup-errors">
+    <span class="term">
+     <i><tt class="parameter">display_startup_errors</tt></i>
+     <span class="type"><a href="language.types.boolean.html" class="type boolean">boolean</a></span>
+    </span>
+    <dd>
+
+     <p class="para">
+      Even when display_errors is on, errors that occur during PHP&#039;s startup
+      sequence are not displayed. It&#039;s strongly recommended to keep
+      display_startup_errors off, except for debugging.
+     </p>
+    </dd>
+
+   </dt>
+
+
+   <dt id="ini.log-errors">
+    <span class="term">
+     <i><tt class="parameter">log_errors</tt></i>
+     <span class="type"><a href="language.types.boolean.html" class="type boolean">boolean</a></span>
+    </span>
+    <dd>
+
+     <p class="para">
+      Tells whether script error messages should be logged to the
+      server&#039;s error log or <a href="errorfunc.configuration.html#ini.error-log" class="link">error_log</a>.
+      This option is thus server-specific.
+     </p>
+     <blockquote class="note"><p><b class="note">Note</b>: 
+      <p class="para">
+       You&#039;re strongly advised to use error logging in place of
+       error displaying on production web sites.
+      </p>
+     </p></blockquote>
+    </dd>
+
+   </dt>
+
+
+   <dt id="ini.log-errors-max-len">
+    <span class="term">
+     <i><tt class="parameter">log_errors_max_len</tt></i>
+     <span class="type"><a href="language.types.integer.html" class="type integer">integer</a></span>
+    </span>
+    <dd>
+
+     <p class="para">
+      Set the maximum length of log_errors in bytes. In
+      <a href="errorfunc.configuration.html#ini.error-log" class="link">error_log</a> information about
+      the source is added. The default is 1024 and 0 allows to not apply
+      any maximum length at all.
+      This length is applied to logged errors, displayed errors and also to
+      <var class="varname"><var class="varname"><a href="reserved.variables.phperrormsg.html" class="classname">$php_errormsg</a></var></var>.
+     </p>
+
+     <span class="simpara">When an <span class="type"><a href="language.types.integer.html" class="type integer">integer</a></span> is used, the
+value is measured in bytes. Shorthand notation, as described
+in <a href="faq.using.html#faq.using.shorthandbytes" class="link">this FAQ</a>, may also be used.
+</span>
+
+    </dd>
+
+   </dt>
+
+
+   <dt id="ini.ignore-repeated-errors">
+    <span class="term">
+     <i><tt class="parameter">ignore_repeated_errors</tt></i>
+     <span class="type"><a href="language.types.boolean.html" class="type boolean">boolean</a></span>
+    </span>
+    <dd>
+
+     <p class="para">
+      Do not log repeated messages. Repeated errors must occur in the same
+      file on the same line unless
+      <a href="errorfunc.configuration.html#ini.ignore-repeated-source" class="link">ignore_repeated_source</a>
+      is set true.
+     </p>
+    </dd>
+
+   </dt>
+
+
+   <dt id="ini.ignore-repeated-source">
+    <span class="term">
+     <i><tt class="parameter">ignore_repeated_source</tt></i>
+     <span class="type"><a href="language.types.boolean.html" class="type boolean">boolean</a></span>
+    </span>
+    <dd>
+
+     <p class="para">
+      Ignore source of message when ignoring repeated messages. When this setting
+      is On you will not log errors with repeated messages from different files or
+      sourcelines.
+     </p>
+    </dd>
+
+   </dt>
+
+
+   <dt id="ini.report-memleaks">
+    <span class="term">
+     <i><tt class="parameter">report_memleaks</tt></i>
+     <span class="type"><a href="language.types.boolean.html" class="type boolean">boolean</a></span>
+    </span>
+    <dd>
+
+     <p class="para">
+      If this parameter is set to On (the default), this parameter will show a
+      report of memory leaks detected by the Zend memory manager. This report
+      will be send to stderr on Posix platforms. On Windows, it will be send
+      to the debugger using OutputDebugString(), and can be viewed with tools
+      like <a href="http://technet.microsoft.com/en-us/sysinternals/bb896647" class="link external">&raquo;&nbsp;DbgView</a>.
+      This parameter only has effect in a debug build, and if
+      error_reporting includes <b><tt>E_WARNING</tt></b> in the allowed
+      list.
+     </p>
+    </dd>
+
+   </dt>
+
+
+   <dt id="ini.track-errors">
+    <span class="term">
+     <i><tt class="parameter">track_errors</tt></i>
+     <span class="type"><a href="language.types.boolean.html" class="type boolean">boolean</a></span>
+    </span>
+    <dd>
+
+     <p class="para">
+      If enabled, the last error message will always be present in the
+      variable <var class="varname"><var class="varname"><a href="reserved.variables.phperrormsg.html" class="classname">$php_errormsg</a></var></var>.
+     </p>
+    </dd>
+
+   </dt>
+
+
+   <dt id="ini.html-errors">
+    <span class="term">
+     <i><tt class="parameter">html_errors</tt></i>
+     <span class="type"><a href="language.types.boolean.html" class="type boolean">boolean</a></span>
+    </span>
+    <dd>
+
+     <p class="para">
+      Turn off HTML tags in error messages. The new format for HTML errors
+      produces clickable messages that direct the user to a page describing
+      the error or function in causing the error. These references are
+      affected by
+      <a href="errorfunc.configuration.html#ini.docref-root" class="link">docref_root</a> and
+      <a href="errorfunc.configuration.html#ini.docref-ext" class="link">docref_ext</a>.
+     </p>
+    </dd>
+
+   </dt>
+
+
+   <dt id="ini.xmlrpc-errors">
+    <span class="term">
+     <i><tt class="parameter">xmlrpc_errors</tt></i>
+     <span class="type"><a href="language.types.boolean.html" class="type boolean">boolean</a></span>
+    </span>
+    <dd>
+
+     <p class="para">
+      Turns off normal error reporting and formats errors as XML-RPC error message.
+     </p>
+    </dd>
+
+   </dt>
+
+
+   <dt id="ini.xmlrpc-error-number">
+    <span class="term">
+     <i><tt class="parameter">xmlrpc_error_number</tt></i>
+     <span class="type"><a href="language.types.integer.html" class="type integer">integer</a></span>
+    </span>
+    <dd>
+
+     <p class="para">
+      Used as the value of the XML-RPC faultCode element.
+     </p>
+    </dd>
+
+   </dt>
+
+
+   <dt id="ini.docref-root">
+    <span class="term">
+     <i><tt class="parameter">docref_root</tt></i>
+     <span class="type"><a href="language.types.string.html" class="type string">string</a></span>
+    </span>
+    <dd>
+
+     <p class="para">
+      The new error format contains a reference to a page describing the error or 
+      function causing the error. In case of manual pages you can download the 
+      manual in your language and set this ini directive to the URL of your local
+      copy. If your local copy of the manual can be reached by <i>&quot;/manual/&quot;</i>
+      you can simply use <strong class="userinput"><code>docref_root=/manual/</code></strong>. Additional you have 
+      to set docref_ext to match the fileextensions of your copy 
+      <strong class="userinput"><code>docref_ext=.html</code></strong>. It is possible to use external 
+      references. For example you can use 
+      <strong class="userinput"><code>docref_root=http://manual/en/</code></strong> or
+      <strong class="userinput"><code>docref_root=&quot;http://landonize.it/?how=url&amp;theme=classic&amp;filter=Landon
+      &amp;url=http%3A%2F%2Fwww.php.net%2F&quot;</code></strong>
+     </p>
+     <p class="para">
+      Most of the time you want the docref_root value to end with a slash <i>&quot;/&quot;</i>.
+      But see the second example above which does not have nor need it.
+     </p>
+     <blockquote class="note"><p><b class="note">Note</b>: 
+      <p class="para">
+       This is a feature to support your development since it makes it easy to 
+       lookup a function description. However it should never be used on 
+       production systems (e.g. systems connected to the internet).
+      </p>
+     </p></blockquote>
+    </dd>
+
+   </dt>
+
+
+   <dt id="ini.docref-ext">
+    <span class="term">
+     <i><tt class="parameter">docref_ext</tt></i>
+     <span class="type"><a href="language.types.string.html" class="type string">string</a></span>
+    </span>
+    <dd>
+
+     <p class="para">
+      See <a href="errorfunc.configuration.html#ini.docref-root" class="link">docref_root</a>.
+     </p>
+     <blockquote class="note"><p><b class="note">Note</b>: 
+      <p class="para">
+       The value of docref_ext must begin with a dot <i>&quot;.&quot;</i>.
+      </p>
+     </p></blockquote>
+    </dd>
+
+   </dt>
+
+
+   <dt id="ini.error-prepend-string">
+    <span class="term">
+     <i><tt class="parameter">error_prepend_string</tt></i>
+     <span class="type"><a href="language.types.string.html" class="type string">string</a></span>
+    </span>
+    <dd>
+
+     <p class="para">
+      String to output before an error message.
+     </p>
+    </dd>
+
+   </dt>
+
+
+   <dt id="ini.error-append-string">
+    <span class="term">
+     <i><tt class="parameter">error_append_string</tt></i>
+     <span class="type"><a href="language.types.string.html" class="type string">string</a></span>
+    </span>
+    <dd>
+
+     <p class="para">
+      String to output after an error message.
+     </p>
+    </dd>
+
+   </dt>
+
+
+   <dt id="ini.error-log">
+    <span class="term">
+     <i><tt class="parameter">error_log</tt></i>
+     <span class="type"><a href="language.types.string.html" class="type string">string</a></span>
+    </span>
+    <dd>
+
+     <p class="para">
+      Name of the file where script errors should be logged. The file should
+      be writable by the web server&#039;s user. If the
+      special value <i>syslog</i> is used, the errors
+      are sent to the system logger instead. On Unix, this means
+      syslog(3) and on Windows NT it means the event log. The
+      system logger is not supported on Windows 95. See also:
+      <span class="function"><a href="function.syslog.html" class="function">syslog()</a></span>.
+      If this directive is not set, errors are sent to the SAPI error logger. 
+      For example, it is an error log in Apache or <i>stderr</i>
+      in CLI.
+     </p>
+    </dd>
+
+   </dt>
+
+
+  </dl>
+
+ </p>
+</div><hr /><div class="manualnavbar" style="text-align: center;">
+ <div class="prev" style="text-align: left; float: left;"><a href="errorfunc.installation.html">Installation</a></div>
+ <div class="next" style="text-align: right; float: right;"><a href="errorfunc.resources.html">Resource Types</a></div>
+ <div class="up"><a href="errorfunc.setup.html">Installing/Configuring</a></div>
+ <div class="home"><a href="index.html">PHP Manual</a></div>
+</div></body></html>

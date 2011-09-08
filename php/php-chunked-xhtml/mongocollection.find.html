@@ -1,0 +1,160 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+ <head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>Querys this collection</title>
+
+ </head>
+ <body><div class="manualnavbar" style="text-align: center;">
+ <div class="prev" style="text-align: left; float: left;"><a href="mongocollection.ensureindex.html">MongoCollection::ensureIndex</a></div>
+ <div class="next" style="text-align: right; float: right;"><a href="mongocollection.findone.html">MongoCollection::findOne</a></div>
+ <div class="up"><a href="class.mongocollection.html">MongoCollection</a></div>
+ <div class="home"><a href="index.html">PHP Manual</a></div>
+</div><hr /><div id="mongocollection.find" class="refentry">
+ <div class="refnamediv">
+  <h1 class="refname">MongoCollection::find</h1>
+  <p class="verinfo">(PECL mongo &gt;=0.9.0)</p><p class="refpurpose"><span class="refname">MongoCollection::find</span> &mdash; <span class="dc-title">Querys this collection</span></p>
+
+ </div>
+
+ <div class="refsect1 description" id="refsect1-mongocollection.find-description">
+  <h3 class="title">Description</h3>
+  <div class="methodsynopsis dc-description">
+   <span class="modifier">public</span> <span class="type"><a href="class.mongocursor.html" class="type MongoCursor">MongoCursor</a></span> <span class="methodname"><b>MongoCollection::find</b></span>
+    ([ <span class="methodparam"><span class="type">array</span> <tt class="parameter">$query</tt><span class="initializer"> = array()</span></span>
+   [, <span class="methodparam"><span class="type">array</span> <tt class="parameter">$fields</tt><span class="initializer"> = array()</span></span>
+  ]] )</div>
+
+ </div>
+
+
+ <div class="refsect1 parameters" id="refsect1-mongocollection.find-parameters">
+  <h3 class="title">Parameters</h3>  
+  <p class="para">
+   <dl>
+
+    <dt>
+
+     <span class="term">
+      <i><tt class="parameter">query</tt></i>
+     </span>
+     <dd>
+
+      <p class="para">
+       The fields for which to search.
+      </p>
+     </dd>
+
+    </dt>
+   
+    <dt>
+
+     <span class="term">
+      <i><tt class="parameter">fields</tt></i>
+     </span>
+     <dd>
+
+      <p class="para">
+       Fields of the results to return.
+      </p>
+     </dd>
+
+    </dt>
+   
+   </dl>
+
+  </p>
+ </div>
+
+
+ <div class="refsect1 returnvalues" id="refsect1-mongocollection.find-returnvalues">
+  <h3 class="title">Return Values</h3>
+  <p class="para">
+   Returns a cursor for the search results.
+  </p>
+ </div>
+
+
+ <div class="refsect1 examples" id="refsect1-mongocollection.find-examples">
+  <h3 class="title">Examples</h3>
+  <div class="example" id="example-1392">
+   <p><b>Example #1 <span class="function"><b>MongoCollection::find()</b></span> example</b></p>
+   <div class="example-contents"><p>This example demonstrates how to search for a range.</p></div>
+   <div class="example-contents">
+<div class="phpcode"><code><span style="color: #000000">
+<span style="color: #0000BB">&lt;?php<br /><br /></span><span style="color: #FF8000">//&nbsp;search&nbsp;for&nbsp;documents&nbsp;where&nbsp;5&nbsp;&lt;&nbsp;x&nbsp;&lt;&nbsp;20<br /></span><span style="color: #0000BB">$rangeQuery&nbsp;</span><span style="color: #007700">=&nbsp;array(</span><span style="color: #DD0000">'x'&nbsp;</span><span style="color: #007700">=&gt;&nbsp;array(&nbsp;</span><span style="color: #DD0000">'$gt'&nbsp;</span><span style="color: #007700">=&gt;&nbsp;</span><span style="color: #0000BB">5</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">'$lt'&nbsp;</span><span style="color: #007700">=&gt;&nbsp;</span><span style="color: #0000BB">20&nbsp;</span><span style="color: #007700">));<br /><br /></span><span style="color: #0000BB">$cursor&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">$collection</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">find</span><span style="color: #007700">(</span><span style="color: #0000BB">$rangeQuery</span><span style="color: #007700">);<br /><br /></span><span style="color: #0000BB">?&gt;</span>
+</span>
+</code></div>
+   </div>
+
+   <div class="example-contents"><p>
+     See <a href="class.mongocursor.html" class="classname">MongoCursor</a> for more information how to work with cursors.
+   </p></div>
+  </div>
+  <div class="example" id="example-1393">
+   <p><b>Example #2 <span class="function"><b>MongoCollection::find()</b></span> example using $where</b></p>
+   <div class="example-contents"><p>This example demonstrates how to search a collection using javascript code to reduce the resultset.</p></div>
+   <div class="example-contents">
+<div class="phpcode"><code><span style="color: #000000">
+<span style="color: #0000BB">&lt;?php<br /><br />$collection&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">$db</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">my_db</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">articles</span><span style="color: #007700">;<br /><br /></span><span style="color: #0000BB">$js&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #DD0000">"function()&nbsp;{<br />&nbsp;&nbsp;return&nbsp;this.type&nbsp;==&nbsp;'homepage'&nbsp;||&nbsp;this.featured&nbsp;==&nbsp;true;<br />}"</span><span style="color: #007700">;<br /></span><span style="color: #0000BB">$articles&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">$collection</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">find</span><span style="color: #007700">(array(</span><span style="color: #DD0000">'$where'&nbsp;</span><span style="color: #007700">=&gt;&nbsp;</span><span style="color: #0000BB">$js</span><span style="color: #007700">));<br /><br /></span><span style="color: #0000BB">?&gt;</span>
+</span>
+</code></div>
+   </div>
+
+  </div>
+  <div class="example" id="example-1394">
+   <p><b>Example #3 <span class="function"><b>MongoCollection::find()</b></span> example using $in</b></p>
+   <div class="example-contents"><p>This example demonstrates how to search a collection using the $in operator.</p></div>
+   <div class="example-contents">
+<div class="phpcode"><code><span style="color: #000000">
+<span style="color: #0000BB">&lt;?php<br /><br />$collection&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">$db</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">my_db</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">articles</span><span style="color: #007700">;<br /></span><span style="color: #0000BB">$articles&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">$collection</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">find</span><span style="color: #007700">(array(<br />&nbsp;&nbsp;</span><span style="color: #DD0000">'type'&nbsp;</span><span style="color: #007700">=&gt;&nbsp;array(</span><span style="color: #DD0000">'$in'&nbsp;</span><span style="color: #007700">=&gt;&nbsp;array(</span><span style="color: #DD0000">'homepage'</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">'editorial'</span><span style="color: #007700">))<br />));<br /><br /></span><span style="color: #0000BB">?&gt;</span>
+</span>
+</code></div>
+   </div>
+
+  </div>
+
+  <div class="example" id="example-1395">
+   <p><b>Example #4 Getting results as an array</b></p>
+   <div class="example-contents"><p>
+    This returns a <a href="class.mongocursor.html" class="classname">MongoCursor</a>.  Often, when people are 
+    starting out, they are more comfortable using an array.  To turn a cursor
+    into an array, use the <span class="function"><a href="function.iterator-to-array.html" class="function">iterator_to_array()</a></span> function.  
+   </p></div>
+   <div class="example-contents">
+<div class="phpcode"><code><span style="color: #000000">
+<span style="color: #0000BB">&lt;?php<br /><br />$cursor&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">$collection</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">find</span><span style="color: #007700">();<br /></span><span style="color: #0000BB">$array&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">iterator_to_array</span><span style="color: #007700">(</span><span style="color: #0000BB">$cursor</span><span style="color: #007700">);<br /><br /></span><span style="color: #0000BB">?&gt;</span>
+</span>
+</code></div>
+   </div>
+
+   <div class="example-contents"><p>
+    Using <span class="function"><a href="function.iterator-to-array.html" class="function">iterator_to_array()</a></span> forces the driver to load all of
+    the results into memory, so do not do this for result sets that are larger
+    than memory!
+   </p></div>
+   <div class="example-contents"><p>
+    Also, certain system collections do not have an <i>_id</i> 
+    field.  If you are dealing with a collection that might have documents 
+    without <i>_id</i>s, pass <b><tt>FALSE</tt></b> as the second argument to
+    <span class="function"><a href="function.iterator-to-array.html" class="function">iterator_to_array()</a></span> (so that it will not try to use the
+    non-existent <i>_id</i> values as keys).
+   </p></div>
+  </div>
+ </div>
+
+
+ <div class="refsect1 seealso" id="refsect1-mongocollection.find-seealso">
+  <h3 class="title">See Also</h3>
+  <p class="para">
+   MongoDB core docs on <a href="http://dochub.mongodb.org/core/find" class="link external">&raquo;&nbsp;find</a>.
+  </p>
+ </div>
+
+
+</div><hr /><div class="manualnavbar" style="text-align: center;">
+ <div class="prev" style="text-align: left; float: left;"><a href="mongocollection.ensureindex.html">MongoCollection::ensureIndex</a></div>
+ <div class="next" style="text-align: right; float: right;"><a href="mongocollection.findone.html">MongoCollection::findOne</a></div>
+ <div class="up"><a href="class.mongocollection.html">MongoCollection</a></div>
+ <div class="home"><a href="index.html">PHP Manual</a></div>
+</div></body></html>

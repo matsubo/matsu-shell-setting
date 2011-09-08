@@ -1,0 +1,136 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+ <head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>Constructs an APCIterator iterator object</title>
+
+ </head>
+ <body><div class="manualnavbar" style="text-align: center;">
+ <div class="prev" style="text-align: left; float: left;"><a href="class.apciterator.html">APCIterator</a></div>
+ <div class="next" style="text-align: right; float: right;"><a href="apciterator.current.html">APCIterator::current</a></div>
+ <div class="up"><a href="class.apciterator.html">APCIterator</a></div>
+ <div class="home"><a href="index.html">PHP Manual</a></div>
+</div><hr /><div id="apciterator.construct" class="refentry">
+ <div class="refnamediv">
+  <h1 class="refname">APCIterator::__construct</h1>
+  <p class="verinfo">(PECL apc &gt;= 3.1.1)</p><p class="refpurpose"><span class="refname">APCIterator::__construct</span> &mdash; <span class="dc-title">Constructs an APCIterator iterator object</span></p>
+
+ </div>
+
+ <div class="refsect1 description" id="refsect1-apciterator.construct-description">
+  <h3 class="title">Description</h3>
+  <div class="methodsynopsis dc-description">
+    <span class="methodname"><b>APCIterator::__construct</b></span>
+    ( <span class="methodparam"><span class="type">string</span> <tt class="parameter">$cache</tt></span>
+   [, <span class="methodparam"><span class="type"><a href="language.pseudo-types.html#language.types.mixed" class="type mixed">mixed</a></span> <tt class="parameter">$search</tt><span class="initializer"> = null</span></span>
+   [, <span class="methodparam"><span class="type">int</span> <tt class="parameter">$format</tt></span>
+   [, <span class="methodparam"><span class="type">int</span> <tt class="parameter">$chunk_size</tt><span class="initializer"> = 100</span></span>
+   [, <span class="methodparam"><span class="type">int</span> <tt class="parameter">$list</tt></span>
+  ]]]] )</div>
+
+  <p class="para rdfs-comment">
+   Constructs an <a href="class.apciterator.html" class="classname">APCIterator</a> <span class="type"><a href="language.types.object.html" class="type object">object</a></span>.
+  </p>
+ </div>
+
+
+ <div class="refsect1 parameters" id="refsect1-apciterator.construct-parameters">
+  <h3 class="title">Parameters</h3>
+  <dl>
+
+   <dt>
+
+    <span class="term"><i><tt class="parameter">cache</tt></i></span>
+    <dd>
+
+     <p class="para">
+      The cache type, which will be <i>user</i> or
+      <i>file</i>.
+     </p>
+    </dd>
+
+   </dt>
+
+   <dt>
+
+    <span class="term"><i><tt class="parameter">search</tt></i></span>
+    <dd>
+
+     <p class="para">
+      A <a href="book.pcre.html" class="link">PCRE</a> regular expression that
+      matches against APC key names, either as a <span class="type"><a href="language.types.string.html" class="type string">string</a></span> for
+      a single regular expression, or as an <span class="type"><a href="language.types.array.html" class="type array">array</a></span> of regular
+      expressions. Or, optionally pass in <b><tt>NULL</tt></b> to skip the search.
+     </p>
+    </dd>
+
+   </dt>
+
+   <dt>
+
+    <span class="term"><i><tt class="parameter">format</tt></i></span>
+    <dd>
+
+     <p class="para">
+      The desired format, as configured with one ore more of the
+      <a href="apc.constants.html" class="link">APC_ITER_*</a> constants.
+     </p>
+    </dd>
+
+   </dt>
+
+   <dt>
+
+    <span class="term"><i><tt class="parameter">chunk_size</tt></i></span>
+    <dd>
+
+     <p class="para">
+      The chunk size. Must be a value greater than 0. The default
+      value is 100.
+     </p>
+    </dd>
+
+   </dt>
+
+   <dt>
+
+    <span class="term"><i><tt class="parameter">list</tt></i></span>
+    <dd>
+
+     <p class="para">
+      The type to list. Either pass in <b><tt>APC_LIST_ACTIVE</tt></b>
+      or <b><tt>APC_LIST_DELETED</tt></b>.
+     </p>
+    </dd>
+
+   </dt>
+
+  </dl>
+
+ </div>
+
+
+ <div class="refsect1 returnvalues" id="refsect1-apciterator.construct-returnvalues">
+  <h3 class="title">Return Values</h3>
+  <p class="para">
+   An <a href="class.apciterator.html" class="classname">APCIterator</a> <span class="type"><a href="language.types.object.html" class="type object">object</a></span> on success,
+   or <b><tt>NULL</tt></b> on failure.
+  </p>
+ </div>
+
+
+ <div class="refsect1 seealso" id="refsect1-apciterator.construct-seealso">
+  <h3 class="title">See Also</h3>
+  <ul class="simplelist">
+   <li class="member"><span class="function"><a href="function.apc-exists.html" class="function" rel="rdfs-seeAlso">apc_exists()</a> - Checks if APC key exists</span></li>
+   <li class="member"><span class="function"><a href="function.apc-cache-info.html" class="function" rel="rdfs-seeAlso">apc_cache_info()</a> - Retrieves cached information from APC's data store</span></li>
+  </ul>
+ </div>
+
+
+</div><hr /><div class="manualnavbar" style="text-align: center;">
+ <div class="prev" style="text-align: left; float: left;"><a href="class.apciterator.html">APCIterator</a></div>
+ <div class="next" style="text-align: right; float: right;"><a href="apciterator.current.html">APCIterator::current</a></div>
+ <div class="up"><a href="class.apciterator.html">APCIterator</a></div>
+ <div class="home"><a href="index.html">PHP Manual</a></div>
+</div></body></html>

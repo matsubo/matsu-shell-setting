@@ -1,0 +1,95 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+ <head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>Sets SoapServer persistence mode</title>
+
+ </head>
+ <body><div class="manualnavbar" style="text-align: center;">
+ <div class="prev" style="text-align: left; float: left;"><a href="soapserver.setobject.html">SoapServer::setObject</a></div>
+ <div class="next" style="text-align: right; float: right;"><a href="soapserver.soapserver.html">SoapServer::SoapServer</a></div>
+ <div class="up"><a href="class.soapserver.html">SoapServer</a></div>
+ <div class="home"><a href="index.html">PHP Manual</a></div>
+</div><hr /><div id="soapserver.setpersistence" class="refentry">
+ <div class="refnamediv">
+  <h1 class="refname">SoapServer::setPersistence</h1>
+  <p class="verinfo">(PHP 5 &gt;= 5.1.2)</p><p class="refpurpose"><span class="refname">SoapServer::setPersistence</span> &mdash; <span class="dc-title">Sets SoapServer persistence mode</span></p>
+
+ </div>
+
+ <div class="refsect1 description" id="refsect1-soapserver.setpersistence-description">
+  <h3 class="title">Description</h3>
+  <div class="methodsynopsis dc-description">
+   <span class="modifier">public</span> <span class="type"><span class="type void">void</span></span> <span class="methodname"><b>SoapServer::setPersistence</b></span>
+    ( <span class="methodparam"><span class="type">int</span> <tt class="parameter">$mode</tt></span>
+   )</div>
+
+  <p class="para rdfs-comment">
+   This function allows saving data between requests in a PHP session. It works only
+   with a server that exports functions from a class with  <span class="methodname"><a href="soapserver.setclass.html" class="methodname">SoapServer::setClass()</a></span>
+   or  <span class="methodname"><a href="soapserver.setobject.html" class="methodname">SoapServer::setObject()</a></span>.
+  </p>
+   <blockquote class="note"><p><b class="note">Note</b>: 
+    <p class="para">
+     The persistence <b><tt>SOAP_PERSISTENCE_SESSION</tt></b> makes only
+     objects of the given class persistent, but not the class static data. In
+     this case, use $this-&gt;bar instead of self::$bar.
+    </p>
+   </p></blockquote>
+ </div>
+
+
+ <div class="refsect1 parameters" id="refsect1-soapserver.setpersistence-parameters">
+  <h3 class="title">Parameters</h3>
+  <p class="para">
+   <dl>
+
+    <dt>
+
+     <span class="term"><i><tt class="parameter">mode</tt></i></span>
+     <dd>
+
+      <p class="para">
+       One of the <i>SOAP_PERSISTENCE_XXX</i> constants.
+      </p>
+      <p class="para">
+       <i>SOAP_PERSISTENCE_REQUEST</i> - persist the object for the duration of a request.
+      </p>
+      <p class="para">
+       <i>SOAP_PERSISTENCE_SESSION</i> - persist the object for the duration of a session.
+      </p>
+     </dd>
+
+    </dt>
+
+   </dl>
+
+  </p>
+ </div>
+
+
+ <div class="refsect1 returnvalues" id="refsect1-soapserver.setpersistence-returnvalues">
+  <h3 class="title">Return Values</h3>
+  <p class="para">
+   No value is returned.
+  </p>
+ </div>
+
+
+ <div class="refsect1 seealso" id="refsect1-soapserver.setpersistence-seealso">
+  <h3 class="title">See Also</h3>
+  <p class="para">
+   <ul class="simplelist">
+    <li class="member"> <span class="methodname"><a href="soapserver.setclass.html" class="methodname" rel="rdfs-seeAlso">SoapServer::setClass()</a> - Sets the class which handles SOAP requests</span></li>
+    <li class="member"> <span class="methodname"><a href="soapserver.setobject.html" class="methodname" rel="rdfs-seeAlso">SoapServer::setObject()</a> - Sets the object which will be used to handle SOAP requests</span></li>
+   </ul>
+  </p>
+ </div>
+
+
+</div><hr /><div class="manualnavbar" style="text-align: center;">
+ <div class="prev" style="text-align: left; float: left;"><a href="soapserver.setobject.html">SoapServer::setObject</a></div>
+ <div class="next" style="text-align: right; float: right;"><a href="soapserver.soapserver.html">SoapServer::SoapServer</a></div>
+ <div class="up"><a href="class.soapserver.html">SoapServer</a></div>
+ <div class="home"><a href="index.html">PHP Manual</a></div>
+</div></body></html>

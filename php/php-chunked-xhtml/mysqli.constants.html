@@ -1,0 +1,786 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+ <head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>Predefined Constants</title>
+
+ </head>
+ <body><div class="manualnavbar" style="text-align: center;">
+ <div class="prev" style="text-align: left; float: left;"><a href="mysqli.persistconns.html">The mysqli Extension and Persistent Connections</a></div>
+ <div class="next" style="text-align: right; float: right;"><a href="mysqli.notes.html">Notes</a></div>
+ <div class="up"><a href="book.mysqli.html">Mysqli</a></div>
+ <div class="home"><a href="index.html">PHP Manual</a></div>
+</div><hr /><div id="mysqli.constants" class="appendix">
+ <h1>Predefined Constants</h1>
+
+ <div class="section">
+  <dl>
+
+   <dt id="constantmysqli-read-default-group">
+    <span class="term"><b><tt>MYSQLI_READ_DEFAULT_GROUP</tt></b></span>
+    <dd>
+
+     <p class="para">
+      Read options from the named group from <var class="filename">my.cnf</var>
+      or the file specified with <b><tt>MYSQLI_READ_DEFAULT_FILE</tt></b>
+     </p>
+    </dd>
+
+   </dt>
+
+   <dt id="constantmysqli-read-default-file">
+    <span class="term"><b><tt>MYSQLI_READ_DEFAULT_FILE</tt></b></span>
+    <dd>
+
+     <p class="para">
+      Read options from the named option file instead of from <var class="filename">my.cnf</var>
+     </p>
+    </dd>
+
+   </dt>
+
+   <dt id="constantmysqli-opt-connect-timeout">
+    <span class="term"><b><tt>MYSQLI_OPT_CONNECT_TIMEOUT</tt></b></span>
+    <dd>
+
+     <p class="para">
+      Connect timeout in seconds
+     </p>
+    </dd>
+
+   </dt>
+
+   <dt id="constantmysqli-opt-local-infile">
+    <span class="term"><b><tt>MYSQLI_OPT_LOCAL_INFILE</tt></b></span>
+    <dd>
+
+     <p class="para">
+      Enables command <i>LOAD LOCAL INFILE</i>
+     </p>
+    </dd>
+
+   </dt>
+
+   <dt id="constantmysqli-init-command">
+    <span class="term"><b><tt>MYSQLI_INIT_COMMAND</tt></b></span>
+    <dd>
+
+     <p class="para">
+      Command to execute when connecting to MySQL server. Will automatically be re-executed when reconnecting.
+     </p>
+    </dd>
+
+   </dt>
+
+   <dt id="constantmysqli-client-ssl">
+    <span class="term"><b><tt>MYSQLI_CLIENT_SSL</tt></b></span>
+    <dd>
+
+     <p class="para">
+      Use SSL (encrypted protocol). This option should not be set by application programs; 
+      it is set internally in the MySQL client library
+     </p>
+    </dd>
+
+   </dt>
+
+   <dt id="constantmysqli-client-compress">
+    <span class="term"><b><tt>MYSQLI_CLIENT_COMPRESS</tt></b></span>
+    <dd>
+
+     <p class="para">
+      Use compression protocol
+     </p>
+    </dd>
+
+   </dt>
+
+   <dt id="constantmysqli-client-interactive">
+    <span class="term"><b><tt>MYSQLI_CLIENT_INTERACTIVE</tt></b></span>
+    <dd>
+
+     <p class="para">
+      Allow <i>interactive_timeout</i> seconds
+      (instead of <i>wait_timeout</i> seconds) of inactivity before
+      closing the connection.  The client&#039;s session
+      <i>wait_timeout</i> variable will be set to
+      the value of the session <i>interactive_timeout</i> variable. 
+     </p>
+    </dd>
+
+   </dt>
+
+   <dt id="constantmysqli-client-ignore-space">
+    <span class="term"><b><tt>MYSQLI_CLIENT_IGNORE_SPACE</tt></b></span>
+    <dd>
+
+     <p class="para">
+      Allow spaces after function names. Makes all functions names reserved words. 
+     </p>
+    </dd>
+
+   </dt>
+
+   <dt id="constantmysqli-client-no-schema">
+    <span class="term"><b><tt>MYSQLI_CLIENT_NO_SCHEMA</tt></b></span>
+    <dd>
+
+     <p class="para">
+      Don&#039;t allow the <i>db_name.tbl_name.col_name</i> syntax.
+     </p>
+    </dd>
+
+   </dt>
+
+   <dt id="constantmysqli-client-multi-queries">
+    <span class="term"><b><tt>MYSQLI_CLIENT_MULTI_QUERIES</tt></b></span>
+    <dd>
+
+     <p class="para">
+      Allows multiple semicolon-delimited queries in a single <span class="function"><a href="mysqli.query.html" class="function">mysqli_query()</a></span> call.
+     </p>
+    </dd>
+
+   </dt>
+
+   <dt id="constantmysqli-store-result">
+    <span class="term"><b><tt>MYSQLI_STORE_RESULT</tt></b></span>
+    <dd>
+
+     <p class="para">
+      For using buffered resultsets
+     </p>
+    </dd>
+
+   </dt>
+
+   <dt id="constantmysqli-use-result">
+    <span class="term"><b><tt>MYSQLI_USE_RESULT</tt></b></span>
+    <dd>
+
+     <p class="para">
+      For using unbuffered resultsets
+     </p>
+    </dd>
+
+   </dt>
+
+   <dt id="constantmysqli-assoc">
+    <span class="term"><b><tt>MYSQLI_ASSOC</tt></b></span>
+    <dd>
+
+     <p class="para">
+      Columns are returned into the array having the fieldname as the array index.
+     </p>
+    </dd>
+
+   </dt>
+
+   <dt id="constantmysqli-num">
+    <span class="term"><b><tt>MYSQLI_NUM</tt></b></span>
+    <dd>
+
+     <p class="para">
+      Columns are returned into the array having an enumerated index.
+     </p>
+    </dd>
+
+   </dt>
+
+   <dt id="constantmysqli-both">
+    <span class="term"><b><tt>MYSQLI_BOTH</tt></b></span>
+    <dd>
+
+     <p class="para">
+      Columns are returned into the array having both a numerical index and the fieldname as the associative index. 
+     </p>
+    </dd>
+
+   </dt>
+
+   <dt id="constantmysqli-not-null-flag">
+    <span class="term"><b><tt>MYSQLI_NOT_NULL_FLAG</tt></b></span>
+    <dd>
+
+     <p class="para">
+      Indicates that a field is defined as <i>NOT NULL</i>
+     </p>
+    </dd>
+
+   </dt>
+
+   <dt id="constantmysqli-pri-key-flag">
+    <span class="term"><b><tt>MYSQLI_PRI_KEY_FLAG</tt></b></span>
+    <dd>
+
+     <p class="para">
+      Field is part of a primary index
+     </p>
+    </dd>
+
+   </dt>
+
+   <dt id="constantmysqli-unique-key-flag">
+    <span class="term"><b><tt>MYSQLI_UNIQUE_KEY_FLAG</tt></b></span>
+    <dd>
+
+     <p class="para">
+      Field is part of a unique index.
+     </p>
+    </dd>
+
+   </dt>
+
+
+   <dt id="constantmysqli-multiple-key-flag">
+    <span class="term"><b><tt>MYSQLI_MULTIPLE_KEY_FLAG</tt></b></span>
+    <dd>
+
+     <p class="para">
+      Field is part of an index.
+     </p>
+    </dd>
+
+   </dt>
+
+   <dt id="constantmysqli-blob-flag">
+    <span class="term"><b><tt>MYSQLI_BLOB_FLAG</tt></b></span>
+    <dd>
+
+     <p class="para">
+      Field is defined as <i>BLOB</i>
+     </p>
+    </dd>
+
+   </dt>
+
+   <dt id="constantmysqli-unsigned-flag">
+    <span class="term"><b><tt>MYSQLI_UNSIGNED_FLAG</tt></b></span>
+    <dd>
+
+     <p class="para">
+      Field is defined as <i>UNSIGNED</i>
+     </p>
+    </dd>
+
+   </dt>
+
+   <dt id="constantmysqli-zerofill-flag">
+    <span class="term"><b><tt>MYSQLI_ZEROFILL_FLAG</tt></b></span>
+    <dd>
+
+     <p class="para">
+      Field is defined as <i>ZEROFILL</i>
+     </p>
+    </dd>
+
+   </dt>
+
+   <dt id="constantmysqli-auto-increment-flag">
+    <span class="term"><b><tt>MYSQLI_AUTO_INCREMENT_FLAG</tt></b></span>
+    <dd>
+
+     <p class="para">
+      Field is defined as <i>AUTO_INCREMENT</i>
+     </p>
+    </dd>
+
+   </dt>
+
+   <dt id="constantmysqli-timestamp-flag">
+    <span class="term"><b><tt>MYSQLI_TIMESTAMP_FLAG</tt></b></span>
+    <dd>
+
+     <p class="para">
+      Field is defined as <i>TIMESTAMP</i>
+     </p>
+    </dd>
+
+   </dt>
+
+   <dt id="constantmysqli-set-flag">
+    <span class="term"><b><tt>MYSQLI_SET_FLAG</tt></b></span>
+    <dd>
+
+     <p class="para">
+      Field is defined as <i>SET</i>
+     </p>
+    </dd>
+
+   </dt>
+
+   <dt id="constantmysqli-num-flag">
+    <span class="term"><b><tt>MYSQLI_NUM_FLAG</tt></b></span>
+    <dd>
+
+     <p class="para">
+      Field is defined as <i>NUMERIC</i>
+     </p>
+    </dd>
+
+   </dt>
+
+   <dt id="constantmysqli-part-key-flag">
+    <span class="term"><b><tt>MYSQLI_PART_KEY_FLAG</tt></b></span>
+    <dd>
+
+     <p class="para">
+      Field is part of an multi-index
+     </p>
+    </dd>
+
+   </dt>
+
+   <dt id="constantmysqli-group-flag">
+    <span class="term"><b><tt>MYSQLI_GROUP_FLAG</tt></b></span>
+    <dd>
+
+     <p class="para">
+      Field is part of <i>GROUP BY</i>
+     </p>
+    </dd>
+
+   </dt>
+
+   <dt id="constantmysqli-type-decimal">
+    <span class="term"><b><tt>MYSQLI_TYPE_DECIMAL</tt></b></span>
+    <dd>
+
+     <p class="para">
+      Field is defined as <i>DECIMAL</i>
+     </p>
+    </dd>
+
+   </dt>
+
+   <dt id="constantmysqli-type-newdecimal">
+    <span class="term"><b><tt>MYSQLI_TYPE_NEWDECIMAL</tt></b></span>
+    <dd>
+
+     <p class="para">
+      Precision math <i>DECIMAL</i> or <i>NUMERIC</i> field (MySQL 5.0.3 and up)
+     </p>
+    </dd>
+
+   </dt>
+
+   <dt id="constantmysqli-type-bit">
+    <span class="term"><b><tt>MYSQLI_TYPE_BIT</tt></b></span>
+    <dd>
+
+     <p class="para">
+      Field is defined as <i>BIT</i> (MySQL 5.0.3 and up)
+     </p>
+    </dd>
+
+   </dt>
+
+   <dt id="constantmysqli-type-tiny">
+    <span class="term"><b><tt>MYSQLI_TYPE_TINY</tt></b></span>
+    <dd>
+
+     <p class="para">
+      Field is defined as <i>TINYINT</i>
+     </p>
+    </dd>
+
+   </dt>
+
+   <dt id="constantmysqli-type-short">
+    <span class="term"><b><tt>MYSQLI_TYPE_SHORT</tt></b></span>
+    <dd>
+
+     <p class="para">
+      Field is defined as <i>SMALLINT</i>
+     </p>
+    </dd>
+
+   </dt>
+
+   <dt id="constantmysqli-type-long">
+    <span class="term"><b><tt>MYSQLI_TYPE_LONG</tt></b></span>
+    <dd>
+
+     <p class="para">
+      Field is defined as <i>INT</i>
+     </p>
+    </dd>
+
+   </dt>
+
+   <dt id="constantmysqli-type-fload">
+    <span class="term"><b><tt>MYSQLI_TYPE_FLOAT</tt></b></span>
+    <dd>
+
+     <p class="para">
+      Field is defined as <i>FLOAT</i>
+     </p>
+    </dd>
+
+   </dt>
+
+   <dt id="constantmysqli-type-double">
+    <span class="term"><b><tt>MYSQLI_TYPE_DOUBLE</tt></b></span>
+    <dd>
+
+     <p class="para">
+      Field is defined as <i>DOUBLE</i>
+     </p>
+    </dd>
+
+   </dt>
+
+   <dt id="constantmysqli-type-null">
+    <span class="term"><b><tt>MYSQLI_TYPE_NULL</tt></b></span>
+    <dd>
+
+     <p class="para">
+      Field is defined as <i>DEFAULT NULL</i>
+     </p>
+    </dd>
+
+   </dt>
+
+   <dt id="constantmysqli-type-timestamp">
+    <span class="term"><b><tt>MYSQLI_TYPE_TIMESTAMP</tt></b></span>
+    <dd>
+
+     <p class="para">
+      Field is defined as <i>TIMESTAMP</i>
+     </p>
+    </dd>
+
+   </dt>
+
+   <dt id="constantmysqli-type-longlong">
+    <span class="term"><b><tt>MYSQLI_TYPE_LONGLONG</tt></b></span>
+    <dd>
+
+     <p class="para">
+      Field is defined as <i>BIGINT</i>
+     </p>
+    </dd>
+
+   </dt>
+
+   <dt id="constantmysqli-type-int24">
+    <span class="term"><b><tt>MYSQLI_TYPE_INT24</tt></b></span>
+    <dd>
+
+     <p class="para">
+      Field is defined as <i>MEDIUMINT</i>
+     </p>
+    </dd>
+
+   </dt>
+
+   <dt id="constantmysqli-type-date">
+    <span class="term"><b><tt>MYSQLI_TYPE_DATE</tt></b></span>
+    <dd>
+
+     <p class="para">
+      Field is defined as <i>DATE</i>
+     </p>
+    </dd>
+
+   </dt>
+
+   <dt id="constantmysqli-type-time">
+    <span class="term"><b><tt>MYSQLI_TYPE_TIME</tt></b></span>
+    <dd>
+
+     <p class="para">
+      Field is defined as <i>TIME</i>
+     </p>
+    </dd>
+
+   </dt>
+
+   <dt id="constantmysqli-type-datetime">
+    <span class="term"><b><tt>MYSQLI_TYPE_DATETIME</tt></b></span>
+    <dd>
+
+     <p class="para">
+      Field is defined as <i>DATETIME</i>
+     </p>
+    </dd>
+
+   </dt>
+
+   <dt id="constantmysqli-type-year">
+    <span class="term"><b><tt>MYSQLI_TYPE_YEAR</tt></b></span>
+    <dd>
+
+     <p class="para">
+      Field is defined as <i>YEAR</i>
+     </p>
+    </dd>
+
+   </dt>
+
+   <dt id="constantmysqli-type-newdate">
+    <span class="term"><b><tt>MYSQLI_TYPE_NEWDATE</tt></b></span>
+    <dd>
+
+     <p class="para">
+      Field is defined as <i>DATE</i>
+     </p>
+    </dd>
+
+   </dt>
+
+   <dt id="constantmysqli-type-interval">
+    <span class="term"><b><tt>MYSQLI_TYPE_INTERVAL</tt></b></span>
+    <dd>
+
+     <p class="para">
+      Field is defined as <i>INTERVAL</i>
+     </p>
+    </dd>
+
+   </dt>
+
+   <dt id="constantmysqli-type-enum">
+    <span class="term"><b><tt>MYSQLI_TYPE_ENUM</tt></b></span>
+    <dd>
+
+     <p class="para">
+      Field is defined as <i>ENUM</i>
+     </p>
+    </dd>
+
+   </dt>
+
+   <dt id="constantmysqli-type-set">
+    <span class="term"><b><tt>MYSQLI_TYPE_SET</tt></b></span>
+    <dd>
+
+     <p class="para">
+      Field is defined as <i>SET</i>
+     </p>
+    </dd>
+
+   </dt>
+
+   <dt id="constantmysqli-type-tiny-blob">
+    <span class="term"><b><tt>MYSQLI_TYPE_TINY_BLOB</tt></b></span>
+    <dd>
+
+     <p class="para">
+      Field is defined as <i>TINYBLOB</i>
+     </p>
+    </dd>
+
+   </dt>
+
+   <dt id="constantmysqli-type-medium-blob">
+    <span class="term"><b><tt>MYSQLI_TYPE_MEDIUM_BLOB</tt></b></span>
+    <dd>
+
+     <p class="para">
+      Field is defined as <i>MEDIUMBLOB</i>
+     </p>
+    </dd>
+
+   </dt>
+
+   <dt id="constantmysqli-type-long-blob">
+    <span class="term"><b><tt>MYSQLI_TYPE_LONG_BLOB</tt></b></span>
+    <dd>
+
+     <p class="para">
+      Field is defined as <i>LONGBLOB</i>
+     </p>
+    </dd>
+
+   </dt>
+
+   <dt id="constantmysqli-type-blob">
+    <span class="term"><b><tt>MYSQLI_TYPE_BLOB</tt></b></span>
+    <dd>
+
+     <p class="para">
+      Field is defined as <i>BLOB</i>
+     </p>
+    </dd>
+
+   </dt>
+
+   <dt id="constantmysqli-type-var-string">
+    <span class="term"><b><tt>MYSQLI_TYPE_VAR_STRING</tt></b></span>
+    <dd>
+
+     <p class="para">
+      Field is defined as <i>VARCHAR</i>
+     </p>
+    </dd>
+
+   </dt>
+
+   <dt id="constantmysqli-type-string">
+    <span class="term"><b><tt>MYSQLI_TYPE_STRING</tt></b></span>
+    <dd>
+
+     <p class="para">
+      Field is defined as <i>STRING</i>
+     </p>
+    </dd>
+
+   </dt>
+
+   <dt id="constantmysqli-type-char">
+    <span class="term"><b><tt>MYSQLI_TYPE_CHAR</tt></b></span>
+    <dd>
+
+     <p class="para">
+      Field is defined as <i>CHAR</i>
+     </p>
+    </dd>
+
+   </dt>
+
+   <dt id="constantmysqli-type-geometry">
+    <span class="term"><b><tt>MYSQLI_TYPE_GEOMETRY</tt></b></span>
+    <dd>
+
+     <p class="para">
+      Field is defined as <i>GEOMETRY</i>
+     </p>
+    </dd>
+
+   </dt>
+
+   <dt id="constantmysqli-need-data">
+    <span class="term"><b><tt>MYSQLI_NEED_DATA</tt></b></span>
+    <dd>
+
+     <p class="para">
+      More data available for bind variable
+     </p>
+    </dd>
+
+   </dt>
+
+   <dt id="constantmysqli-no-data">
+    <span class="term"><b><tt>MYSQLI_NO_DATA</tt></b></span>
+    <dd>
+
+     <p class="para">
+      No more data available for bind variable
+     </p>
+    </dd>
+
+   </dt>
+
+   <dt id="constantmysqli-data-truncated">
+    <span class="term"><b><tt>MYSQLI_DATA_TRUNCATED</tt></b></span>
+    <dd>
+
+     <p class="para">
+      Data truncation occurred. Available since PHP 5.1.0 and MySQL 5.0.5.
+     </p>
+    </dd>
+
+   </dt>
+
+   <dt id="constantmysqli-enum-flag">
+    <span class="term"><b><tt>MYSQLI_ENUM_FLAG</tt></b></span>
+    <dd>
+
+     <p class="para">
+     Field is defined as <i>ENUM</i>. Available since PHP 5.3.0.
+     </p>
+    </dd>
+
+   </dt>
+
+   <dt id="constantmysqli-cursor-type-for-update">
+    <span class="term"><b><tt>MYSQLI_CURSOR_TYPE_FOR_UPDATE</tt></b></span>
+    <dd>
+
+     <p class="para">
+     </p>
+    </dd>
+
+   </dt>
+
+   <dt id="constantmysqli-cursor-type-no-cursor">
+    <span class="term"><b><tt>MYSQLI_CURSOR_TYPE_NO_CURSOR</tt></b></span>
+    <dd>
+
+     <p class="para">
+     </p>
+    </dd>
+
+   </dt>
+
+   <dt id="constantmysqli-cursor-type-read-only">
+    <span class="term"><b><tt>MYSQLI_CURSOR_TYPE_READ_ONLY</tt></b></span>
+    <dd>
+
+     <p class="para">
+     </p>
+    </dd>
+
+   </dt>
+
+   <dt id="constantmysqli-cursor-type-scrollable">
+    <span class="term"><b><tt>MYSQLI_CURSOR_TYPE_SCROLLABLE</tt></b></span>
+    <dd>
+
+     <p class="para">
+     </p>
+    </dd>
+
+   </dt>
+
+   <dt id="constantmysqli-stmt-attr-cursor-type">
+    <span class="term"><b><tt>MYSQLI_STMT_ATTR_CURSOR_TYPE</tt></b></span>
+    <dd>
+
+     <p class="para">
+     </p>
+    </dd>
+
+   </dt>
+
+   <dt id="constantmysqli-stmt-attr-prefetch-rows">
+    <span class="term"><b><tt>MYSQLI_STMT_ATTR_PREFETCH_ROWS</tt></b></span>
+    <dd>
+
+     <p class="para">
+     </p>
+    </dd>
+
+   </dt>
+
+   <dt id="constantmysqli-stmt-attr-update-max-length">
+    <span class="term"><b><tt>MYSQLI_STMT_ATTR_UPDATE_MAX_LENGTH</tt></b></span>
+    <dd>
+
+     <p class="para">
+     </p>
+    </dd>
+
+   </dt>
+
+   <dt id="constantmysqli-set-charset-name">
+    <span class="term"><b><tt>MYSQLI_SET_CHARSET_NAME</tt></b></span>
+    <dd>
+
+     <p class="para">
+     </p>
+    </dd>
+
+   </dt>
+
+  </dl>
+
+ </div>
+</div>
+<hr /><div class="manualnavbar" style="text-align: center;">
+ <div class="prev" style="text-align: left; float: left;"><a href="mysqli.persistconns.html">The mysqli Extension and Persistent Connections</a></div>
+ <div class="next" style="text-align: right; float: right;"><a href="mysqli.notes.html">Notes</a></div>
+ <div class="up"><a href="book.mysqli.html">Mysqli</a></div>
+ <div class="home"><a href="index.html">PHP Manual</a></div>
+</div></body></html>

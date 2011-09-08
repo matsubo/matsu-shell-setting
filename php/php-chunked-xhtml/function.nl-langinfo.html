@@ -1,0 +1,365 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+ <head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>Query language and locale information</title>
+
+ </head>
+ <body><div class="manualnavbar" style="text-align: center;">
+ <div class="prev" style="text-align: left; float: left;"><a href="function.money-format.html">money_format</a></div>
+ <div class="next" style="text-align: right; float: right;"><a href="function.nl2br.html">nl2br</a></div>
+ <div class="up"><a href="ref.strings.html">String Functions</a></div>
+ <div class="home"><a href="index.html">PHP Manual</a></div>
+</div><hr /><div id="function.nl-langinfo" class="refentry">
+ <div class="refnamediv">
+  <h1 class="refname">nl_langinfo</h1>
+  <p class="verinfo">(PHP 4 &gt;= 4.1.0, PHP 5)</p><p class="refpurpose"><span class="refname">nl_langinfo</span> &mdash; <span class="dc-title">Query language and locale information</span></p>
+
+ </div>
+ 
+ <div class="refsect1 description" id="refsect1-function.nl-langinfo-description">
+  <h3 class="title">Description</h3>
+  <div class="methodsynopsis dc-description">
+   <span class="type">string</span> <span class="methodname"><b>nl_langinfo</b></span>
+    ( <span class="methodparam"><span class="type">int</span> <tt class="parameter">$item</tt></span>
+   )</div>
+
+  <p class="para rdfs-comment">
+   <span class="function"><b>nl_langinfo()</b></span> is used to access individual elements of
+   the locale categories.  Unlike <span class="function"><a href="function.localeconv.html" class="function">localeconv()</a></span>, which
+   returns all of the elements, <span class="function"><b>nl_langinfo()</b></span> allows you
+   to select any specific element.
+  </p>
+ </div>
+
+
+ <div class="refsect1 parameters" id="refsect1-function.nl-langinfo-parameters">
+  <h3 class="title">Parameters</h3>
+  <p class="para">
+   <dl>
+
+    <dt>
+
+     <span class="term"><i><tt class="parameter">item</tt></i></span>
+     <dd>
+
+      <p class="para">
+       <i><tt class="parameter">item</tt></i> may be an integer value of the element or the
+       constant name of the element. The following is a list of constant names
+       for <i><tt class="parameter">item</tt></i> that may be used and their description.
+       Some of these constants may not be defined or hold no value for certain
+       locales.
+       <table class="doctable table">
+        <caption><b>nl_langinfo Constants</b></caption>
+        
+         <col align="left" />
+         <col align="left" />
+         <thead valign="middle">
+          <tr valign="middle">
+           <th>Constant</th>
+           <th>Description</th>
+          </tr>
+
+         </thead>
+
+         <tbody valign="middle" class="tbody">
+          <tr valign="middle">
+           <td colspan="2" align="center"><em class="emphasis">LC_TIME Category Constants</em></td>
+          </tr>
+
+          <tr valign="middle">
+           <td align="left"><b><tt>ABDAY_(1-7)</tt></b></td>
+           <td align="left">Abbreviated name of n-th day of the week.</td>
+          </tr>
+
+          <tr valign="middle">
+           <td align="left"><b><tt>DAY_(1-7)</tt></b></td>
+           <td align="left">Name of the n-th day of the week (DAY_1 = Sunday).</td>
+          </tr>
+
+          <tr valign="middle">
+           <td align="left"><b><tt>ABMON_(1-12)</tt></b></td>
+           <td align="left">Abbreviated name of the n-th month of the year.</td>
+          </tr>
+
+          <tr valign="middle">
+           <td align="left"><b><tt>MON_(1-12)</tt></b></td>
+           <td align="left">Name of the n-th month of the year.</td>
+          </tr>
+
+          <tr valign="middle">
+           <td align="left"><b><tt>AM_STR</tt></b></td>
+           <td align="left">String for Ante meridian.</td>
+          </tr>
+
+          <tr valign="middle">
+           <td align="left"><b><tt>PM_STR</tt></b></td>
+           <td align="left">String for Post meridian.</td>
+          </tr>
+
+          <tr valign="middle">
+           <td align="left"><b><tt>D_T_FMT</tt></b></td>
+           <td align="left">String that can be used as the format string for <span class="function"><a href="function.strftime.html" class="function">strftime()</a></span> to represent time and date.</td>
+          </tr>
+
+          <tr valign="middle">
+           <td align="left"><b><tt>D_FMT</tt></b></td>
+           <td align="left">String that can be used as the format string for <span class="function"><a href="function.strftime.html" class="function">strftime()</a></span> to represent date.</td>
+          </tr>
+
+          <tr valign="middle">
+           <td align="left"><b><tt>T_FMT</tt></b></td>
+           <td align="left">String that can be used as the format string for <span class="function"><a href="function.strftime.html" class="function">strftime()</a></span> to represent time.</td>
+          </tr>
+
+          <tr valign="middle">
+           <td align="left"><b><tt>T_FMT_AMPM</tt></b></td>
+           <td align="left">String that can be used as the format string for <span class="function"><a href="function.strftime.html" class="function">strftime()</a></span> to represent time in 12-hour format with ante/post meridian.</td>
+          </tr>
+
+          <tr valign="middle">
+           <td align="left"><b><tt>ERA</tt></b></td>
+           <td align="left">Alternate era.</td>
+          </tr>
+
+          <tr valign="middle">
+           <td align="left"><b><tt>ERA_YEAR</tt></b></td>
+           <td align="left">Year in alternate era format.</td>
+          </tr>
+
+          <tr valign="middle">
+           <td align="left"><b><tt>ERA_D_T_FMT</tt></b></td>
+           <td align="left">Date and time in alternate era format (string can be used in <span class="function"><a href="function.strftime.html" class="function">strftime()</a></span>).</td>
+          </tr>
+
+          <tr valign="middle">
+           <td align="left"><b><tt>ERA_D_FMT</tt></b></td>
+           <td align="left">Date in alternate era format (string can be used in <span class="function"><a href="function.strftime.html" class="function">strftime()</a></span>).</td>
+          </tr>
+
+          <tr valign="middle">
+           <td align="left"><b><tt>ERA_T_FMT</tt></b></td>
+           <td align="left">Time in alternate era format (string can be used in <span class="function"><a href="function.strftime.html" class="function">strftime()</a></span>).</td>
+          </tr>
+
+          <tr valign="middle">
+           <td colspan="2" align="center"><em class="emphasis">LC_MONETARY Category Constants</em></td>
+          </tr>
+
+          <tr valign="middle">
+           <td align="left"><b><tt>INT_CURR_SYMBOL</tt></b></td>
+           <td align="left">International currency symbol.</td>
+          </tr>
+
+          <tr valign="middle">
+           <td align="left"><b><tt>CURRENCY_SYMBOL</tt></b></td>
+           <td align="left">Local currency symbol.</td>
+          </tr>
+
+          <tr valign="middle">
+           <td align="left"><b><tt>CRNCYSTR</tt></b></td>
+           <td align="left">Same value as <b><tt>CURRENCY_SYMBOL</tt></b>.</td>
+          </tr>
+
+          <tr valign="middle">
+           <td align="left"><b><tt>MON_DECIMAL_POINT</tt></b></td>
+           <td align="left">Decimal point character.</td>
+          </tr>
+
+          <tr valign="middle">
+           <td align="left"><b><tt>MON_THOUSANDS_SEP</tt></b></td>
+           <td align="left">Thousands separator (groups of three digits).</td>
+          </tr>
+
+          <tr valign="middle">
+           <td align="left"><b><tt>MON_GROUPING</tt></b></td>
+           <td align="left">Like <i>&quot;grouping&quot;</i> element.</td>
+          </tr>
+
+          <tr valign="middle">
+           <td align="left"><b><tt>POSITIVE_SIGN</tt></b></td>
+           <td align="left">Sign for positive values.</td>
+          </tr>
+
+          <tr valign="middle">
+           <td align="left"><b><tt>NEGATIVE_SIGN</tt></b></td>
+           <td align="left">Sign for negative values.</td>
+          </tr>
+
+          <tr valign="middle">
+           <td align="left"><b><tt>INT_FRAC_DIGITS</tt></b></td>
+           <td align="left">International fractional digits.</td>
+          </tr>
+
+          <tr valign="middle">
+           <td align="left"><b><tt>FRAC_DIGITS</tt></b></td>
+           <td align="left">Local fractional digits.</td>
+          </tr>
+
+          <tr valign="middle">
+           <td align="left"><b><tt>P_CS_PRECEDES</tt></b></td>
+           <td align="left">Returns 1 if <b><tt>CURRENCY_SYMBOL</tt></b> precedes a positive value.</td>
+          </tr>
+
+          <tr valign="middle">
+           <td align="left"><b><tt>P_SEP_BY_SPACE</tt></b></td>
+           <td align="left">Returns 1 if a space separates <b><tt>CURRENCY_SYMBOL</tt></b> from a positive value.</td>
+          </tr>
+
+          <tr valign="middle">
+           <td align="left"><b><tt>N_CS_PRECEDES</tt></b></td>
+           <td align="left">Returns 1 if <b><tt>CURRENCY_SYMBOL</tt></b> precedes a negative value.</td>
+          </tr>
+
+          <tr valign="middle">
+           <td align="left"><b><tt>N_SEP_BY_SPACE</tt></b></td>
+           <td align="left">Returns 1 if a space separates <b><tt>CURRENCY_SYMBOL</tt></b> from a negative value.</td>
+          </tr>
+
+          <tr valign="middle">
+           <td align="left"><b><tt>P_SIGN_POSN</tt></b></td>
+           <td rowspan="2" align="left" valign="middle">
+            <ul class="itemizedlist">
+             <li class="listitem">
+              <span class="simpara">
+                Returns 0 if parentheses surround the quantity and <b><tt>CURRENCY_SYMBOL</tt></b>.
+              </span>
+             </li>
+             <li class="listitem">
+              <span class="simpara">
+               Returns 1 if the sign string precedes the quantity and <b><tt>CURRENCY_SYMBOL</tt></b>.
+              </span>
+             </li>
+             <li class="listitem">
+              <span class="simpara">
+               Returns 2 if the sign string follows the quantity and <b><tt>CURRENCY_SYMBOL</tt></b>.
+              </span>
+             </li>
+             <li class="listitem">
+              <span class="simpara">
+               Returns 3 if the sign string immediately precedes the <b><tt>CURRENCY_SYMBOL</tt></b>.
+              </span>
+             </li>
+             <li class="listitem">
+              <span class="simpara">
+               Returns 4 if the sign string immediately follows the <b><tt>CURRENCY_SYMBOL</tt></b>.
+              </span>
+             </li>
+            </ul>
+           </td>
+          </tr>
+
+          <tr valign="middle">
+           <td align="left"><b><tt>N_SIGN_POSN</tt></b></td>
+          </tr>
+
+          <tr valign="middle">
+           <td colspan="2" align="center"><em class="emphasis">LC_NUMERIC Category Constants</em></td>
+          </tr>
+
+          <tr valign="middle">
+           <td align="left"><b><tt>DECIMAL_POINT</tt></b></td>
+           <td align="left">Decimal point character.</td>
+          </tr>
+
+          <tr valign="middle">
+           <td align="left"><b><tt>RADIXCHAR</tt></b></td>
+           <td align="left">Same value as <b><tt>DECIMAL_POINT</tt></b>.</td>
+          </tr>
+
+          <tr valign="middle">
+           <td align="left"><b><tt>THOUSANDS_SEP</tt></b></td>
+           <td align="left">Separator character for thousands (groups of three digits).</td>
+          </tr>
+
+          <tr valign="middle">
+           <td align="left"><b><tt>THOUSEP</tt></b></td>
+           <td align="left">Same value as <b><tt>THOUSANDS_SEP</tt></b>.</td>
+          </tr>
+
+          <tr valign="middle">
+           <td align="left"><b><tt>GROUPING</tt></b></td>
+           <td class="empty">&nbsp;</td>
+          </tr>
+
+          <tr valign="middle">
+           <td colspan="2" align="center"><em class="emphasis">LC_MESSAGES Category Constants</em></td>
+          </tr>
+
+          <tr valign="middle">
+           <td align="left"><b><tt>YESEXPR</tt></b></td>
+           <td align="left">Regex string for matching <i>&quot;yes&quot;</i> input.</td>
+          </tr>
+
+          <tr valign="middle">
+           <td align="left"><b><tt>NOEXPR</tt></b></td>
+           <td align="left">Regex string for matching <i>&quot;no&quot;</i> input.</td>
+          </tr>
+
+          <tr valign="middle">
+           <td align="left"><b><tt>YESSTR</tt></b></td>
+           <td align="left">Output string for <i>&quot;yes&quot;</i>.</td>
+          </tr>
+
+          <tr valign="middle">
+           <td align="left"><b><tt>NOSTR</tt></b></td>
+           <td align="left">Output string for <i>&quot;no&quot;</i>.</td>
+          </tr>
+
+          <tr valign="middle">
+           <td colspan="2" align="center"><em class="emphasis">LC_CTYPE Category Constants</em></td>
+          </tr>
+
+          <tr valign="middle">
+           <td align="left"><b><tt>CODESET</tt></b></td>
+           <td align="left">Return a string with the name of the character encoding.</td>
+          </tr>
+
+         </tbody>
+        
+       </table>
+
+      </p>
+     </dd>
+
+    </dt>
+
+   </dl>
+
+  </p>
+ </div>
+
+
+ <div class="refsect1 returnvalues" id="refsect1-function.nl-langinfo-returnvalues">
+  <h3 class="title">Return Values</h3>
+  <p class="para">
+   Returns the element as a string, or <b><tt>FALSE</tt></b> if <i><tt class="parameter">item</tt></i>
+   is not valid.
+  </p>
+ </div>
+
+
+ <div class="refsect1 notes" id="refsect1-function.nl-langinfo-notes">
+  <h3 class="title">Notes</h3>
+  <blockquote class="note"><p><b class="note">Note</b>: <span class="simpara">This function is not
+implemented on Windows platforms.</span></p></blockquote>
+ </div>
+
+
+ <div class="refsect1 seealso" id="refsect1-function.nl-langinfo-seealso">
+  <h3 class="title">See Also</h3>
+  <p class="para">
+   <ul class="simplelist">
+    <li class="member"><span class="function"><a href="function.setlocale.html" class="function" rel="rdfs-seeAlso">setlocale()</a> - Set locale information</span></li>
+    <li class="member"><span class="function"><a href="function.localeconv.html" class="function" rel="rdfs-seeAlso">localeconv()</a> - Get numeric formatting information</span></li>
+   </ul>
+  </p>
+ </div>
+
+
+</div><hr /><div class="manualnavbar" style="text-align: center;">
+ <div class="prev" style="text-align: left; float: left;"><a href="function.money-format.html">money_format</a></div>
+ <div class="next" style="text-align: right; float: right;"><a href="function.nl2br.html">nl2br</a></div>
+ <div class="up"><a href="ref.strings.html">String Functions</a></div>
+ <div class="home"><a href="index.html">PHP Manual</a></div>
+</div></body></html>

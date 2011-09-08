@@ -1,0 +1,92 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+ <head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>Retrieve the name of the local or remote sockets</title>
+
+ </head>
+ <body><div class="manualnavbar" style="text-align: center;">
+ <div class="prev" style="text-align: left; float: left;"><a href="function.stream-socket-enable-crypto.html">stream_socket_enable_crypto</a></div>
+ <div class="next" style="text-align: right; float: right;"><a href="function.stream-socket-pair.html">stream_socket_pair</a></div>
+ <div class="up"><a href="ref.stream.html">Stream Functions</a></div>
+ <div class="home"><a href="index.html">PHP Manual</a></div>
+</div><hr /><div id="function.stream-socket-get-name" class="refentry">
+ <div class="refnamediv">
+  <h1 class="refname">stream_socket_get_name</h1>
+  <p class="verinfo">(PHP 5)</p><p class="refpurpose"><span class="refname">stream_socket_get_name</span> &mdash; <span class="dc-title">Retrieve the name of the local or remote sockets</span></p>
+
+ </div>
+ 
+ <div class="refsect1 description" id="refsect1-function.stream-socket-get-name-description">
+  <h3 class="title">Description</h3>
+  <div class="methodsynopsis dc-description">
+   <span class="type">string</span> <span class="methodname"><b>stream_socket_get_name</b></span>
+    ( <span class="methodparam"><span class="type">resource</span> <tt class="parameter">$handle</tt></span>
+   , <span class="methodparam"><span class="type">bool</span> <tt class="parameter">$want_peer</tt></span>
+   )</div>
+
+  <p class="para rdfs-comment">
+   Returns the local or remote name of a given socket connection.
+  </p>
+ </div>
+
+
+ <div class="refsect1 parameters" id="refsect1-function.stream-socket-get-name-parameters">
+  <h3 class="title">Parameters</h3>
+  <p class="para">
+   <dl>
+
+    <dt>
+
+     <span class="term"><i><tt class="parameter">handle</tt></i></span>
+     <dd>
+
+      <p class="para">
+       The socket to get the name of.
+      </p>
+     </dd>
+
+    </dt>
+
+    <dt>
+
+     <span class="term"><i><tt class="parameter">want_peer</tt></i></span>
+     <dd>
+
+      <p class="para">
+       If set to <b><tt>TRUE</tt></b> the <i>remote</i> socket name will be returned, if set
+       to <b><tt>FALSE</tt></b> the <i>local</i> socket name will be returned.
+      </p>
+     </dd>
+
+    </dt>
+
+   </dl>
+
+  </p>
+ </div>
+
+
+ <div class="refsect1 returnvalues" id="refsect1-function.stream-socket-get-name-returnvalues">
+  <h3 class="title">Return Values</h3>
+  <p class="para">
+   The name of the socket.
+  </p>
+ </div>
+
+
+ <div class="refsect1 seealso" id="refsect1-function.stream-socket-get-name-seealso">
+  <h3 class="title">See Also</h3>
+  <p class="para">
+   <ul class="simplelist">
+    <li class="member"><span class="function"><a href="function.stream-socket-accept.html" class="function" rel="rdfs-seeAlso">stream_socket_accept()</a> - Accept a connection on a socket created by stream_socket_server</span></li>
+   </ul>
+  </p>
+ </div>
+
+</div><hr /><div class="manualnavbar" style="text-align: center;">
+ <div class="prev" style="text-align: left; float: left;"><a href="function.stream-socket-enable-crypto.html">stream_socket_enable_crypto</a></div>
+ <div class="next" style="text-align: right; float: right;"><a href="function.stream-socket-pair.html">stream_socket_pair</a></div>
+ <div class="up"><a href="ref.stream.html">Stream Functions</a></div>
+ <div class="home"><a href="index.html">PHP Manual</a></div>
+</div></body></html>

@@ -1,0 +1,215 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+ <head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>Prepare an event</title>
+
+ </head>
+ <body><div class="manualnavbar" style="text-align: center;">
+ <div class="prev" style="text-align: left; float: left;"><a href="function.event-new.html">event_new</a></div>
+ <div class="next" style="text-align: right; float: right;"><a href="book.pcntl.html">PCNTL</a></div>
+ <div class="up"><a href="ref.libevent.html">Libevent Functions</a></div>
+ <div class="home"><a href="index.html">PHP Manual</a></div>
+</div><hr /><div id="function.event-set" class="refentry">
+ <div class="refnamediv">
+  <h1 class="refname">event_set</h1>
+  <p class="verinfo">(PECL libevent &gt;= 0.0.1)</p><p class="refpurpose"><span class="refname">event_set</span> &mdash; <span class="dc-title">Prepare an event</span></p>
+
+ </div>
+ 
+ <div class="refsect1 description" id="refsect1-function.event-set-description">
+  <h3 class="title">Description</h3>
+  <div class="methodsynopsis dc-description">
+   <span class="type">bool</span> <span class="methodname"><b>event_set</b></span>
+    ( <span class="methodparam"><span class="type">resource</span> <tt class="parameter">$event</tt></span>
+   , <span class="methodparam"><span class="type"><a href="language.pseudo-types.html#language.types.mixed" class="type mixed">mixed</a></span> <tt class="parameter">$fd</tt></span>
+   , <span class="methodparam"><span class="type">int</span> <tt class="parameter">$events</tt></span>
+   , <span class="methodparam"><span class="type"><a href="language.pseudo-types.html#language.types.mixed" class="type mixed">mixed</a></span> <tt class="parameter">$callback</tt></span>
+   [, <span class="methodparam"><span class="type"><a href="language.pseudo-types.html#language.types.mixed" class="type mixed">mixed</a></span> <tt class="parameter">$arg</tt></span>
+  ] )</div>
+
+  <p class="para rdfs-comment">
+   Prepares the event to be used in <span class="function"><a href="function.event_add.html" class="function">event_add()</a></span>. The event
+   is prepared to call the function specified by the <i><tt class="parameter">callback</tt></i> 
+   on the events specified in parameter <i><tt class="parameter">events</tt></i>, which
+   is a set of the following flags: <b><tt>EV_TIMEOUT</tt></b>, 
+   <b><tt>EV_SIGNAL</tt></b>, <b><tt>EV_READ</tt></b>, 
+   <b><tt>EV_WRITE</tt></b> and <b><tt>EV_PERSIST</tt></b>.
+  </p> 
+  <p class="para">
+   If <b><tt>EV_SIGNAL</tt></b> bit is set in parameter <i><tt class="parameter">events</tt></i>,
+   the <i><tt class="parameter">fd</tt></i> is interpreted as signal number.
+  </p>
+  <p class="para">
+   After initializing the event, use <span class="function"><a href="function.event-base-set.html" class="function">event_base_set()</a></span> to
+   associate the event with its event base.
+  </p>
+  <p class="para">
+   In case of matching event, these three arguments are passed to the
+   <i><tt class="parameter">callback</tt></i> function: 
+   <dl>
+
+    <dt>
+
+     <span class="term"><i><tt class="parameter">fd</tt></i></span>
+     <dd>
+
+      <p class="para">
+       Signal number or resource indicating the stream.
+      </p>
+     </dd>
+
+    </dt>
+
+    <dt>
+
+     <span class="term"><i><tt class="parameter">events</tt></i></span>
+     <dd>
+
+      <p class="para">
+       A flag indicating the event. Consists of the following flags:
+       <b><tt>EV_TIMEOUT</tt></b>, <b><tt>EV_SIGNAL</tt></b>, 
+       <b><tt>EV_READ</tt></b>, <b><tt>EV_WRITE</tt></b>
+       and <b><tt>EV_PERSIST</tt></b>.
+      </p>
+     </dd>
+
+    </dt>
+
+    <dt>
+
+     <span class="term"><i><tt class="parameter">arg</tt></i></span>
+     <dd>
+
+      <p class="para">
+       Optional parameter, previously passed to <span class="function"><b>event_set()</b></span>
+       as <i><tt class="parameter">arg</tt></i>.
+      </p>
+     </dd>
+
+    </dt>
+
+   </dl>
+
+  </p>
+ </div>
+
+
+ <div class="refsect1 parameters" id="refsect1-function.event-set-parameters">
+  <h3 class="title">Parameters</h3>
+  <p class="para">
+   <dl>
+
+    <dt>
+
+     <span class="term"><i><tt class="parameter">event</tt></i></span>
+     <dd>
+
+      <p class="para">
+       Valid event resource.
+      </p>
+     </dd>
+
+    </dt>
+
+    <dt>
+
+     <span class="term"><i><tt class="parameter">fd</tt></i></span>
+     <dd>
+
+      <p class="para">
+       Valid PHP stream resource. The stream must be castable to file
+       descriptor, so you most likely won&#039;t be able to use any of filtered
+       streams.
+      </p>
+     </dd>
+
+    </dt>
+
+    <dt>
+
+     <span class="term"><i><tt class="parameter">events</tt></i></span>
+     <dd>
+
+      <p class="para">
+       A set of flags indicating the desired event, can be
+       <b><tt>EV_READ</tt></b> and/or <b><tt>EV_WRITE</tt></b>.
+       The additional flag <b><tt>EV_PERSIST</tt></b> makes the event
+       to persist until <span class="function"><a href="function.event-del.html" class="function">event_del()</a></span> is called, otherwise
+       the callback is invoked only once. 
+      </p>
+     </dd>
+
+    </dt>
+
+    <dt>
+
+     <span class="term"><i><tt class="parameter">callback</tt></i></span>
+     <dd>
+
+      <p class="para">
+       Callback function to be called when the matching event occurs.
+      </p>
+     </dd>
+
+    </dt>
+
+    <dt>
+
+     <span class="term"><i><tt class="parameter">arg</tt></i></span>
+     <dd>
+
+      <p class="para">
+       Optional callback parameter.
+      </p>
+     </dd>
+
+    </dt>
+
+   </dl>
+
+  </p>
+ </div>
+
+
+ <div class="refsect1 returnvalues" id="refsect1-function.event-set-returnvalues">
+  <h3 class="title">Return Values</h3>
+  <p class="para">
+   <span class="function"><b>event_set()</b></span> returns <b><tt>TRUE</tt></b> on success or <b><tt>FALSE</tt></b> on error.
+  </p>
+ </div>
+
+
+ <div class="refsect1 changelog" id="refsect1-function.event-set-changelog">
+  <h3 class="title">Changelog</h3>
+  <table class="doctable informaltable">
+   
+    <thead valign="middle">
+     <tr valign="middle">
+      <th>Version</th>
+      <th>Description</th>
+     </tr>
+
+    </thead>
+
+    <tbody valign="middle" class="tbody">
+     <tr valign="middle">
+      <td align="left">0.0.4</td>
+      <td align="left">
+       <b><tt>EV_SIGNAL</tt></b> support was added.
+      </td>
+     </tr>
+
+    </tbody>
+   
+  </table>
+
+ </div>
+
+
+</div><hr /><div class="manualnavbar" style="text-align: center;">
+ <div class="prev" style="text-align: left; float: left;"><a href="function.event-new.html">event_new</a></div>
+ <div class="next" style="text-align: right; float: right;"><a href="book.pcntl.html">PCNTL</a></div>
+ <div class="up"><a href="ref.libevent.html">Libevent Functions</a></div>
+ <div class="home"><a href="index.html">PHP Manual</a></div>
+</div></body></html>

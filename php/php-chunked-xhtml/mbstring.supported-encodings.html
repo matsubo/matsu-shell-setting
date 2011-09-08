@@ -1,0 +1,114 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+ <head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>Supported Character Encodings</title>
+
+ </head>
+ <body><div class="manualnavbar" style="text-align: center;">
+ <div class="prev" style="text-align: left; float: left;"><a href="mbstring.http.html">HTTP Input and Output</a></div>
+ <div class="next" style="text-align: right; float: right;"><a href="mbstring.overload.html">Function Overloading Feature</a></div>
+ <div class="up"><a href="book.mbstring.html">Multibyte String</a></div>
+ <div class="home"><a href="index.html">PHP Manual</a></div>
+</div><hr /><div id="mbstring.supported-encodings" class="chapter">
+ <h1>Supported Character Encodings</h1>
+
+ <p class="simpara">
+  Currently the following character encodings are supported by the
+  <i>mbstring</i> module. Any of those Character encodings
+  can be specified in the <i>encoding</i> parameter of
+  <i>mbstring</i> functions.
+ </p>
+ <p class="para">
+  The following character encodings are supported in this PHP
+  extension: 
+ </p>
+ <ul class="itemizedlist">
+  <li class="listitem"><span class="simpara">UCS-4*</span></li>
+  <li class="listitem"><span class="simpara">UCS-4BE</span></li>
+  <li class="listitem"><span class="simpara">UCS-4LE*</span></li>
+  <li class="listitem"><span class="simpara">UCS-2</span></li>
+  <li class="listitem"><span class="simpara">UCS-2BE</span></li>
+  <li class="listitem"><span class="simpara">UCS-2LE</span></li>
+  <li class="listitem"><span class="simpara">UTF-32*</span></li>
+  <li class="listitem"><span class="simpara">UTF-32BE*</span></li>
+  <li class="listitem"><span class="simpara">UTF-32LE*</span></li>
+  <li class="listitem"><span class="simpara">UTF-16*</span></li>
+  <li class="listitem"><span class="simpara">UTF-16BE*</span></li>
+  <li class="listitem"><span class="simpara">UTF-16LE*</span></li>
+  <li class="listitem"><span class="simpara">UTF-7</span></li>
+  <li class="listitem"><span class="simpara">UTF7-IMAP</span></li>
+  <li class="listitem"><span class="simpara">UTF-8*</span></li>
+  <li class="listitem"><span class="simpara">ASCII*</span></li>
+  <li class="listitem"><span class="simpara">EUC-JP*</span></li>
+  <li class="listitem"><span class="simpara">SJIS*</span></li>
+  <li class="listitem"><span class="simpara">eucJP-win*</span></li>
+  <li class="listitem"><span class="simpara">SJIS-win*</span></li>
+  <li class="listitem"><span class="simpara">ISO-2022-JP</span></li>
+  <li class="listitem"><span class="simpara">JIS</span></li>
+  <li class="listitem"><span class="simpara">ISO-8859-1*</span></li>
+  <li class="listitem"><span class="simpara">ISO-8859-2*</span></li>
+  <li class="listitem"><span class="simpara">ISO-8859-3*</span></li>
+  <li class="listitem"><span class="simpara">ISO-8859-4*</span></li>
+  <li class="listitem"><span class="simpara">ISO-8859-5*</span></li>
+  <li class="listitem"><span class="simpara">ISO-8859-6*</span></li>
+  <li class="listitem"><span class="simpara">ISO-8859-7*</span></li>
+  <li class="listitem"><span class="simpara">ISO-8859-8*</span></li>
+  <li class="listitem"><span class="simpara">ISO-8859-9*</span></li>
+  <li class="listitem"><span class="simpara">ISO-8859-10*</span></li>
+  <li class="listitem"><span class="simpara">ISO-8859-13*</span></li>
+  <li class="listitem"><span class="simpara">ISO-8859-14*</span></li>
+  <li class="listitem"><span class="simpara">ISO-8859-15*</span></li>
+  <li class="listitem"><span class="simpara">byte2be</span></li>
+  <li class="listitem"><span class="simpara">byte2le</span></li>
+  <li class="listitem"><span class="simpara">byte4be</span></li>
+  <li class="listitem"><span class="simpara">byte4le</span></li>
+  <li class="listitem"><span class="simpara">BASE64</span></li>
+  <li class="listitem"><span class="simpara">HTML-ENTITIES</span></li>
+  <li class="listitem"><span class="simpara">7bit</span></li>
+  <li class="listitem"><span class="simpara">8bit</span></li>
+  <li class="listitem"><span class="simpara">EUC-CN*</span></li>
+  <li class="listitem"><span class="simpara">CP936</span></li>
+  <li class="listitem"><span class="simpara">HZ</span></li>
+  <li class="listitem"><span class="simpara">EUC-TW*</span></li>
+  <li class="listitem"><span class="simpara">CP950</span></li>
+  <li class="listitem"><span class="simpara">BIG-5*</span></li>
+  <li class="listitem"><span class="simpara">EUC-KR*</span></li>
+  <li class="listitem"><span class="simpara">UHC (CP949)</span></li>
+  <li class="listitem"><span class="simpara">ISO-2022-KR</span></li>
+  <li class="listitem"><span class="simpara">Windows-1251 (CP1251)</span></li>
+  <li class="listitem"><span class="simpara">Windows-1252 (CP1252)</span></li>
+  <li class="listitem"><span class="simpara">CP866 (IBM866)</span></li>
+  <li class="listitem"><span class="simpara">KOI8-R*</span></li>
+ </ul>
+ <p class="para">
+  * denotes encodings usable also in regular expressions.
+ </p>
+ <p class="para">
+  Any <var class="filename">php.ini</var> entry which accepts an encoding name
+  can also use the values &quot;<i>auto</i>&quot; and
+  &quot;<i>pass</i>&quot;.
+  <i>mbstring</i> functions which accept an encoding
+  name can also use the value &quot;<i>auto</i>&quot;.
+ </p>
+ <p class="para">
+  If &quot;<i>pass</i>&quot; is set, no character
+  encoding conversion is performed.
+ </p>
+ <p class="para">
+  If &quot;<i>auto</i>&quot; is set, it is expanded to
+  the list of encodings defined per the <a href="mbstring.configuration.html" class="link">NLS</a>.
+  For instance, if the NLS is set to <i>Japanese</i>,
+  the value is assumed to be
+  &quot;<i>ASCII,JIS,UTF-8,EUC-JP,SJIS</i>&quot;.
+ </p>
+ <p class="para">
+  See also <span class="function"><a href="function.mb-detect-order.html" class="function">mb_detect_order()</a></span>
+ </p>
+</div>
+<hr /><div class="manualnavbar" style="text-align: center;">
+ <div class="prev" style="text-align: left; float: left;"><a href="mbstring.http.html">HTTP Input and Output</a></div>
+ <div class="next" style="text-align: right; float: right;"><a href="mbstring.overload.html">Function Overloading Feature</a></div>
+ <div class="up"><a href="book.mbstring.html">Multibyte String</a></div>
+ <div class="home"><a href="index.html">PHP Manual</a></div>
+</div></body></html>

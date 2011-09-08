@@ -1,0 +1,515 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+ <head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>Predefined Constants</title>
+
+ </head>
+ <body><div class="manualnavbar" style="text-align: center;">
+ <div class="prev" style="text-align: left; float: left;"><a href="sqlite.resources.html">Resource Types</a></div>
+ <div class="next" style="text-align: right; float: right;"><a href="ref.sqlite.html">SQLite Functions</a></div>
+ <div class="up"><a href="book.sqlite.html">SQLite</a></div>
+ <div class="home"><a href="index.html">PHP Manual</a></div>
+</div><hr /><div id="sqlite.constants" class="appendix">
+ <h1>Predefined Constants</h1>
+
+ <p class="simpara">
+The constants below are defined by this extension, and
+will only be available when the extension has either
+been compiled into PHP or dynamically loaded at runtime.
+</p>
+ <p class="para">
+  The functions <span class="function"><a href="function.sqlite-fetch-array.html" class="function">sqlite_fetch_array()</a></span> and
+  <span class="function"><a href="function.sqlite-current.html" class="function">sqlite_current()</a></span> use a constant for
+  the different types of result arrays. The following constants are
+  defined:
+ </p>
+ <dl>
+
+  <strong class="title">SQLite result type constants</strong>
+  <dt>
+
+   <span class="term">
+    <b><tt>SQLITE_ASSOC</tt></b> 
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </span>
+   <dd>
+
+    <span class="simpara">
+     Columns are returned into the array having the field name as the array
+     index.
+    </span>
+   </dd>
+
+  </dt>
+
+  <dt>
+
+   <span class="term">
+    <b><tt>SQLITE_BOTH</tt></b> 
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </span>
+   <dd>
+
+    <span class="simpara">
+     Columns are returned into the array having both a numerical index
+     and the field name as the array index.
+    </span>
+   </dd>
+
+  </dt>
+
+  <dt>
+
+   <span class="term">
+    <b><tt>SQLITE_NUM</tt></b> 
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </span>
+   <dd>
+
+    <span class="simpara">
+     Columns are returned into the array having a numerical index to the
+     fields. This index starts with 0, the first field in the result.
+    </span>
+   </dd>
+
+  </dt>
+
+ </dl>
+
+ <p class="para">
+  A number of functions may return status codes.  The following constants are
+  defined:
+ </p>
+ <dl>
+
+  <strong class="title">SQLite status code constants</strong>
+  <dt>
+
+   <span class="term">
+    <b><tt>SQLITE_OK</tt></b> 
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </span>
+   <dd>
+
+    <span class="simpara">
+     Successful result.
+    </span>
+   </dd>
+
+  </dt>
+
+  <dt>
+
+   <span class="term">
+    <b><tt>SQLITE_ERROR</tt></b> 
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </span>
+   <dd>
+
+    <span class="simpara">
+     SQL error or missing database.
+    </span>
+   </dd>
+
+  </dt>
+
+  <dt>
+
+   <span class="term">
+    <b><tt>SQLITE_INTERNAL</tt></b> 
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </span>
+   <dd>
+
+    <span class="simpara">
+     An internal logic error in SQLite.
+    </span>
+   </dd>
+
+  </dt>
+
+  <dt>
+
+   <span class="term">
+    <b><tt>SQLITE_PERM</tt></b> 
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </span>
+   <dd>
+
+    <span class="simpara">
+     Access permission denied.
+    </span>
+   </dd>
+
+  </dt>
+
+  <dt>
+
+   <span class="term">
+    <b><tt>SQLITE_ABORT</tt></b> 
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </span>
+   <dd>
+
+    <span class="simpara">
+     Callback routine requested an abort.
+    </span>
+   </dd>
+
+  </dt>
+
+  <dt>
+
+   <span class="term">
+    <b><tt>SQLITE_BUSY</tt></b> 
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </span>
+   <dd>
+
+    <span class="simpara">
+     The database file is locked.
+    </span>
+   </dd>
+
+  </dt>
+
+  <dt>
+
+   <span class="term">
+    <b><tt>SQLITE_LOCKED</tt></b> 
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </span>
+   <dd>
+
+    <span class="simpara">
+     A table in the database is locked.
+    </span>
+   </dd>
+
+  </dt>
+
+  <dt>
+
+   <span class="term">
+    <b><tt>SQLITE_NOMEM</tt></b> 
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </span>
+   <dd>
+
+    <span class="simpara">
+     Memory allocation failed.
+    </span>
+   </dd>
+
+  </dt>
+
+  <dt>
+
+   <span class="term">
+    <b><tt>SQLITE_READONLY</tt></b> 
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </span>
+   <dd>
+
+    <span class="simpara">
+     Attempt to write a readonly database.
+    </span>
+   </dd>
+
+  </dt>
+
+  <dt>
+
+   <span class="term">
+    <b><tt>SQLITE_INTERRUPT</tt></b> 
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </span>
+   <dd>
+
+    <span class="simpara">
+     Operation terminated internally.
+    </span>
+   </dd>
+
+  </dt>
+
+  <dt>
+
+   <span class="term">
+    <b><tt>SQLITE_IOERR</tt></b> 
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </span>
+   <dd>
+
+    <span class="simpara">
+     Disk I/O error occurred.
+    </span>
+   </dd>
+
+  </dt>
+
+  <dt>
+
+   <span class="term">
+    <b><tt>SQLITE_NOTADB</tt></b> 
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </span>
+   <dd>
+
+    <span class="simpara">
+     File opened that is not a database file.
+    </span>
+   </dd>
+
+  </dt>
+
+  <dt>
+
+   <span class="term">
+    <b><tt>SQLITE_CORRUPT</tt></b> 
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </span>
+   <dd>
+
+    <span class="simpara">
+     The database disk image is malformed.
+    </span>
+   </dd>
+
+  </dt>
+
+  <dt>
+
+   <span class="term">
+    <b><tt>SQLITE_FORMAT</tt></b> 
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </span>
+   <dd>
+
+    <span class="simpara">
+     Auxiliary database format error.
+    </span>
+   </dd>
+
+  </dt>
+
+  <dt>
+
+   <span class="term">
+    <b><tt>SQLITE_NOTFOUND</tt></b> 
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </span>
+   <dd>
+
+    <span class="simpara">
+     (Internal) Table or record not found.
+    </span>
+   </dd>
+
+  </dt>
+
+  <dt>
+
+   <span class="term">
+    <b><tt>SQLITE_FULL</tt></b> 
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </span>
+   <dd>
+
+    <span class="simpara">
+     Insertion failed because database is full.
+    </span>
+   </dd>
+
+  </dt>
+
+  <dt>
+
+   <span class="term">
+    <b><tt>SQLITE_CANTOPEN</tt></b> 
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </span>
+   <dd>
+
+    <span class="simpara">
+     Unable to open the database file.
+    </span>
+   </dd>
+
+  </dt>
+
+  <dt>
+
+   <span class="term">
+    <b><tt>SQLITE_PROTOCOL</tt></b> 
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </span>
+   <dd>
+
+    <span class="simpara">
+     Database lock protocol error.
+    </span>
+   </dd>
+
+  </dt>
+
+  <dt>
+
+   <span class="term">
+    <b><tt>SQLITE_EMPTY</tt></b> 
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </span>
+   <dd>
+
+    <span class="simpara">
+     (Internal) Database table is empty.
+    </span>
+   </dd>
+
+  </dt>
+
+  <dt>
+
+   <span class="term">
+    <b><tt>SQLITE_SCHEMA</tt></b> 
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </span>
+   <dd>
+
+    <span class="simpara">
+     The database schema changed.
+    </span>
+   </dd>
+
+  </dt>
+
+  <dt>
+
+   <span class="term">
+    <b><tt>SQLITE_TOOBIG</tt></b> 
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </span>
+   <dd>
+
+    <span class="simpara">
+     Too much data for one row of a table.
+    </span>
+   </dd>
+
+  </dt>
+
+  <dt>
+
+   <span class="term">
+    <b><tt>SQLITE_CONSTRAINT</tt></b> 
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </span>
+   <dd>
+
+    <span class="simpara">
+     Abort due to constraint violation.
+    </span>
+   </dd>
+
+  </dt>
+
+  <dt>
+
+   <span class="term">
+    <b><tt>SQLITE_MISMATCH</tt></b> 
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </span>
+   <dd>
+
+    <span class="simpara">
+     Data type mismatch.
+    </span>
+   </dd>
+
+  </dt>
+
+  <dt>
+
+   <span class="term">
+    <b><tt>SQLITE_MISUSE</tt></b> 
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </span>
+   <dd>
+
+    <span class="simpara">
+     Library used incorrectly.
+    </span>
+   </dd>
+
+  </dt>
+
+  <dt>
+
+   <span class="term">
+    <b><tt>SQLITE_NOLFS</tt></b> 
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </span>
+   <dd>
+
+    <span class="simpara">
+     Uses of OS features not supported on host.
+    </span>
+   </dd>
+
+  </dt>
+
+  <dt>
+
+   <span class="term">
+    <b><tt>SQLITE_AUTH</tt></b> 
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </span>
+   <dd>
+
+    <span class="simpara">
+     Authorized failed.
+    </span>
+   </dd>
+
+  </dt>
+
+  <dt>
+
+   <span class="term">
+    <b><tt>SQLITE_ROW</tt></b> 
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </span>
+   <dd>
+
+    <span class="simpara">
+     Internal process has another row ready.
+    </span>
+   </dd>
+
+  </dt>
+
+  <dt>
+
+   <span class="term">
+    <b><tt>SQLITE_DONE</tt></b> 
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </span>
+   <dd>
+
+    <span class="simpara">
+     Internal process has finished executing.
+    </span>
+   </dd>
+
+  </dt>
+
+ </dl>
+
+</div>
+<hr /><div class="manualnavbar" style="text-align: center;">
+ <div class="prev" style="text-align: left; float: left;"><a href="sqlite.resources.html">Resource Types</a></div>
+ <div class="next" style="text-align: right; float: right;"><a href="ref.sqlite.html">SQLite Functions</a></div>
+ <div class="up"><a href="book.sqlite.html">SQLite</a></div>
+ <div class="home"><a href="index.html">PHP Manual</a></div>
+</div></body></html>

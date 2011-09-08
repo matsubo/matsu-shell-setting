@@ -1,0 +1,251 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+ <head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>The SWFShape class</title>
+
+ </head>
+ <body><div class="manualnavbar" style="text-align: center;">
+ <div class="prev" style="text-align: left; float: left;"><a href="function.swfprebuiltclip.construct.html">SWFPrebuiltClip-&gt;__construct</a></div>
+ <div class="next" style="text-align: right; float: right;"><a href="function.swfshape.addfill.html">SWFShape-&gt;addFill</a></div>
+ <div class="up"><a href="book.ming.html">Ming</a></div>
+ <div class="home"><a href="index.html">PHP Manual</a></div>
+</div><hr /><div id="class.swfshape" class="reference">
+ <h1 class="title">The SWFShape class</h1>
+ 
+ 
+ <div class="partintro">
+ 
+
+  <div class="section" id="swfshape.intro">
+   <h2 class="title">Introduction</h2>
+   <p class="para">
+    SWFShape.
+   </p>
+  </div>
+
+ 
+  <div class="section" id="swfshape.synopsis">
+   <h2 class="title">Class synopsis</h2>
+ 
+
+   <div class="classsynopsis">
+    <div class="ooclass"></div>
+ 
+
+    <div class="classsynopsisinfo">
+     <span class="ooclass">
+      <b class="classname">SWFShape</b>
+     </span>
+     {</div>
+
+ 
+    <div class="classsynopsisinfo classsynopsisinfo_comment">/* Methods */</div>
+    <div class="methodsynopsis dc-description">
+    <span class="type">SWFFill</span> <span class="methodname"><a href="function.swfshape.addfill.html" class="methodname">SWFShape::addFill</a></span>
+     ( <span class="methodparam"><span class="type">int</span> <tt class="parameter">$red</tt></span>
+    , <span class="methodparam"><span class="type">int</span> <tt class="parameter">$green</tt></span>
+    , <span class="methodparam"><span class="type">int</span> <tt class="parameter">$blue</tt></span>
+    [, <span class="methodparam"><span class="type">int</span> <tt class="parameter">$alpha</tt><span class="initializer"> = 255</span></span>
+   ] )</div>
+<div class="methodsynopsis dc-description">
+    <span class="type">SWFShape</span> <span class="methodname"><b>__construct</b></span>
+     ( <span class="methodparam">void</span>
+    )</div>
+<div class="methodsynopsis dc-description">
+    <span class="type">void</span> <span class="methodname"><b>drawArc</b></span>
+     ( <span class="methodparam"><span class="type">float</span> <tt class="parameter">$r</tt></span>
+    , <span class="methodparam"><span class="type">float</span> <tt class="parameter">$startAngle</tt></span>
+    , <span class="methodparam"><span class="type">float</span> <tt class="parameter">$endAngle</tt></span>
+    )</div>
+<div class="methodsynopsis dc-description">
+    <span class="type">void</span> <span class="methodname"><b>drawCircle</b></span>
+     ( <span class="methodparam"><span class="type">float</span> <tt class="parameter">$r</tt></span>
+    )</div>
+<div class="methodsynopsis dc-description">
+    <span class="type">int</span> <span class="methodname"><b>drawCubic</b></span>
+     ( <span class="methodparam"><span class="type">float</span> <tt class="parameter">$bx</tt></span>
+    , <span class="methodparam"><span class="type">float</span> <tt class="parameter">$by</tt></span>
+    , <span class="methodparam"><span class="type">float</span> <tt class="parameter">$cx</tt></span>
+    , <span class="methodparam"><span class="type">float</span> <tt class="parameter">$cy</tt></span>
+    , <span class="methodparam"><span class="type">float</span> <tt class="parameter">$dx</tt></span>
+    , <span class="methodparam"><span class="type">float</span> <tt class="parameter">$dy</tt></span>
+    )</div>
+<div class="methodsynopsis dc-description">
+    <span class="type">int</span> <span class="methodname"><b>drawCubicTo</b></span>
+     ( <span class="methodparam"><span class="type">float</span> <tt class="parameter">$bx</tt></span>
+    , <span class="methodparam"><span class="type">float</span> <tt class="parameter">$by</tt></span>
+    , <span class="methodparam"><span class="type">float</span> <tt class="parameter">$cx</tt></span>
+    , <span class="methodparam"><span class="type">float</span> <tt class="parameter">$cy</tt></span>
+    , <span class="methodparam"><span class="type">float</span> <tt class="parameter">$dx</tt></span>
+    , <span class="methodparam"><span class="type">float</span> <tt class="parameter">$dy</tt></span>
+    )</div>
+<div class="methodsynopsis dc-description">
+    <span class="type">int</span> <span class="methodname"><b>drawCurve</b></span>
+     ( <span class="methodparam"><span class="type">float</span> <tt class="parameter">$controldx</tt></span>
+    , <span class="methodparam"><span class="type">float</span> <tt class="parameter">$controldy</tt></span>
+    , <span class="methodparam"><span class="type">float</span> <tt class="parameter">$anchordx</tt></span>
+    , <span class="methodparam"><span class="type">float</span> <tt class="parameter">$anchordy</tt></span>
+    [, <span class="methodparam"><span class="type">float</span> <tt class="parameter">$targetdx</tt></span>
+    ], <span class="methodparam"><span class="type">float</span> <tt class="parameter">$targetdy</tt></span>
+    )</div>
+<div class="methodsynopsis dc-description">
+    <span class="type">int</span> <span class="methodname"><b>drawCurveTo</b></span>
+     ( <span class="methodparam"><span class="type">float</span> <tt class="parameter">$controlx</tt></span>
+    , <span class="methodparam"><span class="type">float</span> <tt class="parameter">$controly</tt></span>
+    , <span class="methodparam"><span class="type">float</span> <tt class="parameter">$anchorx</tt></span>
+    , <span class="methodparam"><span class="type">float</span> <tt class="parameter">$anchory</tt></span>
+    [, <span class="methodparam"><span class="type">float</span> <tt class="parameter">$targetx</tt></span>
+    ], <span class="methodparam"><span class="type">float</span> <tt class="parameter">$targety</tt></span>
+    )</div>
+<div class="methodsynopsis dc-description">
+    <span class="type">void</span> <span class="methodname"><b>drawGlyph</b></span>
+     ( <span class="methodparam"><span class="type"><a href="class.swffont.html" class="type SWFFont">SWFFont</a></span> <tt class="parameter">$font</tt></span>
+    , <span class="methodparam"><span class="type">string</span> <tt class="parameter">$character</tt></span>
+    [, <span class="methodparam"><span class="type">int</span> <tt class="parameter">$size</tt></span>
+   ] )</div>
+<div class="methodsynopsis dc-description">
+    <span class="type">void</span> <span class="methodname"><b>drawLine</b></span>
+     ( <span class="methodparam"><span class="type">float</span> <tt class="parameter">$dx</tt></span>
+    , <span class="methodparam"><span class="type">float</span> <tt class="parameter">$dy</tt></span>
+    )</div>
+<div class="methodsynopsis dc-description">
+    <span class="type">void</span> <span class="methodname"><b>drawLineTo</b></span>
+     ( <span class="methodparam"><span class="type">float</span> <tt class="parameter">$x</tt></span>
+    , <span class="methodparam"><span class="type">float</span> <tt class="parameter">$y</tt></span>
+    )</div>
+<div class="methodsynopsis dc-description">
+    <span class="type">void</span> <span class="methodname"><b>movePen</b></span>
+     ( <span class="methodparam"><span class="type">float</span> <tt class="parameter">$dx</tt></span>
+    , <span class="methodparam"><span class="type">float</span> <tt class="parameter">$dy</tt></span>
+    )</div>
+<div class="methodsynopsis dc-description">
+    <span class="type">void</span> <span class="methodname"><b>movePenTo</b></span>
+     ( <span class="methodparam"><span class="type">float</span> <tt class="parameter">$x</tt></span>
+    , <span class="methodparam"><span class="type">float</span> <tt class="parameter">$y</tt></span>
+    )</div>
+<div class="methodsynopsis dc-description">
+    <span class="type">void</span> <span class="methodname"><b>setLeftFill</b></span>
+     ( <span class="methodparam"><span class="type"><a href="class.swfgradient.html" class="type SWFGradient">SWFGradient</a></span> <tt class="parameter">$fill</tt></span>
+    )</div>
+<div class="methodsynopsis dc-description">
+    <span class="type">void</span> <span class="methodname"><b>setLine</b></span>
+     ( <span class="methodparam"><span class="type"><a href="class.swfshape.html" class="type SWFShape">SWFShape</a></span> <tt class="parameter">$shape</tt></span>
+    )</div>
+<div class="methodsynopsis dc-description">
+    <span class="type">void</span> <span class="methodname"><b>setRightFill</b></span>
+     ( <span class="methodparam"><span class="type"><a href="class.swfgradient.html" class="type SWFGradient">SWFGradient</a></span> <tt class="parameter">$fill</tt></span>
+    )</div>
+
+ 
+   }</div>
+
+ 
+  </div>
+ </div>
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+<h2>Table of Contents</h2><ul class="chunklist chunklist_reference"><li><a href="function.swfshape.addfill.html">SWFShape-&gt;addFill</a> — Adds a solid fill to the shape</li><li><a href="function.swfshape.construct.html">SWFShape-&gt;__construct</a> — Creates a new shape object</li><li><a href="function.swfshape.drawarc.html">SWFShape-&gt;drawArc</a> — Draws an arc of radius r centered at the current location, from angle startAngle to angle endAngle measured clockwise from 12 o'clock</li><li><a href="function.swfshape.drawcircle.html">SWFShape-&gt;drawCircle</a> — Draws a circle of radius r centered at the current location, in a counter-clockwise fashion</li><li><a href="function.swfshape.drawcubic.html">SWFShape-&gt;drawCubic</a> — Draws a cubic bezier curve using the current position and the three given points as control points</li><li><a href="function.swfshape.drawcubicto.html">SWFShape-&gt;drawCubicTo</a> — Draws a cubic bezier curve using the current position and the three given points as control points</li><li><a href="function.swfshape.drawcurve.html">SWFShape-&gt;drawCurve</a> — Draws a curve (relative)</li><li><a href="function.swfshape.drawcurveto.html">SWFShape-&gt;drawCurveTo</a> — Draws a curve</li><li><a href="function.swfshape.drawglyph.html">SWFShape-&gt;drawGlyph</a> — Draws the first character in the given string into the shape using the glyph definition from the given font</li><li><a href="function.swfshape.drawline.html">SWFShape-&gt;drawLine</a> — Draws a line (relative)</li><li><a href="function.swfshape.drawlineto.html">SWFShape-&gt;drawLineTo</a> — Draws a line</li><li><a href="function.swfshape.movepen.html">SWFShape-&gt;movePen</a> — Moves the shape's pen (relative)</li><li><a href="function.swfshape.movepento.html">SWFShape-&gt;movePenTo</a> — Moves the shape's pen</li><li><a href="function.swfshape.setleftfill.html">SWFShape-&gt;setLeftFill</a> — Sets left rasterizing color</li><li><a href="function.swfshape.setline.html">SWFShape-&gt;setLine</a> — Sets the shape's line style</li><li><a href="function.swfshape.setrightfill.html">SWFShape-&gt;setRightFill</a> — Sets right rasterizing color</li></ul>
+</div>
+<hr /><div class="manualnavbar" style="text-align: center;">
+ <div class="prev" style="text-align: left; float: left;"><a href="function.swfprebuiltclip.construct.html">SWFPrebuiltClip-&gt;__construct</a></div>
+ <div class="next" style="text-align: right; float: right;"><a href="function.swfshape.addfill.html">SWFShape-&gt;addFill</a></div>
+ <div class="up"><a href="book.ming.html">Ming</a></div>
+ <div class="home"><a href="index.html">PHP Manual</a></div>
+</div></body></html>

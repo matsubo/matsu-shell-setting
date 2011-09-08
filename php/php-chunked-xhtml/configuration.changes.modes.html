@@ -1,0 +1,85 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+ <head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>Where a configuration setting may be set</title>
+
+ </head>
+ <body><div class="manualnavbar" style="text-align: center;">
+ <div class="prev" style="text-align: left; float: left;"><a href="configuration.file.per-user.html">.user.ini files</a></div>
+ <div class="next" style="text-align: right; float: right;"><a href="configuration.changes.html">How to change configuration settings</a></div>
+ <div class="up"><a href="configuration.html">Runtime Configuration</a></div>
+ <div class="home"><a href="index.html">PHP Manual</a></div>
+</div><hr /><div id="configuration.changes.modes" class="sect1">
+   <h2 class="title">Where a configuration setting may be set</h2>
+
+   <p class="para">
+    These modes determine when and where a PHP directive may or may not
+    be set, and each directive within the manual refers to one of these
+    modes. For example, some settings may be set within a PHP script
+    using <span class="function"><a href="function.ini-set.html" class="function">ini_set()</a></span>, whereas others may require 
+    <var class="filename">php.ini</var> or <var class="filename">httpd.conf</var>.
+   </p>
+
+   <p class="para">
+    For example, the 
+    <a href="outcontrol.configuration.html#ini.output-buffering" class="link">output_buffering</a> setting
+    is <i>PHP_INI_PERDIR</i> therefore it may not be set using
+    <span class="function"><a href="function.ini-set.html" class="function">ini_set()</a></span>. However, the
+    <a href="errorfunc.configuration.html#ini.display-errors" class="link">display_errors</a> directive is
+    <i>PHP_INI_ALL</i> therefore it may be set anywhere,
+    including with <span class="function"><a href="function.ini-set.html" class="function">ini_set()</a></span>.
+   </p>
+
+   <p class="para">
+    <table class="doctable table">
+     <caption><b>Definition of PHP_INI_* modes</b></caption>
+     
+      <thead valign="middle">
+       <tr valign="middle">
+        <th>Mode</th>
+        <th>Value</th>
+        <th>Meaning</th>
+       </tr>
+
+      </thead>
+
+      <tbody valign="middle" class="tbody">
+       <tr valign="middle">
+        <td align="left"><i>PHP_INI_USER</i></td>
+        <td align="left">1</td>
+        <td align="left">
+         Entry can be set in user scripts (like with <span class="function"><a href="function.ini-set.html" class="function">ini_set()</a></span>)
+         or in the <a href="configuration.changes.html#configuration.changes.windows" class="link">Windows registry</a>
+        </td>
+       </tr>
+
+       <tr valign="middle">
+        <td align="left"><i>PHP_INI_PERDIR</i></td>
+        <td align="left">6</td>
+        <td align="left">Entry can be set in <var class="filename">php.ini</var>, <var class="filename">.htaccess</var> or <var class="filename">httpd.conf</var></td>
+       </tr>
+
+       <tr valign="middle">
+        <td align="left"><i>PHP_INI_SYSTEM</i></td>
+        <td align="left">4</td>
+        <td align="left">Entry can be set in <var class="filename">php.ini</var> or <var class="filename">httpd.conf</var></td>
+       </tr>
+
+       <tr valign="middle">
+        <td align="left"><i>PHP_INI_ALL</i></td>
+        <td align="left">7</td>
+        <td align="left">Entry can be set anywhere</td>
+       </tr>
+
+      </tbody>
+     
+    </table>
+
+   </p>
+  </div><hr /><div class="manualnavbar" style="text-align: center;">
+ <div class="prev" style="text-align: left; float: left;"><a href="configuration.file.per-user.html">.user.ini files</a></div>
+ <div class="next" style="text-align: right; float: right;"><a href="configuration.changes.html">How to change configuration settings</a></div>
+ <div class="up"><a href="configuration.html">Runtime Configuration</a></div>
+ <div class="home"><a href="index.html">PHP Manual</a></div>
+</div></body></html>

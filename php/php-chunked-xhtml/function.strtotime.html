@@ -1,0 +1,272 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+ <head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>Parse about any English textual datetime description into a Unix timestamp</title>
+
+ </head>
+ <body><div class="manualnavbar" style="text-align: center;">
+ <div class="prev" style="text-align: left; float: left;"><a href="function.strptime.html">strptime</a></div>
+ <div class="next" style="text-align: right; float: right;"><a href="function.time.html">time</a></div>
+ <div class="up"><a href="ref.datetime.html">Date/Time Functions</a></div>
+ <div class="home"><a href="index.html">PHP Manual</a></div>
+</div><hr /><div id="function.strtotime" class="refentry">
+ <div class="refnamediv">
+  <h1 class="refname">strtotime</h1>
+  <p class="verinfo">(PHP 4, PHP 5)</p><p class="refpurpose"><span class="refname">strtotime</span> &mdash; <span class="dc-title">Parse about any English textual datetime description into a Unix timestamp</span></p>
+
+ </div>
+ <div class="refsect1 description" id="refsect1-function.strtotime-description">
+  <h3 class="title">Description</h3>
+  <div class="methodsynopsis dc-description">
+   <span class="type">int</span> <span class="methodname"><b>strtotime</b></span>
+    ( <span class="methodparam"><span class="type">string</span> <tt class="parameter">$time</tt></span>
+   [, <span class="methodparam"><span class="type">int</span> <tt class="parameter">$now</tt></span>
+  ] )</div>
+
+  <p class="simpara">
+   The function expects to be given a string containing an English date format
+   and will try to parse that format into a Unix timestamp (the number of
+   seconds since January 1 1970 00:00:00 UTC), relative to the timestamp given
+   in <i><tt class="parameter">now</tt></i>, or the current time if
+   <i><tt class="parameter">now</tt></i> is not supplied.
+  </p>
+  <p class="para">
+   This function will use the <span class="envar">TZ</span> environment variable (if
+   available) to calculate the timestamp. Since PHP 5.1.0 there are easier
+   ways to define the timezone that is used across all date/time functions.
+   That process is explained in the
+   <span class="function"><a href="function.date-default-timezone-get.html" class="function">date_default_timezone_get()</a></span> function page.
+  </p>
+ </div>
+
+
+ <div class="refsect1 parameters" id="refsect1-function.strtotime-parameters">
+  <h3 class="title">Parameters</h3>
+  <p class="para">
+   <dl>
+
+    <dt>
+
+     <span class="term"><i><tt class="parameter">time</tt></i></span>
+     <dd>
+
+      <p class="para">A date/time string. Valid formats are explained in <a href="datetime.formats.html" class="link">Date and Time Formats</a>.</p>
+     </dd>
+
+    </dt>
+
+    <dt>
+
+     <span class="term"><i><tt class="parameter">now</tt></i></span>
+     <dd>
+
+      <p class="para">
+       The timestamp which is used as a base for the calculation of relative
+       dates.
+      </p>
+     </dd>
+
+    </dt>
+
+   </dl>
+
+  </p>
+ </div>
+
+
+ <div class="refsect1 returnvalues" id="refsect1-function.strtotime-returnvalues">
+  <h3 class="title">Return Values</h3>
+  <p class="para">
+   Returns a timestamp on success, <b><tt>FALSE</tt></b> otherwise. Previous to PHP 5.1.0,
+   this function would return <i>-1</i> on failure.
+  </p>
+ </div>
+
+
+ <div class="refsect1 errors" id="refsect1-function.strtotime-errors">
+  <h3 class="title">Errors/Exceptions</h3>
+   
+   <p class="para">
+Every call to a date/time function will generate a <b><tt>E_NOTICE</tt></b>
+if the time zone is not valid, and/or a <b><tt>E_STRICT</tt></b>
+or <b><tt>E_WARNING</tt></b> message
+if using the system settings or the <var class="varname"><var class="varname">TZ</var></var> environment
+variable. See also <span class="function"><a href="function.date-default-timezone-set.html" class="function">date_default_timezone_set()</a></span></p>
+ 
+ </div>
+
+
+ <div class="refsect1 changelog" id="refsect1-function.strtotime-changelog">
+  <h3 class="title">Changelog</h3>
+  <p class="para">
+   <table class="doctable informaltable">
+    
+     <thead valign="middle">
+      <tr valign="middle">
+       <th>Version</th>
+       <th>Description</th>
+      </tr>
+
+     </thead>
+
+     <tbody valign="middle" class="tbody">
+      <tr valign="middle">
+       <td align="left">5.3.0</td>
+       <td align="left">
+        Prior to PHP 5.3.0, <i>24:00</i> was not a valid format and
+        <span class="function"><b>strtotime()</b></span> returned <b><tt>FALSE</tt></b>.
+       </td>
+      </tr>
+
+      <tr valign="middle">
+       <td align="left">5.2.7</td>
+       <td align="left">
+        In PHP 5 prior to 5.2.7, requesting a given occurrence of a
+        given weekday in a month where that weekday was the first day
+        of the month would incorrectly add one week to the returned
+        timestamp. This has been corrected in 5.2.7 and later
+        versions.
+       </td>
+      </tr>
+
+      <tr valign="middle">
+       <td align="left">5.1.0</td>
+       <td align="left">
+        Now returns <b><tt>FALSE</tt></b> on failure, instead
+        of <i>-1</i>.
+       </td>
+      </tr>
+
+
+      <tr valign="middle"><td align="left">5.1.0</td><td align="left"><p class="para">
+Now issues the <b><tt>E_STRICT</tt></b> and <b><tt>E_NOTICE</tt></b>
+time zone errors.</p></td></tr>
+
+
+      <tr valign="middle">
+       <td align="left">5.0.2</td>
+       <td align="left">
+        In PHP 5 up to 5.0.2, <i>&quot;now&quot;</i> and other
+        relative times are wrongly computed from today&#039;s
+        midnight. This differs from other versions where it is
+        correctly computed from current time.
+       </td>
+      </tr>
+
+      <tr valign="middle">
+       <td align="left">5.0.0</td>
+       <td align="left">
+        Microseconds began to be allowed, but they are ignored.
+       </td>
+      </tr>
+
+      <tr valign="middle">
+       <td align="left">4.4.0</td>
+       <td align="left">
+        In PHP versions prior to 4.4.0, <i>&quot;next&quot;</i> is incorrectly
+        computed as +2. A typical solution to this is to use
+        <i>&quot;+1&quot;</i>.
+       </td>
+      </tr>
+
+     </tbody>
+    
+   </table>
+
+  </p>
+ </div>
+
+
+ <div class="refsect1 examples" id="refsect1-function.strtotime-examples">
+  <h3 class="title">Examples</h3>
+  <p class="para">
+   <div class="example" id="example-657">
+    <p><b>Example #1 A <span class="function"><b>strtotime()</b></span> example</b></p>
+    <div class="example-contents">
+<div class="phpcode"><code><span style="color: #000000">
+<span style="color: #0000BB">&lt;?php<br /></span><span style="color: #007700">echo&nbsp;</span><span style="color: #0000BB">strtotime</span><span style="color: #007700">(</span><span style="color: #DD0000">"now"</span><span style="color: #007700">),&nbsp;</span><span style="color: #DD0000">"\n"</span><span style="color: #007700">;<br />echo&nbsp;</span><span style="color: #0000BB">strtotime</span><span style="color: #007700">(</span><span style="color: #DD0000">"10&nbsp;September&nbsp;2000"</span><span style="color: #007700">),&nbsp;</span><span style="color: #DD0000">"\n"</span><span style="color: #007700">;<br />echo&nbsp;</span><span style="color: #0000BB">strtotime</span><span style="color: #007700">(</span><span style="color: #DD0000">"+1&nbsp;day"</span><span style="color: #007700">),&nbsp;</span><span style="color: #DD0000">"\n"</span><span style="color: #007700">;<br />echo&nbsp;</span><span style="color: #0000BB">strtotime</span><span style="color: #007700">(</span><span style="color: #DD0000">"+1&nbsp;week"</span><span style="color: #007700">),&nbsp;</span><span style="color: #DD0000">"\n"</span><span style="color: #007700">;<br />echo&nbsp;</span><span style="color: #0000BB">strtotime</span><span style="color: #007700">(</span><span style="color: #DD0000">"+1&nbsp;week&nbsp;2&nbsp;days&nbsp;4&nbsp;hours&nbsp;2&nbsp;seconds"</span><span style="color: #007700">),&nbsp;</span><span style="color: #DD0000">"\n"</span><span style="color: #007700">;<br />echo&nbsp;</span><span style="color: #0000BB">strtotime</span><span style="color: #007700">(</span><span style="color: #DD0000">"next&nbsp;Thursday"</span><span style="color: #007700">),&nbsp;</span><span style="color: #DD0000">"\n"</span><span style="color: #007700">;<br />echo&nbsp;</span><span style="color: #0000BB">strtotime</span><span style="color: #007700">(</span><span style="color: #DD0000">"last&nbsp;Monday"</span><span style="color: #007700">),&nbsp;</span><span style="color: #DD0000">"\n"</span><span style="color: #007700">;<br /></span><span style="color: #0000BB">?&gt;</span>
+</span>
+</code></div>
+    </div>
+
+   </div>
+  </p>
+  <p class="para">
+   <div class="example" id="example-658">
+    <p><b>Example #2 Checking for failure</b></p>
+    <div class="example-contents">
+<div class="phpcode"><code><span style="color: #000000">
+<span style="color: #0000BB">&lt;?php<br />$str&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #DD0000">'Not&nbsp;Good'</span><span style="color: #007700">;<br /><br /></span><span style="color: #FF8000">//&nbsp;previous&nbsp;to&nbsp;PHP&nbsp;5.1.0&nbsp;you&nbsp;would&nbsp;compare&nbsp;with&nbsp;-1,&nbsp;instead&nbsp;of&nbsp;false<br /></span><span style="color: #007700">if&nbsp;((</span><span style="color: #0000BB">$timestamp&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">strtotime</span><span style="color: #007700">(</span><span style="color: #0000BB">$str</span><span style="color: #007700">))&nbsp;===&nbsp;</span><span style="color: #0000BB">false</span><span style="color: #007700">)&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;echo&nbsp;</span><span style="color: #DD0000">"The&nbsp;string&nbsp;(</span><span style="color: #0000BB">$str</span><span style="color: #DD0000">)&nbsp;is&nbsp;bogus"</span><span style="color: #007700">;<br />}&nbsp;else&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;echo&nbsp;</span><span style="color: #DD0000">"</span><span style="color: #0000BB">$str</span><span style="color: #DD0000">&nbsp;==&nbsp;"&nbsp;</span><span style="color: #007700">.&nbsp;</span><span style="color: #0000BB">date</span><span style="color: #007700">(</span><span style="color: #DD0000">'l&nbsp;dS&nbsp;\o\f&nbsp;F&nbsp;Y&nbsp;h:i:s&nbsp;A'</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$timestamp</span><span style="color: #007700">);<br />}<br /></span><span style="color: #0000BB">?&gt;</span>
+</span>
+</code></div>
+    </div>
+
+   </div>
+  </p>
+ </div>
+
+
+ <div class="refsect1 notes" id="refsect1-function.strtotime-notes">
+  <h3 class="title">Notes</h3>
+  <blockquote class="note"><p><b class="note">Note</b>: 
+   <p class="para">
+    If the number of the year is specified in a two digit format, the values
+    between 00-69 are mapped to 2000-2069 and 70-99 to 1970-1999. See the notes
+    below for possible differences on 32bit systems (possible dates might end on 
+    2038-01-19 03:14:07).
+   </p>
+  </p></blockquote>
+  <blockquote class="note"><p><b class="note">Note</b>: 
+   <p class="para">
+    The valid range of a timestamp is typically from Fri, 13 Dec
+    1901 20:45:54 UTC to Tue, 19 Jan 2038 03:14:07 UTC. (These are
+    the dates that correspond to the minimum and maximum values for
+    a 32-bit signed integer.)
+    Additionally, not all platforms support negative timestamps, therefore
+    your date range may be limited to no earlier than the Unix epoch. This
+    means that e.g. dates prior to Jan 1, 1970 will not work on Windows,
+    some Linux distributions, and a few other operating systems. PHP 5.1.0 and
+    newer versions overcome this limitation though.
+   </p>
+   <p class="para">
+    For 64-bit versions of PHP, the valid range of a timestamp is effectively
+    infinite, as 64 bits can represent approximately 293 billion years in either
+    direction.
+   </p>
+  </p></blockquote>
+  <blockquote class="note"><p><b class="note">Note</b>: 
+   <p class="para">
+    Dates in the <i>m/d/y</i> or <i>d-m-y</i> formats
+    are disambiguated by looking at the separator between the various
+    components: if the separator is a slash (<i>/</i>), then the
+    American <i>m/d/y</i> is assumed; whereas if the separator is a
+    dash (<i>-</i>) or a dot (<i>.</i>), then the
+    European <i>d-m-y</i> format is assumed.
+   </p>
+   <p class="para">
+    To avoid potential ambiguity, it&#039;s best to use ISO 8601
+    (<i>YYYY-MM-DD</i>) dates or
+     <span class="methodname"><a href="datetime.createfromformat.html" class="methodname">DateTime::createFromFormat()</a></span> when possible.
+   </p>
+  </p></blockquote>
+ </div>
+
+
+ <div class="refsect1 seealso" id="refsect1-function.strtotime-seealso">
+  <h3 class="title">See Also</h3>
+  <p class="para">
+   <ul class="simplelist">
+    <li class="member"> <span class="methodname"><a href="datetime.createfromformat.html" class="methodname" rel="rdfs-seeAlso">DateTime::createFromFormat()</a> - Returns new DateTime object formatted according to the specified format</span></li>
+    <li class="member"><span class="function"><a href="function.checkdate.html" class="function" rel="rdfs-seeAlso">checkdate()</a> - Validate a Gregorian date</span></li>
+    <li class="member"><span class="function"><a href="function.strptime.html" class="function" rel="rdfs-seeAlso">strptime()</a> - Parse a time/date generated with strftime</span></li>
+   </ul>
+  </p>
+ </div>
+
+</div><hr /><div class="manualnavbar" style="text-align: center;">
+ <div class="prev" style="text-align: left; float: left;"><a href="function.strptime.html">strptime</a></div>
+ <div class="next" style="text-align: right; float: right;"><a href="function.time.html">time</a></div>
+ <div class="up"><a href="ref.datetime.html">Date/Time Functions</a></div>
+ <div class="home"><a href="index.html">PHP Manual</a></div>
+</div></body></html>
