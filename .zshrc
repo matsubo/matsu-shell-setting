@@ -145,7 +145,7 @@ export SAMBA=/usr/local/samba
 export SVN_EDITOR=vi
 
 export JAVA_HOME=/usr/local/java
-export PATH=$MYSQL/bin/:$SAMBA/bin:/usr/local/bin:/bin:/usr/bin:/sbin:/usr/sbin:$JAVA_HOME/bin:/opt/local/bin
+export PATH=$MYSQL/bin/:$SAMBA/bin:/usr/local/bin:/bin:/usr/bin:/sbin:/usr/sbin:$JAVA_HOME/bin:/opt/local/bin:/usr/local/sbin
 export PATH=~/archive/screen-4.0.3:$PATH
 export PATH="/opt/local/bin":$PATH
 

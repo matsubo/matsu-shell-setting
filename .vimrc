@@ -1,20 +1,5 @@
-" basic
-" .vim/bundle/vimrc/plugin/basic.vim
+" VIM setting
 "
-" gui
-" .vim/bundle/vimrc/plugin/gui.vim
-"
-" alias
-" .vim/bundle/vimrc/plugin/mappings.vim
-"
-" plugin
-" .vim/bundle/vimrc/plugin/plugins_vimrc.vim
-"
-" utility
-" .vim/bundle/vimrc/plugin/util.vim
-"
-
-
 " """""""""""""""""""""""""
 " Vundle setting
 " """""""""""""""""""""""""

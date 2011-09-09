@@ -16,6 +16,7 @@ ln -s .setting/.htoprc
 ln -s .setting/.screenrc
 ln -s .setting/.vim
 ln -s .setting/.vimrc
+ln -s .setting/.gvimrc
 ln -s .setting/.zshrc
 cp .setting/.tigrc ./
 cp .setting/.gitconfig ./
