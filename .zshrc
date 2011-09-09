@@ -261,6 +261,14 @@ if [ -f $LOCAL_SETTING ]; then
 fi
 
 
+#########################################
+# Finder local setting
+#########################################
+#$ cd /System/Library/CoreServices/SystemFolderLocalizations/
+#$ sudo mv Japanese.lproj Japanese.lproj.back 
+#$ sudo cp -r en.lproj Japanese.lproj
+#$ killall Finder
+#########################################
 
 
 #########################################
