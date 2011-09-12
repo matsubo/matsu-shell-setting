@@ -35,6 +35,7 @@ Bundle 'unite.vim'
 Bundle 'AutoComplPop'
 Bundle 'git://github.com/Shougo/neocomplcache.git'
 Bundle 'L9'
+Bundle 'colorizer'
 
 " rails
 Bundle 'vim-ruby/vim-ruby'
@@ -76,6 +77,7 @@ set number ruler
 " show special chars
 set list
 set lcs=tab:>\ ,trail:_,extends:\
+
 highlight SpecialKey cterm=NONE ctermfg=darkgray guifg=7
 highlight JpSpace cterm=underline ctermfg=darkgray guifg=7
 au BufRead,BufNew * match JpSpace /　/
@@ -101,6 +103,11 @@ augroup END
 set backspace=indent,eol,start
 
 
+" to be fast response
+set ttyfast
+set lazyredraw
+
+
 syntax on
 
 " """""""""""""""""""""""""
@@ -116,6 +123,7 @@ set tabstop=2
 set autoindent
 set cindent
 set shiftwidth=2
+
 
 
 

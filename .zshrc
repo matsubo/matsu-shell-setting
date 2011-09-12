@@ -126,15 +126,6 @@ alias upgrade='sudo aptitude update && sudo aptitude safe-upgrade'
 # ex: g TestAction
 alias g='find . | grep '
 
-alias -g L='| less'
-alias -g H='| head'
-alias -g T='| tail'
-alias -g G='| grep'
-alias -g W='| wc'
-alias -g S='| sed'
-alias -g A='| awk'
-alias -g W='| wc'
-
 
 # for work
 alias findgrep="find -type d -name '.svn' -prune -o -type f -print | xargs grep -n"
@@ -165,7 +156,7 @@ bindkey '\^' cdup
 
 if type lv > /dev/null 2>&1; then
 	export PAGER="lv"
-	export LV="-c -l -Ou8"
+	export LV="-c -l -Ou8 -Ie"
 	alias less="lv"
 else
 	export PAGER="less"
@@ -275,7 +266,7 @@ if grep --help | grep -q -- --exclude-dir; then
 fi
 ### 可能なら色を付ける。
 if grep --help | grep -q -- --color; then
-	GREP_OPTIONS="--color=auto $GREP_OPTIONS"
+	GREP_OPTIONS="--color=always $GREP_OPTIONS"
 fi
 
 
