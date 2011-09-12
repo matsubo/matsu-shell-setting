@@ -25,6 +25,7 @@ set rtp+=~/.vim/bundle/vundle/
 call vundle#rc()
 
 " global
+Bundle 'project.tar.gz'
 Bundle 'gmarik/vundle'
 Bundle 'FuzzyFinder'
 Bundle 'Highlight-UnMatched-Brackets'

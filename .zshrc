@@ -145,13 +145,13 @@ export PATH="/opt/local/bin":$PATH
 
 
 # Hit ^ = cd ..
-function cdup() {
-  echo
-  cd ..
-  zle reset-prompt
-}
-zle -N cdup
-bindkey '\^' cdup
+#function cdup() {
+#  echo
+#  cd ..
+#  zle reset-prompt
+#}
+#zle -N cdup
+#bindkey '\^' cdup
 
 
 if type lv > /dev/null 2>&1; then
@@ -294,6 +294,14 @@ if [ -f $LOCAL_SETTING ]; then
 fi
 
 
+#########################################
+# Finder local setting
+#########################################
+#$ cd /System/Library/CoreServices/SystemFolderLocalizations/
+#$ sudo mv Japanese.lproj Japanese.lproj.back 
+#$ sudo cp -r en.lproj Japanese.lproj
+#$ killall Finder
+#########################################
 
 
 #########################################
