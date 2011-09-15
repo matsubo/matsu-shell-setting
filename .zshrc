@@ -15,9 +15,9 @@ setopt pushd_ignore_dups rm_star_silent sun_keyboard_hack
 setopt extended_glob list_types no_beep always_last_prompt
 setopt cdable_vars sh_word_split auto_param_keys
 setopt NO_flow_control
-setopt auto_pushd pushd_ignore_dups list_packed list_types EXTENDED_HISTORY no_case_glob
+setopt auto_pushd pushd_ignore_dups list_packed list_types no_case_glob
 setopt complete_in_word
-s3etopt magic_equal_subst
+setopt magic_equal_subst
 
 unsetopt promptcr
 
@@ -63,6 +63,7 @@ PROMPT=$DARKC"[%U$USER@%m "$LIGHTC"%~%u"$DARKC"]%# "$DEFAULTC
 HISTFILE=$HOME/.zsh_history
 HISTSIZE=10000
 SAVEHIST=1000000
+function history-all { history -E 1 }
 
 # prints all color setting
 function pcolor() {
