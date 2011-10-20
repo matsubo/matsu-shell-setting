@@ -157,7 +157,7 @@ export PATH="/opt/local/bin":$PATH
 
 if type lv > /dev/null 2>&1; then
 	export PAGER="lv"
-	export LV="-c -l -Ou8 -Ie"
+	export LV="-c -l -Ou8"
 	alias less="lv"
 else
 	export PAGER="less"

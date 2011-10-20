@@ -25,6 +25,7 @@ set rtp+=~/.vim/bundle/vundle/
 call vundle#rc()
 
 " global
+Bundle 'L9'
 Bundle 'project.tar.gz'
 Bundle 'gmarik/vundle'
 Bundle 'FuzzyFinder'
@@ -35,8 +36,10 @@ Bundle 'ref.vim'
 Bundle 'unite.vim'
 Bundle 'AutoComplPop'
 Bundle 'git://github.com/Shougo/neocomplcache.git'
-Bundle 'L9'
 Bundle 'colorizer'
+Bundle 'quickrun.vim'
+Bundle 'surround.vim'
+
 
 " rails
 Bundle 'vim-ruby/vim-ruby'
@@ -52,7 +55,9 @@ filetype plugin indent on
 " global setting
 " """""""""""""""""""""""""
 set encoding=utf-8
+set fileencoding=japan
 set fileencodings=utf-8,euc-jp,iso-2022-jp,sjis
+set ambiwidth=double
 set wildmenu
 "set mouse=a
 "set ttymouse=xterm2
@@ -241,6 +246,56 @@ map <C-p> :cp<CR>
 " vmap
 " dump the variable.
 :vmap st "zdiprint_r("<pre>".<C-R>z".</pre>");exit;<ESC>
+
+
+"for surround.vim
+" [key map]
+" 1 : <h1>|</h1>
+" 2 : <h2>|</h2>
+" 3 : <h3>|</h3>
+" 4 : <h4>|</h4>
+" 5 : <h5>|</h5>
+" 6 : <h6>|</h6>
+"
+" p : <p>|</p>
+" u : <ul>|</ul>
+" o : <ol>|</ol>
+" l : <li>|</li>
+" a : <a href="">|</a>
+" A : <a href="|"></a>
+" i : <img src="|" alt="" />
+" I : <img src="" alt"|" />
+" d : <div>|</div>
+" D : <div class="section">|</div>
+
+autocmd FileType smarty let b:surround_101 = "{t}\r{/t}" " 101 = e
+autocmd FileType smarty let b:surround_10f = "{t}\n\r\n{/t}" " 102 = f
+map  ,tt ysse
+map  ,tb ySSe
+
+
+autocmd FileType php let g:surround_103 = "_('\r')"  " 103 = g
+autocmd FileType php let g:surround_71 = "_(\"\r\")" " 71 = G
+
+
+
+autocmd FileType html let b:surround_49  = "<h1>\r</h1>"
+autocmd FileType html let b:surround_50  = "<h2>\r</h2>"
+autocmd FileType html let b:surround_51  = "<h3>\r</h3>"
+autocmd FileType html let b:surround_52  = "<h4>\r</h4>"
+autocmd FileType html let b:surround_53  = "<h5>\r</h5>"
+autocmd FileType html let b:surround_54  = "<h6>\r</h6>"
+
+autocmd FileType html let b:surround_112 = "<p>\r</p>"
+autocmd FileType html let b:surround_117 = "<ul>\r</ul>"
+autocmd FileType html let b:surround_111 = "<ol>\r</ol>"
+autocmd FileType html let b:surround_108 = "<li>\r</li>"
+autocmd FileType html let b:surround_97  = "<a href=\"\">\r</a>"
+autocmd FileType html let b:surround_65  = "<a href=\"\r\"></a>"
+autocmd FileType html let b:surround_105 = "<img src=\"\r\" alt=\"\" />"
+autocmd FileType html let b:surround_73  = "<img src=\"\" alt=\"\r\" />"
+autocmd FileType html let b:surround_100 = "<div>\r</div>"
+autocmd FileType html let b:surround_68  = "<div class=\"section\">\r</div>"
 
 
 
