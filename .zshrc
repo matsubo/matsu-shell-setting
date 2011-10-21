@@ -20,6 +20,7 @@ setopt auto_pushd pushd_ignore_dups list_packed list_types EXTENDED_HISTORY no_c
 unsetopt promptcr
 
 umask 0002
+ulimit -n 1024
 
 autoload -U compinit
 compinit -u
@@ -134,6 +135,7 @@ alias -g W='| wc'
 # for work
 alias findgrep="find -type d -name '.svn' -prune -o -type f -print | xargs grep -n"
 
+alias historytime="history -nir 0 | less"
 
 
 export EDITOR=vi
@@ -145,7 +147,7 @@ export SAMBA=/usr/local/samba
 export SVN_EDITOR=vi
 
 export JAVA_HOME=/usr/local/java
-export PATH=$MYSQL/bin/:$SAMBA/bin:/usr/local/bin:/bin:/usr/bin:/sbin:/usr/sbin:$JAVA_HOME/bin:/opt/local/bin
+export PATH=$MYSQL/bin/:$SAMBA/bin:/usr/local/bin:/bin:/usr/bin:/sbin:/usr/sbin:$JAVA_HOME/bin:/opt/local/bin:/usr/local/sbin
 export PATH=~/archive/screen-4.0.3:$PATH
 export PATH="/opt/local/bin":$PATH
 

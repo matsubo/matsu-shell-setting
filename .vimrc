@@ -45,7 +45,7 @@ Bundle 'rails.vim'
 " php
 Bundle 'PDV--phpDocumentor-for-Vim'
 
-filetype plugin indent on
+" filetype plugin indent on
 
 " """""""""""""""""""""""""
 " global setting
@@ -128,13 +128,6 @@ autocmd FileType php set omnifunc=phpcomplete#CompletePHP
 
 " disable auto comment out after the line break
 set formatoptions-=ro
-
-"新しい行を作ったときに高度な自動インデントを行う
-" http://www.ispern.com/?p=324
-" set smartindent
-
-"行頭の余白内で Tab を打ち込むと、'shiftwidth' の数だけインデントする。
-" set smarttab
 
 
 " neocomplcache
