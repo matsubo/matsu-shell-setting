@@ -233,6 +233,10 @@ nmap g# g#zz
 "Escの2回押しでハイライト消去
 nmap <ESC><ESC> ;nohlsearch<CR><ESC>
 
+" escape vcscommand diff mode
+nmap <Leader>dq :winc l<CR>:bw<CR>:diffoff<CR>
+
+
 
 "" gtags
 map <C-g><C-g> :Gtags 
