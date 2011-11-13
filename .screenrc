@@ -4,8 +4,9 @@ autodetach on
 
 # disable window resize
 termcapinfo xterm 'is=\E[r\E[m\E[2J\E[H\E[?7h\E[?1;4;6l'
-termcapinfo  xterm-256color hs@:is=\E[r\E[m\E[2J\E[H\E[?7h\E[?1;4;6l
+termcapinfo xterm-256color hs@:is=\E[r\E[m\E[2J\E[H\E[?7h\E[?1;4;6l
 term screen-256color
+#term ansi
 
 
 # encoding
@@ -14,8 +15,8 @@ bind 'E' eval "encoding euc" "stuff 'export LANG=ja_JP.EUC-JP\012'"
 bind 'S' eval "encoding sjis" "stuff 'export LANG=ja_JP.SHIFT-JIS\012'"
 
 
-#caption always "%{= wk} %-w%{=bu dr}%n %t%{-}%+w %= %{=b wb}%H [%c:%s]"
-#hardstatus string "[%H #%n] %h"
+caption always "%{= wk} %-w%{=bu dr}%n %t%{-}%+w %= %{=b wb}%H [%c:%s]"
+hardstatus string "[%H #%n] %h"
 
 caption always '%?%F%{= wk}%:%{= Kk}%?%2n%f%07=%t%='
 hardstatus alwayslastline '%m/%d %02c:%s %{= .g}%H%{-} %L=%-w%45L>%{=u g.}%n %t%{-}%+w %-17<%=%{= .y}(%l)'
@@ -44,14 +45,14 @@ bind -c resize k eval 'resize -1' 'command -c resize'
 
 
 # enable logging
-hardcopydir "$HOME/.screenlog"
-hardcopy_append on
-logfile "$HOME/.screenlog/%H-%Y%m%d-%c-%n.log"
-deflog on
+#hardcopydir "$HOME/.screenlog"
+#hardcopy_append on
+#logfile "$HOME/.screenlog/%H-%Y%m%d-%c-%n.log"
+#deflog on
 
 defencoding utf8
 encoding utf8 utf8
 
 
-source "~/.screenrc_local"
+source "/home/yuki-matsukura/.screenrc_local"
 

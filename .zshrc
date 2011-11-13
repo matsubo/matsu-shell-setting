@@ -266,9 +266,9 @@ if grep --help | grep -q -- --exclude-dir; then
 	GREP_OPTIONS="--exclude-dir=.libs $GREP_OPTIONS"
 fi
 ### 可能なら色を付ける。
-if grep --help | grep -q -- --color; then
-	GREP_OPTIONS="--color=always $GREP_OPTIONS"
-fi
+#if grep --help | grep -q -- --color; then
+#	GREP_OPTIONS="--color=always $GREP_OPTIONS"
+#fi
 
 
 #########################################
