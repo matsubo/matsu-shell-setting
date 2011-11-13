@@ -108,6 +108,9 @@ augroup END
 
 set backspace=indent,eol,start
 
+" http://d.hatena.ne.jp/yuyarin/20100225/1267084794
+set backupskip=/tmp/*,/private/tmp/*
+
 
 " to be fast response
 set ttyfast
