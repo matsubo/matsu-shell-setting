@@ -159,7 +159,7 @@ export PATH="/opt/local/bin":$PATH
 
 if type lv > /dev/null 2>&1; then
 	export PAGER="lv"
-	export LV="-c -l -Ou8 -Ie"
+	export LV="-c -l -Ou8"
 	alias less="lv"
 else
 	export PAGER="less"
@@ -268,9 +268,9 @@ if grep --help | grep -q -- --exclude-dir; then
 	GREP_OPTIONS="--exclude-dir=.libs $GREP_OPTIONS"
 fi
 ### 可能なら色を付ける。
-if grep --help | grep -q -- --color; then
-	GREP_OPTIONS="--color=always $GREP_OPTIONS"
-fi
+#if grep --help | grep -q -- --color; then
+#	GREP_OPTIONS="--color=always $GREP_OPTIONS"
+#fi
 
 
 #########################################
