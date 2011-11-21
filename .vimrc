@@ -181,6 +181,9 @@ colorscheme molokai
 " vim-ref
 " """""""""""""""""""""""""
 " vim-ref setting
+nmap ,ra :<C-u>Ref alc<Space>
+nmap ,rp :<C-u>Ref phpmanual<Space>
+
 let g:ref_phpmanual_path = $HOME . '/.setting/php/php-chunked-xhtml'
 " let g:ref_phpmanual_cmd = 'w3m -dump %s'
 

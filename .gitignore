@@ -19,3 +19,4 @@ Session.vim
 .zsh_alias
 .vim/.netrwhist
 .vim/bundle
+.vim/plugin/

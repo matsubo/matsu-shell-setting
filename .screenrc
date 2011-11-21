@@ -1,3 +1,6 @@
+# read and cleanup this file
+# http://shyouhei.tumblr.com/post/313410522/screenrc
+
 escape ^]^]
 autodetach on
 
@@ -5,7 +8,7 @@ autodetach on
 # disable window resize
 termcapinfo xterm 'is=\E[r\E[m\E[2J\E[H\E[?7h\E[?1;4;6l'
 termcapinfo xterm-256color hs@:is=\E[r\E[m\E[2J\E[H\E[?7h\E[?1;4;6l
-defbce on
+#defbce on
 term xterm-256color
 #term ansi
 
@@ -21,6 +24,7 @@ hardstatus string "[%H #%n] %h"
 
 caption always '%?%F%{= wk}%:%{= Kk}%?%2n%f%07=%t%='
 hardstatus alwayslastline '%m/%d %02c:%s %{= .g}%H%{-} %L=%-w%45L>%{=u g.}%n %t%{-}%+w %-17<%=%{= .y}(%l)'
+hardstatus on
 
 
 # number of lines to scroll back
@@ -56,5 +60,5 @@ defencoding utf8
 encoding utf8 utf8
 
 
-source "/home/yuki-matsukura/.screenrc_local"
+source .screenrc_local
 
