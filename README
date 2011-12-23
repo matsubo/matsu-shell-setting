@@ -17,6 +17,7 @@ ln -s .setting/.screenrc
 ln -s .setting/.vim
 ln -s .setting/.vimrc
 ln -s .setting/.zshrc
+ln -s .setting/.my.cnf
 cp .setting/.tigrc ./
 cp .setting/.gitconfig ./
 cd .setting
