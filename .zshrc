@@ -132,6 +132,11 @@ alias g='find . | grep '
 alias findgrep="find -type d -name '.svn' -prune -o -type f -print | xargs grep -n"
 
 
+# execute row priority
+alias allnice="ionice -c2 -n7 nice -n19"
+
+
+
 
 export EDITOR=vi
 export MYSQL=/usr/local/mysql

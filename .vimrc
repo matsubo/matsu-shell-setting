@@ -20,10 +20,11 @@ Bundle 'gtags.vim'
 Bundle 'ref.vim'
 Bundle 'unite.vim'
 Bundle 'AutoComplPop'
-Bundle 'git://github.com/Shougo/neocomplcache.git'
-Bundle 'colorizer'
+"Bundle 'git://github.com/Shougo/neocomplcache.git'
+"Bundle 'colorizer'
 Bundle 'quickrun.vim'
 Bundle 'surround.vim'
+Bundle 'molokai'
 
 
 " rails
@@ -33,6 +34,10 @@ Bundle 'rails.vim'
 
 " php
 Bundle 'PDV--phpDocumentor-for-Vim'
+
+" svn
+Bundle 'svndiff.vim'
+
 
 filetype plugin indent on
 
@@ -74,6 +79,7 @@ highlight JpSpace cterm=underline ctermfg=darkgray guifg=7
 au BufRead,BufNew * match JpSpace /　/
 
 
+
 " カーソル行をハイライト
 set cursorline
 highlight CursorLine ctermbg=DarkGray
@@ -100,6 +106,8 @@ set backupskip=/tmp/*,/private/tmp/*
 " to be fast response
 set ttyfast
 set lazyredraw
+
+
 
 
 syntax on
@@ -129,10 +137,6 @@ autocmd FileType php set omnifunc=phpcomplete#CompletePHP
 
 " disable auto comment out after the line break
 " set formatoptions-=ro
-
-"新しい行を作ったときに高度な自動インデントを行う
-" http://www.ispern.com/?p=324
-" set smartindent
 
 "行頭の余白内で Tab を打ち込むと、'shiftwidth' の数だけインデントする。
 " set smarttab
@@ -174,6 +178,52 @@ let g:ref_phpmanual_path = $HOME . '/.setting/php/php-chunked-xhtml'
 
 
 " :highlight Underlined ctermfg=Cyan
+
+" """""""""""""""""""""""""
+" shel script
+"
+" """""""""""""""""""""""""
+autocmd BufNewFile *.sh  0r $HOME/.setting/template/sh.sh
+autocmd BufNewFile *.php 0r $HOME/.setting/template/php.php
+autocmd BufNewFile *.html 0r $HOME/.setting/template/html.html
+
+
+" """""""""""""""""""""""""
+" ファイルの前回閉じたときの場所を記憶してくれます。
+" """""""""""""""""""""""""
+if has("autocmd")
+	autocmd BufReadPost *
+				\ if line("'\"") > 0 && line ("'\"") <= line("$") |
+				\   exe "normal! g'\"" |
+				\ endif
+endif
+
+" """""""""""""""""""""""""
+" Syntax check
+" """""""""""""""""""""""""
+"------------------------------------------------------------------------------------"
+" 各種プログラムで構文チェク(:make)をCtr+c Ctr+cで行えるようにする
+" 表示されたQuickFixはウィンドウを移動しなくても
+" :cn および :cp　で移動可能
+"------------------------------------------------------------------------------------"
+" Perl構文チェック
+autocmd FileType perl compiler perl
+autocmd FileType perl map <c-c><c-c> :make<cr> :cw<cr><cr>
+
+" PHP構文チェック
+au BufRead,BufNewFile *.php set makeprg=php\ -l\ %
+au BufRead,BufNewFile *.php set errorformat=%m\ in\ %f\ on\ line\ %l
+autocmd FileType php map <c-c><c-c> :make<cr> :cw<cr><cr>
+
+" Ruby構文チェック
+au BufRead,BufNewFile *.rb set makeprg=ruby\ -c\ %
+au BufRead,BufNewFile *.rb set errorformat=%m\ in\ %f\ on\ line\ %l
+autocmd FileType rb map <c-c><c-c> :make<cr> :cw<cr><cr>
+
+" HTML構文チェック
+autocmd FileType xhtml,html :compiler tidy
+autocmd FileType xhtml,html :setlocal makeprg=tidy\ -raw\ -quiet\ -errors\ --gnu-emacs\ yes\ \"%\"
+autocmd FileType xhtml,html map <c-c><c-c> :make<cr> :cw<cr><cr>
 
 
 " """""""""""""""""""""""""
