@@ -119,7 +119,6 @@ alias -g S='| sed'
 alias -g A='| awk'
 alias -g W='| wc'
 
-alias upgrade='sudo aptitude update && sudo aptitude safe-upgrade'
 
 #alias cd="pushd"
 #alias bd="popd"
