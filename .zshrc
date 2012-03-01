@@ -131,6 +131,20 @@ alias g='find . | grep '
 # for work
 alias findgrep="find -type d -name '.svn' -prune -o -type f -print | xargs grep -n"
 
+# dstat
+alias dstat-full='dstat -Tclmdrn'
+alias dstat-mem='dstat -Tclm'
+alias dstat-cpu='dstat -Tclr'
+alias dstat-net='dstat -Tclnd'
+alias dstat-disk='dstat -Tcldr'
+alias dstat-top-cpu='dstat --top-cpu --top-cputime'
+alias dstat-top-io='dstat --top-io --top-bio'
+
+export DSTAT_MYSQL_USER=root
+export DSTAT_MYSQL_PWD=
+export DSTAT_MYSQL_HOST=127.0.0.1
+alias dstat-mysql='dstat -T --mysql5-cmds --mysql5-conn --mysql5-io --mysql5-keys'
+alias dstat-innodb='dstat -T --innodb-io --innodb-buffer --innodb-ops'
 
 
 export EDITOR=vi
@@ -140,7 +154,7 @@ export SAMBA=/usr/local/samba
 export SVN_EDITOR=vi
 
 export JAVA_HOME=/usr/local/java
-export PATH=$MYSQL/bin/:$SAMBA/bin:/usr/local/bin:/bin:/usr/bin:/sbin:/usr/sbin:$JAVA_HOME/bin:/opt/local/bin
+export PATH=$MYSQL/bin/:$SAMBA/bin:~/bin:~/.setting/bin:/usr/local/bin:/bin:/usr/bin:/sbin:/usr/sbin:$JAVA_HOME/bin:/opt/local/bin:
 export PATH=~/archive/screen-4.0.3:$PATH
 export PATH="/opt/local/bin":$PATH
 
@@ -275,15 +289,17 @@ fi
 # VCS setting
 #########################################
 # http://d.hatena.ne.jp/mollifier/20090814/p1
-autoload -Uz vcs_info
-zstyle ':vcs_info:*' formats '(%s)-[%b]'
-zstyle ':vcs_info:*' actionformats '(%s)-[%b|%a]'
-precmd () {
-	psvar=()
-	LANG=en_US.UTF-8 vcs_info
-	[[ -n "$vcs_info_msg_0_" ]] && psvar[1]="$vcs_info_msg_0_"
-}
-RPROMPT="%1(v|%F{green}%1v%f|)"
+if [[ $ZSH_VERSION == (<5->|4.<4->|4.3.<10->)* ]]; then
+	autoload -Uz vcs_info
+	zstyle ':vcs_info:*' formats '(%s)-[%b]'
+	zstyle ':vcs_info:*' actionformats '(%s)-[%b|%a]'
+	precmd () {
+		psvar=()
+		LANG=en_US.UTF-8 vcs_info
+		[[ -n "$vcs_info_msg_0_" ]] && psvar[1]="$vcs_info_msg_0_"
+	}
+	RPROMPT="%1(v|%F{green}%1v%f|)"
+fi
 
 
 #########################################
