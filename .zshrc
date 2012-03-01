@@ -22,6 +22,7 @@ setopt magic_equal_subst
 unsetopt promptcr
 
 umask 0002
+ulimit -n 1024
 
 autoload -U compinit
 compinit -u
@@ -118,7 +119,6 @@ alias -g S='| sed'
 alias -g A='| awk'
 alias -g W='| wc'
 
-alias upgrade='sudo aptitude update && sudo aptitude safe-upgrade'
 
 #alias cd="pushd"
 #alias bd="popd"
@@ -146,6 +146,13 @@ export DSTAT_MYSQL_HOST=127.0.0.1
 alias dstat-mysql='dstat -T --mysql5-cmds --mysql5-conn --mysql5-io --mysql5-keys'
 alias dstat-innodb='dstat -T --innodb-io --innodb-buffer --innodb-ops'
 
+alias historytime="history -nir 0 | less"
+
+# execute row priority
+alias allnice="ionice -c2 -n7 nice -n19"
+
+
+
 
 export EDITOR=vi
 export MYSQL=/usr/local/mysql
@@ -154,7 +161,7 @@ export SAMBA=/usr/local/samba
 export SVN_EDITOR=vi
 
 export JAVA_HOME=/usr/local/java
-export PATH=$MYSQL/bin/:$SAMBA/bin:~/bin:~/.setting/bin:/usr/local/bin:/bin:/usr/bin:/sbin:/usr/sbin:$JAVA_HOME/bin:/opt/local/bin:
+export PATH=$MYSQL/bin/:$SAMBA/bin:~/.setting/bin:/usr/local/bin:/bin:/usr/bin:/sbin:/usr/sbin:$JAVA_HOME/bin:/opt/local/bin:/usr/local/sbin
 export PATH=~/archive/screen-4.0.3:$PATH
 export PATH="/opt/local/bin":$PATH
 
@@ -171,7 +178,7 @@ export PATH="/opt/local/bin":$PATH
 
 if type lv > /dev/null 2>&1; then
 	export PAGER="lv"
-	export LV="-c -l -Ou8 -Ie"
+	export LV="-c -l -Ou8"
 	alias less="lv"
 else
 	export PAGER="less"
@@ -280,9 +287,9 @@ if grep --help | grep -q -- --exclude-dir; then
 	GREP_OPTIONS="--exclude-dir=.libs $GREP_OPTIONS"
 fi
 ### 可能なら色を付ける。
-if grep --help | grep -q -- --color; then
-	GREP_OPTIONS="--color=always $GREP_OPTIONS"
-fi
+#if grep --help | grep -q -- --color; then
+#	GREP_OPTIONS="--color=always $GREP_OPTIONS"
+#fi
 
 
 #########################################

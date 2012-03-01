@@ -1,20 +1,5 @@
-" basic
-" .vim/bundle/vimrc/plugin/basic.vim
+" VIM setting
 "
-" gui
-" .vim/bundle/vimrc/plugin/gui.vim
-"
-" alias
-" .vim/bundle/vimrc/plugin/mappings.vim
-"
-" plugin
-" .vim/bundle/vimrc/plugin/plugins_vimrc.vim
-"
-" utility
-" .vim/bundle/vimrc/plugin/util.vim
-"
-
-
 " """""""""""""""""""""""""
 " Vundle setting
 " """""""""""""""""""""""""
@@ -25,6 +10,7 @@ set rtp+=~/.vim/bundle/vundle/
 call vundle#rc()
 
 " global
+Bundle 'L9'
 Bundle 'project.tar.gz'
 Bundle 'gmarik/vundle'
 Bundle 'FuzzyFinder'
@@ -34,9 +20,12 @@ Bundle 'gtags.vim'
 Bundle 'ref.vim'
 Bundle 'unite.vim'
 Bundle 'AutoComplPop'
-Bundle 'git://github.com/Shougo/neocomplcache.git'
-Bundle 'L9'
-Bundle 'colorizer'
+"Bundle 'git://github.com/Shougo/neocomplcache.git'
+"Bundle 'colorizer'
+Bundle 'quickrun.vim'
+Bundle 'surround.vim'
+Bundle 'molokai'
+
 
 " rails
 Bundle 'vim-ruby/vim-ruby'
@@ -46,13 +35,20 @@ Bundle 'rails.vim'
 " php
 Bundle 'PDV--phpDocumentor-for-Vim'
 
+" filetype plugin indent on
+" svn
+Bundle 'svndiff.vim'
+
+
 filetype plugin indent on
 
 " """""""""""""""""""""""""
 " global setting
 " """""""""""""""""""""""""
 set encoding=utf-8
+set fileencoding=japan
 set fileencodings=utf-8,euc-jp,iso-2022-jp,sjis
+set ambiwidth=double
 set wildmenu
 "set mouse=a
 "set ttymouse=xterm2
@@ -84,6 +80,7 @@ highlight JpSpace cterm=underline ctermfg=darkgray guifg=7
 au BufRead,BufNew * match JpSpace /　/
 
 
+
 " カーソル行をハイライト
 set cursorline
 highlight CursorLine ctermbg=DarkGray
@@ -103,10 +100,15 @@ augroup END
 
 set backspace=indent,eol,start
 
+" http://d.hatena.ne.jp/yuyarin/20100225/1267084794
+set backupskip=/tmp/*,/private/tmp/*
+
 
 " to be fast response
 set ttyfast
 set lazyredraw
+
+
 
 
 syntax on
@@ -136,10 +138,6 @@ autocmd FileType php set omnifunc=phpcomplete#CompletePHP
 
 " disable auto comment out after the line break
 " set formatoptions-=ro
-
-"新しい行を作ったときに高度な自動インデントを行う
-" http://www.ispern.com/?p=324
-" set smartindent
 
 "行頭の余白内で Tab を打ち込むと、'shiftwidth' の数だけインデントする。
 " set smarttab
@@ -173,11 +171,60 @@ colorscheme molokai
 " vim-ref
 " """""""""""""""""""""""""
 " vim-ref setting
+nmap ,ra :<C-u>Ref alc<Space>
+nmap ,rp :<C-u>Ref phpmanual<Space>
+
 let g:ref_phpmanual_path = $HOME . '/.setting/php/php-chunked-xhtml'
 " let g:ref_phpmanual_cmd = 'w3m -dump %s'
 
 
 " :highlight Underlined ctermfg=Cyan
+
+" """""""""""""""""""""""""
+" shel script
+"
+" """""""""""""""""""""""""
+autocmd BufNewFile *.sh  0r $HOME/.setting/template/sh.sh
+autocmd BufNewFile *.php 0r $HOME/.setting/template/php.php
+autocmd BufNewFile *.html 0r $HOME/.setting/template/html.html
+
+
+" """""""""""""""""""""""""
+" ファイルの前回閉じたときの場所を記憶してくれます。
+" """""""""""""""""""""""""
+if has("autocmd")
+	autocmd BufReadPost *
+				\ if line("'\"") > 0 && line ("'\"") <= line("$") |
+				\   exe "normal! g'\"" |
+				\ endif
+endif
+
+" """""""""""""""""""""""""
+" Syntax check
+" """""""""""""""""""""""""
+"------------------------------------------------------------------------------------"
+" 各種プログラムで構文チェク(:make)をCtr+c Ctr+cで行えるようにする
+" 表示されたQuickFixはウィンドウを移動しなくても
+" :cn および :cp　で移動可能
+"------------------------------------------------------------------------------------"
+" Perl構文チェック
+autocmd FileType perl compiler perl
+autocmd FileType perl map <c-c><c-c> :make<cr> :cw<cr><cr>
+
+" PHP構文チェック
+au BufRead,BufNewFile *.php set makeprg=php\ -l\ %
+au BufRead,BufNewFile *.php set errorformat=%m\ in\ %f\ on\ line\ %l
+autocmd FileType php map <c-c><c-c> :make<cr> :cw<cr><cr>
+
+" Ruby構文チェック
+au BufRead,BufNewFile *.rb set makeprg=ruby\ -c\ %
+au BufRead,BufNewFile *.rb set errorformat=%m\ in\ %f\ on\ line\ %l
+autocmd FileType rb map <c-c><c-c> :make<cr> :cw<cr><cr>
+
+" HTML構文チェック
+autocmd FileType xhtml,html :compiler tidy
+autocmd FileType xhtml,html :setlocal makeprg=tidy\ -raw\ -quiet\ -errors\ --gnu-emacs\ yes\ \"%\"
+autocmd FileType xhtml,html map <c-c><c-c> :make<cr> :cw<cr><cr>
 
 
 " """""""""""""""""""""""""
@@ -228,6 +275,10 @@ nmap g# g#zz
 "Escの2回押しでハイライト消去
 nmap <ESC><ESC> ;nohlsearch<CR><ESC>
 
+" escape vcscommand diff mode
+nmap <Leader>dq :winc l<CR>:bw<CR>:diffoff<CR>
+
+
 
 "" gtags
 map <C-g><C-g> :Gtags 
@@ -241,6 +292,56 @@ map <C-p> :cp<CR>
 " vmap
 " dump the variable.
 :vmap st "zdiprint_r("<pre>".<C-R>z".</pre>");exit;<ESC>
+
+
+"for surround.vim
+" [key map]
+" 1 : <h1>|</h1>
+" 2 : <h2>|</h2>
+" 3 : <h3>|</h3>
+" 4 : <h4>|</h4>
+" 5 : <h5>|</h5>
+" 6 : <h6>|</h6>
+"
+" p : <p>|</p>
+" u : <ul>|</ul>
+" o : <ol>|</ol>
+" l : <li>|</li>
+" a : <a href="">|</a>
+" A : <a href="|"></a>
+" i : <img src="|" alt="" />
+" I : <img src="" alt"|" />
+" d : <div>|</div>
+" D : <div class="section">|</div>
+
+autocmd FileType smarty let b:surround_101 = "{t}\r{/t}" " 101 = e
+autocmd FileType smarty let b:surround_10f = "{t}\n\r\n{/t}" " 102 = f
+map  ,tt ysse
+map  ,tb ySSe
+
+
+autocmd FileType php let g:surround_103 = "_('\r')"  " 103 = g
+autocmd FileType php let g:surround_71 = "_(\"\r\")" " 71 = G
+
+
+
+autocmd FileType html let b:surround_49  = "<h1>\r</h1>"
+autocmd FileType html let b:surround_50  = "<h2>\r</h2>"
+autocmd FileType html let b:surround_51  = "<h3>\r</h3>"
+autocmd FileType html let b:surround_52  = "<h4>\r</h4>"
+autocmd FileType html let b:surround_53  = "<h5>\r</h5>"
+autocmd FileType html let b:surround_54  = "<h6>\r</h6>"
+
+autocmd FileType html let b:surround_112 = "<p>\r</p>"
+autocmd FileType html let b:surround_117 = "<ul>\r</ul>"
+autocmd FileType html let b:surround_111 = "<ol>\r</ol>"
+autocmd FileType html let b:surround_108 = "<li>\r</li>"
+autocmd FileType html let b:surround_97  = "<a href=\"\">\r</a>"
+autocmd FileType html let b:surround_65  = "<a href=\"\r\"></a>"
+autocmd FileType html let b:surround_105 = "<img src=\"\r\" alt=\"\" />"
+autocmd FileType html let b:surround_73  = "<img src=\"\" alt=\"\r\" />"
+autocmd FileType html let b:surround_100 = "<div>\r</div>"
+autocmd FileType html let b:surround_68  = "<div class=\"section\">\r</div>"
 
 
 
