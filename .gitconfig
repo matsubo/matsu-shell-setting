@@ -85,3 +85,5 @@
 	old = yellow
 [color "diff.add"]
 	old = magenta
+[http]
+	sslVerify = false
