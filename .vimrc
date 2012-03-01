@@ -73,7 +73,7 @@ set number ruler
 
 " show special chars
 set list
-set lcs=tab:>\ ,trail:_,extends:\
+set lcs=tab:\ \ ,trail:_,extends:\
 
 highlight SpecialKey cterm=NONE ctermfg=darkgray guifg=7
 highlight JpSpace cterm=underline ctermfg=darkgray guifg=7
