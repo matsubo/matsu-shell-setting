@@ -5,7 +5,7 @@
 #export LANG=ja_JP.eucJP
 #export LANG=en_US.utf8
 export LANG=ja_JP.utf8
-export LC_ALL=en_US
+export LC_ALL=en_US.UTF-8
 export LESSCHARSET=utf-8
 
 
@@ -161,8 +161,7 @@ export SAMBA=/usr/local/samba
 export SVN_EDITOR=vi
 
 export JAVA_HOME=/usr/local/java
-export PATH=$MYSQL/bin/:$SAMBA/bin:~/.setting/bin:/usr/local/bin:/bin:/usr/bin:/sbin:/usr/sbin:$JAVA_HOME/bin:/opt/local/bin:/usr/local/sbin
-export PATH=~/archive/screen-4.0.3:$PATH
+export PATH=~/bin:$MYSQL/bin/:$SAMBA/bin:~/.setting/bin:/usr/local/bin:/bin:/usr/bin:/sbin:/usr/sbin:$JAVA_HOME/bin:/opt/local/bin:/usr/local/sbin
 export PATH="/opt/local/bin":$PATH
 
 
