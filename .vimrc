@@ -26,6 +26,9 @@ Bundle 'quickrun.vim'
 Bundle 'surround.vim'
 Bundle 'molokai'
 
+" git
+Bundle 'fugitive.vim'
+Bundle 'gitv'
 
 " rails
 Bundle 'vim-ruby/vim-ruby'
