@@ -43,6 +43,9 @@ Bundle 'PDV--phpDocumentor-for-Vim'
 Bundle 'svndiff.vim'
 
 
+Bundle 'Powerline'
+
+
 filetype plugin indent on
 
 " """""""""""""""""""""""""
@@ -63,6 +66,8 @@ set wildmenu
 
 " always show status line
 set laststatus=2
+set statusline=%F%<%m%r%h%w\ [%{&ff}]\ [%Y]\ [%04v,%04l/%L][%p%%]%=%{fugitive#statusline()}
+
 set hlsearch
 
 " search behaviors
@@ -80,16 +85,16 @@ set lcs=tab:\ \ ,trail:_,extends:\
 
 highlight SpecialKey cterm=NONE ctermfg=darkgray guifg=7
 highlight JpSpace cterm=underline ctermfg=darkgray guifg=7
-au BufRead,BufNew * match JpSpace /ã€€/
+au BufRead,BufNew * match JpSpace /¡¡/
 
 
 
-" ã‚«ãƒ¼ã‚½ãƒ«è¡Œã‚’ãƒã‚¤ãƒ©ã‚¤ãƒˆ
+" ¥«¡¼¥½¥ë¹Ô¤ò¥Ï¥¤¥é¥¤¥È
 set cursorline
 highlight CursorLine ctermbg=DarkGray
 
 
-" ã‚«ãƒ¬ãƒ³ãƒˆã‚¦ã‚£ãƒ³ãƒ‰ã‚¦ã«ã®ã¿ç½«ç·šã‚’å¼•ã
+" ¥«¥ì¥ó¥È¥¦¥£¥ó¥É¥¦¤Ë¤Î¤ß·ÓÀş¤ò°ú¤¯
 augroup cch
 autocmd! cch
 autocmd WinLeave * set nocursorline
@@ -117,7 +122,7 @@ set lazyredraw
 syntax on
 
 " """""""""""""""""""""""""
-" tab
+" hard tab
 " """""""""""""""""""""""""
 " insert spaces instead of tabs
 "set expandtab
@@ -132,6 +137,8 @@ set shiftwidth=2
 
 
 
+imap ,tn :tabnew
+
 
 
 " """""""""""""""""""""""""
@@ -142,7 +149,7 @@ autocmd FileType php set omnifunc=phpcomplete#CompletePHP
 " disable auto comment out after the line break
 " set formatoptions-=ro
 
-"è¡Œé ­ã®ä½™ç™½å†…ã§ Tab ã‚’æ‰“ã¡è¾¼ã‚€ã¨ã€'shiftwidth' ã®æ•°ã ã‘ã‚¤ãƒ³ãƒ‡ãƒ³ãƒˆã™ã‚‹ã€‚
+"¹ÔÆ¬¤ÎÍ¾ÇòÆâ¤Ç Tab ¤òÂÇ¤Á¹ş¤à¤È¡¢'shiftwidth' ¤Î¿ô¤À¤±¥¤¥ó¥Ç¥ó¥È¤¹¤ë¡£
 " set smarttab
 
 
@@ -193,7 +200,7 @@ autocmd BufNewFile *.html 0r $HOME/.setting/template/html.html
 
 
 " """""""""""""""""""""""""
-" ãƒ•ã‚¡ã‚¤ãƒ«ã®å‰å›é–‰ã˜ãŸã¨ãã®å ´æ‰€ã‚’è¨˜æ†¶ã—ã¦ãã‚Œã¾ã™ã€‚
+" ¥Õ¥¡¥¤¥ë¤ÎÁ°²óÊÄ¤¸¤¿¤È¤­¤Î¾ì½ê¤òµ­²±¤·¤Æ¤¯¤ì¤Ş¤¹¡£
 " """""""""""""""""""""""""
 if has("autocmd")
 	autocmd BufReadPost *
@@ -206,25 +213,25 @@ endif
 " Syntax check
 " """""""""""""""""""""""""
 "------------------------------------------------------------------------------------"
-" å„ç¨®ãƒ—ãƒ­ã‚°ãƒ©ãƒ ã§æ§‹æ–‡ãƒã‚§ã‚¯(:make)ã‚’Ctr+c Ctr+cã§è¡Œãˆã‚‹ã‚ˆã†ã«ã™ã‚‹
-" è¡¨ç¤ºã•ã‚ŒãŸQuickFixã¯ã‚¦ã‚£ãƒ³ãƒ‰ã‚¦ã‚’ç§»å‹•ã—ãªãã¦ã‚‚
-" :cn ãŠã‚ˆã³ :cpã€€ã§ç§»å‹•å¯èƒ½
+" ³Æ¼ï¥×¥í¥°¥é¥à¤Ç¹½Ê¸¥Á¥§¥¯(:make)¤òCtr+c Ctr+c¤Ç¹Ô¤¨¤ë¤è¤¦¤Ë¤¹¤ë
+" É½¼¨¤µ¤ì¤¿QuickFix¤Ï¥¦¥£¥ó¥É¥¦¤ò°ÜÆ°¤·¤Ê¤¯¤Æ¤â
+" :cn ¤ª¤è¤Ó :cp¡¡¤Ç°ÜÆ°²ÄÇ½
 "------------------------------------------------------------------------------------"
-" Perlæ§‹æ–‡ãƒã‚§ãƒƒã‚¯
+" Perl¹½Ê¸¥Á¥§¥Ã¥¯
 autocmd FileType perl compiler perl
 autocmd FileType perl map <c-c><c-c> :make<cr> :cw<cr><cr>
 
-" PHPæ§‹æ–‡ãƒã‚§ãƒƒã‚¯
+" PHP¹½Ê¸¥Á¥§¥Ã¥¯
 au BufRead,BufNewFile *.php set makeprg=php\ -l\ %
 au BufRead,BufNewFile *.php set errorformat=%m\ in\ %f\ on\ line\ %l
 autocmd FileType php map <c-c><c-c> :make<cr> :cw<cr><cr>
 
-" Rubyæ§‹æ–‡ãƒã‚§ãƒƒã‚¯
+" Ruby¹½Ê¸¥Á¥§¥Ã¥¯
 au BufRead,BufNewFile *.rb set makeprg=ruby\ -c\ %
 au BufRead,BufNewFile *.rb set errorformat=%m\ in\ %f\ on\ line\ %l
 autocmd FileType rb map <c-c><c-c> :make<cr> :cw<cr><cr>
 
-" HTMLæ§‹æ–‡ãƒã‚§ãƒƒã‚¯
+" HTML¹½Ê¸¥Á¥§¥Ã¥¯
 autocmd FileType xhtml,html :compiler tidy
 autocmd FileType xhtml,html :setlocal makeprg=tidy\ -raw\ -quiet\ -errors\ --gnu-emacs\ yes\ \"%\"
 autocmd FileType xhtml,html map <c-c><c-c> :make<cr> :cw<cr><cr>
@@ -233,38 +240,40 @@ autocmd FileType xhtml,html map <c-c><c-c> :make<cr> :cw<cr><cr>
 " """""""""""""""""""""""""
 " unite.vim
 " """""""""""""""""""""""""
-" å…¥åŠ›ãƒ¢ãƒ¼ãƒ‰ã§é–‹å§‹ã™ã‚‹
+" ÆşÎÏ¥â¡¼¥É¤Ç³«»Ï¤¹¤ë
 " let g:unite_enable_start_insert=1
 
-" ãƒãƒƒãƒ•ã‚¡ä¸€è¦§
+" ¥Ğ¥Ã¥Õ¥¡°ìÍ÷
 nnoremap <silent> ,ub :<C-u>Unite buffer<CR>
-" ãƒ•ã‚¡ã‚¤ãƒ«ä¸€è¦§
+" ¥Õ¥¡¥¤¥ë°ìÍ÷
 nnoremap <silent> ,uf :<C-u>UniteWithBufferDir -buffer-name=files file<CR>
-" ãƒ¬ã‚¸ã‚¹ã‚¿ä¸€è¦§
+" ¥ì¥¸¥¹¥¿°ìÍ÷
 nnoremap <silent> ,ur :<C-u>Unite -buffer-name=register register<CR>
-" æœ€è¿‘ä½¿ç”¨ã—ãŸãƒ•ã‚¡ã‚¤ãƒ«ä¸€è¦§
+" ºÇ¶á»ÈÍÑ¤·¤¿¥Õ¥¡¥¤¥ë°ìÍ÷
 nnoremap <silent> ,um :<C-u>Unite file_mru<CR>
-" å¸¸ç”¨ã‚»ãƒƒãƒˆ
+" ¾ïÍÑ¥»¥Ã¥È
 nnoremap <silent> ,uu :<C-u>Unite buffer file_mru<CR>
-" å…¨éƒ¨ä¹—ã›
+" Á´Éô¾è¤»
 nnoremap <silent> ,ua :<C-u>UniteWithBufferDir -buffer-name=files buffer file_mru bookmark file<CR>
 
 call unite#set_buffer_name_option('default', 'ignorecase', 1)
 call unite#set_buffer_name_option('default', 'smartcase', 1)
 
 
-" ã‚¦ã‚£ãƒ³ãƒ‰ã‚¦ã‚’åˆ†å‰²ã—ã¦é–‹ã
+" ¥¦¥£¥ó¥É¥¦¤òÊ¬³ä¤·¤Æ³«¤¯
 au FileType unite nnoremap <silent> <buffer> <expr> <C-j> unite#do_action('split')
 au FileType unite inoremap <silent> <buffer> <expr> <C-j> unite#do_action('split')
-" ã‚¦ã‚£ãƒ³ãƒ‰ã‚¦ã‚’ç¸¦ã«åˆ†å‰²ã—ã¦é–‹ã
+" ¥¦¥£¥ó¥É¥¦¤ò½Ä¤ËÊ¬³ä¤·¤Æ³«¤¯
 au FileType unite nnoremap <silent> <buffer> <expr> <C-l> unite#do_action('vsplit')
 au FileType unite inoremap <silent> <buffer> <expr> <C-l> unite#do_action('vsplit')
-" ESCã‚­ãƒ¼ã‚’2å›æŠ¼ã™ã¨çµ‚äº†ã™ã‚‹
+" ESC¥­¡¼¤ò2²ó²¡¤¹¤È½ªÎ»¤¹¤ë
 au FileType unite nnoremap <silent> <buffer> <ESC><ESC> q
 au FileType unite inoremap <silent> <buffer> <ESC><ESC> <ESC>q
 
 
 
+" Powerline
+let g:Powerline_symbols = 'fancy'
 
 " move the search word to the center
 nmap n nzz
@@ -275,7 +284,7 @@ nmap g* g*zz
 nmap g# g#zz
 
 
-"Escã®2å›æŠ¼ã—ã§ãƒã‚¤ãƒ©ã‚¤ãƒˆæ¶ˆå»
+"Esc¤Î2²ó²¡¤·¤Ç¥Ï¥¤¥é¥¤¥È¾Ãµî
 nmap <ESC><ESC> ;nohlsearch<CR><ESC>
 
 " escape vcscommand diff mode

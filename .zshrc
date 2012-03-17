@@ -124,8 +124,10 @@ alias -g W='| wc'
 #alias bd="popd"
 
 # super shortcut
-# ex: g TestAction
-alias g='find . | grep '
+# ex: findg TestAction
+alias findg='find . | grep '
+
+alias g=git
 
 
 # for work
@@ -332,7 +334,6 @@ fi
 # startup command
 #########################################
 
-#screen -xrU
 screen -r
 
 
