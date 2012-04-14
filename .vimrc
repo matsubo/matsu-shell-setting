@@ -43,7 +43,7 @@ Bundle 'PDV--phpDocumentor-for-Vim'
 Bundle 'svndiff.vim'
 
 
-Bundle 'Powerline'
+Bundle 'git://github.com/Lokaltog/vim-powerline.git'
 
 
 filetype plugin indent on
