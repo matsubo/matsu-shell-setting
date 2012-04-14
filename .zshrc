@@ -39,6 +39,12 @@ compinit -u
 #bashcompinit
 #source ~/.setting/.git-completion.bash
 
+
+# ignore ssl certificate when using git
+export GIT_SSL_NO_VERIFY=true
+
+
+
 # http://u7fa9.org/memo/HEAD/archives/2011-02/2011-02-01.rst
 __git_files() { _files }
 
@@ -284,6 +290,7 @@ precmd () {
 	[[ -n "$vcs_info_msg_0_" ]] && psvar[1]="$vcs_info_msg_0_"
 }
 RPROMPT="%1(v|%F{green}%1v%f|)"
+
 
 
 #########################################

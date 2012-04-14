@@ -72,7 +72,7 @@
   gr = grep
   gn = grep -n
 [core]
-	editor = /usr/bin/vim
+	editor = vim
 	pager = nkf -w | LESSCHARSET=utf-8 less
 	excludesfile = /home/yuki-matsukura/.setting/gitignore
 [status]
