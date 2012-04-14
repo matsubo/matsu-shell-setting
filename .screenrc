@@ -8,7 +8,14 @@ autodetach on
 # disable window resize
 termcapinfo xterm 'is=\E[r\E[m\E[2J\E[H\E[?7h\E[?1;4;6l'
 termcapinfo xterm-256color hs@:is=\E[r\E[m\E[2J\E[H\E[?7h\E[?1;4;6l
-#defbce on
+
+
+
+# enable to scroll by mouse or keyboard
+termcapinfo xterm* ti@:te@
+
+
+defbce on
 term xterm-256color
 #term ansi
 
@@ -19,28 +26,38 @@ bind 'E' eval "encoding euc" "stuff 'export LANG=ja_JP.EUC-JP\012'"
 bind 'S' eval "encoding sjis" "stuff 'export LANG=ja_JP.SHIFT-JIS\012'"
 
 
-caption always "%{= wk} %-w%{=bu dr}%n %t%{-}%+w %= %{=b wb}%H [%c:%s]"
+
+# changes the windowlist format to suit caption/hardstatus
+windowlist title  '%{u .g}Num Flags Title%=[0-9] select the number [movement] j,C-n:Down k,C-p:Up (C-)f:PageDown (C-)b:PageUp'
+windowlist string '%{.g}%3n %{.y}%f%09=%{dg} %t %='
+
+
 hardstatus string "[%H #%n] %h"
 
-caption always '%?%F%{= wk}%:%{= Kk}%?%2n%f%07=%t%='
+caption always '%?%F%{= gW}%:%{= Kk}%?%2n%f%07=%t%='
+
+
 hardstatus alwayslastline '%m/%d %02c:%s %{= .g}%H%{-} %L=%-w%45L>%{=u g.}%n %t%{-}%+w %-17<%=%{= .y}(%l)'
 hardstatus on
 
 
 # number of lines to scroll back
 defscrollback 10000
+# markkeys h=^B:l=^F:$=^E
+
 
 # turn off visible bell
-vbell off
+vbell on
 bell_msg "Bell in window %^G"
 
 # window management emulating emacs key bind
-bind -c REGION 2 split
-bind -c REGION 1 only
-bind -c REGION 0 remove
-bind -c REGION o focus
-bind -c REGION \^ resize
-bind x command -c REGION
+bind -c region  3 split -v
+bind -c region  2 split
+bind -c region  1 only
+bind -c region  0 remove
+bind -c region  o focus
+bind -c region  \^ resize
+bind x command -c region
 
 
 # enter resize mode by "r" command. press k or j to be larger or smaller
@@ -50,15 +67,79 @@ bind -c resize j eval 'resize +1' 'command -c resize'
 bind -c resize k eval 'resize -1' 'command -c resize'
 
 
+
+# switch focus to other region(like vi)
+# orverride default `k'(kill), `t'(time), `b'(break) mappings.
+bind j focus down
+bind k focus up
+#bind t focus top
+#bind b focus bottom
+bind h focus left
+bind l focus right
+
+
+bind K focus kill
+
+# re-define continuous region operation (vertical resize locally and focus next/prev)
+bind -c region ^N eval 'focus next'       'command -c region' 'echo "[Region] (focus next)"'
+bind -c region ^P eval 'focus prev'       'command -c region' 'echo "[Region] (focus prev)"'
+bind -c region j  eval 'resize -l -v +1'  'command -c region' 'echo "[Region] (resize -l -v +1)"'
+bind -c region k  eval 'resize -l -v -1'  'command -c region' 'echo "[Region] (resize -l -v -1)"'
+bind -c region J  eval 'resize -l -v +10' 'command -c region' 'echo "[Region] (resize -l -v +10)"'
+bind -c region K  eval 'resize -l -v -10' 'command -c region' 'echo "[Region] (resize -l -v -10)"'
+bind -c region =  eval 'resize -l ='      'command -c region' 'echo "[Region] (resize -l =)"'
+
+# add continuous region operation(like vim)
+bind -c region ^H eval 'focus left'       'command -c region' 'echo "[Region] (focus left)"'
+bind -c region ^L eval 'focus right'      'command -c region' 'echo "[Region] (focus right)"'
+bind -c region <  eval 'resize -l -h -1'  'command -c region' 'echo "[Region] (resize -l -h -1)"'
+bind -c region >  eval 'resize -l -h +1'  'command -c region' 'echo "[Region] (resize -l -h +1)"'
+bind -c region h  eval 'resize -l -h -1'  'command -c region' 'echo "[Region] (resize -l -h -1)"'
+bind -c region l  eval 'resize -l -h +1'  'command -c region' 'echo "[Region] (resize -l -h +1)"'
+bind -c region H  eval 'resize -l -h -10' 'command -c region' 'echo "[Region] (resize -l -h -10)"'
+bind -c region L  eval 'resize -l -h +10' 'command -c region' 'echo "[Region] (resize -l -h +10)"'
+bind -c region ^V eval 'split -v'         'command -c region' 'echo "[Region] (split -v)"'
+bind -c region v  eval 'split -v'         'command -c region' 'echo "[Region] (split -v)"'
+bind -c region |  eval 'split -v'         'command -c region' 'echo "[Region] (split -v)"'
+#bind -c region 3  eval 'split -v'         'command -c region' 'echo "[Region] (split -v)"'
+#
+# greedy continuous resize region
+bind -c region ^E eval 'resize ='         'command -c region' 'echo "[Region] (resize =)"'
+bind -c region ^X eval 'resize max'       'command -c region' 'echo "[Region] (resize max)"'
+
+
+
+
+rendition bell     '=ub' 'RY'
+rendition monitor  '=b'  'BW'
+rendition silence  '=u'  'wk'
+rendition so       '='   'Ck'
+
+
 # enable logging
 #hardcopydir "$HOME/.screenlog"
 #hardcopy_append on
 #logfile "$HOME/.screenlog/%H-%Y%m%d-%c-%n.log"
 #deflog on
 
+
+defutf8 on
+defkanji utf8
 defencoding utf8
 encoding utf8 utf8
 
+# echo command name whenever a window is created or resurrected.
+verbose on
 
-source .screenrc_local
+startup_message off
+
+
+# laytout
+# http://yskwkzhr.blogspot.com/2011/12/lets-use-development-version-gnu-screen.html
+
+
+# source .screenrc_local
+# source .screenrc.layout
+
+
 

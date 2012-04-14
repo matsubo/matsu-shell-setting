@@ -16,7 +16,9 @@ ln -s .setting/.htoprc
 ln -s .setting/.screenrc
 ln -s .setting/.vim
 ln -s .setting/.vimrc
+ln -s .setting/.gvimrc
 ln -s .setting/.zshrc
+ln -s .setting/.my.cnf
 ln -s .setting/.lv
 ln -s .setting/.w3m
 cp .setting/.tigrc ./

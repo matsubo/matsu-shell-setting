@@ -5,7 +5,7 @@
 #export LANG=ja_JP.eucJP
 #export LANG=en_US.utf8
 export LANG=ja_JP.utf8
-export LC_ALL=en_US
+export LC_ALL=en_US.UTF-8
 export LESSCHARSET=utf-8
 
 
@@ -22,6 +22,7 @@ setopt magic_equal_subst
 unsetopt promptcr
 
 umask 0002
+ulimit -n 1024
 
 autoload -U compinit
 compinit -u
@@ -124,18 +125,40 @@ alias -g S='| sed'
 alias -g A='| awk'
 alias -g W='| wc'
 
-alias upgrade='sudo aptitude update && sudo aptitude safe-upgrade'
 
 #alias cd="pushd"
 #alias bd="popd"
 
 # super shortcut
-# ex: g TestAction
-alias g='find . | grep '
+# ex: findg TestAction
+alias findg='find . | grep '
+
+alias g=git
 
 
 # for work
 alias findgrep="find -type d -name '.svn' -prune -o -type f -print | xargs grep -n"
+
+# dstat
+alias dstat-full='dstat -Tclmdrn'
+alias dstat-mem='dstat -Tclm'
+alias dstat-cpu='dstat -Tclr'
+alias dstat-net='dstat -Tclnd'
+alias dstat-disk='dstat -Tcldr'
+alias dstat-top-cpu='dstat --top-cpu --top-cputime'
+alias dstat-top-io='dstat --top-io --top-bio'
+
+export DSTAT_MYSQL_USER=root
+export DSTAT_MYSQL_PWD=
+export DSTAT_MYSQL_HOST=127.0.0.1
+alias dstat-mysql='dstat -T --mysql5-cmds --mysql5-conn --mysql5-io --mysql5-keys'
+alias dstat-innodb='dstat -T --innodb-io --innodb-buffer --innodb-ops'
+
+alias historytime="history -nir 0 | less"
+
+# execute row priority
+alias allnice="ionice -c2 -n7 nice -n19"
+
 
 
 
@@ -146,8 +169,7 @@ export SAMBA=/usr/local/samba
 export SVN_EDITOR=vi
 
 export JAVA_HOME=/usr/local/java
-export PATH=$MYSQL/bin/:$SAMBA/bin:/usr/local/bin:/bin:/usr/bin:/sbin:/usr/sbin:$JAVA_HOME/bin:/opt/local/bin
-export PATH=~/archive/screen-4.0.3:$PATH
+export PATH=~/bin:$MYSQL/bin/:$SAMBA/bin:~/.setting/bin:/usr/local/bin:/bin:/usr/bin:/sbin:/usr/sbin:$JAVA_HOME/bin:/opt/local/bin:/usr/local/sbin
 export PATH="/opt/local/bin":$PATH
 
 
@@ -177,6 +199,7 @@ if [ -d /Users/ ]; then
   # mac
   alias updatedb=/usr/libexec/locate.updatedb
   alias ls='ls -G -p'
+	export PATH="/opt/local/bin":$PATH
 	export PATH=$PATH:/usr/local/git/bin
 fi
 
@@ -281,15 +304,17 @@ fi
 # VCS setting
 #########################################
 # http://d.hatena.ne.jp/mollifier/20090814/p1
-autoload -Uz vcs_info
-zstyle ':vcs_info:*' formats '(%s)-[%b]'
-zstyle ':vcs_info:*' actionformats '(%s)-[%b|%a]'
-precmd () {
-	psvar=()
-	LANG=en_US.UTF-8 vcs_info
-	[[ -n "$vcs_info_msg_0_" ]] && psvar[1]="$vcs_info_msg_0_"
-}
-RPROMPT="%1(v|%F{green}%1v%f|)"
+if [[ $ZSH_VERSION == (<5->|4.<4->|4.3.<10->)* ]]; then
+	autoload -Uz vcs_info
+	zstyle ':vcs_info:*' formats '(%s)-[%b]'
+	zstyle ':vcs_info:*' actionformats '(%s)-[%b|%a]'
+	precmd () {
+		psvar=()
+		LANG=en_US.UTF-8 vcs_info
+		[[ -n "$vcs_info_msg_0_" ]] && psvar[1]="$vcs_info_msg_0_"
+	}
+	RPROMPT="%1(v|%F{green}%1v%f|)"
+fi
 
 
 
@@ -316,7 +341,6 @@ fi
 # startup command
 #########################################
 
-#screen -xrU
 screen -r
 
 
