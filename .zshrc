@@ -40,6 +40,12 @@ compinit -u
 #bashcompinit
 #source ~/.setting/.git-completion.bash
 
+
+# ignore ssl certificate when using git
+export GIT_SSL_NO_VERIFY=true
+
+
+
 # http://u7fa9.org/memo/HEAD/archives/2011-02/2011-02-01.rst
 __git_files() { _files }
 
@@ -309,6 +315,7 @@ if [[ $ZSH_VERSION == (<5->|4.<4->|4.3.<10->)* ]]; then
 	}
 	RPROMPT="%1(v|%F{green}%1v%f|)"
 fi
+
 
 
 #########################################

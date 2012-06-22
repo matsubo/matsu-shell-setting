@@ -14,7 +14,7 @@ Bundle 'L9'
 Bundle 'project.tar.gz'
 Bundle 'gmarik/vundle'
 Bundle 'FuzzyFinder'
-Bundle 'Highlight-UnMatched-Brackets'
+" Bundle 'Highlight-UnMatched-Brackets'
 Bundle 'vcscommand.vim'
 Bundle 'gtags.vim'
 Bundle 'ref.vim'
@@ -303,6 +303,8 @@ nmap <ESC><ESC> ;nohlsearch<CR><ESC>
 nmap <Leader>dq :winc l<CR>:bw<CR>:diffoff<CR>
 
 
+" grep結果をquick fixに表示刷る
+au QuickfixCmdPost vimgrep cw
 
 "" gtags
 map <C-g><C-g> :Gtags 
