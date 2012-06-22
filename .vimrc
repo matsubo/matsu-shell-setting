@@ -118,6 +118,18 @@ set lazyredraw
 
 
 
+"------ Syntax Check ------
+" PHP Lint
+autocmd BufWritePost *.php :call PHPLint()
+function PHPLint()
+　let result = system( &ft . ' -l ' . bufname(""))
+　let headPart = strpart(result, 0, 16)
+　if headPart != "No syntax errors"
+　　　echo result
+　endif
+endfunction
+
+
 
 syntax on
 
