@@ -319,6 +319,10 @@ map <C-p> :cp<CR>
 " dump the variable.
 :vmap st "zdiprint_r("<pre>".<C-R>z".</pre>");exit;<ESC>
 
+" gitv
+autocmd FileType git :setlocal foldlevel=99
+
+
 
 "for surround.vim
 " [key map]
@@ -370,6 +374,7 @@ autocmd FileType html let b:surround_100 = "<div>\r</div>"
 autocmd FileType html let b:surround_68  = "<div class=\"section\">\r</div>"
 
 
+set foldmethod=marker
 
 
 

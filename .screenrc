@@ -78,7 +78,7 @@ bind h focus left
 bind l focus right
 
 
-bind K focus kill
+bind q kill
 
 # re-define continuous region operation (vertical resize locally and focus next/prev)
 bind -c region ^N eval 'focus next'       'command -c region' 'echo "[Region] (focus next)"'
