@@ -3,11 +3,12 @@
 I'm a system architect and work as a programmer also. I'd like to publish my shell setting on github for effective coding.
 
 Please subscribe RSS of my blog to keep track of open source development.
-http://matsu.tymy.net/blog/
+http://matsu.teraren.com/blog/
 
 
 # Installation
 
+<pre>
  git clone git@github.com:matsubo/matsu-shell-setting.git .setting
  cd
  ln -s .setting/.htoprc
@@ -25,6 +26,7 @@ http://matsu.tymy.net/blog/
  git submodule init
  git submodule update
  vim
+</pre>
 
 (open vim and type :BundleInstall to retrieve plugins)
 
