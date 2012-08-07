@@ -45,6 +45,13 @@ Bundle 'svndiff.vim'
 
 Bundle 'git://github.com/Lokaltog/vim-powerline.git'
 
+Bundle 'scrooloose/nerdtree'
+Bundle 'scrooloose/nerdcommenter'
+
+
+Bundle 'PDV--phpDocumentor-for-Vim'
+
+
 
 filetype plugin indent on
 
@@ -376,5 +383,36 @@ autocmd FileType html let b:surround_68  = "<div class=\"section\">\r</div>"
 
 set foldmethod=marker
 
+
+" NERD_tree
+" Q. How can I open a NERDTree automatically when vim starts up if no files were specified?
+autocmd vimenter * if !argc() | NERDTree | endif
+" How can I close vim if the only window left open is a NERDTree
+autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
+
+
+
+"----------------------------------------------------
+"" PDV (PhpDocumenter for vim)
+"----------------------------------------------------
+inoremap <C-@> <ESC>:call PhpDocSingle()<CR>i
+nnoremap <C-@> :call PhpDocSingle()<CR>
+vnoremap <C-@> :call PhpDocRange()<CR> 
+
+
+" After phpDoc standard
+let g:pdv_cfg_CommentHead = "/**"
+let g:pdv_cfg_Comment1 = " *"
+let g:pdv_cfg_Commentn = " *"
+let g:pdv_cfg_CommentTail = " */"
+let g:pdv_cfg_CommentSingle = "//"
+
+" Default values
+let g:pdv_cfg_Type = "mixed"
+let g:pdv_cfg_Package = ""
+let g:pdv_cfg_Version = "$id:$"
+let g:pdv_cfg_Author = "Yuki Matsukura <yuki.matsukura@gree.co.jp>"
+let g:pdv_cfg_Copyright = "GREE, Inc."
+let g:pdv_cfg_License = " "
 
 
