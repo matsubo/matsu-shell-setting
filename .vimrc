@@ -1,52 +1,58 @@
 " VIM setting
 "
 " """""""""""""""""""""""""
-" Vundle setting
+" NeoBundle setting
 " """""""""""""""""""""""""
 set nocompatible               " be iMproved
-filetype off                   " required!
+filetype plugin indent off
 
-set rtp+=~/.vim/bundle/vundle/
-call vundle#rc()
+if has('vim_starting')
+	set runtimepath+=~/.vim/bundle/neobundle.vim/
+	call neobundle#rc(expand('~/.vim/bundle/'))
+endif
 
 " global
-Bundle 'L9'
-Bundle 'project.tar.gz'
-Bundle 'gmarik/vundle'
-Bundle 'FuzzyFinder'
+NeoBundle 'L9'
+NeoBundle 'project.tar.gz'
+NeoBundle 'FuzzyFinder'
 " Bundle 'Highlight-UnMatched-Brackets'
-Bundle 'vcscommand.vim'
-Bundle 'gtags.vim'
-Bundle 'ref.vim'
-Bundle 'unite.vim'
-Bundle 'AutoComplPop'
-"Bundle 'git://github.com/Shougo/neocomplcache.git'
-"Bundle 'colorizer'
-Bundle 'quickrun.vim'
-Bundle 'surround.vim'
-Bundle 'molokai'
+NeoBundle 'vcscommand.vim'
+NeoBundle 'gtags.vim'
+NeoBundle 'ref.vim'
+NeoBundle 'unite.vim'
+NeoBundle 'Shougo/vimproc.git'
+NeoBundle 'AutoComplPop'
+"NeoBundle 'git://github.com/Shougo/neocomplcache.git'
+"NeoBundle 'colorizer'
+NeoBundle 'quickrun.vim'
+NeoBundle 'surround.vim'
+NeoBundle 'vim-ruickrun.vim'
+
+" colorscheme
+NeoBundle 'molokai'
+" NeoBundle 'altercation/vim-colors-solarized'
+
 
 " git
-Bundle 'fugitive.vim'
-Bundle 'gitv'
+NeoBundle 'fugitive.vim'
+NeoBundle 'gitv'
 
 " rails
-Bundle 'vim-ruby/vim-ruby'
-Bundle 'rails.vim'
+NeoBundle 'vim-ruby/vim-ruby'
+NeoBundle 'rails.vim'
 
 
 " php
-Bundle 'PDV--phpDocumentor-for-Vim'
+NeoBundle 'PDV--phpDocumentor-for-Vim'
 
-" filetype plugin indent on
 " svn
-Bundle 'svndiff.vim'
+NeoBundle 'svndiff.vim'
 
 
-Bundle 'git://github.com/Lokaltog/vim-powerline.git'
+NeoBundle 'git://github.com/Lokaltog/vim-powerline.git'
 
-Bundle 'scrooloose/nerdtree'
-Bundle 'scrooloose/nerdcommenter'
+NeoBundle 'scrooloose/nerdtree'
+NeoBundle 'scrooloose/nerdcommenter'
 
 
 
