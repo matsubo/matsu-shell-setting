@@ -49,8 +49,6 @@ Bundle 'scrooloose/nerdtree'
 Bundle 'scrooloose/nerdcommenter'
 
 
-Bundle 'PDV--phpDocumentor-for-Vim'
-
 
 
 filetype plugin indent on
