@@ -169,7 +169,7 @@ export SAMBA=/usr/local/samba
 export SVN_EDITOR=vi
 
 export JAVA_HOME=/usr/local/java
-export PATH=~/bin:$MYSQL/bin/:$SAMBA/bin:~/.setting/bin:/usr/local/bin:/bin:/usr/bin:/sbin:/usr/sbin:$JAVA_HOME/bin:/opt/local/bin:/usr/local/sbin
+export PATH=~/bin:~/usr/local/bin:$MYSQL/bin/:$SAMBA/bin:~/.setting/bin:/usr/local/bin:/bin:/usr/bin:/sbin:/usr/sbin:$JAVA_HOME/bin:/opt/local/bin:/usr/local/sbin
 
 
 # Hit ^ = cd ..
