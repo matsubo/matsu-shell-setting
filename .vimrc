@@ -28,6 +28,7 @@ NeoBundle 'quickrun.vim'
 NeoBundle 'surround.vim'
 NeoBundle 'vim-ruickrun.vim'
 
+
 " colorscheme
 NeoBundle 'molokai'
 " NeoBundle 'altercation/vim-colors-solarized'
@@ -55,6 +56,8 @@ NeoBundle 'scrooloose/nerdtree'
 NeoBundle 'scrooloose/nerdcommenter'
 
 
+" PSR
+NeoBundle 'stephpy/vim-php-cs-fixer'
 
 
 filetype plugin indent on
@@ -87,8 +90,18 @@ set ignorecase
 " if the search word includes upper case, checks the case
 set smartcase
 
+" show match
+set showmatch
+
 " show line number
-set number ruler
+set number
+set ruler
+
+" show incomplete command
+set sc
+
+" inremental search
+set incsearch
 
 " show special chars
 set list
@@ -121,6 +134,7 @@ set backspace=indent,eol,start
 
 " http://d.hatena.ne.jp/yuyarin/20100225/1267084794
 set backupskip=/tmp/*,/private/tmp/*
+set backup
 
 
 " to be fast response
@@ -172,9 +186,6 @@ autocmd FileType php set omnifunc=phpcomplete#CompletePHP
 " disable auto comment out after the line break
 " set formatoptions-=ro
 
-"行頭の余白内で Tab を打ち込むと、'shiftwidth' の数だけインデントする。
-" set smarttab
-
 
 " neocomplcache
 let g:neocomplcache_enable_at_startup = 1
@@ -196,8 +207,6 @@ set bg=dark
 set t_Co=256
 colorscheme molokai
 let g:molokai_original=1
-
-
 
 
 " """""""""""""""""""""""""
