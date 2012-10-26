@@ -9,13 +9,31 @@ export LC_ALL=en_US.UTF-8
 export LESSCHARSET=utf-8
 
 
-setopt auto_menu auto_cd correct auto_name_dirs auto_remove_slash
-setopt extended_history hist_ignore_dups hist_ignore_space prompt_subst
-setopt pushd_ignore_dups rm_star_silent sun_keyboard_hack
-setopt extended_glob list_types no_beep always_last_prompt
-setopt cdable_vars sh_word_split auto_param_keys
+setopt auto_menu
+setopt auto_cd
+setopt correct
+setopt auto_name_dirs
+setopt auto_remove_slash
+setopt extended_history
+setopt hist_ignore_dups
+setopt hist_ignore_space
+setopt prompt_subst
+setopt pushd_ignore_dups
+setopt rm_star_silent
+setopt sun_keyboard_hack
+setopt extended_glob
+setopt list_types
+setopt no_beep
+setopt always_last_prompt
+setopt cdable_vars
+setopt sh_word_split
+setopt auto_param_keys
 setopt NO_flow_control
-setopt auto_pushd pushd_ignore_dups list_packed list_types no_case_glob
+setopt auto_pushd
+setopt pushd_ignore_dups
+setopt list_packed
+setopt list_types
+setopt no_case_glob
 setopt complete_in_word
 setopt magic_equal_subst
 
@@ -169,7 +187,9 @@ export SAMBA=/usr/local/samba
 export SVN_EDITOR=vi
 
 export JAVA_HOME=/usr/local/java
-export PATH=~/bin:$MYSQL/bin/:$SAMBA/bin:~/.setting/bin:/usr/local/bin:/bin:/usr/bin:/sbin:/usr/sbin:$JAVA_HOME/bin:/opt/local/bin:/usr/local/sbin
+export MONGO_HOME=/usr/local/mongodb
+
+export PATH=~/bin:$MONGO_HOME/bin:$MYSQL/bin/:$SAMBA/bin:~/.setting/bin:/usr/local/bin:/bin:/usr/bin:/sbin:/usr/sbin:$JAVA_HOME/bin:/opt/local/bin:/usr/local/sbin
 
 
 # Hit ^ = cd ..
