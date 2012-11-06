@@ -24,7 +24,7 @@ NeoBundle 'Shougo/vimproc.git'
 NeoBundle 'AutoComplPop'
 "NeoBundle 'git://github.com/Shougo/neocomplcache.git'
 "NeoBundle 'colorizer'
-NeoBundle 'quickrun.vim'
+NeoBundle 'git://github.com/thinca/vim-quickrun.git'
 NeoBundle 'surround.vim'
 NeoBundle 'vim-ruickrun.vim'
 
@@ -58,6 +58,8 @@ NeoBundle 'scrooloose/nerdcommenter'
 
 " PSR
 NeoBundle 'stephpy/vim-php-cs-fixer'
+
+NeoBundle 'git://github.com/watanabe0621/SmartyJump.git'
 
 
 filetype plugin indent on
@@ -134,7 +136,7 @@ set backspace=indent,eol,start
 
 " http://d.hatena.ne.jp/yuyarin/20100225/1267084794
 set backupskip=/tmp/*,/private/tmp/*
-set backup
+"set backup
 
 
 " to be fast response
@@ -303,7 +305,6 @@ au FileType unite nnoremap <silent> <buffer> <ESC><ESC> q
 au FileType unite inoremap <silent> <buffer> <ESC><ESC> <ESC>q
 
 
-
 " Powerline
 let g:Powerline_symbols = 'fancy'
 
@@ -318,10 +319,6 @@ nmap g# g#zz
 
 "Escの2回押しでハイライト消去
 nmap <ESC><ESC> ;nohlsearch<CR><ESC>
-
-" escape vcscommand diff mode
-nmap <Leader>dq :winc l<CR>:bw<CR>:diffoff<CR>
-
 
 " grep結果をquick fixに表示刷る
 au QuickfixCmdPost vimgrep cw
@@ -424,8 +421,12 @@ let g:pdv_cfg_CommentSingle = "//"
 let g:pdv_cfg_Type = "mixed"
 let g:pdv_cfg_Package = ""
 let g:pdv_cfg_Version = "$id:$"
-let g:pdv_cfg_Author = "Yuki Matsukura <yuki.matsukura@gree.co.jp>"
+let g:pdv_cfg_Author = "Yuki Matsukura <yuki.matsukura@gree.net>"
 let g:pdv_cfg_Copyright = "GREE, Inc."
 let g:pdv_cfg_License = " "
+
+" smarty jump
+nnoremap <silent> <space>b :e#<CR>
+nnoremap <silent> <space>i :call SmartyJump()<CR>
 
 
