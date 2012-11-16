@@ -52,7 +52,7 @@ NeoBundle 'svndiff.vim'
 
 NeoBundle 'git://github.com/Lokaltog/vim-powerline.git'
 
-NeoBundle 'scrooloose/nerdtree'
+" NeoBundle 'scrooloose/nerdtree'
 NeoBundle 'scrooloose/nerdcommenter'
 
 
@@ -108,6 +108,13 @@ set incsearch
 " show special chars
 set list
 set lcs=tab:\ \ ,trail:_,extends:\
+
+
+" set leader key
+let mapleader = ","
+
+
+
 
 highlight SpecialKey cterm=NONE ctermfg=darkgray guifg=7
 highlight JpSpace cterm=underline ctermfg=darkgray guifg=7
@@ -176,8 +183,36 @@ set shiftwidth=2
 
 
 
-imap ,tn :tabnew
+" """""""""""""""""""""""""
+" vim's tab shortcut
+" """""""""""""""""""""""""
+nnoremap [TABCMD]  <nop>
+" nmap     <leader>t [TABCMD]
+nmap     t [TABCMD]
 
+nnoremap <silent> [TABCMD]f :<c-u>tabfirst<cr>
+nnoremap <silent> [TABCMD]l :<c-u>tablast<cr>
+nnoremap <silent> [TABCMD]n :<c-u>tabnext<cr>
+nnoremap <silent> [TABCMD]N :<c-u>tabNext<cr>
+nnoremap <silent> [TABCMD]p :<c-u>tabprevious<cr>
+nnoremap <silent> [TABCMD]e :<c-u>tabedit<cr>
+nnoremap <silent> [TABCMD]c :<c-u>tabclose<cr>
+nnoremap <silent> [TABCMD]o :<c-u>tabonly<cr>
+nnoremap <silent> [TABCMD]s :<c-u>tabs<cr>
+nnoremap <silent> [TABCMD]t :<c-u>tabnew<cr>
+
+
+" save shortcut
+noremap <Leader><Leader> :up<CR>
+
+
+" scroll by hitting space
+nnoremap <Space> jzz
+nnoremap <S-Space> kzz
+
+
+" file operation
+nnoremap <silent> <leader>q :q<cr>
 
 
 " """""""""""""""""""""""""
@@ -396,7 +431,7 @@ set foldmethod=marker
 
 " NERD_tree
 " Q. How can I open a NERDTree automatically when vim starts up if no files were specified?
-autocmd vimenter * if !argc() | NERDTree | endif
+" autocmd vimenter * if !argc() | NERDTree | endif
 " How can I close vim if the only window left open is a NERDTree
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
 
