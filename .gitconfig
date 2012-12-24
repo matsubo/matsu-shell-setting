@@ -79,7 +79,7 @@
 	diff = auto
 [branch]
 	diff = auto
-;	autosetuprebase = always
+	autosetuprebase = always
 [color "diff"]
 	meta = blue bold
 	old = yellow
