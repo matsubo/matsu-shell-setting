@@ -13,20 +13,19 @@ endif
 
 " global
 NeoBundle 'L9'
-NeoBundle 'project.tar.gz'
-NeoBundle 'FuzzyFinder'
+" NeoBundle 'project.tar.gz'
+" NeoBundle 'FuzzyFinder'
 " Bundle 'Highlight-UnMatched-Brackets'
 NeoBundle 'vcscommand.vim'
 NeoBundle 'gtags.vim'
 NeoBundle 'ref.vim'
 NeoBundle 'unite.vim'
 NeoBundle 'Shougo/vimproc.git'
-NeoBundle 'AutoComplPop'
+" NeoBundle 'AutoComplPop'
 "NeoBundle 'git://github.com/Shougo/neocomplcache.git'
 "NeoBundle 'colorizer'
 NeoBundle 'git://github.com/thinca/vim-quickrun.git'
 NeoBundle 'surround.vim'
-NeoBundle 'vim-ruickrun.vim'
 
 
 " colorscheme
@@ -53,13 +52,31 @@ NeoBundle 'svndiff.vim'
 NeoBundle 'git://github.com/Lokaltog/vim-powerline.git'
 
 " NeoBundle 'scrooloose/nerdtree'
-NeoBundle 'scrooloose/nerdcommenter'
+" NeoBundle 'scrooloose/nerdcommenter'
 
 
 " PSR
-NeoBundle 'stephpy/vim-php-cs-fixer'
+" NeoBundle 'stephpy/vim-php-cs-fixer'
 
 NeoBundle 'git://github.com/watanabe0621/SmartyJump.git'
+NeoBundle 'git://github.com/watanabe0621/aoi-jump.vim.git'
+
+
+" NeoBundle 'vim-scripts/phpfolding.vim'
+"augroup vimrc
+"   autocmd FileType phpunit EnableFastPHPFolds
+"augroup END
+"
+
+
+nnoremap <silent> <space>b :e#<CR>
+nnoremap <silent> <space>ag :call AoiGrep()<CR>
+nnoremap <silent> <space>am :call AoiModuleJump()<CR>
+nnoremap <silent> <space>ap :call AoiProcessorJump()<CR>
+nnoremap <silent> <space>ac :call AoiClientJump()<CR>
+nnoremap <silent> <space>i :call SmartyJump()<CR>
+
+
 
 
 filetype plugin indent on
@@ -170,16 +187,20 @@ syntax on
 " """""""""""""""""""""""""
 " hard tab
 " """""""""""""""""""""""""
-" insert spaces instead of tabs
-"set expandtab
-"set softtabstop=2
-set tabstop=2
-
 " insert appropriate tab with 1 tab key. but it's not smart...
 " set smarttab
 set autoindent
 set cindent
-set shiftwidth=2
+
+" old coding style
+" set shiftwidth=2
+
+" new coding style
+set expandtab
+set shiftwidth=4
+set softtabstop=4
+set tabstop=4
+
 
 
 
@@ -209,6 +230,10 @@ noremap <Leader><Leader> :up<CR>
 " scroll by hitting space
 nnoremap <Space> jzz
 nnoremap <S-Space> kzz
+
+" Disable F1 key
+noremap <F1> <Nop>
+
 
 
 " file operation
@@ -358,6 +383,19 @@ nmap <ESC><ESC> ;nohlsearch<CR><ESC>
 " grep結果をquick fixに表示刷る
 au QuickfixCmdPost vimgrep cw
 
+
+" sample
+" :Grep test
+command! -complete=file -nargs=+ Grep call s:grep([<f-args>])
+function! s:grep(args)
+    let target = len(a:args) > 1 ? join(a:args[1:]) : '**/*'
+    execute 'vimgrep' '/' . a:args[0] . '/j ' . target
+    if len(getqflist()) != 0 | copen | endif
+endfunction
+
+
+
+
 "" gtags
 map <C-g><C-g> :Gtags 
 " map <C-i> :Gtags -f %<CR>
@@ -463,5 +501,12 @@ let g:pdv_cfg_License = " "
 " smarty jump
 nnoremap <silent> <space>b :e#<CR>
 nnoremap <silent> <space>i :call SmartyJump()<CR>
+
+
+" Open .vimrc
+nnoremap <Space>. :<C-u>tabedit $MYVIMRC<CR>
+
+" 「コピーした文字で、繰り返し上書きペーストしたい」
+vnoremap <silent> <C-p> "0p<CR>
 
 
