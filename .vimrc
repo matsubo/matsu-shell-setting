@@ -13,20 +13,20 @@ endif
 
 " global
 NeoBundle 'L9'
-NeoBundle 'project.tar.gz'
-NeoBundle 'FuzzyFinder'
+" NeoBundle 'project.tar.gz'
+" NeoBundle 'FuzzyFinder'
 " Bundle 'Highlight-UnMatched-Brackets'
 NeoBundle 'vcscommand.vim'
 NeoBundle 'gtags.vim'
 NeoBundle 'ref.vim'
 NeoBundle 'unite.vim'
 NeoBundle 'Shougo/vimproc.git'
-NeoBundle 'AutoComplPop'
+" NeoBundle 'AutoComplPop'
 "NeoBundle 'git://github.com/Shougo/neocomplcache.git'
 "NeoBundle 'colorizer'
-NeoBundle 'quickrun.vim'
+NeoBundle 'git://github.com/thinca/vim-quickrun.git'
 NeoBundle 'surround.vim'
-NeoBundle 'vim-ruickrun.vim'
+
 
 " colorscheme
 NeoBundle 'molokai'
@@ -51,8 +51,30 @@ NeoBundle 'svndiff.vim'
 
 NeoBundle 'git://github.com/Lokaltog/vim-powerline.git'
 
-NeoBundle 'scrooloose/nerdtree'
-NeoBundle 'scrooloose/nerdcommenter'
+" NeoBundle 'scrooloose/nerdtree'
+" NeoBundle 'scrooloose/nerdcommenter'
+
+
+" PSR
+" NeoBundle 'stephpy/vim-php-cs-fixer'
+
+NeoBundle 'git://github.com/watanabe0621/SmartyJump.git'
+NeoBundle 'git://github.com/watanabe0621/aoi-jump.vim.git'
+
+
+" NeoBundle 'vim-scripts/phpfolding.vim'
+"augroup vimrc
+"   autocmd FileType phpunit EnableFastPHPFolds
+"augroup END
+"
+
+
+nnoremap <silent> <space>b :e#<CR>
+nnoremap <silent> <space>ag :call AoiGrep()<CR>
+nnoremap <silent> <space>am :call AoiModuleJump()<CR>
+nnoremap <silent> <space>ap :call AoiProcessorJump()<CR>
+nnoremap <silent> <space>ac :call AoiClientJump()<CR>
+nnoremap <silent> <space>i :call SmartyJump()<CR>
 
 
 
@@ -87,12 +109,29 @@ set ignorecase
 " if the search word includes upper case, checks the case
 set smartcase
 
+" show match
+set showmatch
+
 " show line number
-set number ruler
+set number
+set ruler
+
+" show incomplete command
+set sc
+
+" inremental search
+set incsearch
 
 " show special chars
 set list
 set lcs=tab:\ \ ,trail:_,extends:\
+
+
+" set leader key
+let mapleader = ","
+
+
+
 
 highlight SpecialKey cterm=NONE ctermfg=darkgray guifg=7
 highlight JpSpace cterm=underline ctermfg=darkgray guifg=7
@@ -121,6 +160,7 @@ set backspace=indent,eol,start
 
 " http://d.hatena.ne.jp/yuyarin/20100225/1267084794
 set backupskip=/tmp/*,/private/tmp/*
+"set backup
 
 
 " to be fast response
@@ -147,21 +187,57 @@ syntax on
 " """""""""""""""""""""""""
 " hard tab
 " """""""""""""""""""""""""
-" insert spaces instead of tabs
-"set expandtab
-"set softtabstop=2
-set tabstop=2
-
 " insert appropriate tab with 1 tab key. but it's not smart...
 " set smarttab
 set autoindent
 set cindent
-set shiftwidth=2
+
+" old coding style
+" set shiftwidth=2
+
+" new coding style
+set expandtab
+set shiftwidth=4
+set softtabstop=4
+set tabstop=4
 
 
 
-imap ,tn :tabnew
 
+" """""""""""""""""""""""""
+" vim's tab shortcut
+" """""""""""""""""""""""""
+nnoremap [TABCMD]  <nop>
+" nmap     <leader>t [TABCMD]
+nmap     t [TABCMD]
+
+nnoremap <silent> [TABCMD]f :<c-u>tabfirst<cr>
+nnoremap <silent> [TABCMD]l :<c-u>tablast<cr>
+nnoremap <silent> [TABCMD]n :<c-u>tabnext<cr>
+nnoremap <silent> [TABCMD]N :<c-u>tabNext<cr>
+nnoremap <silent> [TABCMD]p :<c-u>tabprevious<cr>
+nnoremap <silent> [TABCMD]e :<c-u>tabedit<cr>
+nnoremap <silent> [TABCMD]c :<c-u>tabclose<cr>
+nnoremap <silent> [TABCMD]o :<c-u>tabonly<cr>
+nnoremap <silent> [TABCMD]s :<c-u>tabs<cr>
+nnoremap <silent> [TABCMD]t :<c-u>tabnew<cr>
+
+
+" save shortcut
+noremap <Leader><Leader> :up<CR>
+
+
+" scroll by hitting space
+nnoremap <Space> jzz
+nnoremap <S-Space> kzz
+
+" Disable F1 key
+noremap <F1> <Nop>
+
+
+
+" file operation
+nnoremap <silent> <leader>q :q<cr>
 
 
 " """""""""""""""""""""""""
@@ -171,9 +247,6 @@ autocmd FileType php set omnifunc=phpcomplete#CompletePHP
 
 " disable auto comment out after the line break
 " set formatoptions-=ro
-
-"行頭の余白内で Tab を打ち込むと、'shiftwidth' の数だけインデントする。
-" set smarttab
 
 
 " neocomplcache
@@ -196,8 +269,6 @@ set bg=dark
 set t_Co=256
 colorscheme molokai
 let g:molokai_original=1
-
-
 
 
 " """""""""""""""""""""""""
@@ -294,7 +365,6 @@ au FileType unite nnoremap <silent> <buffer> <ESC><ESC> q
 au FileType unite inoremap <silent> <buffer> <ESC><ESC> <ESC>q
 
 
-
 " Powerline
 let g:Powerline_symbols = 'fancy'
 
@@ -310,12 +380,21 @@ nmap g# g#zz
 "Escの2回押しでハイライト消去
 nmap <ESC><ESC> ;nohlsearch<CR><ESC>
 
-" escape vcscommand diff mode
-nmap <Leader>dq :winc l<CR>:bw<CR>:diffoff<CR>
-
-
 " grep結果をquick fixに表示刷る
 au QuickfixCmdPost vimgrep cw
+
+
+" sample
+" :Grep test
+command! -complete=file -nargs=+ Grep call s:grep([<f-args>])
+function! s:grep(args)
+    let target = len(a:args) > 1 ? join(a:args[1:]) : '**/*'
+    execute 'vimgrep' '/' . a:args[0] . '/j ' . target
+    if len(getqflist()) != 0 | copen | endif
+endfunction
+
+
+
 
 "" gtags
 map <C-g><C-g> :Gtags 
@@ -390,7 +469,7 @@ set foldmethod=marker
 
 " NERD_tree
 " Q. How can I open a NERDTree automatically when vim starts up if no files were specified?
-autocmd vimenter * if !argc() | NERDTree | endif
+" autocmd vimenter * if !argc() | NERDTree | endif
 " How can I close vim if the only window left open is a NERDTree
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
 
@@ -415,8 +494,19 @@ let g:pdv_cfg_CommentSingle = "//"
 let g:pdv_cfg_Type = "mixed"
 let g:pdv_cfg_Package = ""
 let g:pdv_cfg_Version = "$id:$"
-let g:pdv_cfg_Author = "Yuki Matsukura <yuki.matsukura@gree.co.jp>"
+let g:pdv_cfg_Author = "Yuki Matsukura <yuki.matsukura@gree.net>"
 let g:pdv_cfg_Copyright = "GREE, Inc."
 let g:pdv_cfg_License = " "
+
+" smarty jump
+nnoremap <silent> <space>b :e#<CR>
+nnoremap <silent> <space>i :call SmartyJump()<CR>
+
+
+" Open .vimrc
+nnoremap <Space>. :<C-u>tabedit $MYVIMRC<CR>
+
+" 「コピーした文字で、繰り返し上書きペーストしたい」
+vnoremap <silent> <C-p> "0p<CR>
 
 
