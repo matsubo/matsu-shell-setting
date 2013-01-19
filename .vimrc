@@ -62,11 +62,11 @@ NeoBundle 'git://github.com/watanabe0621/SmartyJump.git'
 NeoBundle 'git://github.com/watanabe0621/aoi-jump.vim.git'
 
 
-" NeoBundle 'vim-scripts/phpfolding.vim'
-"augroup vimrc
-"   autocmd FileType phpunit EnableFastPHPFolds
-"augroup END
-"
+NeoBundle 'vim-scripts/phpfolding.vim'
+augroup vimrc
+   autocmd FileType phpunit EnableFastPHPFolds
+augroup END
+
 
 
 nnoremap <silent> <space>b :e#<CR>
@@ -124,7 +124,7 @@ set incsearch
 
 " show special chars
 set list
-set lcs=tab:\ \ ,trail:_,extends:\
+set listchars=tab:Â»-,trail:-,eol:â†²,extends:Â»,precedes:Â«,nbsp:%
 
 
 " set leader key
@@ -135,16 +135,16 @@ let mapleader = ","
 
 highlight SpecialKey cterm=NONE ctermfg=darkgray guifg=7
 highlight JpSpace cterm=underline ctermfg=darkgray guifg=7
-au BufRead,BufNew * match JpSpace /¡¡/
+au BufRead,BufNew * match JpSpace /ã€€/
 
 
 
-" ¥«¡¼¥½¥ë¹Ô¤ò¥Ï¥¤¥é¥¤¥È
+" ã‚«ãƒ¼ã‚½ãƒ«è¡Œã‚’ãƒã‚¤ãƒ©ã‚¤ãƒˆ
 set cursorline
 highlight CursorLine ctermbg=DarkGray
 
 
-" ¥«¥ì¥ó¥È¥¦¥£¥ó¥É¥¦¤Ë¤Î¤ß·ÓÀş¤ò°ú¤¯
+" ã‚«ãƒ¬ãƒ³ãƒˆã‚¦ã‚£ãƒ³ãƒ‰ã‚¦ã«ã®ã¿ç½«ç·šã‚’å¼•ã
 augroup cch
 autocmd! cch
 autocmd WinLeave * set nocursorline
@@ -194,9 +194,11 @@ set cindent
 
 " old coding style
 " set shiftwidth=2
-
+" or
 " new coding style
 set expandtab
+
+
 set shiftwidth=4
 set softtabstop=4
 set tabstop=4
@@ -294,7 +296,7 @@ autocmd BufNewFile *.html 0r $HOME/.setting/template/html.html
 
 
 " """""""""""""""""""""""""
-" ¥Õ¥¡¥¤¥ë¤ÎÁ°²óÊÄ¤¸¤¿¤È¤­¤Î¾ì½ê¤òµ­²±¤·¤Æ¤¯¤ì¤Ş¤¹¡£
+" ãƒ•ã‚¡ã‚¤ãƒ«ã®å‰å›é–‰ã˜ãŸã¨ãã®å ´æ‰€ã‚’è¨˜æ†¶ã—ã¦ãã‚Œã¾ã™ã€‚
 " """""""""""""""""""""""""
 if has("autocmd")
 	autocmd BufReadPost *
@@ -307,25 +309,25 @@ endif
 " Syntax check
 " """""""""""""""""""""""""
 "------------------------------------------------------------------------------------"
-" ³Æ¼ï¥×¥í¥°¥é¥à¤Ç¹½Ê¸¥Á¥§¥¯(:make)¤òCtr+c Ctr+c¤Ç¹Ô¤¨¤ë¤è¤¦¤Ë¤¹¤ë
-" É½¼¨¤µ¤ì¤¿QuickFix¤Ï¥¦¥£¥ó¥É¥¦¤ò°ÜÆ°¤·¤Ê¤¯¤Æ¤â
-" :cn ¤ª¤è¤Ó :cp¡¡¤Ç°ÜÆ°²ÄÇ½
+" å„ç¨®ãƒ—ãƒ­ã‚°ãƒ©ãƒ ã§æ§‹æ–‡ãƒã‚§ã‚¯(:make)ã‚’Ctr+c Ctr+cã§è¡Œãˆã‚‹ã‚ˆã†ã«ã™ã‚‹
+" è¡¨ç¤ºã•ã‚ŒãŸQuickFixã¯ã‚¦ã‚£ãƒ³ãƒ‰ã‚¦ã‚’ç§»å‹•ã—ãªãã¦ã‚‚
+" :cn ãŠã‚ˆã³ :cpã€€ã§ç§»å‹•å¯èƒ½
 "------------------------------------------------------------------------------------"
-" Perl¹½Ê¸¥Á¥§¥Ã¥¯
+" Perlæ§‹æ–‡ãƒã‚§ãƒƒã‚¯
 autocmd FileType perl compiler perl
 autocmd FileType perl map <c-c><c-c> :make<cr> :cw<cr><cr>
 
-" PHP¹½Ê¸¥Á¥§¥Ã¥¯
+" PHPæ§‹æ–‡ãƒã‚§ãƒƒã‚¯
 au BufRead,BufNewFile *.php set makeprg=php\ -l\ %
 au BufRead,BufNewFile *.php set errorformat=%m\ in\ %f\ on\ line\ %l
 autocmd FileType php map <c-c><c-c> :make<cr> :cw<cr><cr>
 
-" Ruby¹½Ê¸¥Á¥§¥Ã¥¯
+" Rubyæ§‹æ–‡ãƒã‚§ãƒƒã‚¯
 au BufRead,BufNewFile *.rb set makeprg=ruby\ -c\ %
 au BufRead,BufNewFile *.rb set errorformat=%m\ in\ %f\ on\ line\ %l
 autocmd FileType rb map <c-c><c-c> :make<cr> :cw<cr><cr>
 
-" HTML¹½Ê¸¥Á¥§¥Ã¥¯
+" HTMLæ§‹æ–‡ãƒã‚§ãƒƒã‚¯
 autocmd FileType xhtml,html :compiler tidy
 autocmd FileType xhtml,html :setlocal makeprg=tidy\ -raw\ -quiet\ -errors\ --gnu-emacs\ yes\ \"%\"
 autocmd FileType xhtml,html map <c-c><c-c> :make<cr> :cw<cr><cr>
@@ -334,33 +336,33 @@ autocmd FileType xhtml,html map <c-c><c-c> :make<cr> :cw<cr><cr>
 " """""""""""""""""""""""""
 " unite.vim
 " """""""""""""""""""""""""
-" ÆşÎÏ¥â¡¼¥É¤Ç³«»Ï¤¹¤ë
+" å…¥åŠ›ãƒ¢ãƒ¼ãƒ‰ã§é–‹å§‹ã™ã‚‹
 " let g:unite_enable_start_insert=1
 
-" ¥Ğ¥Ã¥Õ¥¡°ìÍ÷
+" ãƒãƒƒãƒ•ã‚¡ä¸€è¦§
 nnoremap <silent> ,ub :<C-u>Unite buffer<CR>
-" ¥Õ¥¡¥¤¥ë°ìÍ÷
+" ãƒ•ã‚¡ã‚¤ãƒ«ä¸€è¦§
 nnoremap <silent> ,uf :<C-u>UniteWithBufferDir -buffer-name=files file<CR>
-" ¥ì¥¸¥¹¥¿°ìÍ÷
+" ãƒ¬ã‚¸ã‚¹ã‚¿ä¸€è¦§
 nnoremap <silent> ,ur :<C-u>Unite -buffer-name=register register<CR>
-" ºÇ¶á»ÈÍÑ¤·¤¿¥Õ¥¡¥¤¥ë°ìÍ÷
+" æœ€è¿‘ä½¿ç”¨ã—ãŸãƒ•ã‚¡ã‚¤ãƒ«ä¸€è¦§
 nnoremap <silent> ,um :<C-u>Unite file_mru<CR>
-" ¾ïÍÑ¥»¥Ã¥È
+" å¸¸ç”¨ã‚»ãƒƒãƒˆ
 nnoremap <silent> ,uu :<C-u>Unite buffer file_mru<CR>
-" Á´Éô¾è¤»
+" å…¨éƒ¨ä¹—ã›
 nnoremap <silent> ,ua :<C-u>UniteWithBufferDir -buffer-name=files buffer file_mru bookmark file<CR>
 
 call unite#set_buffer_name_option('default', 'ignorecase', 1)
 call unite#set_buffer_name_option('default', 'smartcase', 1)
 
 
-" ¥¦¥£¥ó¥É¥¦¤òÊ¬³ä¤·¤Æ³«¤¯
+" ã‚¦ã‚£ãƒ³ãƒ‰ã‚¦ã‚’åˆ†å‰²ã—ã¦é–‹ã
 au FileType unite nnoremap <silent> <buffer> <expr> <C-j> unite#do_action('split')
 au FileType unite inoremap <silent> <buffer> <expr> <C-j> unite#do_action('split')
-" ¥¦¥£¥ó¥É¥¦¤ò½Ä¤ËÊ¬³ä¤·¤Æ³«¤¯
+" ã‚¦ã‚£ãƒ³ãƒ‰ã‚¦ã‚’ç¸¦ã«åˆ†å‰²ã—ã¦é–‹ã
 au FileType unite nnoremap <silent> <buffer> <expr> <C-l> unite#do_action('vsplit')
 au FileType unite inoremap <silent> <buffer> <expr> <C-l> unite#do_action('vsplit')
-" ESC¥­¡¼¤ò2²ó²¡¤¹¤È½ªÎ»¤¹¤ë
+" ESCã‚­ãƒ¼ã‚’2å›æŠ¼ã™ã¨çµ‚äº†ã™ã‚‹
 au FileType unite nnoremap <silent> <buffer> <ESC><ESC> q
 au FileType unite inoremap <silent> <buffer> <ESC><ESC> <ESC>q
 
@@ -377,10 +379,10 @@ nmap g* g*zz
 nmap g# g#zz
 
 
-"Esc¤Î2²ó²¡¤·¤Ç¥Ï¥¤¥é¥¤¥È¾Ãµî
+"Escã®2å›æŠ¼ã—ã§ãƒã‚¤ãƒ©ã‚¤ãƒˆæ¶ˆå»
 nmap <ESC><ESC> ;nohlsearch<CR><ESC>
 
-" grep·ë²Ì¤òquick fix¤ËÉ½¼¨ºş¤ë
+" grepçµæœã‚’quick fixã«è¡¨ç¤ºåˆ·ã‚‹
 au QuickfixCmdPost vimgrep cw
 
 
@@ -506,7 +508,7 @@ nnoremap <silent> <space>i :call SmartyJump()<CR>
 " Open .vimrc
 nnoremap <Space>. :<C-u>tabedit $MYVIMRC<CR>
 
-" ¡Ö¥³¥Ô¡¼¤·¤¿Ê¸»ú¤Ç¡¢·«¤êÊÖ¤·¾å½ñ¤­¥Ú¡¼¥¹¥È¤·¤¿¤¤¡×
+" ã€Œã‚³ãƒ”ãƒ¼ã—ãŸæ–‡å­—ã§ã€ç¹°ã‚Šè¿”ã—ä¸Šæ›¸ããƒšãƒ¼ã‚¹ãƒˆã—ãŸã„ã€
 vnoremap <silent> <C-p> "0p<CR>
 
 
