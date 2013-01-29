@@ -339,10 +339,8 @@ fi
 #########################################
 # local setting. 
 #########################################
-LOCAL_SETTING="~/.zshrc_local"
-if [ -f $LOCAL_SETTING ]; then
-	echo "reading ~/.zshrc_local"
-  source $LOCAL_SETTING
+if [[ -f ~/.zshrc_local ]] ; then;
+  source ~/.zshrc_local
 fi
 
 
