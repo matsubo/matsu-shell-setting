@@ -21,8 +21,9 @@ NeoBundle 'gtags.vim'
 NeoBundle 'ref.vim'
 NeoBundle 'unite.vim'
 NeoBundle 'Shougo/vimproc.git'
+NeoBundle 'Shougo/vimfiler.git'
 " NeoBundle 'AutoComplPop'
-"NeoBundle 'git://github.com/Shougo/neocomplcache.git'
+NeoBundle 'git://github.com/Shougo/neocomplcache.git'
 "NeoBundle 'colorizer'
 NeoBundle 'git://github.com/thinca/vim-quickrun.git'
 NeoBundle 'surround.vim'
@@ -40,6 +41,9 @@ NeoBundle 'gitv'
 " rails
 NeoBundle 'vim-ruby/vim-ruby'
 NeoBundle 'rails.vim'
+
+NeoBundle 'tpope/vim-rails.vim'
+NeoBundle 'vim-ruby/vim-ruby.vim'
 
 
 " php
@@ -68,6 +72,7 @@ augroup vimrc
 augroup END
 
 
+NeoBundle 'scrooloose/syntastic.git'
 
 nnoremap <silent> <space>b :e#<CR>
 nnoremap <silent> <space>ag :call AoiGrep()<CR>
@@ -171,14 +176,14 @@ set lazyredraw
 
 "------ Syntax Check ------
 " PHP Lint
-autocmd BufWritePost *.php :call PHPLint()
-function PHPLint()
-	let result = system( &ft . ' -l ' . bufname(""))
-	let headPart = strpart(result, 0, 16)
-	if headPart != "No syntax errors"
-		echo result
-	endif
-endfunction
+" autocmd BufWritePost *.php :call PHPLint()
+" function PHPLint()
+" 	let result = system( &ft . ' -l ' . bufname(""))
+" 	let headPart = strpart(result, 0, 16)
+" 	if headPart != "No syntax errors"
+" 		echo result
+" 	endif
+" endfunction
 
 
 
@@ -337,7 +342,7 @@ autocmd FileType xhtml,html map <c-c><c-c> :make<cr> :cw<cr><cr>
 " unite.vim
 " """""""""""""""""""""""""
 " 入力モードで開始する
-" let g:unite_enable_start_insert=1
+let g:unite_enable_start_insert=1
 
 " バッファ一覧
 nnoremap <silent> ,ub :<C-u>Unite buffer<CR>
@@ -410,6 +415,7 @@ map <C-p> :cp<CR>
 " vmap
 " dump the variable.
 :vmap st "zdiprint_r("<pre>".<C-R>z".</pre>");exit;<ESC>
+:vmap se "zdierror_log(print_r(<C-R>z,1));<ESC>
 
 " gitv
 autocmd FileType git :setlocal foldlevel=99

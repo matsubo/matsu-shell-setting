@@ -178,6 +178,10 @@ alias historytime="history -nir 0 | less"
 alias allnice="ionice -c2 -n7 nice -n19"
 
 
+# execute command with low priority
+alias lowpriority="ionice -c3 nice -n19"
+
+
 
 
 export EDITOR=vi
