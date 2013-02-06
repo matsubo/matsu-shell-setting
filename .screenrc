@@ -12,12 +12,19 @@ termcapinfo xterm-256color hs@:is=\E[r\E[m\E[2J\E[H\E[?7h\E[?1;4;6l
 
 
 # enable to scroll by mouse or keyboard
-termcapinfo xterm* ti@:te@
+#termcapinfo xterm* ti@:te@
 
 
 defbce on
 term xterm-256color
 #term ansi
+
+
+# 別画面サポート。Vimやless使うときに便利
+altscreen on
+
+
+attrcolor b ".I"
 
 
 # encoding

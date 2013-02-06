@@ -178,6 +178,10 @@ alias historytime="history -nir 0 | less"
 alias allnice="ionice -c2 -n7 nice -n19"
 
 
+# execute command with low priority
+alias lowpriority="ionice -c3 nice -n19"
+
+
 
 
 export EDITOR=vi
@@ -339,10 +343,8 @@ fi
 #########################################
 # local setting. 
 #########################################
-LOCAL_SETTING="~/.zshrc_local"
-if [ -f $LOCAL_SETTING ]; then
-	echo "reading ~/.zshrc_local"
-  source $LOCAL_SETTING
+if [[ -f ~/.zshrc_local ]] ; then;
+  source ~/.zshrc_local
 fi
 
 
