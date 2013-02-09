@@ -370,6 +370,12 @@ if [[ -f ~/.zshrc_local ]] ; then;
 fi
 
 
+# {{{ tmux setting
+# showing branch infor on left side.
+PS1="$PS1"'$([ -n "$TMUX" ] && tmux setenv TMUXPWD_$(tmux display -p "#D" | tr -d %) "$PWD")'
+# }}}
+
+
 #########################################
 # Finder local setting
 #########################################

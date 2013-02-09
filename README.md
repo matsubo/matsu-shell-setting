@@ -10,27 +10,29 @@ http://matsu.teraren.com/blog/
 Installation
 ---------------------------------
 
-<pre>
- git clone git@github.com:matsubo/matsu-shell-setting.git .setting
- cd
- ln -s .setting/.htoprc
- ln -s .setting/.screenrc
- ln -s .setting/.vim
- ln -s .setting/.vimrc
- ln -s .setting/.gvimrc
- ln -s .setting/.zshrc
- ln -s .setting/.my.cnf
- ln -s .setting/.lv
- ln -s .setting/.w3m
- cp .setting/.tigrc ./
- cp .setting/.gitconfig ./
- cd .setting
- git submodule init
- git submodule update
- vim
-</pre>
+```
+git clone git@github.com:matsubo/matsu-shell-setting.git .setting
+cd
+ln -s .setting/.htoprc
+ln -s .setting/.screenrc
+ln -s .setting/.vim
+ln -s .setting/.vimrc
+ln -s .setting/.gvimrc
+ln -s .setting/.zshrc
+ln -s .setting/.my.cnf
+ln -s .setting/.lv
+ln -s .setting/.w3m
+ln -s .tmux-powerlinerc
+ln -s .tmux.conf
+cp .setting/.tigrc ./
+cp .setting/.gitconfig ./
+cd .setting
+git submodule init
+git submodule update
+vim
+```
 
-(open vim and type :NeoBundleInstall to retrieve plugins)
+(open vim and type `:NeoBundleInstall` to retrieve plugins)
 
 
 Copyright
