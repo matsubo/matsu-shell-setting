@@ -2,21 +2,20 @@
 # ~/.zshrc
 ##
 
-#export LANG=ja_JP.eucJP
-#export LANG=en_US.utf8
+
+# {{{ encoding
 export LANG=ja_JP.utf8
+#export LANG=en_US.utf8
 export LC_ALL=en_US.UTF-8
 export LESSCHARSET=utf-8
-
-
+#  }}}
+# {{{ setopt
 setopt auto_menu
-setopt auto_cd
 setopt correct
 setopt auto_name_dirs
 setopt auto_remove_slash
 setopt extended_history
 setopt hist_ignore_dups
-setopt hist_ignore_space
 setopt prompt_subst
 setopt pushd_ignore_dups
 setopt rm_star_silent
@@ -28,7 +27,6 @@ setopt always_last_prompt
 setopt cdable_vars
 setopt sh_word_split
 setopt auto_param_keys
-setopt NO_flow_control
 setopt auto_pushd
 setopt pushd_ignore_dups
 setopt list_packed
@@ -37,7 +35,21 @@ setopt no_case_glob
 setopt complete_in_word
 setopt magic_equal_subst
 
-unsetopt promptcr
+# C-s, C-qを無効にする。
+setopt no_flow_control
+
+# 先頭がスペースならヒストリーに追加しない。
+setopt hist_ignore_space
+
+# hide rprompt after execute the command.
+setopt transient_rprompt
+
+
+# ディレクトリ名だけで移動できる。
+setopt auto_cd
+# }}}
+
+
 
 umask 0002
 ulimit -n 1024
@@ -50,13 +62,6 @@ compinit -u
 #zle -N history-beginning-search-forward-end history-search-end
 #bindkey "^P" history-beginning-search-backward-end
 #bindkey "^N" history-beginning-search-forward-end
-
-
-
-# git completion
-#autoload bashcompinit
-#bashcompinit
-#source ~/.setting/.git-completion.bash
 
 
 # ignore ssl certificate when using git
@@ -92,13 +97,30 @@ function history-all { history -E 1 }
 
 # prints all color setting
 function pcolor() {
-    for ((f = 0; f < 255; f++)); do
-        printf "\e[38;5;%dm %3d#\e[m" $f $f
-        if [[ $f%8 -eq 7 ]] then
-            printf "\n"
-        fi
+for ((f = 0; f < 255; f++)); do
+    printf "\e[38;5;%dm %3d#\e[m" $f $f
+    if [[ $f%8 -eq 7 ]] then
+        printf "\n"
+    fi
+done
+echo
+
+echo 
+
+echo "tmux color code"
+for i in $(seq 0 4 255); do
+    for j in $(seq $i $(expr $i + 3)); do
+        for k in $(seq 1 $(expr 3 - ${#j})); do
+            printf " "
+        done
+        printf "\x1b[38;5;${j}mcolour${j}"
+        [[ $(expr $j % 4) != 3 ]] && printf "    "
     done
-    echo
+    printf "\n"
+done
+
+printf "\n"
+
 }
 
 # FSF color management
@@ -206,11 +228,11 @@ export PATH=~/bin:$MONGO_HOME/bin:$MYSQL/bin/:$SAMBA/bin:~/.setting/bin:/usr/loc
 
 
 if type lv > /dev/null 2>&1; then
-	export PAGER="lv"
-	export LV="-c -l -Ou8"
-	alias less="lv"
+    export PAGER="lv"
+    export LV="-c -l -Ou8"
+    alias less="lv"
 else
-	export PAGER="less"
+    export PAGER="less"
 fi
 
 
@@ -218,21 +240,21 @@ fi
 # OS specific setting
 #########################################
 if [ -d /Users/ ]; then
-  # mac
-  alias updatedb=/usr/libexec/locate.updatedb
-  alias ls='ls -G -p'
-	export PATH="/opt/local/bin":$PATH
-	export PATH=$PATH:/usr/local/git/bin
+    # mac
+    alias updatedb=/usr/libexec/locate.updatedb
+    alias ls='ls -G -p'
+    export PATH="/opt/local/bin":$PATH
+    export PATH=$PATH:/usr/local/git/bin
 fi
 
 if [ -f /usr/bin/ccache ];then
-	export CC='ccache gcc'
-	export CXX='ccache g++'
+    export CC='ccache gcc'
+    export CXX='ccache g++'
 fi
 
 if [ -f /usr/bin/ccache ];then
-	export CC='ccache gcc'
-	export CXX='ccache g++'
+    export CC='ccache gcc'
+    export CXX='ccache g++'
 fi
 
 #########################################
@@ -255,8 +277,8 @@ bindkey -e
 #########################################
 export HOSTNAME=`hostname`
 if [ -f ~/.keychain/$HOSTNAME-sh ]; then
-  keychain --timeout 10080 ~/.ssh/id_rsa
-  . ~/.keychain/$HOSTNAME-sh
+    keychain --timeout 10080 ~/.ssh/id_rsa
+    . ~/.keychain/$HOSTNAME-sh
 fi
 
 
@@ -273,22 +295,22 @@ alias screen="screen -U"
 # rails setting
 #########################################
 _rake_does_task_list_need_generating () {
-  if [ ! -f .rake_tasks ]; then return 0;
-  else
-    accurate=$(stat -f%m .rake_tasks)
-    changed=$(stat -f%m Rakefile)
-    return $(expr $accurate '>=' $changed)
-  fi
+    if [ ! -f .rake_tasks ]; then return 0;
+    else
+        accurate=$(stat -f%m .rake_tasks)
+        changed=$(stat -f%m Rakefile)
+        return $(expr $accurate '>=' $changed)
+    fi
 }
 
 _rake () {
-  if [ -f Rakefile ]; then
-    if _rake_does_task_list_need_generating; then
-      echo "\nGenerating .rake_tasks..." > /dev/stderr
-      rake --silent --tasks | cut -d " " -f 2 > .rake_tasks
+    if [ -f Rakefile ]; then
+        if _rake_does_task_list_need_generating; then
+            echo "\nGenerating .rake_tasks..." > /dev/stderr
+            rake --silent --tasks | cut -d " " -f 2 > .rake_tasks
+        fi
+        compadd `cat .rake_tasks`
     fi
-    compadd `cat .rake_tasks`
-  fi
 }
 
 compdef _rake rake
@@ -299,7 +321,7 @@ compdef _rake rake
 #########################################
 ## GNU grepがあったら優先して使う。
 if type ggrep > /dev/null 2>&1; then
-	alias grep=ggrep
+    alias grep=ggrep
 fi
 ## デフォルトオプションの設定
 export GREP_OPTIONS
@@ -311,10 +333,10 @@ GREP_OPTIONS="--binary-files=without-match"
 GREP_OPTIONS="--exclude=\*.tmp $GREP_OPTIONS"
 ## 管理用ディレクトリを無視する。
 if grep --help | grep -q -- --exclude-dir; then
-	GREP_OPTIONS="--exclude-dir=.svn $GREP_OPTIONS"
-	GREP_OPTIONS="--exclude-dir=.git $GREP_OPTIONS"
-	GREP_OPTIONS="--exclude-dir=.deps $GREP_OPTIONS"
-	GREP_OPTIONS="--exclude-dir=.libs $GREP_OPTIONS"
+    GREP_OPTIONS="--exclude-dir=.svn $GREP_OPTIONS"
+    GREP_OPTIONS="--exclude-dir=.git $GREP_OPTIONS"
+    GREP_OPTIONS="--exclude-dir=.deps $GREP_OPTIONS"
+    GREP_OPTIONS="--exclude-dir=.libs $GREP_OPTIONS"
 fi
 ### 可能なら色を付ける。
 #if grep --help | grep -q -- --color; then
@@ -327,15 +349,15 @@ fi
 #########################################
 # http://d.hatena.ne.jp/mollifier/20090814/p1
 if [[ $ZSH_VERSION == (<5->|4.<4->|4.3.<10->)* ]]; then
-	autoload -Uz vcs_info
-	zstyle ':vcs_info:*' formats '(%s)-[%b]'
-	zstyle ':vcs_info:*' actionformats '(%s)-[%b|%a]'
-	precmd () {
-		psvar=()
-		LANG=en_US.UTF-8 vcs_info
-		[[ -n "$vcs_info_msg_0_" ]] && psvar[1]="$vcs_info_msg_0_"
-	}
-	RPROMPT="%1(v|%F{green}%1v%f|)"
+    autoload -Uz vcs_info
+    zstyle ':vcs_info:*' formats '(%s)-[%b]'
+    zstyle ':vcs_info:*' actionformats '(%s)-[%b|%a]'
+    precmd () {
+        psvar=()
+        LANG=en_US.UTF-8 vcs_info
+        [[ -n "$vcs_info_msg_0_" ]] && psvar[1]="$vcs_info_msg_0_"
+    }
+    RPROMPT="%1(v|%F{green}%1v%f|)"
 fi
 
 
@@ -344,7 +366,7 @@ fi
 # local setting. 
 #########################################
 if [[ -f ~/.zshrc_local ]] ; then;
-  source ~/.zshrc_local
+    source ~/.zshrc_local
 fi
 
 
@@ -362,10 +384,12 @@ fi
 # startup command
 #########################################
 
-screen -r
+#screen -r
+tmux attach
 
 
 
 PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
 
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
+

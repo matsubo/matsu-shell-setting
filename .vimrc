@@ -22,7 +22,7 @@ NeoBundle 'ref.vim'
 NeoBundle 'unite.vim'
 NeoBundle 'Shougo/vimproc.git'
 NeoBundle 'Shougo/vimfiler.git'
-" NeoBundle 'AutoComplPop'
+NeoBundle 'AutoComplPop'
 NeoBundle 'git://github.com/Shougo/neocomplcache.git'
 "NeoBundle 'colorizer'
 NeoBundle 'git://github.com/thinca/vim-quickrun.git'
@@ -517,4 +517,11 @@ nnoremap <Space>. :<C-u>tabedit $MYVIMRC<CR>
 " 「コピーした文字で、繰り返し上書きペーストしたい」
 vnoremap <silent> <C-p> "0p<CR>
 
+" カーソルの上または下に表示する最小限の行数
+set scrolloff=10
+
+
+" {{{ define macro
+let @q="ddko @autohr Yuki Matsukura <yuki.matsukura@gree.net>"
+" }}}
 
