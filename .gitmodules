@@ -1,3 +1,7 @@
 [submodule ".vim/bundle/neobundle.vim"]
 	path = .vim/bundle/neobundle.vim
 	url = https://github.com/Shougo/neobundle.vim
+
+[submodule "lib/z"]
+	path = lib/z
+	url = git://github.com/rupa/z.git
