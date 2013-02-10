@@ -1,13 +1,11 @@
 [submodule ".vim/bundle/neobundle.vim"]
 	path = .vim/bundle/neobundle.vim
 	url = https://github.com/Shougo/neobundle.vim
-<<<<<<< HEAD
+
 [submodule "dstat"]
 	path = dstat
 	url = git://github.com/dagwieers/dstat.git
-=======
 
 [submodule "lib/z"]
 	path = lib/z
 	url = git://github.com/rupa/z.git
->>>>>>> fc057305f179fb53c5047d78b66c6b2bd78e1ece

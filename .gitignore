@@ -20,6 +20,5 @@ Session.vim
 .vim/.netrwhist
 .vim/bundle
 .vim/plugin/
-reset past_error_log.tsv
 *.swo
 *.swp
