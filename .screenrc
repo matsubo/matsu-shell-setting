@@ -9,22 +9,25 @@ autodetach on
 termcapinfo xterm 'is=\E[r\E[m\E[2J\E[H\E[?7h\E[?1;4;6l'
 termcapinfo xterm-256color hs@:is=\E[r\E[m\E[2J\E[H\E[?7h\E[?1;4;6l
 
-
-
-# enable to scroll by mouse or keyboard
-#termcapinfo xterm* ti@:te@
-
-
+# 背景色消去
 defbce on
-term xterm-256color
-#term ansi
 
+# 256色表示設定
+term xterm-256color
 
 # 別画面サポート。Vimやless使うときに便利
+# ??
 altscreen on
 
 
+# ボールドのテキストを表示するとき、イタリックにする
 attrcolor b ".I"
+
+# enable logging
+#hardcopydir "$HOME/.screenlog"
+#hardcopy_append on
+deflog on
+logfile "$HOME/.screenlog/%H-%Y%m%d-%c-%n.log"
 
 
 # encoding
@@ -33,23 +36,29 @@ bind 'E' eval "encoding euc" "stuff 'export LANG=ja_JP.EUC-JP\012'"
 bind 'S' eval "encoding sjis" "stuff 'export LANG=ja_JP.SHIFT-JIS\012'"
 
 
-
 # changes the windowlist format to suit caption/hardstatus
 windowlist title  '%{u .g}Num Flags Title%=[0-9] select the number [movement] j,C-n:Down k,C-p:Up (C-)f:PageDown (C-)b:PageUp'
 windowlist string '%{.g}%3n %{.y}%f%09=%{dg} %t %='
 
 
-hardstatus string "[%H #%n] %h"
-
-caption always '%?%F%{= gW}%:%{= Kk}%?%2n%f%07=%t%='
-
-
-hardstatus alwayslastline '%m/%d %02c:%s %{= .g}%H%{-} %L=%-w%45L>%{=u g.}%n %t%{-}%+w %-17<%=%{= .y}(%l)'
+# status bar
 hardstatus on
+
+    # left side
+    hardstatus string "[%H #%n] %h"
+
+    # right side
+    hardstatus alwayslastline '%m/%d %02c:%s %{= .g}%H%{-} %L=%-w%45L>%{=u g.}%n %t%{-}%+w %-17<%=%{= .y}(%l)'
+
+# ??
+caption always '%?%F%{= gW}%:%{= Kk}%?%2n%f%07=%t%='
+sorendition '+r .b'
+
+
 
 
 # number of lines to scroll back
-defscrollback 10000
+defscrollback 100000
 # markkeys h=^B:l=^F:$=^E
 
 
@@ -57,6 +66,24 @@ defscrollback 10000
 vbell on
 bell_msg "Bell in window %^G"
 
+
+# echo command name whenever a window is created or resurrected.
+verbose on
+
+# turn off startup message
+startup_message off
+
+
+
+
+# {{{ encoding setting
+defutf8 on
+defkanji utf8
+defencoding utf8
+encoding utf8 utf8
+
+# }}}
+# {{{ Layout
 # window management emulating emacs key bind
 bind -c region  3 split -v
 bind -c region  2 split
@@ -114,7 +141,7 @@ bind -c region |  eval 'split -v'         'command -c region' 'echo "[Region] (s
 bind -c region ^E eval 'resize ='         'command -c region' 'echo "[Region] (resize =)"'
 bind -c region ^X eval 'resize max'       'command -c region' 'echo "[Region] (resize max)"'
 
-
+# }}}
 
 
 rendition bell     '=ub' 'RY'
@@ -123,22 +150,6 @@ rendition silence  '=u'  'wk'
 rendition so       '='   'Ck'
 
 
-# enable logging
-#hardcopydir "$HOME/.screenlog"
-#hardcopy_append on
-#logfile "$HOME/.screenlog/%H-%Y%m%d-%c-%n.log"
-#deflog on
-
-
-defutf8 on
-defkanji utf8
-defencoding utf8
-encoding utf8 utf8
-
-# echo command name whenever a window is created or resurrected.
-verbose on
-
-startup_message off
 
 
 # laytout

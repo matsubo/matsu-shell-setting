@@ -1,11 +1,14 @@
 #
 # Base configuration
 #
-# Syntax: set <option> = <value>
-set encoding = "EUC-JP"
+#set encoding = "UTF-8"
 set tab-size = 2
-set show-rev-graph = yes	# Show revision graph?
-set line-number-interval = 5	# Interval between line numbers
+
+# Show revision graph?
+set show-rev-graph = yes
+
+# Interval between line numbers
+set line-number-interval = 5
 
 #
 # Key configuration
@@ -14,6 +17,12 @@ set line-number-interval = 5	# Interval between line numbers
 
 bind main w scroll-line-up
 bind main s scroll-line-down
+
+bind main ^b move-page-up
+bind main ^f move-page-down
+bind main g move-first-line
+bind main G move-last-line
+
 
 bind diff a previous
 bind diff d next

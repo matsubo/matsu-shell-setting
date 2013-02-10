@@ -1,22 +1,19 @@
 ##
 # ~/.zshrc
 ##
-
-#export LANG=ja_JP.eucJP
-#export LANG=en_US.utf8
+# {{{ encoding
 export LANG=ja_JP.utf8
+#export LANG=en_US.utf8
 export LC_ALL=en_US.UTF-8
 export LESSCHARSET=utf-8
-
-
+# }}}
+# {{{ setopt
 setopt auto_menu
-setopt auto_cd
 setopt correct
 setopt auto_name_dirs
 setopt auto_remove_slash
 setopt extended_history
 setopt hist_ignore_dups
-setopt hist_ignore_space
 setopt prompt_subst
 setopt pushd_ignore_dups
 setopt rm_star_silent
@@ -28,7 +25,6 @@ setopt always_last_prompt
 setopt cdable_vars
 setopt sh_word_split
 setopt auto_param_keys
-setopt NO_flow_control
 setopt auto_pushd
 setopt pushd_ignore_dups
 setopt list_packed
@@ -37,86 +33,89 @@ setopt no_case_glob
 setopt complete_in_word
 setopt magic_equal_subst
 
-unsetopt promptcr
+# C-s, C-qを無効にする。
+setopt no_flow_control
 
+# 先頭がスペースならヒストリーに追加しない。
+setopt hist_ignore_space
+
+# hide rprompt after execute the command.
+setopt transient_rprompt
+
+
+# ディレクトリ名だけで移動できる。
+setopt auto_cd
+# }}}
+# {{{ OS setting
 umask 0002
 ulimit -n 1024
-
+# }}}
+# {{{ basic zsh behavior
 autoload -U compinit
 compinit -u
+bindkey -e
 
-## doesn't work 20101014
-#zle -N history-beginning-search-backward-end history-search-end
-#zle -N history-beginning-search-forward-end history-search-end
-#bindkey "^P" history-beginning-search-backward-end
-#bindkey "^N" history-beginning-search-forward-end
+# Show the execution consumed resource
+REPORTTIME=2
 
 
-
-# git completion
-#autoload bashcompinit
-#bashcompinit
-#source ~/.setting/.git-completion.bash
-
-
-# ignore ssl certificate when using git
-export GIT_SSL_NO_VERIFY=true
-
-
-
+NAME='Yuki Matsukura'
+# }}}
+# {{{ git increasing response speed setting
 # http://u7fa9.org/memo/HEAD/archives/2011-02/2011-02-01.rst
 __git_files() { _files }
-
-
+# }}}
+# {{{ login check
 watch=(notme)
-
-
-#########################################
-# environment variablel
-#########################################
 LOGCHECK=10
 WATCHFMT="%(a:${fg[blue]}Hello %n [%m] [%t]:${fg[red]}Bye %n [%m] [%t])"
-
-
-# prompt
+# }}}
+# {{{ prompt
 setopt prompt_subst
 local DARKC=$'%{\e[38;5;47m%}'
 local LIGHTC=$'%{\e[38;5;46m%}'
 local DEFAULTC=$'%{\e[m%}'
 PROMPT=$DARKC"[%U$USER@%m "$LIGHTC"%~%u"$DARKC"]%# "$DEFAULTC
-
+# }}}
+# {{{ history
 HISTFILE=$HOME/.zsh_history
 HISTSIZE=10000
 SAVEHIST=1000000
 function history-all { history -E 1 }
-
-# prints all color setting
+# }}}
+# {{{ prints all color setting
 function pcolor() {
-    for ((f = 0; f < 255; f++)); do
-        printf "\e[38;5;%dm %3d#\e[m" $f $f
-        if [[ $f%8 -eq 7 ]] then
-            printf "\n"
-        fi
-    done
-    echo
-}
+for ((f = 0; f < 255; f++)); do
+    printf "\e[38;5;%dm %3d#\e[m" $f $f
+    if [[ $f%8 -eq 7 ]] then
+        printf "\n"
+    fi
+done
+echo
 
-# FSF color management
+echo 
+
+echo "tmux color code"
+for i in $(seq 0 4 255); do
+    for j in $(seq $i $(expr $i + 3)); do
+        for k in $(seq 1 $(expr 3 - ${#j})); do
+            printf " "
+        done
+        printf "\x1b[38;5;${j}mcolour${j}"
+        [[ $(expr $j % 4) != 3 ]] && printf "    "
+    done
+    printf "\n"
+done
+
+printf "\n"
+# }}}}
+# {{{ FSF color management
 export LS_COLORS="no=00:fi=00:di=04;35:ln=00;36:pi=40;33:so=00;35:bd=40;33;01:cd=40;33;01:or=01;05;37;41:mi=01;05;37;41:ex=00;32:*.cmd=00;32:*.exe=00;32:*.com=00;32:*.btm=00;32:*.bat=00;32:*.sh=00;32:*.csh=00;32:*.tar=00;31:*.tgz=00;31:*.arj=00;31:*.taz=00;31:*.lzh=00;31:*.zip=00;31:*.z=00;31:*.Z=00;31:*.gz=00;31:*.bz2=00;31:*.bz=00;31:*.tz=00;31:*.rpm=00;31:*.cpio=00;31:*.jpg=00;35:*.gif=00;35:*.bmp=00;35:*.xbm=00;35:*.xpm=00;35:*.png=00;35:*.tif=00;35:"
 
 # BSD color management
 export LSCOLORS=cxfxcxdxbxegedabagacad
-
-
-export WORDCHARS="*?_-.[]~=&;!#$%^(){}<>"
-NAME='Yuki Matsukura'
-
-REPORTTIME=2
-
-
-#########################################
-# alias
-#########################################
+# }}}
+# {{{ alias
 
 alias ls='ls --color=auto --time-style=+"%Y/%m/%d %H:%M:%S" -p'
 
@@ -180,10 +179,8 @@ alias allnice="ionice -c2 -n7 nice -n19"
 
 # execute command with low priority
 alias lowpriority="ionice -c3 nice -n19"
-
-
-
-
+# }}}
+# {{{ Environment variable
 export EDITOR=vi
 export MYSQL=/usr/local/mysql
 export SAMBA=/usr/local/samba
@@ -194,112 +191,82 @@ export JAVA_HOME=/usr/local/java
 export MONGO_HOME=/usr/local/mongodb
 export PATH=~/bin:$MONGO_HOME/bin:$MYSQL/bin/:$SAMBA/bin:~/.setting/bin:/usr/local/bin:/bin:/usr/bin:/sbin:/usr/sbin:$JAVA_HOME/bin:/opt/local/bin:/usr/local/sbin
 
+# ignore ssl certificate when using git
+export GIT_SSL_NO_VERIFY=true
 
-# Hit ^ = cd ..
-#function cdup() {
-#  echo
-#  cd ..
-#  zle reset-prompt
-#}
-#zle -N cdup
-#bindkey '\^' cdup
+export WORDCHARS="*?_-.[]~=&;!#$%^(){}<>"
 
-
+# }}}
+# {{{ lv setting
 if type lv > /dev/null 2>&1; then
-	export PAGER="lv"
-	export LV="-c -l -Ou8"
-	alias less="lv"
+    export PAGER="lv"
+    export LV="-c -l -Ou8"
+    alias less="lv"
 else
-	export PAGER="less"
+    export PAGER="less"
 fi
-
-
-#########################################
-# OS specific setting
-#########################################
+# }}}
+# {{{ OS specific setting
 if [ -d /Users/ ]; then
-  # mac
-  alias updatedb=/usr/libexec/locate.updatedb
-  alias ls='ls -G -p'
-	export PATH="/opt/local/bin":$PATH
-	export PATH=$PATH:/usr/local/git/bin
+    # mac
+    alias updatedb=/usr/libexec/locate.updatedb
+    alias ls='ls -G -p'
+    export PATH="/opt/local/bin":$PATH
+    export PATH=$PATH:/usr/local/git/bin
 fi
 
 if [ -f /usr/bin/ccache ];then
-	export CC='ccache gcc'
-	export CXX='ccache g++'
+    export CC='ccache gcc'
+    export CXX='ccache g++'
 fi
 
 if [ -f /usr/bin/ccache ];then
-	export CC='ccache gcc'
-	export CXX='ccache g++'
+    export CC='ccache gcc'
+    export CXX='ccache g++'
 fi
-
-#########################################
-# override function
-#########################################
+# }}}
+# {{{ override function
+# Execute when pwd is changed
 function chpwd() { ll }
 
 zstyle ':completion:*:default' menu select=2
 zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z} r:|[._-]=*'
 zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS}
 zstyle ':completion:*' use-cache yes
-
-
-
-bindkey -e
-
-
-#########################################
-# keychain
-#########################################
+# }}}
+# {{{ keychain
 export HOSTNAME=`hostname`
 if [ -f ~/.keychain/$HOSTNAME-sh ]; then
-  keychain --timeout 10080 ~/.ssh/id_rsa
-  . ~/.keychain/$HOSTNAME-sh
+    keychain --timeout 10080 ~/.ssh/id_rsa
+    . ~/.keychain/$HOSTNAME-sh
 fi
-
-
-#########################################
-# dev setting. 
-#########################################
-export ETHNA_HOME="/usr/local/lib/php/Ethna"
-export PATH=$PATH:$ETHNA_HOME/bin
-alias ethna=ethna.sh
-alias screen="screen -U"
-
-
-#########################################
-# rails setting
-#########################################
+# }}}
+# {{{ rails setting
 _rake_does_task_list_need_generating () {
-  if [ ! -f .rake_tasks ]; then return 0;
-  else
-    accurate=$(stat -f%m .rake_tasks)
-    changed=$(stat -f%m Rakefile)
-    return $(expr $accurate '>=' $changed)
-  fi
+    if [ ! -f .rake_tasks ]; then return 0;
+    else
+        accurate=$(stat -f%m .rake_tasks)
+        changed=$(stat -f%m Rakefile)
+        return $(expr $accurate '>=' $changed)
+    fi
 }
 
 _rake () {
-  if [ -f Rakefile ]; then
-    if _rake_does_task_list_need_generating; then
-      echo "\nGenerating .rake_tasks..." > /dev/stderr
-      rake --silent --tasks | cut -d " " -f 2 > .rake_tasks
+    if [ -f Rakefile ]; then
+        if _rake_does_task_list_need_generating; then
+            echo "\nGenerating .rake_tasks..." > /dev/stderr
+            rake --silent --tasks | cut -d " " -f 2 > .rake_tasks
+        fi
+        compadd `cat .rake_tasks`
     fi
-    compadd `cat .rake_tasks`
-  fi
 }
 
 compdef _rake rake
-
-
-#########################################
-# grep setting
-#########################################
+# }}}
+# {{{ grep setting
 ## GNU grepがあったら優先して使う。
 if type ggrep > /dev/null 2>&1; then
-	alias grep=ggrep
+    alias grep=ggrep
 fi
 ## デフォルトオプションの設定
 export GREP_OPTIONS
@@ -311,62 +278,51 @@ GREP_OPTIONS="--binary-files=without-match"
 GREP_OPTIONS="--exclude=\*.tmp $GREP_OPTIONS"
 ## 管理用ディレクトリを無視する。
 if grep --help | grep -q -- --exclude-dir; then
-	GREP_OPTIONS="--exclude-dir=.svn $GREP_OPTIONS"
-	GREP_OPTIONS="--exclude-dir=.git $GREP_OPTIONS"
-	GREP_OPTIONS="--exclude-dir=.deps $GREP_OPTIONS"
-	GREP_OPTIONS="--exclude-dir=.libs $GREP_OPTIONS"
+    GREP_OPTIONS="--exclude-dir=.svn $GREP_OPTIONS"
+    GREP_OPTIONS="--exclude-dir=.git $GREP_OPTIONS"
+    GREP_OPTIONS="--exclude-dir=.deps $GREP_OPTIONS"
+    GREP_OPTIONS="--exclude-dir=.libs $GREP_OPTIONS"
 fi
 ### 可能なら色を付ける。
 #if grep --help | grep -q -- --color; then
 #	GREP_OPTIONS="--color=always $GREP_OPTIONS"
 #fi
-
-
-#########################################
-# VCS setting
-#########################################
+# }}}
+# {{{ VCS setting
 # http://d.hatena.ne.jp/mollifier/20090814/p1
 if [[ $ZSH_VERSION == (<5->|4.<4->|4.3.<10->)* ]]; then
-	autoload -Uz vcs_info
-	zstyle ':vcs_info:*' formats '(%s)-[%b]'
-	zstyle ':vcs_info:*' actionformats '(%s)-[%b|%a]'
-	precmd () {
-		psvar=()
-		LANG=en_US.UTF-8 vcs_info
-		[[ -n "$vcs_info_msg_0_" ]] && psvar[1]="$vcs_info_msg_0_"
-	}
-	RPROMPT="%1(v|%F{green}%1v%f|)"
+    autoload -Uz vcs_info
+    zstyle ':vcs_info:*' formats '(%s)-[%b]'
+    zstyle ':vcs_info:*' actionformats '(%s)-[%b|%a]'
+    precmd () {
+        psvar=()
+        LANG=en_US.UTF-8 vcs_info
+        [[ -n "$vcs_info_msg_0_" ]] && psvar[1]="$vcs_info_msg_0_"
+    }
+    RPROMPT="%1(v|%F{green}%1v%f|)"
 fi
-
-
-
-#########################################
-# local setting. 
-#########################################
+# }}}
+# {{{ z
+. ~/.setting/lib/z/z.sh
+# }}}
+# {{{ local setting. 
 if [[ -f ~/.zshrc_local ]] ; then;
-  source ~/.zshrc_local
+    source ~/.zshrc_local
 fi
+# }}}
+# {{{ tmux setting
+# showing branch infor on left side.
+PS1="$PS1"'$([ -n "$TMUX" ] && tmux setenv TMUXPWD_$(tmux display -p "#D" | tr -d %) "$PWD")'
+# }}}
+# {{{ rvm
+export PATH=$HOME/.rvm/bin:$PATH # Add RVM to PATH for scripting
 
-
-#########################################
-# Finder local setting
-#########################################
-#$ cd /System/Library/CoreServices/SystemFolderLocalizations/
-#$ sudo mv Japanese.lproj Japanese.lproj.back 
-#$ sudo cp -r en.lproj Japanese.lproj
-#$ killall Finder
-#########################################
-
-
-#########################################
-# startup command
-#########################################
+[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
+# }}}
+# {{{ startup command
 if [ $SSH_CLIENT ]; then
-	screen -r
+    #screen -r
+    tmux attach
 fi
+# }}}
 
-
-
-#PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
-#
-#[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*

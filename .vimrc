@@ -16,22 +16,13 @@ NeoBundle 'L9'
 " NeoBundle 'project.tar.gz'
 " NeoBundle 'FuzzyFinder'
 " Bundle 'Highlight-UnMatched-Brackets'
-NeoBundle 'vcscommand.vim'
-NeoBundle 'gtags.vim'
+NeoBundleLazy 'vcscommand.vim'
+NeoBundleLazy 'gtags.vim'
 NeoBundle 'ref.vim'
-NeoBundle 'unite.vim'
-NeoBundle 'Shougo/vimproc.git'
-NeoBundle 'Shougo/vimfiler.git'
-" NeoBundle 'AutoComplPop'
-NeoBundle 'git://github.com/Shougo/neocomplcache.git'
-"NeoBundle 'colorizer'
-NeoBundle 'git://github.com/thinca/vim-quickrun.git'
+" NeoBundle 'Shougo/vimfiler.git'
+NeoBundleLazy 'Shougo/vimproc.git'
+NeoBundleLazy 'git://github.com/thinca/vim-quickrun.git'
 NeoBundle 'surround.vim'
-
-
-" colorscheme
-NeoBundle 'molokai'
-" NeoBundle 'altercation/vim-colors-solarized'
 
 
 " git
@@ -39,11 +30,10 @@ NeoBundle 'fugitive.vim'
 NeoBundle 'gitv'
 
 " rails
-NeoBundle 'vim-ruby/vim-ruby'
-NeoBundle 'rails.vim'
+NeoBundle 'tpope/vim-rails'
+NeoBundle 'https://github.com/vim-ruby/vim-ruby.git'
 
-NeoBundle 'tpope/vim-rails.vim'
-NeoBundle 'vim-ruby/vim-ruby.vim'
+
 
 
 " php
@@ -59,6 +49,8 @@ NeoBundle 'git://github.com/Lokaltog/vim-powerline.git'
 " NeoBundle 'scrooloose/nerdcommenter'
 
 
+NeoBundleLazy "Shougo/vimshell.git"
+
 " PSR
 " NeoBundle 'stephpy/vim-php-cs-fixer'
 
@@ -73,6 +65,10 @@ augroup END
 
 
 NeoBundle 'scrooloose/syntastic.git'
+
+
+NeoBundle 'Shougo/neosnippet'
+
 
 nnoremap <silent> <space>b :e#<CR>
 nnoremap <silent> <space>ag :call AoiGrep()<CR>
@@ -247,9 +243,10 @@ noremap <F1> <Nop>
 nnoremap <silent> <leader>q :q<cr>
 
 
-" """""""""""""""""""""""""
-" PHP
-" """""""""""""""""""""""""
+" {{{ autocomplete
+NeoBundleLazy 'AutoComplPop'
+NeoBundleLazy 'Shougo/neocomplcache.git'
+"
 autocmd FileType php set omnifunc=phpcomplete#CompletePHP
 
 " disable auto comment out after the line break
@@ -267,52 +264,42 @@ let g:neocomplcache_dictionary_filetype_lists = {
             \ 'php' : $HOME.'/.setting/.vim/dict/php.dict',
             \ }
 
+" }}}
+" {{{ Color setting
+" colorscheme
+NeoBundle 'molokai'
+" NeoBundle 'altercation/vim-colors-solarized'
 
-" """""""""""""""""""""""""
-" Color setting
-" """""""""""""""""""""""""
+
+
 " http://winterdom.com/2008/08/molokaiforvim
 set bg=dark
 set t_Co=256
 colorscheme molokai
 let g:molokai_original=1
-
-
-" """""""""""""""""""""""""
-" vim-ref
-" """""""""""""""""""""""""
+" }}}
+" {{{ vim-ref
 " vim-ref setting
 nmap ,ra :<C-u>Ref alc<Space>
 nmap ,rp :<C-u>Ref phpmanual<Space>
 
 let g:ref_phpmanual_path = $HOME . '/.setting/php/php-chunked-xhtml'
 " let g:ref_phpmanual_cmd = 'w3m -dump %s'
-
-
-" :highlight Underlined ctermfg=Cyan
-
-" """""""""""""""""""""""""
-" shel script
-"
-" """""""""""""""""""""""""
+" }}}
+" {{{ File template
 autocmd BufNewFile *.sh  0r $HOME/.setting/template/sh.sh
 autocmd BufNewFile *.php 0r $HOME/.setting/template/php.php
 autocmd BufNewFile *.html 0r $HOME/.setting/template/html.html
-
-
-" """""""""""""""""""""""""
-" ファイルの前回閉じたときの場所を記憶してくれます。
-" """""""""""""""""""""""""
+" }}}
+" {{{ remember last edited line
 if has("autocmd")
-	autocmd BufReadPost *
-				\ if line("'\"") > 0 && line ("'\"") <= line("$") |
-				\   exe "normal! g'\"" |
-				\ endif
+    autocmd BufReadPost *
+                \ if line("'\"") > 0 && line ("'\"") <= line("$") |
+                \   exe "normal! g'\"" |
+                \ endif
 endif
+" }}}
 
-" """""""""""""""""""""""""
-" Syntax check
-" """""""""""""""""""""""""
 "------------------------------------------------------------------------------------"
 " 各種プログラムで構文チェク(:make)をCtr+c Ctr+cで行えるようにする
 " 表示されたQuickFixはウィンドウを移動しなくても
@@ -338,9 +325,8 @@ autocmd FileType xhtml,html :setlocal makeprg=tidy\ -raw\ -quiet\ -errors\ --gnu
 autocmd FileType xhtml,html map <c-c><c-c> :make<cr> :cw<cr><cr>
 
 
-" """""""""""""""""""""""""
-" unite.vim
-" """""""""""""""""""""""""
+" {{{ unite.vim
+NeoBundle 'unite.vim'
 " 入力モードで開始する
 let g:unite_enable_start_insert=1
 
@@ -370,7 +356,7 @@ au FileType unite inoremap <silent> <buffer> <expr> <C-l> unite#do_action('vspli
 " ESCキーを2回押すと終了する
 au FileType unite nnoremap <silent> <buffer> <ESC><ESC> q
 au FileType unite inoremap <silent> <buffer> <ESC><ESC> <ESC>q
-
+" }}}
 
 " Powerline
 let g:Powerline_symbols = 'fancy'
@@ -517,4 +503,11 @@ nnoremap <Space>. :<C-u>tabedit $MYVIMRC<CR>
 " 「コピーした文字で、繰り返し上書きペーストしたい」
 vnoremap <silent> <C-p> "0p<CR>
 
+" カーソルの上または下に表示する最小限の行数
+set scrolloff=10
+
+
+" {{{ define macro
+let @q="ddko @autohr Yuki Matsukura <yuki.matsukura@gree.net>"
+" }}}
 
