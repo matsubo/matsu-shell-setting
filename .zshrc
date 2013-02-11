@@ -306,6 +306,9 @@ fi
 # {{{ z
 . ~/.setting/lib/z/z.sh
 # }}}
+# {{{ zsh-syntax-highlighting
+source ~/.setting/lib/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+# }}}
 # {{{ local setting. 
 if [[ -f ~/.zshrc_local ]] ; then;
     source ~/.zshrc_local
