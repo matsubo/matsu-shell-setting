@@ -25,6 +25,8 @@ NeoBundleLazy 'git://github.com/thinca/vim-quickrun.git'
 NeoBundle 'surround.vim'
 
 
+NeoBundleLazy 'git://github.com/aghareza/vim-gitgrep.git'
+
 " git
 NeoBundle 'fugitive.vim'
 NeoBundle 'gitv'
