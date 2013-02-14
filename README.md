@@ -35,6 +35,17 @@ vim
 (open vim and type `:NeoBundleInstall` to retrieve plugins)
 
 
+TIPS
+---------------------------------
+* `.gitmodules`ファイルから該当する行を削除
+* `.git/configファイルから該当する行を削除
+```
+% git rm --cached path/to/hoge
+% git commit
+```
+
+
+
 Copyright
 ---------------------------------
 
