@@ -306,6 +306,9 @@ fi
 # {{{ z
 . ~/.setting/lib/z/z.sh
 # }}}
+# {{{ git flow
+source ~/.setting/lib/git-flow-completion/git-flow-completion.zsh
+# }}}
 # {{{ zsh-syntax-highlighting
 source ~/.setting/lib/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 # }}}
