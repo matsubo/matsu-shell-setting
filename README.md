@@ -22,8 +22,8 @@ ln -s .setting/.zshrc
 ln -s .setting/.my.cnf
 ln -s .setting/.lv
 ln -s .setting/.w3m
-ln -s .tmux-powerlinerc
-ln -s .tmux.conf
+ln -s .setting/.tmux-powerlinerc
+ln -s .setting/.tmux.conf
 cp .setting/.tigrc ./
 cp .setting/.gitconfig ./
 cd .setting

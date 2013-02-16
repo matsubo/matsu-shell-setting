@@ -29,11 +29,11 @@ NeoBundleLazy 'git://github.com/aghareza/vim-gitgrep.git'
 
 " git
 NeoBundle 'fugitive.vim'
-NeoBundle 'gitv'
+NeoBundleLazy 'gitv'
 
 " rails
-NeoBundle 'tpope/vim-rails'
-NeoBundle 'https://github.com/vim-ruby/vim-ruby.git'
+NeoBundleLazy 'tpope/vim-rails'
+NeoBundleLazy 'https://github.com/vim-ruby/vim-ruby.git'
 
 
 
@@ -42,7 +42,7 @@ NeoBundle 'https://github.com/vim-ruby/vim-ruby.git'
 NeoBundle 'PDV--phpDocumentor-for-Vim'
 
 " svn
-NeoBundle 'svndiff.vim'
+NeoBundleLazy 'svndiff.vim'
 
 
 NeoBundle 'git://github.com/Lokaltog/vim-powerline.git'
@@ -127,7 +127,7 @@ set incsearch
 
 " show special chars
 set list
-set listchars=tab:»-,trail:-,eol:↲,extends:»,precedes:«,nbsp:%
+set listchars=tab:»-,trail:-,extends:»,precedes:«,nbsp:%
 
 
 " set leader key
@@ -147,6 +147,15 @@ set cursorline
 highlight CursorLine ctermbg=DarkGray
 
 
+" {{{ highlight spaces in the end of lines
+augroup HighlightTrailingSpaces
+    autocmd!
+    autocmd VimEnter,WinEnter,ColorScheme * highlight TrailingSpaces term=underline guibg=Red ctermbg=Red
+    autocmd VimEnter,WinEnter * match TrailingSpaces /\s\+$/
+augroup END
+" }}}
+
+
 " カレントウィンドウにのみ罫線を引く
 augroup cch
 autocmd! cch
@@ -158,7 +167,7 @@ augroup END
 ":hi CursorLine gui=underline
 "highlight CursorLine ctermbg=black guibg=black
 
-
+" Backspace key works for
 set backspace=indent,eol,start
 
 " http://d.hatena.ne.jp/yuyarin/20100225/1267084794
@@ -509,10 +518,8 @@ vnoremap <silent> <C-p> "0p<CR>
 set scrolloff=10
 
 " {{{ clipboard
-set clipboard+=unnamed
+" set clipboard+=unnamed
 " }}}
-
-NeoBundle "vim-scripts/YankRing.vim"
 
 " {{{ define macro
 let @q="ddko @autohr Yuki Matsukura <yuki.matsukura@gree.net>"
