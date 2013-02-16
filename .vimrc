@@ -508,6 +508,11 @@ vnoremap <silent> <C-p> "0p<CR>
 " カーソルの上または下に表示する最小限の行数
 set scrolloff=10
 
+" {{{ clipboard
+set clipboard+=unnamed
+" }}}
+
+NeoBundle "vim-scripts/YankRing.vim"
 
 " {{{ define macro
 let @q="ddko @autohr Yuki Matsukura <yuki.matsukura@gree.net>"
