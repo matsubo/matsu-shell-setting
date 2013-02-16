@@ -61,6 +61,20 @@ REPORTTIME=2
 
 NAME='Yuki Matsukura'
 # }}}
+# {{{ VCS setting
+# http://d.hatena.ne.jp/mollifier/20090814/p1
+if [[ $ZSH_VERSION == (<5->|4.<4->|4.3.<10->)* ]]; then
+    autoload -Uz vcs_info
+    zstyle ':vcs_info:*' formats '(%s)-[%b]'
+    zstyle ':vcs_info:*' actionformats '(%s)-[%b|%a]'
+    precmd () {
+        psvar=()
+        LANG=en_US.UTF-8 vcs_info
+        [[ -n "$vcs_info_msg_0_" ]] && psvar[1]="$vcs_info_msg_0_"
+    }
+    RPROMPT="%1(v|%F{green}%1v%f|)"
+fi
+# }}}
 # {{{ git increasing response speed setting
 # http://u7fa9.org/memo/HEAD/archives/2011-02/2011-02-01.rst
 __git_files() { _files }
@@ -288,20 +302,6 @@ fi
 #if grep --help | grep -q -- --color; then
 #	GREP_OPTIONS="--color=always $GREP_OPTIONS"
 #fi
-# }}}
-# {{{ VCS setting
-# http://d.hatena.ne.jp/mollifier/20090814/p1
-if [[ $ZSH_VERSION == (<5->|4.<4->|4.3.<10->)* ]]; then
-    autoload -Uz vcs_info
-    zstyle ':vcs_info:*' formats '(%s)-[%b]'
-    zstyle ':vcs_info:*' actionformats '(%s)-[%b|%a]'
-    precmd () {
-        psvar=()
-        LANG=en_US.UTF-8 vcs_info
-        [[ -n "$vcs_info_msg_0_" ]] && psvar[1]="$vcs_info_msg_0_"
-    }
-    RPROMPT="%1(v|%F{green}%1v%f|)"
-fi
 # }}}
 # {{{ z
 . ~/.setting/lib/z/z.sh
