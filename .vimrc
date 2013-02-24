@@ -480,6 +480,21 @@ autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTree
 
 
 
+function! PearErrorSnipet()
+    let l:cursor_word  = expand("<cword>")
+
+    let l:text = printf("if (PEAR::isError($err = $%s)) {", l:cursor_word)
+    exe "norm! o" . l:text
+    let l:text = "return $err;"
+    exe "norm! o" . l:text
+    let l:text = "}" 
+    exe "norm! o" . l:text
+endfunction
+noremap <silent> <space>p :call PearErrorSnipet()<CR>
+
+
+
+
 "----------------------------------------------------
 "" PDV (PhpDocumenter for vim)
 "----------------------------------------------------
