@@ -215,7 +215,7 @@ export WORDCHARS="*?_-.[]~=&;!#$%^(){}<>"
 # {{{ lv setting
 if type lv > /dev/null 2>&1; then
     export PAGER="lv"
-    export LV="-c -l -Ou8"
+    export LV="-c -l -Ia -Oa"
     alias less="lv"
 else
     export PAGER="less"

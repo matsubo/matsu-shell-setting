@@ -38,8 +38,8 @@ NeoBundleLazy 'https://github.com/vim-ruby/vim-ruby.git'
 
 
 
-" php
-NeoBundle 'PDV--phpDocumentor-for-Vim'
+" phpdoc
+NeoBundle 'git://github.com/matsubo/PDV--phpDocumentor-for-Vim.git'
 
 " svn
 NeoBundleLazy 'svndiff.vim'
