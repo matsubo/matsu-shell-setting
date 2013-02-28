@@ -84,7 +84,7 @@ watch=(notme)
 LOGCHECK=10
 WATCHFMT="%(a:${fg[blue]}Hello %n [%m] [%t]:${fg[red]}Bye %n [%m] [%t])"
 # }}}
-# {{{ prompt
+# {{{ prompt (PS1)
 setopt prompt_subst
 local DARKC=$'%{\e[38;5;47m%}'
 local LIGHTC=$'%{\e[38;5;46m%}'
@@ -215,7 +215,7 @@ export WORDCHARS="*?_-.[]~=&;!#$%^(){}<>"
 # {{{ lv setting
 if type lv > /dev/null 2>&1; then
     export PAGER="lv"
-    export LV="-c -l -Ou8"
+    export LV="-c -l -Ia -Oa"
     alias less="lv"
 else
     export PAGER="less"

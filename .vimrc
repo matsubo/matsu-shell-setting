@@ -29,7 +29,7 @@ NeoBundleLazy 'git://github.com/aghareza/vim-gitgrep.git'
 
 " git
 NeoBundle 'fugitive.vim'
-NeoBundleLazy 'gitv'
+NeoBundle 'gitv'
 
 " rails
 NeoBundle 'vim-ruby/vim-ruby'
@@ -43,8 +43,8 @@ NeoBundle 'ujihisa/unite-rake'
 
 
 
-" php
-NeoBundle 'PDV--phpDocumentor-for-Vim'
+" phpdoc
+NeoBundle 'git://github.com/matsubo/PDV--phpDocumentor-for-Vim.git'
 
 " svn
 NeoBundleLazy 'svndiff.vim'
@@ -75,6 +75,12 @@ NeoBundle 'scrooloose/syntastic.git'
 
 
 NeoBundle 'Shougo/neosnippet'
+
+
+" html5
+NeoBundle 'hail2u/vim-css3-syntax'
+NeoBundle 'taichouchou2/html5.vim'
+
 
 
 nnoremap <silent> <space>b :e#<CR>
