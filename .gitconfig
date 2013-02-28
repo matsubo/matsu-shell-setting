@@ -71,6 +71,9 @@
   # grep関連
   gr = grep
   gn = grep -n
+
+  # add without whitespace change.
+  addw = !"git diff -w --no-color | git apply --cached"
 [core]
 	editor = vim
 	pager = nkf -w | LESSCHARSET=utf-8 less

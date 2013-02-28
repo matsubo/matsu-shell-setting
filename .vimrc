@@ -32,8 +32,13 @@ NeoBundle 'fugitive.vim'
 NeoBundleLazy 'gitv'
 
 " rails
+NeoBundle 'vim-ruby/vim-ruby'
+NeoBundle 'ruby-matchit'
 NeoBundleLazy 'tpope/vim-rails'
-NeoBundleLazy 'https://github.com/vim-ruby/vim-ruby.git'
+NeoBundleLazy 'tpope/vim-endwise'
+NeoBundle 'ujihisa/unite-rake'
+" NeoBundle 'basyura/unite-rails'
+
 
 
 
@@ -255,8 +260,8 @@ nnoremap <silent> <leader>q :q<cr>
 
 
 " {{{ autocomplete
-NeoBundleLazy 'AutoComplPop'
-NeoBundleLazy 'Shougo/neocomplcache.git'
+NeoBundle 'AutoComplPop'
+NeoBundle 'Shougo/neocomplcache.git'
 "
 autocmd FileType php set omnifunc=phpcomplete#CompletePHP
 
