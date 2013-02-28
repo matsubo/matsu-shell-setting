@@ -8,6 +8,10 @@ from stat import *
 import commands
 import fnmatch
 
+# easy_install clint
+from clint.textui import colored
+
+
 
 def watch(dir, command, extension):
     timestamp = time.mktime(datetime.datetime.now().utctimetuple())
@@ -18,8 +22,8 @@ def watch(dir, command, extension):
                 file_timestamp = os.stat(file)[ST_MTIME]
                 if timestamp < file_timestamp:
                     timestamp = file_timestamp
+                    print colored.yellow("CHANGED >> ") + filename
                     print(commands.getoutput(command))
-            time.sleep(0.1)
 
 def help():
     print(u'第一引数が監視対象のディレクトリです．')

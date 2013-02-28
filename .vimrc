@@ -72,6 +72,12 @@ NeoBundle 'scrooloose/syntastic.git'
 NeoBundle 'Shougo/neosnippet'
 
 
+" html5
+NeoBundle 'hail2u/vim-css3-syntax'
+NeoBundle 'taichouchou2/html5.vim'
+
+
+
 nnoremap <silent> <space>b :e#<CR>
 nnoremap <silent> <space>ag :call AoiGrep()<CR>
 nnoremap <silent> <space>am :call AoiModuleJump()<CR>
