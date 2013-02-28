@@ -76,7 +76,7 @@
 	diff = auto
 	autosetuprebase = always
 [color "diff"]
-	meta = blue bold
+	meta = cyan bold
 	old = yellow
 [color "diff.add"]
 	old = magenta
