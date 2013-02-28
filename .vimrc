@@ -42,8 +42,6 @@ NeoBundle 'ujihisa/unite-rake'
 
 
 
-
-" phpdoc
 NeoBundle 'git://github.com/matsubo/PDV--phpDocumentor-for-Vim.git'
 
 " svn
