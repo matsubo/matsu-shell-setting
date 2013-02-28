@@ -84,7 +84,7 @@ watch=(notme)
 LOGCHECK=10
 WATCHFMT="%(a:${fg[blue]}Hello %n [%m] [%t]:${fg[red]}Bye %n [%m] [%t])"
 # }}}
-# {{{ prompt
+# {{{ prompt (PS1)
 setopt prompt_subst
 local DARKC=$'%{\e[38;5;47m%}'
 local LIGHTC=$'%{\e[38;5;46m%}'

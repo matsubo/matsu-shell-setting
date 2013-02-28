@@ -29,7 +29,7 @@ NeoBundleLazy 'git://github.com/aghareza/vim-gitgrep.git'
 
 " git
 NeoBundle 'fugitive.vim'
-NeoBundleLazy 'gitv'
+NeoBundle 'gitv'
 
 " rails
 NeoBundleLazy 'tpope/vim-rails'
