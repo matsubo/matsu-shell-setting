@@ -10,7 +10,8 @@ if [ ! -d $src_dir ];then
 fi
 
 cd $src_dir
-# wget http://sourceforge.net/projects/zsh/files/zsh/5.0.0/zsh-5.0.0.tar.bz2
-# tar jxvf zsh-5.0.0.tar.bz2
-# cd zsh-5.0.0
-# ./configure --enable-multibyte &&  make && sudo make install && rehash
+wget http://tamacom.com/global/global-6.2.8.tar.gz
+tar xf global-6.2.8.tar.gz
+cd global-6.2.8
+./configure && make && sudo make install
+
