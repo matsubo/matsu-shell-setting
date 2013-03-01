@@ -15,8 +15,6 @@ Session.vim
 *.dvi
 *.aux
 *.elc
-.zshrc_local
-.zsh_alias
 .vim/.netrwhist
 .vim/bundle
 .vim/plugin/
