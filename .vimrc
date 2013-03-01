@@ -1,51 +1,47 @@
 " VIM setting
 "
-" """""""""""""""""""""""""
-" NeoBundle setting
-" """""""""""""""""""""""""
+" {{{ NeoBundle basic setting
 set nocompatible               " be iMproved
 filetype plugin indent off
 
 if has('vim_starting')
-	set runtimepath+=~/.vim/bundle/neobundle.vim/
-	call neobundle#rc(expand('~/.vim/bundle/'))
+    set runtimepath+=~/.vim/bundle/neobundle.vim/
+    call neobundle#rc(expand('~/.vim/bundle/'))
 endif
+" }}}
 
-" global
+
+
+" vim useful functions
 NeoBundle 'L9'
+
 " NeoBundle 'project.tar.gz'
 " NeoBundle 'FuzzyFinder'
 " Bundle 'Highlight-UnMatched-Brackets'
-NeoBundleLazy 'vcscommand.vim'
 NeoBundle 'gtags.vim'
-NeoBundle 'ref.vim'
 " NeoBundle 'Shougo/vimfiler.git'
 NeoBundleLazy 'Shougo/vimproc.git'
 NeoBundleLazy 'git://github.com/thinca/vim-quickrun.git'
 NeoBundle 'surround.vim'
-
-
-NeoBundleLazy 'git://github.com/aghareza/vim-gitgrep.git'
-
-" git
+" {{{ vcs
 NeoBundle 'fugitive.vim'
 NeoBundle 'gitv'
-
-" rails
-NeoBundleLazy 'tpope/vim-rails'
-NeoBundleLazy 'https://github.com/vim-ruby/vim-ruby.git'
-
-
-
-
-" phpdoc
-NeoBundle 'git://github.com/matsubo/PDV--phpDocumentor-for-Vim.git'
-
-" svn
 NeoBundleLazy 'svndiff.vim'
-
-
-NeoBundle 'git://github.com/Lokaltog/vim-powerline.git'
+NeoBundleLazy 'git://github.com/aghareza/vim-gitgrep.git'
+NeoBundleLazy 'vcscommand.vim'
+" }}}
+" {{{ rails
+NeoBundle 'vim-ruby/vim-ruby'
+NeoBundle 'ruby-matchit'
+NeoBundleLazy 'tpope/vim-rails'
+NeoBundleLazy 'tpope/vim-endwise'
+NeoBundle 'ujihisa/unite-rake'
+" NeoBundle 'basyura/unite-rails'
+" }}}
+" {{{ phpdoc
+NeoBundle 'git://github.com/matsubo/PDV--phpDocumentor-for-Vim.git'
+NeoBundle 'ref.vim'
+" }}}
 
 " NeoBundle 'scrooloose/nerdtree'
 " NeoBundle 'scrooloose/nerdcommenter'
@@ -60,10 +56,12 @@ NeoBundle 'git://github.com/watanabe0621/SmartyJump.git'
 NeoBundle 'git://github.com/watanabe0621/aoi-jump.vim.git'
 
 
+" {{{ phpfolding
 NeoBundle 'vim-scripts/phpfolding.vim'
 augroup vimrc
    autocmd FileType phpunit EnableFastPHPFolds
 augroup END
+" }}}
 
 
 NeoBundle 'scrooloose/syntastic.git'
@@ -261,8 +259,8 @@ nnoremap <silent> <leader>q :q<cr>
 
 
 " {{{ autocomplete
-NeoBundleLazy 'AutoComplPop'
-NeoBundleLazy 'Shougo/neocomplcache.git'
+NeoBundle 'AutoComplPop'
+NeoBundle 'Shougo/neocomplcache.git'
 "
 autocmd FileType php set omnifunc=phpcomplete#CompletePHP
 
@@ -374,9 +372,10 @@ au FileType unite inoremap <silent> <buffer> <expr> <C-l> unite#do_action('vspli
 au FileType unite nnoremap <silent> <buffer> <ESC><ESC> q
 au FileType unite inoremap <silent> <buffer> <ESC><ESC> <ESC>q
 " }}}
-
-" Powerline
+" {{{ Powerline
+NeoBundle 'git://github.com/Lokaltog/vim-powerline.git'
 let g:Powerline_symbols = 'fancy'
+" }}}
 
 " move the search word to the center
 nmap n nzz
@@ -535,14 +534,8 @@ nnoremap <Space>. :<C-u>tabedit $MYVIMRC<CR>
 " 「コピーした文字で、繰り返し上書きペーストしたい」
 vnoremap <silent> <C-p> "0p<CR>
 
-" カーソルの上または下に表示する最小限の行数
+" {{{ カーソルの上または下に表示する最小限の行数
 set scrolloff=10
-
-" {{{ clipboard
-" set clipboard+=unnamed
 " }}}
 
-" {{{ define macro
-let @q="ddko @autohr Yuki Matsukura <yuki.matsukura@gree.net>"
-" }}}
 
