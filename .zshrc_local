@@ -1,0 +1,12 @@
+##
+# ~/.zshrc
+##
+
+# {{{ prompt (PS1)
+setopt prompt_subst
+local DARKC=$'%{\e[38;5;51m%}'
+local LIGHTC=$'%{\e[38;5;50m%}'
+local DEFAULTC=$'%{\e[m%}'
+PROMPT=$DARKC"[%U$USER@%m "$LIGHTC"%~%u"$DARKC"]%# "$DEFAULTC
+# }}}
+
