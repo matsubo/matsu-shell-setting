@@ -323,6 +323,7 @@ PS1="$PS1"'$([ -n "$TMUX" ] && tmux setenv TMUXPWD_$(tmux display -p "#D" | tr -
 # }}}
 # {{{ rvm
 export PATH=$HOME/.rvm/bin:$PATH # Add RVM to PATH for scripting
+export SSL_CERT_FILE=~/.setting/cacert.pem
 
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
 # }}}
