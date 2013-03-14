@@ -523,6 +523,10 @@ let g:pdv_cfg_Author = "Yuki Matsukura <yuki.matsukura@gree.net>"
 let g:pdv_cfg_Copyright = "GREE, Inc."
 let g:pdv_cfg_License = " "
 
+
+let g:pdv_cfg_php4always = 0
+let g:pdv_cfg_php4guess = 0
+
 " smarty jump
 nnoremap <silent> <space>b :e#<CR>
 nnoremap <silent> <space>i :call SmartyJump()<CR>
