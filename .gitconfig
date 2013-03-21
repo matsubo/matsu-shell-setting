@@ -12,6 +12,14 @@
 [help]
 	autocorrect = 1
 
+[alias]
+  st = status -sb
+  ci = commit -a
+  br = branch
+  co = checkout
+  df = diff
+  lg = log -p
+
 [push]
 	default = tracking
 
@@ -82,3 +90,5 @@
 	old = magenta
 [http]
 	sslVerify = false
+
+
