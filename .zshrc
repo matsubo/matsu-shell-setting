@@ -326,6 +326,13 @@ export PATH=$HOME/.rvm/bin:$PATH # Add RVM to PATH for scripting
 
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
 # }}}
+# {{{ history back
+autoload history-search-end
+zle -N history-beginning-search-backward-end history-search-end
+zle -N history-beginning-search-forward-end history-search-end
+bindkey "^P" history-beginning-search-backward-end
+bindkey "^N" history-beginning-search-forward-end
+# }}}
 # {{{ startup command
 #if [ $SSH_CLIENT ]; then
     #screen -r
