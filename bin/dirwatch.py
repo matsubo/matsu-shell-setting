@@ -25,6 +25,8 @@ def watch(dir, command, extension):
                     print colored.yellow("CHANGED >> ") + filename
                     print(commands.getoutput(command))
 
+                time.sleep(0.2)
+
 def help():
     print(u'第一引数が監視対象のディレクトリです．')
     print(u'第二引数が監視下のファイルに変更があった場合に実行するコマンドです．')

@@ -26,6 +26,7 @@ ln -s .setting/.tmux-powerlinerc
 ln -s .setting/.tmux.conf
 cp .setting/.tigrc ./
 cp .setting/.gitconfig ./
+cp .setting/.zshrc_local ./
 cd .setting
 git submodule init
 git submodule update
