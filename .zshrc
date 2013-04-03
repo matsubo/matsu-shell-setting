@@ -55,7 +55,11 @@ autoload -U compinit
 compinit -u
 bindkey -e
 
+bindkey \^U backward-kill-line
+
+
 # Show the execution consumed resource
+# If the command takes over following sec.
 REPORTTIME=2
 
 
