@@ -21,6 +21,9 @@ NeoBundle 'L9'
 NeoBundle 'gtags.vim'
 " NeoBundle 'Shougo/vimfiler.git'
 NeoBundleLazy 'Shougo/vimproc.git'
+
+
+
 NeoBundleLazy 'git://github.com/thinca/vim-quickrun.git'
 NeoBundle 'surround.vim'
 " {{{ vcs
@@ -35,7 +38,7 @@ NeoBundle 'vim-ruby/vim-ruby'
 NeoBundle 'ruby-matchit'
 NeoBundleLazy 'tpope/vim-rails'
 NeoBundleLazy 'tpope/vim-endwise'
-NeoBundle 'ujihisa/unite-rake'
+" NeoBundle 'ujihisa/unite-rake'
 " NeoBundle 'basyura/unite-rails'
 " }}}
 " {{{ phpdoc
@@ -47,7 +50,17 @@ NeoBundle 'ref.vim'
 " NeoBundle 'scrooloose/nerdcommenter'
 
 
-NeoBundleLazy "Shougo/vimshell.git"
+" {{{ vimproc
+NeoBundle 'Shougo/vimproc', {
+            \ 'build' : {
+            \ 'windows' : 'make -f make_mingw32.mak',
+            \ 'cygwin' : 'make -f make_cygwin.mak',
+            \ 'mac' : 'make -f make_mac.mak',
+            \ 'unix' : 'make -f make_unix.mak',
+            \ },
+            \ }
+" }}}
+NeoBundle "Shougo/vimshell.git"
 
 " PSR
 " NeoBundle 'stephpy/vim-php-cs-fixer'
@@ -118,6 +131,8 @@ set smartcase
 
 " show match
 set showmatch
+set matchtime=3 "showmatchの表示時間
+
 
 " show line number
 set number
@@ -132,6 +147,9 @@ set incsearch
 " show special chars
 set list
 set listchars=tab:»-,trail:-,extends:»,precedes:«,nbsp:%
+
+
+set hidden  "ファイル変更中でも他のファイルを開けるようにする
 
 
 " set leader key
