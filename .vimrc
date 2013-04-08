@@ -65,9 +65,6 @@ NeoBundle "Shougo/vimshell.git"
 " PSR
 " NeoBundle 'stephpy/vim-php-cs-fixer'
 
-NeoBundle 'git://github.com/watanabe0621/SmartyJump.git'
-NeoBundle 'git://github.com/watanabe0621/aoi-jump.vim.git'
-
 
 " {{{ phpfolding
 NeoBundle 'vim-scripts/phpfolding.vim'
@@ -79,6 +76,7 @@ augroup END
 
 NeoBundle 'scrooloose/syntastic.git'
 
+NeoBundle 'git://github.com/vim-scripts/camelcasemotion.git'
 
 NeoBundle 'Shougo/neosnippet'
 
@@ -88,13 +86,25 @@ NeoBundle 'hail2u/vim-css3-syntax'
 NeoBundle 'taichouchou2/html5.vim'
 
 
+" {{{ camelcasemotion
+NeoBundle 'git://github.com/bkad/CamelCaseMotion.git'
+map <S-W> <Plug>CamelCaseMotion_w
+map <S-B> <Plug>CamelCaseMotion_b
+map <S-E> <Plug>CamelCaseMotion_e
+" }}}
 
+
+NeoBundle 'git://github.com/watanabe0621/SmartyJump.git'
+
+" {{{ aoi jumpp
+NeoBundle 'git://github.com/watanabe0621/aoi-jump.vim.git'
 nnoremap <silent> <space>b :e#<CR>
 nnoremap <silent> <space>ag :call AoiGrep()<CR>
 nnoremap <silent> <space>am :call AoiModuleJump()<CR>
 nnoremap <silent> <space>ap :call AoiProcessorJump()<CR>
 nnoremap <silent> <space>ac :call AoiClientJump()<CR>
 nnoremap <silent> <space>i :call SmartyJump()<CR>
+" }}}
 
 
 
@@ -105,7 +115,7 @@ filetype plugin indent on
 " global setting
 " """""""""""""""""""""""""
 set encoding=utf-8
-set fileencoding=japan
+set fileencoding=utf-8
 set fileencodings=utf-8,euc-jp,iso-2022-jp,sjis
 set ambiwidth=double
 set wildmenu
