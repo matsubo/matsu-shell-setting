@@ -343,3 +343,13 @@ bindkey "^N" history-beginning-search-forward-end
 #fi
 # }}}
 
+phpx () {
+XDEBUG_CONFIG="idekey=DBGP" \
+XDEBUG_SESSION_START=DBGP \
+php $@
+}
+phpunitx () {
+XDEBUG_CONFIG="idekey=DBGP" \
+XDEBUG_SESSION_START=DBGP \
+phpunit $@
+}

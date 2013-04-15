@@ -9,6 +9,12 @@ import commands
 import fnmatch
 
 # easy_install clint
+# or
+# wget https://pypi.python.org/packages/source/c/clint/clint-0.3.1.tar.gz
+# tar xf clint-0.3.1.tar.gz
+# cd clint-0.3.1
+# python setup.py build
+# sudo python setup.py iinstall
 from clint.textui import colored
 
 

@@ -9,8 +9,16 @@ if has('vim_starting')
     call neobundle#rc(expand('~/.vim/bundle/'))
 endif
 " }}}
+" {{{ vim-multiple-cursors
+NeoBundle 'git://github.com/terryma/vim-multiple-cursors'
+" }}}
 
+NeoBundle 'git://github.com/joonty/vdebug.git'
 
+let g:vdebug_options = {
+            \    "break_on_open" : 0,
+            \    "continuous_mode"  : 1,
+            \}
 
 " vim useful functions
 NeoBundle 'L9'
@@ -73,8 +81,22 @@ augroup vimrc
 augroup END
 " }}}
 
+" {{{
+NeoBundle "JSON.vim"
+au! BufRead,BufNewFile *.json set filetype=json 
+augroup json_autocmd 
+    autocmd! 
+    autocmd FileType json set autoindent 
+    autocmd FileType json set formatoptions=tcq2l 
+    autocmd FileType json set textwidth=78 shiftwidth=2 
+    autocmd FileType json set softtabstop=2 tabstop=8 
+    autocmd FileType json set expandtab 
+    autocmd FileType json set foldmethod=syntax 
+augroup END
+" }}}
 
-NeoBundle 'scrooloose/syntastic.git'
+
+neoBundle 'scrooloose/syntastic.git'
 
 NeoBundle 'git://github.com/vim-scripts/camelcasemotion.git'
 
@@ -434,7 +456,7 @@ endfunction
 
 
 "" gtags
-map <C-g><C-g> :Gtags 
+map <C-g><C-g> :Gtags
 " map <C-i> :Gtags -f %<CR>
 " code jump
 map <C-j> :GtagsCursor<CR>

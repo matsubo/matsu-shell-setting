@@ -46,6 +46,10 @@ submoduleの削除方法
 % git commit
 ```
 
+* Updating all submodule repositories
+```
+% git submodule foreach 'git checkout master; git pull'
+```
 
 
 Copyright
