@@ -39,7 +39,7 @@ vim
 submoduleの削除方法
 ---------------------------------
 * `.gitmodules`ファイルから該当する行を削除
-* `.git/configファイルから該当する行を削除
+* `.git/config`ファイルから該当する行を削除
 
 ```
 % git rm --cached path/to/hoge
