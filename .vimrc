@@ -96,7 +96,7 @@ augroup END
 " }}}
 
 
-neoBundle 'scrooloose/syntastic.git'
+NeoBundle 'scrooloose/syntastic.git'
 
 NeoBundle 'git://github.com/vim-scripts/camelcasemotion.git'
 

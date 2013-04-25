@@ -2,8 +2,7 @@
 # ~/.zshrc
 ##
 # {{{ encoding
-export LANG=ja_JP.utf8
-#export LANG=en_US.utf8
+#export LANG=ja_JP.utf8
 export LC_ALL=en_US.UTF-8
 export LESSCHARSET=utf-8
 # }}}
@@ -135,8 +134,8 @@ export LS_COLORS="no=00:fi=00:di=04;35:ln=00;36:pi=40;33:so=00;35:bd=40;33;01:cd
 export LSCOLORS=cxfxcxdxbxegedabagacad
 # }}}
 # {{{ alias
-
 alias ls='ls --color=auto --time-style=+"%Y/%m/%d %H:%M:%S" -p'
+alias sl='ls'
 
 alias la='ls -a' ll='ls -l' le='less -e'
 alias j=jobs    sw='%-'   z=suspend
@@ -151,6 +150,7 @@ alias my='sudo /etc/init.d/mysql'
 alias upgrade='sudo aptitude update && sudo aptitude safe-upgrade'
 
 alias r='rails'
+alias zshrc="vi ~/.zshrc"
 
 alias -g L='| less'
 alias -g H='| head'
@@ -194,8 +194,6 @@ alias historytime="history -nir 0 | less"
 
 # execute row priority
 alias allnice="ionice -c2 -n7 nice -n19"
-
-
 # execute command with low priority
 alias lowpriority="ionice -c3 nice -n19"
 # }}}
