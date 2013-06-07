@@ -12,12 +12,12 @@ fi
 cd $src_dir
 
 
-sudo aptitude install autoconf zlib1g-dev libssl-dev gettext
+sudo aptitude install autoconf zlib1g-dev libssl-dev gettext libcurl4-openssl-dev
 
 git clone https://github.com/git/git.git
 cd git
 make configure
-./configure --with-expat
+./configure --with-expat --with-curl
 make
 sudo make install
 

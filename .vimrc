@@ -12,13 +12,14 @@ endif
 " {{{ vim-multiple-cursors
 NeoBundle 'git://github.com/terryma/vim-multiple-cursors'
 " }}}
-
+" {{{ vdebug
 NeoBundle 'git://github.com/joonty/vdebug.git'
 
 let g:vdebug_options = {
             \    "break_on_open" : 0,
             \    "continuous_mode"  : 1,
             \}
+" }}}
 
 " vim useful functions
 NeoBundle 'L9'
@@ -95,6 +96,9 @@ augroup json_autocmd
 augroup END
 " }}}
 
+" {{{ vim-scripts/Mark
+NeoBundleLazy "vim-scripts/Mark"
+" }}}
 
 NeoBundle 'scrooloose/syntastic.git'
 
@@ -114,11 +118,8 @@ map <S-W> <Plug>CamelCaseMotion_w
 map <S-B> <Plug>CamelCaseMotion_b
 map <S-E> <Plug>CamelCaseMotion_e
 " }}}
-
-
+" {{{ aoi jump and smarty jum
 NeoBundle 'git://github.com/watanabe0621/SmartyJump.git'
-
-" {{{ aoi jumpp
 NeoBundle 'git://github.com/watanabe0621/aoi-jump.vim.git'
 nnoremap <silent> <space>b :e#<CR>
 nnoremap <silent> <space>ag :call AoiGrep()<CR>
@@ -127,8 +128,6 @@ nnoremap <silent> <space>ap :call AoiProcessorJump()<CR>
 nnoremap <silent> <space>ac :call AoiClientJump()<CR>
 nnoremap <silent> <space>i :call SmartyJump()<CR>
 " }}}
-
-
 
 
 filetype plugin indent on
@@ -320,7 +319,7 @@ autocmd FileType php set omnifunc=phpcomplete#CompletePHP
 
 " neocomplcache
 let g:neocomplcache_enable_at_startup = 1
-let g:neocomplcache_enable_smart_case = 1 
+let g:neocomplcache_enable_smart_case = 1
 let g:neocomplcache_enable_camel_case_completion = 1
 let g:neocomplcache_enable_underbar_completion = 1
 
@@ -535,6 +534,7 @@ autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTree
 
 
 
+" {{{ wrap by pear error handling code
 function! PearErrorSnipet()
     let l:cursor_word  = expand("<cword>")
 
@@ -546,13 +546,20 @@ function! PearErrorSnipet()
     exe "norm! o" . l:text
 endfunction
 noremap <silent> <space>p :call PearErrorSnipet()<CR>
+" }}}
+" {{{ wrap by var_dump
+" }}}
+function! EasyVarDump()
+    let l:cursor_word = expand("<cword>")
+    let l:text = printf("var_dump($%s);", l:cursor_word)
+    exe "norm! o" . l:text
+endfunction
+noremap <silent> <space>v :call EasyVarDump()<CR>
+" }}}
 
 
 
-
-"----------------------------------------------------
-"" PDV (PhpDocumenter for vim)
-"----------------------------------------------------
+" {{{ PDV (PhpDocumenter for vim)
 inoremap <C-@> <ESC>:call PhpDocSingle()<CR>i
 nnoremap <C-@> :call PhpDocSingle()<CR>
 vnoremap <C-@> :call PhpDocRange()<CR> 
@@ -576,6 +583,7 @@ let g:pdv_cfg_License = " "
 
 let g:pdv_cfg_php4always = 0
 let g:pdv_cfg_php4guess = 0
+" }}}
 
 " smarty jump
 nnoremap <silent> <space>b :e#<CR>

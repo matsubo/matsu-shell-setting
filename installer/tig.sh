@@ -12,7 +12,13 @@ fi
 cd $src_dir
 
 
-git clone http://jonas.nitro.dk/tig/tig.git/
+sudo aptitude install libncursesw5-dev
+git clone git://github.com/jonas/tig.git
 cd tig
-sudo make install install-release-doc prefix=/usr/local/
+make clean
+make configure
+LIBS=-lncursesw ./configure
+make
+sudo make install
+
 
