@@ -76,7 +76,7 @@
 	hist = log --pretty=format:\\\"%h %ad | %s%d [%an]\\\" --graph --date=short
 [core]
 	editor = vim
-	pager = lv -c
+	pager = lv
 	excludesfile = ~/.setting/.gitignore
 [status]
 	diff = auto
