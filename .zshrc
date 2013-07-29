@@ -124,6 +124,19 @@ function pcolor() {
         printf "\n"
     done
 
+    echo "zsh"
+    for COLOR in $(seq 0 255)
+    do
+        for STYLE in "38;5"
+        do
+            TAG="\033[${STYLE};${COLOR}m"
+            STR="${STYLE};${COLOR}"
+            echo -ne "${TAG}${STR}${NONE}  "
+        done
+        echo
+    done
+
+
     printf "\n"
 }
 # }}}
@@ -206,7 +219,7 @@ export SVN_EDITOR=vi
 
 export JAVA_HOME=/usr/local/java
 export MONGO_HOME=/usr/local/mongodb
-export PATH=~/bin:$MONGO_HOME/bin:$MYSQL/bin/:$SAMBA/bin:~/.setting/bin:/usr/local/bin:/bin:/usr/bin:/sbin:/usr/sbin:$JAVA_HOME/bin:/opt/local/bin:/usr/local/sbin
+export PATH=~/bin:~/.settings/bin:$MONGO_HOME/bin:$MYSQL/bin/:$SAMBA/bin:~/.setting/bin:/usr/local/bin:/bin:/usr/bin:/sbin:/usr/sbin:$JAVA_HOME/bin:/opt/local/bin:/usr/local/sbin
 
 # ignore ssl certificate when using git
 export GIT_SSL_NO_VERIFY=true
