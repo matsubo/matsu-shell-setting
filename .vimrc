@@ -74,7 +74,15 @@ NeoBundle 'Shougo/vimproc', {
             \ },
             \ }
 " }}}
-NeoBundle "Shougo/vimshell.git"
+NeoBundleLazy "Shougo/vimshell.git"
+NeoBundleLazy "sjl/gundo.vim"
+NeoBundleLazy "vim-scripts/ShowMultiBase.git"
+
+" {{{ csv.vim
+filetype plugin on
+NeoBundleLazy "chrisbra/csv.vim.git"
+" }}}
+
 
 " PSR
 " NeoBundle 'stephpy/vim-php-cs-fixer'
