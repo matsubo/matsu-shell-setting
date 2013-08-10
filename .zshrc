@@ -2,8 +2,7 @@
 # ~/.zshrc
 ##
 # {{{ encoding
-export LANG=ja_JP.utf8
-#export LANG=en_US.utf8
+#export LANG=ja_JP.utf8
 export LC_ALL=en_US.UTF-8
 export LESSCHARSET=utf-8
 # }}}
@@ -125,6 +124,19 @@ function pcolor() {
         printf "\n"
     done
 
+    echo "zsh"
+    for COLOR in $(seq 0 255)
+    do
+        for STYLE in "38;5"
+        do
+            TAG="\033[${STYLE};${COLOR}m"
+            STR="${STYLE};${COLOR}"
+            echo -ne "${TAG}${STR}${NONE}  "
+        done
+        echo
+    done
+
+
     printf "\n"
 }
 # }}}
@@ -135,8 +147,8 @@ export LS_COLORS="no=00:fi=00:di=04;35:ln=00;36:pi=40;33:so=00;35:bd=40;33;01:cd
 export LSCOLORS=cxfxcxdxbxegedabagacad
 # }}}
 # {{{ alias
-
 alias ls='ls --color=auto --time-style=+"%Y/%m/%d %H:%M:%S" -p'
+alias sl='ls'
 
 alias la='ls -a' ll='ls -l' le='less -e'
 alias j=jobs    sw='%-'   z=suspend
@@ -151,6 +163,7 @@ alias my='sudo /etc/init.d/mysql'
 alias upgrade='sudo aptitude update && sudo aptitude safe-upgrade'
 
 alias r='rails'
+alias zshrc="vi ~/.zshrc"
 
 alias -g L='| less'
 alias -g H='| head'
@@ -194,8 +207,6 @@ alias historytime="history -nir 0 | less"
 
 # execute row priority
 alias allnice="ionice -c2 -n7 nice -n19"
-
-
 # execute command with low priority
 alias lowpriority="ionice -c3 nice -n19"
 # }}}
@@ -208,7 +219,7 @@ export SVN_EDITOR=vi
 
 export JAVA_HOME=/usr/local/java
 export MONGO_HOME=/usr/local/mongodb
-export PATH=~/bin:$MONGO_HOME/bin:$MYSQL/bin/:$SAMBA/bin:~/.setting/bin:/usr/local/bin:/bin:/usr/bin:/sbin:/usr/sbin:$JAVA_HOME/bin:/opt/local/bin:/usr/local/sbin
+export PATH=~/bin:~/.settings/bin:$MONGO_HOME/bin:$MYSQL/bin/:$SAMBA/bin:~/.setting/bin:/usr/local/bin:/bin:/usr/bin:/sbin:/usr/sbin:$JAVA_HOME/bin:/opt/local/bin:/usr/local/sbin
 
 # ignore ssl certificate when using git
 export GIT_SSL_NO_VERIFY=true
@@ -340,3 +351,13 @@ bindkey "^N" history-beginning-search-forward-end
 #fi
 # }}}
 
+phpx () {
+XDEBUG_CONFIG="idekey=DBGP" \
+XDEBUG_SESSION_START=DBGP \
+php $@
+}
+phpunitx () {
+XDEBUG_CONFIG="idekey=DBGP" \
+XDEBUG_SESSION_START=DBGP \
+phpunit $@
+}

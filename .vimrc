@@ -9,8 +9,17 @@ if has('vim_starting')
     call neobundle#rc(expand('~/.vim/bundle/'))
 endif
 " }}}
+" {{{ vim-multiple-cursors
+NeoBundle 'git://github.com/terryma/vim-multiple-cursors'
+" }}}
+" {{{ vdebug
+NeoBundle 'git://github.com/joonty/vdebug.git'
 
-
+let g:vdebug_options = {
+            \    "break_on_open" : 0,
+            \    "continuous_mode"  : 1,
+            \}
+" }}}
 
 " vim useful functions
 NeoBundle 'L9'
@@ -20,12 +29,10 @@ NeoBundle 'L9'
 " Bundle 'Highlight-UnMatched-Brackets'
 NeoBundle 'gtags.vim'
 " NeoBundle 'Shougo/vimfiler.git'
-NeoBundleLazy 'Shougo/vimproc.git'
 
 
 
 NeoBundleLazy 'git://github.com/thinca/vim-quickrun.git'
-NeoBundle 'surround.vim'
 " {{{ vcs
 NeoBundle 'fugitive.vim'
 NeoBundle 'gitv'
@@ -42,13 +49,20 @@ NeoBundleLazy 'tpope/vim-endwise'
 " NeoBundle 'basyura/unite-rails'
 " }}}
 " {{{ phpdoc
-NeoBundle 'git://github.com/matsubo/PDV--phpDocumentor-for-Vim.git'
+NeoBundle 'git@github.com:vim-scripts/PDV--phpDocumentor-for-Vim.git'
 NeoBundle 'ref.vim'
 " }}}
 
 " NeoBundle 'scrooloose/nerdtree'
 " NeoBundle 'scrooloose/nerdcommenter'
 
+" {{{ visualstar
+NeoBundleLazy "git://github.com/thinca/vim-visualstar.git"
+" }}}
+
+" {{{ occur
+NeoBundleLazy "git://github.com/vim-scripts/occur.vim.git"
+" }}}
 
 " {{{ vimproc
 NeoBundle 'Shougo/vimproc', {
@@ -60,7 +74,15 @@ NeoBundle 'Shougo/vimproc', {
             \ },
             \ }
 " }}}
-NeoBundle "Shougo/vimshell.git"
+NeoBundleLazy "Shougo/vimshell.git"
+NeoBundleLazy "sjl/gundo.vim"
+NeoBundleLazy "vim-scripts/ShowMultiBase.git"
+
+" {{{ csv.vim
+filetype plugin on
+NeoBundleLazy "chrisbra/csv.vim.git"
+" }}}
+
 
 " PSR
 " NeoBundle 'stephpy/vim-php-cs-fixer'
@@ -73,6 +95,23 @@ augroup vimrc
 augroup END
 " }}}
 
+" {{{
+NeoBundle "JSON.vim"
+au! BufRead,BufNewFile *.json set filetype=json 
+augroup json_autocmd 
+    autocmd! 
+    autocmd FileType json set autoindent 
+    autocmd FileType json set formatoptions=tcq2l 
+    autocmd FileType json set textwidth=78 shiftwidth=2 
+    autocmd FileType json set softtabstop=2 tabstop=8 
+    autocmd FileType json set expandtab 
+    autocmd FileType json set foldmethod=syntax 
+augroup END
+" }}}
+
+" {{{ vim-scripts/Mark
+NeoBundleLazy "vim-scripts/Mark"
+" }}}
 
 NeoBundle 'scrooloose/syntastic.git'
 
@@ -92,11 +131,8 @@ map <S-W> <Plug>CamelCaseMotion_w
 map <S-B> <Plug>CamelCaseMotion_b
 map <S-E> <Plug>CamelCaseMotion_e
 " }}}
-
-
+" {{{ aoi jump and smarty jum
 NeoBundle 'git://github.com/watanabe0621/SmartyJump.git'
-
-" {{{ aoi jumpp
 NeoBundle 'git://github.com/watanabe0621/aoi-jump.vim.git'
 nnoremap <silent> <space>b :e#<CR>
 nnoremap <silent> <space>ag :call AoiGrep()<CR>
@@ -107,6 +143,21 @@ nnoremap <silent> <space>i :call SmartyJump()<CR>
 " }}}
 
 
+" {{{ php-cs-fixer
+NeoBundle 'stephpy/vim-php-cs-fixer'
+
+" If php-cs-fixer is in $PATH, you don't need to define line below
+let g:php_cs_fixer_path = "~/.setting/bin/php-cs-fixer.phar"   " define the path to the php-cs-fixer.phar
+let g:php_cs_fixer_level = "all"                  " which level ?
+let g:php_cs_fixer_config = "default"             " configuration
+let g:php_cs_fixer_php_path = "php"               " Path to PHP
+let g:php_cs_fixer_fixers_list = ""               " List of fixers
+let g:php_cs_fixer_enable_default_mapping = 1     " Enable the mapping by default (<leader>pcd)
+let g:php_cs_fixer_dry_run = 0                    " Call command with dry-run option
+let g:php_cs_fixer_verbose = 0                    " Return the output of command if 1, else an inline information.
+nnoremap <silent><leader>pcd :call PhpCsFixerFixDirectory()<CR>
+nnoremap <silent><leader>pcf :call PhpCsFixerFixFile()<CR>
+" }}}
 
 
 filetype plugin indent on
@@ -298,7 +349,7 @@ autocmd FileType php set omnifunc=phpcomplete#CompletePHP
 
 " neocomplcache
 let g:neocomplcache_enable_at_startup = 1
-let g:neocomplcache_enable_smart_case = 1 
+let g:neocomplcache_enable_smart_case = 1
 let g:neocomplcache_enable_camel_case_completion = 1
 let g:neocomplcache_enable_underbar_completion = 1
 
@@ -434,7 +485,7 @@ endfunction
 
 
 "" gtags
-map <C-g><C-g> :Gtags 
+map <C-g><C-g> :Gtags
 " map <C-i> :Gtags -f %<CR>
 " code jump
 map <C-j> :GtagsCursor<CR>
@@ -452,6 +503,8 @@ autocmd FileType git :setlocal foldlevel=99
 
 
 
+" {{{ surround
+NeoBundle 'surround.vim'
 "for surround.vim
 " [key map]
 " 1 : <h1>|</h1>
@@ -500,6 +553,7 @@ autocmd FileType html let b:surround_105 = "<img src=\"\r\" alt=\"\" />"
 autocmd FileType html let b:surround_73  = "<img src=\"\" alt=\"\r\" />"
 autocmd FileType html let b:surround_100 = "<div>\r</div>"
 autocmd FileType html let b:surround_68  = "<div class=\"section\">\r</div>"
+" }}}
 
 
 set foldmethod=marker
@@ -513,6 +567,7 @@ autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTree
 
 
 
+" {{{ wrap by pear error handling code
 function! PearErrorSnipet()
     let l:cursor_word  = expand("<cword>")
 
@@ -524,13 +579,20 @@ function! PearErrorSnipet()
     exe "norm! o" . l:text
 endfunction
 noremap <silent> <space>p :call PearErrorSnipet()<CR>
+" }}}
+" {{{ wrap by var_dump
+" }}}
+function! EasyVarDump()
+    let l:cursor_word = expand("<cword>")
+    let l:text = printf("var_dump($%s);", l:cursor_word)
+    exe "norm! o" . l:text
+endfunction
+noremap <silent> <space>v :call EasyVarDump()<CR>
+" }}}
 
 
 
-
-"----------------------------------------------------
-"" PDV (PhpDocumenter for vim)
-"----------------------------------------------------
+" {{{ PDV (PhpDocumenter for vim)
 inoremap <C-@> <ESC>:call PhpDocSingle()<CR>i
 nnoremap <C-@> :call PhpDocSingle()<CR>
 vnoremap <C-@> :call PhpDocRange()<CR> 
@@ -554,6 +616,7 @@ let g:pdv_cfg_License = " "
 
 let g:pdv_cfg_php4always = 0
 let g:pdv_cfg_php4guess = 0
+" }}}
 
 " smarty jump
 nnoremap <silent> <space>b :e#<CR>
