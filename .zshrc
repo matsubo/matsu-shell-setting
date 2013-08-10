@@ -241,7 +241,7 @@ if [ -d /Users/ ]; then
     # mac
     alias updatedb=/usr/libexec/locate.updatedb
     alias ls='ls -G -p'
-    export PATH="/opt/local/bin":$PATH:~/Documents/adt/sdk/platform-tools/:/usr/local/share/npm/bin/
+    export PATH="/opt/local/bin":$PATH:"/usr/local/share/npm/lib/node_modules/grunt-cli/bin":~/Documents/adt/sdk/platform-tools/:/usr/local/share/npm/bin/
     export PATH=$PATH:/usr/local/git/bin
 fi
 
