@@ -75,9 +75,10 @@
   gn = grep -n
 	hist = log --pretty=format:\\\"%h %ad | %s%d [%an]\\\" --graph --date=short
 [core]
-	editor = vim
-	pager = lv -c
-	excludesfile = ~/.setting/.gitignore
+    editor = vim
+    pager = lv -c
+    excludesfile = ~/.setting/.gitignore
+	quotepath = false
 [status]
 	diff = auto
 [branch]
