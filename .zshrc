@@ -353,7 +353,9 @@ bindkey "^N" history-beginning-search-forward-end
     tmux attach -d
 #fi
 # }}}
-
+# {{{ calculation function
+calc(){ awk "BEGIN{ print $* }" ;}
+# }}}
 phpx () {
 XDEBUG_CONFIG="idekey=DBGP" \
 XDEBUG_SESSION_START=DBGP \

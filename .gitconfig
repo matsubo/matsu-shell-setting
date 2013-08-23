@@ -12,13 +12,6 @@
 [help]
 	autocorrect = 1
 
-[alias]
-  st = status -sb
-  ci = commit -a
-  br = branch
-  co = checkout
-  df = diff
-  lg = log -p
 
 [push]
 	default = tracking
@@ -73,7 +66,32 @@
   # grep関連
   gr = grep
   gn = grep -n
-	hist = log --pretty=format:\\\"%h %ad | %s%d [%an]\\\" --graph --date=short
+
+  hist = log --pretty=format:\\\"%h %ad | %s%d [%an]\\\" --graph --date=short
+
+  # open unmerged files.
+  edit-unmerged = "!f() { git ls-files --unmerged | cut -f2 | sort -u ; }; vim -p +/\\<\\<\\<\\<\\<\\< `f`"
+
+  # A shortcut for seeing the fetched commits
+  lc = log ORIG_HEAD.. --stat --no-merges
+
+  # undo
+  undo=reset --hard
+
+  # These two aliases wrap commonly used options to git diff, and accept the full range of arguments that diff accepts:
+  changes=diff --name-status -r
+  diffstat=diff --stat -r
+
+
+  # To see what new commits have been created by the last command (typically after a "git pull") :
+  new = !sh -c 'git log $1@{1}..$1@{0} "$@"'
+
+
+  # Here are two aliases suggested on the mailing list by Junio Hamano:
+  # Try then by yourself! The first takes the name of a person or their email address. The second takes a commit name.
+  whois = "!sh -c 'git log -i -1 --pretty=\"format:%an <%ae>\n\" --author=\"$1\"' -"
+  whatis = show -s --pretty='tformat:%h (%s, %ad)' --date=short
+
 [core]
 	editor = vim
 	pager = lv -c
@@ -89,6 +107,11 @@
 [color "diff.add"]
 	old = magenta
 [http]
-	sslVerify = false
+  sslVerify = false
+
+[log]
+  date = local
 
 
+[rerere]
+	enabled = true
