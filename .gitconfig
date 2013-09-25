@@ -93,9 +93,10 @@
   whatis = show -s --pretty='tformat:%h (%s, %ad)' --date=short
 
 [core]
-	editor = vim
-	pager = lv -c
-	excludesfile = ~/.setting/.gitignore
+    editor = vim
+    pager = lv -c
+    excludesfile = ~/.setting/.gitignore
+	quotepath = false
 [status]
 	diff = auto
 [branch]

@@ -242,7 +242,7 @@ if [ -d /Users/ ]; then
     # mac
     alias updatedb=/usr/libexec/locate.updatedb
     alias ls='ls -G -p'
-    export PATH="/opt/local/bin":$PATH
+    export PATH="/opt/local/bin":$PATH:"/usr/local/share/npm/lib/node_modules/grunt-cli/bin":~/Documents/adt/sdk/platform-tools/:/usr/local/share/npm/bin/
     export PATH=$PATH:/usr/local/git/bin
 fi
 
@@ -335,11 +335,8 @@ fi
 # showing branch infor on left side.
 #PS1="$PS1"'$([ -n "$TMUX" ] && tmux setenv TMUXPWD_$(tmux display -p "#D" | tr -d %) "$PWD")'
 # }}}
-# {{{ rvm
-export PATH=$HOME/.rvm/bin:$PATH # Add RVM to PATH for scripting
-export SSL_CERT_FILE=~/.setting/cacert.pem
-
-[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
+# {{{ rbenv
+eval "$(rbenv init -)"
 # }}}
 # {{{ history back
 autoload history-search-end
