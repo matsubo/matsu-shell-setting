@@ -37,6 +37,14 @@ vim
 (open vim and type `:NeoBundleInstall` to retrieve plugins)
 
 
+submoduleの更新方法
+---------------------------------
+
+```
+git submodule foreach 'git pull origin master'
+```
+
+
 submoduleの削除方法
 ---------------------------------
 * `.gitmodules`ファイルから該当する行を削除
