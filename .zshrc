@@ -351,3 +351,4 @@ XDEBUG_CONFIG="idekey=DBGP" \
 XDEBUG_SESSION_START=DBGP \
 phpunit $@
 }
+eval "$(rbenv init -)" 
