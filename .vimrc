@@ -33,7 +33,6 @@ NeoBundle 'gtags.vim'
 
 
 NeoBundleLazy 'git://github.com/thinca/vim-quickrun.git'
-NeoBundle 'surround.vim'
 " {{{ vcs
 NeoBundle 'fugitive.vim'
 NeoBundle 'gitv'
@@ -50,13 +49,20 @@ NeoBundleLazy 'tpope/vim-endwise'
 " NeoBundle 'basyura/unite-rails'
 " }}}
 " {{{ phpdoc
-NeoBundle 'git://github.com/matsubo/PDV--phpDocumentor-for-Vim.git'
+NeoBundle 'git@github.com:vim-scripts/PDV--phpDocumentor-for-Vim.git'
 NeoBundle 'ref.vim'
 " }}}
 
 " NeoBundle 'scrooloose/nerdtree'
 " NeoBundle 'scrooloose/nerdcommenter'
 
+" {{{ visualstar
+NeoBundleLazy "git://github.com/thinca/vim-visualstar.git"
+" }}}
+
+" {{{ occur
+NeoBundleLazy "git://github.com/vim-scripts/occur.vim.git"
+" }}}
 
 " {{{ vimproc
 NeoBundle 'Shougo/vimproc', {
@@ -68,7 +74,15 @@ NeoBundle 'Shougo/vimproc', {
             \ },
             \ }
 " }}}
-NeoBundle "Shougo/vimshell.git"
+NeoBundleLazy "Shougo/vimshell.git"
+NeoBundleLazy "sjl/gundo.vim"
+NeoBundleLazy "vim-scripts/ShowMultiBase.git"
+
+" {{{ csv.vim
+filetype plugin on
+NeoBundleLazy "chrisbra/csv.vim.git"
+" }}}
+
 
 " PSR
 " NeoBundle 'stephpy/vim-php-cs-fixer'
@@ -489,6 +503,8 @@ autocmd FileType git :setlocal foldlevel=99
 
 
 
+" {{{ surround
+NeoBundle 'surround.vim'
 "for surround.vim
 " [key map]
 " 1 : <h1>|</h1>
@@ -537,6 +553,7 @@ autocmd FileType html let b:surround_105 = "<img src=\"\r\" alt=\"\" />"
 autocmd FileType html let b:surround_73  = "<img src=\"\" alt=\"\r\" />"
 autocmd FileType html let b:surround_100 = "<div>\r</div>"
 autocmd FileType html let b:surround_68  = "<div class=\"section\">\r</div>"
+" }}}
 
 
 set foldmethod=marker
@@ -592,7 +609,7 @@ let g:pdv_cfg_CommentSingle = "//"
 let g:pdv_cfg_Type = "mixed"
 let g:pdv_cfg_Package = ""
 let g:pdv_cfg_Version = "$id:$"
-let g:pdv_cfg_Author = "Yuki Matsukura <yuki.matsukura@gree.net>"
+let g:pdv_cfg_Author = "Yuki Matsukura"
 let g:pdv_cfg_Copyright = "GREE, Inc."
 let g:pdv_cfg_License = " "
 

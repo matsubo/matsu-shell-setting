@@ -124,6 +124,19 @@ function pcolor() {
         printf "\n"
     done
 
+    echo "zsh"
+    for COLOR in $(seq 0 255)
+    do
+        for STYLE in "38;5"
+        do
+            TAG="\033[${STYLE};${COLOR}m"
+            STR="${STYLE};${COLOR}"
+            echo -ne "${TAG}${STR}${NONE}  "
+        done
+        echo
+    done
+
+
     printf "\n"
 }
 # }}}
@@ -169,7 +182,6 @@ alias -g W='| wc'
 # ex: findg TestAction
 alias findg='find . | grep '
 
-alias g=git
 
 
 # for work
@@ -196,6 +208,8 @@ alias historytime="history -nir 0 | less"
 alias allnice="ionice -c2 -n7 nice -n19"
 # execute command with low priority
 alias lowpriority="ionice -c3 nice -n19"
+
+alias g="allnice git"
 # }}}
 # {{{ Environment variable
 export EDITOR=vi
@@ -206,7 +220,7 @@ export SVN_EDITOR=vi
 
 export JAVA_HOME=/usr/local/java
 export MONGO_HOME=/usr/local/mongodb
-export PATH=~/bin:$MONGO_HOME/bin:$MYSQL/bin/:$SAMBA/bin:~/.setting/bin:/usr/local/bin:/bin:/usr/bin:/sbin:/usr/sbin:$JAVA_HOME/bin:/opt/local/bin:/usr/local/sbin
+export PATH=~/bin:~/.settings/bin:$MONGO_HOME/bin:$MYSQL/bin/:$SAMBA/bin:~/.setting/bin:/usr/local/bin:/bin:/usr/bin:/sbin:/usr/sbin:$JAVA_HOME/bin:/opt/local/bin:/usr/local/sbin:/usr/local/mysql/bin
 
 # ignore ssl certificate when using git
 export GIT_SSL_NO_VERIFY=true
@@ -228,7 +242,7 @@ if [ -d /Users/ ]; then
     # mac
     alias updatedb=/usr/libexec/locate.updatedb
     alias ls='ls -G -p'
-    export PATH="/opt/local/bin":$PATH
+    export PATH="/opt/local/bin":$PATH:"/usr/local/share/npm/lib/node_modules/grunt-cli/bin":~/Documents/adt/sdk/platform-tools/:/usr/local/share/npm/bin/
     export PATH=$PATH:/usr/local/git/bin
 fi
 
@@ -319,13 +333,10 @@ fi
 # }}}
 # {{{ tmux setting
 # showing branch infor on left side.
-PS1="$PS1"'$([ -n "$TMUX" ] && tmux setenv TMUXPWD_$(tmux display -p "#D" | tr -d %) "$PWD")'
+#PS1="$PS1"'$([ -n "$TMUX" ] && tmux setenv TMUXPWD_$(tmux display -p "#D" | tr -d %) "$PWD")'
 # }}}
-# {{{ rvm
-export PATH=$HOME/.rvm/bin:$PATH # Add RVM to PATH for scripting
-export SSL_CERT_FILE=~/.setting/cacert.pem
-
-[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
+# {{{ rbenv
+eval "$(rbenv init -)"
 # }}}
 # {{{ history back
 autoload history-search-end
@@ -340,7 +351,9 @@ bindkey "^N" history-beginning-search-forward-end
     tmux attach -d
 #fi
 # }}}
-
+# {{{ calculation function
+calc(){ awk "BEGIN{ print $* }" ;}
+# }}}
 phpx () {
 XDEBUG_CONFIG="idekey=DBGP" \
 XDEBUG_SESSION_START=DBGP \

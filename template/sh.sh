@@ -7,6 +7,9 @@
 # to be strict syntax checker
 set -e
 
+# set low priority
+renice -n 19 $$
+
 # -------------------------------------
 # Error handling
 # -------------------------------------

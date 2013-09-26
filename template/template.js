@@ -1,30 +1,30 @@
 var Person = (function(){
-	var _name = 'kazushi',
-		_age = 36;
+    var _name = 'kazushi',
+    _age = 36;
 
 function _init() {
-	// ²¿¤é¤«¤Î½èÍı
+    // ä½•ã‚‰ã‹ã®å‡¦ç†
 }
 
 function _getName() {
-	return _name;
+    return _name;
 }
 
 function _getAge() {
-	return _age;
+    return _age;
 }
 
 function _doSomething() {
-	...
+    ...
 }
 
-// ½é´ü²½¤ò¼Â¹Ô¤¹¤ë
+// åˆæœŸåŒ–ã‚’å®Ÿè¡Œã™ã‚‹
 _init();
 
-// ¸ø³«API¤òÊÖ¤¹
+// å…¬é–‹APIã‚’è¿”ã™
 return {
-	getName: _getName,
-		getAge : _getAge
+    getName: _getName,
+        getAge : _getAge
 };
 }());
 
