@@ -5,8 +5,13 @@ filetype plugin indent off
 
 if has('vim_starting')
     set runtimepath+=~/.vim/bundle/neobundle.vim/
-    call neobundle#rc(expand('~/.vim/bundle/'))
 endif
+
+" init neobundle
+call neobundle#rc(expand('~/.vim/bundle/'))
+
+" update neobunle itself
+NeoBundleFetch "Shougo/neobundle.vim"
 " }}}
 " {{{ vim-multiple-cursors
 NeoBundle 'git://github.com/terryma/vim-multiple-cursors'
@@ -28,7 +33,6 @@ NeoBundle 'L9'
 " Bundle 'Highlight-UnMatched-Brackets'
 NeoBundle 'gtags.vim'
 " NeoBundle 'Shougo/vimfiler.git'
-
 
 
 NeoBundleLazy 'git://github.com/thinca/vim-quickrun.git'
@@ -78,10 +82,8 @@ NeoBundleLazy "sjl/gundo.vim"
 NeoBundleLazy "vim-scripts/ShowMultiBase.git"
 
 " {{{ csv.vim
-filetype plugin on
 NeoBundleLazy "chrisbra/csv.vim.git"
 " }}}
-
 
 " PSR
 " NeoBundle 'stephpy/vim-php-cs-fixer'
@@ -159,7 +161,12 @@ nnoremap <silent><leader>pcf :call PhpCsFixerFixFile()<CR>
 " }}}
 
 
+
+" {{{ plugin setting
+" need to call after neobundle
+filetype plugin on
 filetype plugin indent on
+" }}}
 
 " """""""""""""""""""""""""
 " global setting
