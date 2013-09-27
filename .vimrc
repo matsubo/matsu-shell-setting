@@ -1,7 +1,6 @@
 " VIM setting
 "
 " {{{ NeoBundle basic setting
-set nocompatible               " be iMproved
 filetype plugin indent off
 
 if has('vim_starting')
@@ -169,10 +168,19 @@ set encoding=utf-8
 set fileencoding=utf-8
 set fileencodings=utf-8,euc-jp,iso-2022-jp,sjis
 set ambiwidth=double
-set wildmenu
+set wildmenu wildmode=list:full
+
+" be improved
+set nocompatible
+" line wrap
+set whichwrap=b,s,[,],<,>,~
+
+" mouse mode
 "set mouse=a
 "set ttymouse=xterm2
 
+" enable highligh when searching
+set hlsearch
 
 " Changing PHP comment color
 " hi Comment ctermfg=2
@@ -181,8 +189,6 @@ set wildmenu
 " always show status line
 set laststatus=2
 set statusline=%F%<%m%r%h%w\ [%{&ff}]\ [%Y]\ [%04v,%04l/%L][%p%%]%=%{fugitive#statusline()}
-
-set hlsearch
 
 " search behaviors
 set ignorecase
@@ -214,13 +220,13 @@ set hidden  "ファイル変更中でも他のファイルを開けるように�
 
 
 " set leader key
-let mapleader = ","
+let mapleader=","
 
 
 
 
-highlight SpecialKey cterm=NONE ctermfg=darkgray guifg=7
-highlight JpSpace cterm=underline ctermfg=darkgray guifg=7
+highlight SpecialKey cterm=NONE ctermfg=darkgray
+highlight JpSpace cterm=underline ctermfg=darkgray
 au BufRead,BufNew * match JpSpace /　/
 
 
@@ -233,7 +239,7 @@ highlight CursorLine ctermbg=DarkGray
 " {{{ highlight spaces in the end of lines
 augroup HighlightTrailingSpaces
     autocmd!
-    autocmd VimEnter,WinEnter,ColorScheme * highlight TrailingSpaces term=underline guibg=Red ctermbg=Red
+    autocmd VimEnter,WinEnter,ColorScheme * highlight TrailingSpaces term=underline guibg=#505050 ctermbg=none
     autocmd VimEnter,WinEnter * match TrailingSpaces /\s\+$/
 augroup END
 " }}}
@@ -246,12 +252,11 @@ autocmd WinLeave * set nocursorline
 autocmd WinEnter,BufRead * set cursorline
 augroup END
 
-":hi clear CursorLine
-":hi CursorLine gui=underline
-"highlight CursorLine ctermbg=black guibg=black
+" {{{ highlight setting
+" }}}
 
 " Backspace key works for
-set backspace=indent,eol,start
+set backspace=start,indent,eol
 
 " http://d.hatena.ne.jp/yuyarin/20100225/1267084794
 set backupskip=/tmp/*,/private/tmp/*
@@ -465,9 +470,6 @@ nmap g* g*zz
 nmap g# g#zz
 
 
-"Escの2回押しでハイライト消去
-nmap <ESC><ESC> ;nohlsearch<CR><ESC>
-
 " grep結果をquick fixに表示刷る
 au QuickfixCmdPost vimgrep cw
 
@@ -478,7 +480,7 @@ command! -complete=file -nargs=+ Grep call s:grep([<f-args>])
 function! s:grep(args)
     let target = len(a:args) > 1 ? join(a:args[1:]) : '**/*'
     execute 'vimgrep' '/' . a:args[0] . '/j ' . target
-    if len(getqflist()) != 0 | copen | endif
+    if len(getqflist()) != 0 | copen | endiincogf
 endfunction
 
 
