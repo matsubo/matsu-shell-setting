@@ -22,9 +22,10 @@ NeoBundle 'git://github.com/joonty/vdebug.git'
 let g:vdebug_options = {
             \    "break_on_open" : 0,
             \    "continuous_mode"  : 1,
-            \}
+            \ }
 " }}}
 
+" {{{ NeoBundle
 " vim useful functions
 NeoBundle 'L9'
 
@@ -90,7 +91,8 @@ NeoBundleLazy "chrisbra/csv.vim.git"
 
 
 " {{{ phpfolding
-NeoBundle 'vim-scripts/phpfolding.vim'
+" NeoBundle 'vim-scripts/phpfolding.vim'
+NeoBundle 'https://github.com/matsubo/phpfolding.vim'
 augroup vimrc
    autocmd FileType phpunit EnableFastPHPFolds
 augroup END
@@ -133,17 +135,15 @@ map <S-B> <Plug>CamelCaseMotion_b
 map <S-E> <Plug>CamelCaseMotion_e
 " }}}
 " {{{ aoi jump and smarty jum
-NeoBundle 'git://github.com/watanabe0621/SmartyJump.git'
-NeoBundle 'git://github.com/watanabe0621/aoi-jump.vim.git'
-nnoremap <silent> <space>b :e#<CR>
-nnoremap <silent> <space>ag :call AoiGrep()<CR>
-nnoremap <silent> <space>am :call AoiModuleJump()<CR>
-nnoremap <silent> <space>ap :call AoiProcessorJump()<CR>
-nnoremap <silent> <space>ac :call AoiClientJump()<CR>
-nnoremap <silent> <space>i :call SmartyJump()<CR>
+" NeoBundle 'git://github.com/watanabe0621/SmartyJump.git'
+" NeoBundle 'git://github.com/watanabe0621/aoi-jump.vim.git'
+" nnoremap <silent> <space>b :e#<CR>
+" nnoremap <silent> <space>ag :call AoiGrep()<CR>
+" nnoremap <silent> <space>am :call AoiModuleJump()<CR>
+" nnoremap <silent> <space>ap :call AoiProcessorJump()<CR>
+" nnoremap <silent> <space>ac :call AoiClientJump()<CR>
+" nnoremap <silent> <space>i :call SmartyJump()<CR>
 " }}}
-
-
 " {{{ php-cs-fixer
 NeoBundle 'stephpy/vim-php-cs-fixer'
 
@@ -152,25 +152,19 @@ let g:php_cs_fixer_path = "~/.setting/bin/php-cs-fixer.phar"   " define the path
 let g:php_cs_fixer_level = "all"                  " which level ?
 let g:php_cs_fixer_config = "default"             " configuration
 let g:php_cs_fixer_php_path = "php"               " Path to PHP
-let g:php_cs_fixer_fixers_list = ""               " List of fixers
+let g:php_cs_fixer_fixers_list = "controls_spaces,elseif,eof_ending,extra_empty_lines,php_closing_tag,braces,include,short_tag,return,visibility,unused_use,trailing_spaces,linefeed"
 let g:php_cs_fixer_enable_default_mapping = 1     " Enable the mapping by default (<leader>pcd)
 let g:php_cs_fixer_dry_run = 0                    " Call command with dry-run option
 let g:php_cs_fixer_verbose = 0                    " Return the output of command if 1, else an inline information.
 nnoremap <silent><leader>pcd :call PhpCsFixerFixDirectory()<CR>
 nnoremap <silent><leader>pcf :call PhpCsFixerFixFile()<CR>
 " }}}
-
-
-
 " {{{ plugin setting
 " need to call after neobundle
 filetype plugin on
 filetype plugin indent on
 " }}}
-
-" """""""""""""""""""""""""
-" global setting
-" """""""""""""""""""""""""
+" {{{ global setting
 set encoding=utf-8
 set fileencoding=utf-8
 set fileencodings=utf-8,euc-jp,iso-2022-jp,sjis
@@ -224,6 +218,7 @@ set listchars=tab:»-,trail:-,extends:»,precedes:«,nbsp:%
 
 
 set hidden  "ファイル変更中でも他のファイルを開けるようにする
+" }}}
 
 
 " set leader key
@@ -286,7 +281,6 @@ set lazyredraw
 " 		echo result
 " 	endif
 " endfunction
-
 
 
 syntax on

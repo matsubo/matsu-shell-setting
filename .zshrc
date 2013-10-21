@@ -31,6 +31,9 @@ setopt list_types
 setopt no_case_glob
 setopt complete_in_word
 setopt magic_equal_subst
+setopt auto_param_slash
+setopt print_eight_bit
+setopt brace_ccl
 
 # C-s, C-qを無効にする。
 setopt no_flow_control
