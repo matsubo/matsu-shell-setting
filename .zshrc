@@ -354,6 +354,9 @@ bindkey "^N" history-beginning-search-forward-end
     tmux attach -d
 #fi
 # }}}
+# {{{ Auto completion
+fpath=(~/.setting/lib/zsh-completions.git/src $fpath)
+# }}}
 # {{{ calculation function
 calc(){ awk "BEGIN{ print $* }" ;}
 # }}}
