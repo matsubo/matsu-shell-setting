@@ -85,11 +85,6 @@ NeoBundleLazy "vim-scripts/ShowMultiBase.git"
 " {{{ csv.vim
 NeoBundleLazy "chrisbra/csv.vim.git"
 " }}}
-
-" PSR
-" NeoBundle 'stephpy/vim-php-cs-fixer'
-
-
 " {{{ phpfolding
 " NeoBundle 'vim-scripts/phpfolding.vim'
 NeoBundle 'https://github.com/matsubo/phpfolding.vim'

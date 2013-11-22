@@ -339,6 +339,7 @@ fi
 #PS1="$PS1"'$([ -n "$TMUX" ] && tmux setenv TMUXPWD_$(tmux display -p "#D" | tr -d %) "$PWD")'
 # }}}
 # {{{ rbenv
+export PATH="$HOME/.rbenv/bin:$PATH"
 eval "$(rbenv init -)"
 # }}}
 # {{{ history back
@@ -370,4 +371,3 @@ XDEBUG_CONFIG="idekey=DBGP" \
 XDEBUG_SESSION_START=DBGP \
 phpunit $@
 }
-eval "$(rbenv init -)" 

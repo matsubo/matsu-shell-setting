@@ -25,6 +25,7 @@ ln -s .setting/.w3m
 ln -s .setting/.tmux-powerlinerc
 ln -s .setting/.tmux.conf
 ln -s .setting/.global_ignore
+ln -s .setting/.gitattributes_global
 cp .setting/.tigrc ./
 cp .setting/.gitconfig ./
 cp .setting/.zshrc_local ./
