@@ -1,13 +1,17 @@
 " VIM setting
 "
 " {{{ NeoBundle basic setting
-set nocompatible               " be iMproved
 filetype plugin indent off
 
 if has('vim_starting')
     set runtimepath+=~/.vim/bundle/neobundle.vim/
-    call neobundle#rc(expand('~/.vim/bundle/'))
 endif
+
+" init neobundle
+call neobundle#rc(expand('~/.vim/bundle/'))
+
+" update neobunle itself
+NeoBundleFetch "Shougo/neobundle.vim"
 " }}}
 " {{{ vim-multiple-cursors
 " NeoBundle 'git://github.com/terryma/vim-multiple-cursors'
@@ -18,9 +22,10 @@ NeoBundle 'git://github.com/joonty/vdebug.git'
 let g:vdebug_options = {
             \    "break_on_open" : 0,
             \    "continuous_mode"  : 1,
-            \}
+            \ }
 " }}}
 
+" {{{ NeoBundle
 " vim useful functions
 NeoBundle 'L9'
 
@@ -29,7 +34,6 @@ NeoBundle 'L9'
 " Bundle 'Highlight-UnMatched-Brackets'
 NeoBundle 'gtags.vim'
 " NeoBundle 'Shougo/vimfiler.git'
-
 
 
 NeoBundleLazy 'git://github.com/thinca/vim-quickrun.git'
@@ -79,17 +83,11 @@ NeoBundleLazy "sjl/gundo.vim"
 NeoBundleLazy "vim-scripts/ShowMultiBase.git"
 
 " {{{ csv.vim
-filetype plugin on
 NeoBundleLazy "chrisbra/csv.vim.git"
 " }}}
-
-
-" PSR
-" NeoBundle 'stephpy/vim-php-cs-fixer'
-
-
 " {{{ phpfolding
-NeoBundle 'vim-scripts/phpfolding.vim'
+" NeoBundle 'vim-scripts/phpfolding.vim'
+NeoBundle 'https://github.com/matsubo/phpfolding.vim'
 augroup vimrc
    autocmd FileType phpunit EnableFastPHPFolds
 augroup END
@@ -132,17 +130,15 @@ map <S-B> <Plug>CamelCaseMotion_b
 map <S-E> <Plug>CamelCaseMotion_e
 " }}}
 " {{{ aoi jump and smarty jum
-NeoBundle 'git://github.com/watanabe0621/SmartyJump.git'
-NeoBundle 'git://github.com/watanabe0621/aoi-jump.vim.git'
-nnoremap <silent> <space>b :e#<CR>
-nnoremap <silent> <space>ag :call AoiGrep()<CR>
-nnoremap <silent> <space>am :call AoiModuleJump()<CR>
-nnoremap <silent> <space>ap :call AoiProcessorJump()<CR>
-nnoremap <silent> <space>ac :call AoiClientJump()<CR>
-nnoremap <silent> <space>i :call SmartyJump()<CR>
+" NeoBundle 'git://github.com/watanabe0621/SmartyJump.git'
+" NeoBundle 'git://github.com/watanabe0621/aoi-jump.vim.git'
+" nnoremap <silent> <space>b :e#<CR>
+" nnoremap <silent> <space>ag :call AoiGrep()<CR>
+" nnoremap <silent> <space>am :call AoiModuleJump()<CR>
+" nnoremap <silent> <space>ap :call AoiProcessorJump()<CR>
+" nnoremap <silent> <space>ac :call AoiClientJump()<CR>
+" nnoremap <silent> <space>i :call SmartyJump()<CR>
 " }}}
-
-
 " {{{ php-cs-fixer
 NeoBundle 'stephpy/vim-php-cs-fixer'
 
@@ -151,28 +147,36 @@ let g:php_cs_fixer_path = "~/.setting/bin/php-cs-fixer.phar"   " define the path
 let g:php_cs_fixer_level = "all"                  " which level ?
 let g:php_cs_fixer_config = "default"             " configuration
 let g:php_cs_fixer_php_path = "php"               " Path to PHP
-let g:php_cs_fixer_fixers_list = ""               " List of fixers
+let g:php_cs_fixer_fixers_list = "controls_spaces,elseif,eof_ending,extra_empty_lines,php_closing_tag,braces,include,short_tag,return,visibility,unused_use,trailing_spaces,linefeed"
 let g:php_cs_fixer_enable_default_mapping = 1     " Enable the mapping by default (<leader>pcd)
 let g:php_cs_fixer_dry_run = 0                    " Call command with dry-run option
 let g:php_cs_fixer_verbose = 0                    " Return the output of command if 1, else an inline information.
 nnoremap <silent><leader>pcd :call PhpCsFixerFixDirectory()<CR>
 nnoremap <silent><leader>pcf :call PhpCsFixerFixFile()<CR>
 " }}}
-
-
+" {{{ plugin setting
+" need to call after neobundle
+filetype plugin on
 filetype plugin indent on
-
-" """""""""""""""""""""""""
-" global setting
-" """""""""""""""""""""""""
+" }}}
+" {{{ global setting
 set encoding=utf-8
 set fileencoding=utf-8
 set fileencodings=utf-8,euc-jp,iso-2022-jp,sjis
 set ambiwidth=double
-set wildmenu
+set wildmenu wildmode=list:full
+
+" be improved
+set nocompatible
+" line wrap
+set whichwrap=b,s,[,],<,>,~
+
+" mouse mode
 "set mouse=a
 "set ttymouse=xterm2
 
+" enable highligh when searching
+set hlsearch
 
 " Changing PHP comment color
 " hi Comment ctermfg=2
@@ -181,8 +185,6 @@ set wildmenu
 " always show status line
 set laststatus=2
 set statusline=%F%<%m%r%h%w\ [%{&ff}]\ [%Y]\ [%04v,%04l/%L][%p%%]%=%{fugitive#statusline()}
-
-set hlsearch
 
 " search behaviors
 set ignorecase
@@ -211,6 +213,7 @@ set listchars=tab:»-,trail:-,extends:»,precedes:«,nbsp:%
 
 
 set hidden  "ファイル変更中でも他のファイルを開けるようにする
+" }}}
 
 
 " set leader key
@@ -219,8 +222,8 @@ let mapleader=","
 
 
 
-highlight SpecialKey cterm=NONE ctermfg=darkgray guifg=7
-highlight JpSpace cterm=underline ctermfg=darkgray guifg=7
+highlight SpecialKey cterm=NONE ctermfg=darkgray
+highlight JpSpace cterm=underline ctermfg=darkgray
 au BufRead,BufNew * match JpSpace /　/
 
 
@@ -233,7 +236,7 @@ highlight CursorLine ctermbg=DarkGray
 " {{{ highlight spaces in the end of lines
 augroup HighlightTrailingSpaces
     autocmd!
-    autocmd VimEnter,WinEnter,ColorScheme * highlight TrailingSpaces term=underline guibg=Red ctermbg=Red
+    autocmd VimEnter,WinEnter,ColorScheme * highlight TrailingSpaces term=underline guibg=#505050 ctermbg=none
     autocmd VimEnter,WinEnter * match TrailingSpaces /\s\+$/
 augroup END
 " }}}
@@ -246,12 +249,11 @@ autocmd WinLeave * set nocursorline
 autocmd WinEnter,BufRead * set cursorline
 augroup END
 
-":hi clear CursorLine
-":hi CursorLine gui=underline
-"highlight CursorLine ctermbg=black guibg=black
+" {{{ highlight setting
+" }}}
 
 " Backspace key works for
-set backspace=indent,eol,start
+set backspace=start,indent,eol
 
 " http://d.hatena.ne.jp/yuyarin/20100225/1267084794
 set backupskip=/tmp/*,/private/tmp/*
@@ -274,7 +276,6 @@ set lazyredraw
 " 		echo result
 " 	endif
 " endfunction
-
 
 
 syntax on
@@ -465,9 +466,6 @@ nmap g* g*zz
 nmap g# g#zz
 
 
-"Escの2回押しでハイライト消去
-nmap <ESC><ESC> ;nohlsearch<CR><ESC>
-
 " grep結果をquick fixに表示刷る
 au QuickfixCmdPost vimgrep cw
 
@@ -478,7 +476,7 @@ command! -complete=file -nargs=+ Grep call s:grep([<f-args>])
 function! s:grep(args)
     let target = len(a:args) > 1 ? join(a:args[1:]) : '**/*'
     execute 'vimgrep' '/' . a:args[0] . '/j ' . target
-    if len(getqflist()) != 0 | copen | endif
+    if len(getqflist()) != 0 | copen | endiincogf
 endfunction
 
 
@@ -609,7 +607,7 @@ let g:pdv_cfg_CommentSingle = "//"
 let g:pdv_cfg_Type = "mixed"
 let g:pdv_cfg_Package = ""
 let g:pdv_cfg_Version = "$id:$"
-let g:pdv_cfg_Author = "Yuki Matsukura <yuki.matsukura@gree.net>"
+let g:pdv_cfg_Author = "Yuki Matsukura"
 let g:pdv_cfg_Copyright = "GREE, Inc."
 let g:pdv_cfg_License = " "
 

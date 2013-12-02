@@ -1,0 +1,27 @@
+# .gitattributes_global is the user-specific global path attributes configuration file for Git. To
+# work, this file must be specified as the global configuration file using the core.attributesfile
+# variable in the Git configuration. See:
+#
+#     http://git-scm.com/docs/gitattributes.html
+#     https://www.kernel.org/pub/software/scm/git/docs/git-config.html
+#
+# for more information, including a description of configuration file, command-line option, and
+# environment variable precedence.
+
+# Setting the diff attribute for a specific file type chooses a language-specific set of patterns to
+# use when generating diff header hunks.
+
+*.c     diff=cpp
+*.cc    diff=cpp
+*.cpp   diff=cpp
+*.cs    diff=csharp
+*.html  diff=html
+*.java  diff=java
+*.m     diff=objc
+*.pl    diff=perl
+*.py    diff=python
+*.rb    diff=ruby
+*.php   diff=php
+
+
+

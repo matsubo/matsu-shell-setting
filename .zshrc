@@ -31,6 +31,9 @@ setopt list_types
 setopt no_case_glob
 setopt complete_in_word
 setopt magic_equal_subst
+setopt auto_param_slash
+setopt print_eight_bit
+setopt brace_ccl
 
 # C-s, C-qを無効にする。
 setopt no_flow_control
@@ -182,7 +185,6 @@ alias -g W='| wc'
 # ex: findg TestAction
 alias findg='find . | grep '
 
-alias g=git
 
 
 # for work
@@ -209,6 +211,8 @@ alias historytime="history -nir 0 | less"
 alias allnice="ionice -c2 -n7 nice -n19"
 # execute command with low priority
 alias lowpriority="ionice -c3 nice -n19"
+
+alias g="allnice git"
 # }}}
 # {{{ Environment variable
 export EDITOR=vi
@@ -219,7 +223,7 @@ export SVN_EDITOR=vi
 
 export JAVA_HOME=/usr/local/java
 export MONGO_HOME=/usr/local/mongodb
-export PATH=~/bin:~/.settings/bin:$MONGO_HOME/bin:$MYSQL/bin/:$SAMBA/bin:~/.setting/bin:/usr/local/bin:/bin:/usr/bin:/sbin:/usr/sbin:$JAVA_HOME/bin:/opt/local/bin:/usr/local/sbin
+export PATH=~/bin:~/.settings/bin:$MONGO_HOME/bin:$MYSQL/bin/:$SAMBA/bin:~/.setting/bin:/usr/local/bin:/bin:/usr/bin:/sbin:/usr/sbin:$JAVA_HOME/bin:/opt/local/bin:/usr/local/sbin:/usr/local/mysql/bin
 
 # ignore ssl certificate when using git
 export GIT_SSL_NO_VERIFY=true
@@ -332,9 +336,10 @@ fi
 # }}}
 # {{{ tmux setting
 # showing branch infor on left side.
-PS1="$PS1"'$([ -n "$TMUX" ] && tmux setenv TMUXPWD_$(tmux display -p "#D" | tr -d %) "$PWD")'
+#PS1="$PS1"'$([ -n "$TMUX" ] && tmux setenv TMUXPWD_$(tmux display -p "#D" | tr -d %) "$PWD")'
 # }}}
 # {{{ rbenv
+export PATH="$HOME/.rbenv/bin:$PATH"
 eval "$(rbenv init -)"
 # }}}
 # {{{ history back
@@ -350,7 +355,12 @@ bindkey "^N" history-beginning-search-forward-end
     tmux attach -d
 #fi
 # }}}
-
+# {{{ Auto completion
+fpath=(~/.setting/lib/zsh-completions.git/src $fpath)
+# }}}
+# {{{ calculation function
+calc(){ awk "BEGIN{ print $* }" ;}
+# }}}
 phpx () {
 XDEBUG_CONFIG="idekey=DBGP" \
 XDEBUG_SESSION_START=DBGP \
