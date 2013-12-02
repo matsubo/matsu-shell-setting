@@ -10,7 +10,7 @@ if has('vim_starting')
 endif
 " }}}
 " {{{ vim-multiple-cursors
-NeoBundle 'git://github.com/terryma/vim-multiple-cursors'
+" NeoBundle 'git://github.com/terryma/vim-multiple-cursors'
 " }}}
 " {{{ vdebug
 NeoBundle 'git://github.com/joonty/vdebug.git'
@@ -214,7 +214,7 @@ set hidden  "ファイル変更中でも他のファイルを開けるように�
 
 
 " set leader key
-let mapleader = ","
+let mapleader=","
 
 
 
