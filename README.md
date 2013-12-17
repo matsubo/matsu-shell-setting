@@ -14,7 +14,6 @@ Installation
 git clone git@github.com:matsubo/matsu-shell-setting.git .setting
 cd
 ln -s .setting/.htoprc
-ln -s .setting/.screenrc
 ln -s .setting/.vim
 ln -s .setting/.vimrc
 ln -s .setting/.gvimrc
