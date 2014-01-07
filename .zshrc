@@ -212,7 +212,8 @@ alias allnice="ionice -c2 -n7 nice -n19"
 # execute command with low priority
 alias lowpriority="ionice -c3 nice -n19"
 
-alias g="allnice git"
+alias g="git"
+alias gi="git"
 # }}}
 # {{{ Environment variable
 export EDITOR=vi
@@ -247,6 +248,7 @@ if [ -d /Users/ ]; then
     alias ls='ls -G -p'
     export PATH="/opt/local/bin":$PATH:"/usr/local/share/npm/lib/node_modules/grunt-cli/bin":~/Documents/adt/sdk/platform-tools/:/usr/local/share/npm/bin/
     export PATH=$PATH:/usr/local/git/bin
+    export GREP_OPTIONS
 fi
 
 if [ -f /usr/bin/ccache ];then
@@ -303,11 +305,10 @@ if type ggrep > /dev/null 2>&1; then
     alias grep=ggrep
 fi
 ## デフォルトオプションの設定
-export GREP_OPTIONS
 ### バイナリファイルにはマッチさせない。
 GREP_OPTIONS="--binary-files=without-match"
 ### grep対象としてディレクトリを指定したらディレクトリ内を再帰的にgrepする。
-GREP_OPTIONS="--directories=recurse $GREP_OPTIONS"
+#GREP_OPTIONS="--directories=recurse $GREP_OPTIONS"
 ### 拡張子が.tmpのファイルは無視する。
 GREP_OPTIONS="--exclude=\*.tmp $GREP_OPTIONS"
 ## 管理用ディレクトリを無視する。
@@ -341,6 +342,9 @@ fi
 # {{{ rbenv
 export PATH="$HOME/.rbenv/bin:$PATH"
 eval "$(rbenv init -)"
+# }}}
+# {{{ nodebrew
+export PATH=$HOME/.nodebrew/current/bin:$PATH
 # }}}
 # {{{ history back
 autoload history-search-end
