@@ -47,8 +47,12 @@ NeoBundleLazy 'vcscommand.vim'
 " {{{ rails
 NeoBundle 'vim-ruby/vim-ruby'
 NeoBundle 'ruby-matchit'
-NeoBundleLazy 'tpope/vim-rails'
 NeoBundleLazy 'tpope/vim-endwise'
+
+NeoBundle 'taichouchou2/vim-rails'
+NeoBundle 'romanvbabenko/rails.vim'
+
+
 " NeoBundle 'ujihisa/unite-rake'
 " NeoBundle 'basyura/unite-rails'
 " }}}
@@ -295,9 +299,9 @@ set cindent
 set expandtab
 
 
-set shiftwidth=4
-set softtabstop=4
-set tabstop=4
+set shiftwidth=2
+set softtabstop=2
+set tabstop=2
 
 
 
@@ -563,30 +567,6 @@ set foldmethod=marker
 " How can I close vim if the only window left open is a NERDTree
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
 
-
-
-" {{{ wrap by pear error handling code
-function! PearErrorSnipet()
-    let l:cursor_word  = expand("<cword>")
-
-    let l:text = printf("if (PEAR::isError($err = $%s)) {", l:cursor_word)
-    exe "norm! o" . l:text
-    let l:text = "return $err;"
-    exe "norm! o" . l:text
-    let l:text = "}" 
-    exe "norm! o" . l:text
-endfunction
-noremap <silent> <space>p :call PearErrorSnipet()<CR>
-" }}}
-" {{{ wrap by var_dump
-" }}}
-function! EasyVarDump()
-    let l:cursor_word = expand("<cword>")
-    let l:text = printf("var_dump($%s);", l:cursor_word)
-    exe "norm! o" . l:text
-endfunction
-noremap <silent> <space>v :call EasyVarDump()<CR>
-" }}}
 
 
 
