@@ -25,7 +25,6 @@ let g:vdebug_options = {
             \ }
 " }}}
 
-" {{{ NeoBundle
 " vim useful functions
 NeoBundle 'L9'
 
@@ -49,7 +48,7 @@ NeoBundle 'vim-ruby/vim-ruby'
 NeoBundle 'ruby-matchit'
 NeoBundleLazy 'tpope/vim-endwise'
 
-NeoBundle 'taichouchou2/vim-rails'
+NeoBundle 'tpope/vim-rails'
 NeoBundle 'romanvbabenko/rails.vim'
 
 
@@ -119,7 +118,7 @@ NeoBundle 'scrooloose/syntastic.git'
 
 NeoBundle 'git://github.com/vim-scripts/camelcasemotion.git'
 
-NeoBundle 'Shougo/neosnippet'
+
 
 
 " html5
@@ -344,7 +343,11 @@ nnoremap <silent> <leader>q :q<cr>
 
 " {{{ autocomplete
 NeoBundle 'AutoComplPop'
-NeoBundle 'Shougo/neocomplcache.git'
+NeoBundle 'Shougo/neocomplcache'
+
+NeoBundle 'Shougo/neosnippet'
+NeoBundle 'Shougo/neosnippet-snippets'
+
 "
 autocmd FileType php set omnifunc=phpcomplete#CompletePHP
 
@@ -378,13 +381,19 @@ colorscheme molokai
 let g:molokai_original=1
 " }}}
 " {{{ vim-ref
-" vim-ref setting
-nmap ,ra :<C-u>Ref alc<Space>
-nmap ,rp :<C-u>Ref phpmanual<Space>
+NeoBundle 'thinca/vim-ref'
+NeoBundle 'taichouchou2/vim-ref-ri'
+let g:ref_open                    = 'split'
+let g:ref_refe_cmd                = expand('~/.vim/ref/ruby-ref1.9.2/refe-1_9_2')
 
-let g:ref_phpmanual_path = $HOME . '/.setting/php/php-chunked-xhtml'
-" let g:ref_phpmanual_cmd = 'w3m -dump %s'
-" }}}
+nnoremap rr :<C-U>Unite ref/refe     -default-action=split -input=
+nnoremap ri :<C-U>Unite ref/ri       -default-action=split -input=
+
+aug MyAutoCmd
+  au FileType ruby,eruby,ruby.rspec nnoremap <silent><buffer>KK :<C-U>Unite -no-start-insert ref/ri   -input=<C-R><C-W><CR>
+  au FileType ruby,eruby,ruby.rspec nnoremap <silent><buffer>K  :<C-U>Unite -no-start-insert ref/refe -input=<C-R><C-W><CR>
+aug END
+"}}}
 " {{{ File template
 autocmd BufNewFile *.sh  0r $HOME/.setting/template/sh.sh
 autocmd BufNewFile *.php 0r $HOME/.setting/template/php.php
@@ -456,6 +465,31 @@ au FileType unite inoremap <silent> <buffer> <expr> <C-l> unite#do_action('vspli
 au FileType unite nnoremap <silent> <buffer> <ESC><ESC> q
 au FileType unite inoremap <silent> <buffer> <ESC><ESC> <ESC>q
 " }}}
+
+"------------------------------------
+" Unite-rails.vim
+"------------------------------------
+"{{{
+NeoBundle 'basyura/unite-rails'
+function! UniteRailsSetting()
+  nnoremap <buffer><C-H><C-H><C-H>  :<C-U>Unite rails/view<CR>
+  nnoremap <buffer><C-H><C-H>       :<C-U>Unite rails/model<CR>
+  nnoremap <buffer><C-H>            :<C-U>Unite rails/controller<CR>
+
+  nnoremap <buffer><C-H>c           :<C-U>Unite rails/config<CR>
+  nnoremap <buffer><C-H>s           :<C-U>Unite rails/spec<CR>
+  nnoremap <buffer><C-H>m           :<C-U>Unite rails/db -input=migrate<CR>
+  nnoremap <buffer><C-H>l           :<C-U>Unite rails/lib<CR>
+  nnoremap <buffer><expr><C-H>g     ':e '.b:rails_root.'/Gemfile<CR>'
+  nnoremap <buffer><expr><C-H>r     ':e '.b:rails_root.'/config/routes.rb<CR>'
+  nnoremap <buffer><expr><C-H>se    ':e '.b:rails_root.'/db/seeds.rb<CR>'
+  nnoremap <buffer><C-H>ra          :<C-U>Unite rails/rake<CR>
+  nnoremap <buffer><C-H>h           :<C-U>Unite rails/heroku<CR>
+endfunction
+aug MyAutoCmd
+  au User Rails call UniteRailsSetting()
+aug END
+"}}}
 " {{{ Powerline
 NeoBundle 'git://github.com/Lokaltog/vim-powerline.git'
 let g:Powerline_symbols = 'fancy'
@@ -609,5 +643,65 @@ vnoremap <silent> <C-p> "0p<CR>
 " {{{ カーソルの上または下に表示する最小限の行数
 set scrolloff=10
 " }}}
+
+" {{{ alpaca-tags
+
+" NeoBundle
+NeoBundleLazy 'alpaca-tc/alpaca_tags', {
+      \ 'rev' : 'development',
+      \ 'depends': ['Shougo/vimproc', 'Shougo/unite.vim'],
+      \ 'autoload' : {
+      \   'commands' : ['Tags', 'TagsUpdate', 'TagsSet', 'TagsBundle', 'TagsCleanCache'],
+      \   'unite_sources' : ['tags']
+      \ }}
+
+" ~/.ctagsにctagsの設定ファイルを設置します。現在無い人は、このディレクトリ内の.ctagsをコピーしてください。
+" 適切なlanguageは`ctags --list-maps=all`で見つけてください。人によりますので。
+let g:alpaca_update_tags_config = {
+      \ '_' : '-R --sort=yes --languages=-js,html,css',
+      \ 'ruby': '--languages=+Ruby',
+      \ }
+
+augroup AlpacaTags
+  autocmd!
+  if exists(':Tags')
+    autocmd BufWritePost * TagsUpdate ruby
+    autocmd BufWritePost Gemfile TagsBundle
+    autocmd BufEnter * TagsSet
+  endif
+augroup END
+
+nnoremap <expr>tt  ':Unite tags -horizontal -buffer-name=tags -input='.expand("<cword>").'<CR>'
+
+" }}}
+
+" neosnippet "{{{
+" snippetを保存するディレクトリを設定してください
+" example
+let s:default_snippet = neobundle#get_neobundle_dir() . '/neosnippet/autoload/neosnippet/snippets' " 本体に入っているsnippet
+" let s:my_snippet = '~/snippet' " 自分のsnippet
+" let g:neosnippet#snippets_directory = s:my_snippet
+" let g:neosnippet#snippets_directory = s:default_snippet . ',' . s:my_snippet
+imap <silent><C-F>                <Plug>(neosnippet_expand_or_jump)
+inoremap <silent><C-U>            <ESC>:<C-U>Unite snippet<CR>
+nnoremap <silent><Space>e         :<C-U>NeoSnippetEdit -split<CR>
+smap <silent><C-F>                <Plug>(neosnippet_expand_or_jump)
+" xmap <silent>o                    <Plug>(neosnippet_register_oneshot_snippet)
+" }}}
+" {{{
+NeoBundle 'AndrewRadev/switch.vim'
+nnoremap + :call switch#Switch(g:variable_style_switch_definitions)<cr>
+nnoremap - :Switch<cr>
+" }}}
+
+" {{{ end-wise
+NeoBundle 'tpope/vim-endwise.git'
+" }}}
+" {{{
+NeoBundle 'ruby-matchit'
+" }}}
+
+
+NeoBundle 'hail2u/vim-css3-syntax'
 
 
