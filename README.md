@@ -18,6 +18,7 @@ ln -s .setting/.vim
 ln -s .setting/.vimrc
 ln -s .setting/.gvimrc
 ln -s .setting/.zshrc
+ln -s .setting/.zshenv
 ln -s .setting/.my.cnf
 ln -s .setting/.lv
 ln -s .setting/.w3m

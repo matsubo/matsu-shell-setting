@@ -588,7 +588,6 @@ let g:pdv_cfg_Type = "mixed"
 let g:pdv_cfg_Package = ""
 let g:pdv_cfg_Version = "$id:$"
 let g:pdv_cfg_Author = "Yuki Matsukura"
-let g:pdv_cfg_Copyright = "GREE, Inc."
 let g:pdv_cfg_License = " "
 
 
