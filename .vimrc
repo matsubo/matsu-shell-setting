@@ -90,10 +90,10 @@ NeoBundleLazy "chrisbra/csv.vim.git"
 " }}}
 " {{{ phpfolding
 " NeoBundle 'vim-scripts/phpfolding.vim'
-NeoBundle 'https://github.com/matsubo/phpfolding.vim'
-augroup vimrc
-   autocmd FileType phpunit EnableFastPHPFolds
-augroup END
+" NeoBundle 'https://github.com/matsubo/phpfolding.vim'
+" augroup vimrc
+"    autocmd FileType phpunit EnableFastPHPFolds
+" augroup END
 " }}}
 
 " {{{
@@ -369,8 +369,8 @@ let g:neocomplcache_dictionary_filetype_lists = {
 " }}}
 " {{{ Color setting
 " colorscheme
-NeoBundle 'molokai'
-" NeoBundle 'altercation/vim-colors-solarized'
+  NeoBundle 'tomasr/molokai'
+  " NeoBundle 'altercation/vim-colors-solarized'
 
 
 
@@ -382,7 +382,7 @@ let g:molokai_original=1
 " }}}
 " {{{ vim-ref
 NeoBundle 'thinca/vim-ref'
-NeoBundle 'taichouchou2/vim-ref-ri'
+NeoBundle 'taka84u9/vim-ref-ri'
 let g:ref_open                    = 'split'
 let g:ref_refe_cmd                = expand('~/.vim/ref/ruby-ref1.9.2/refe-1_9_2')
 
@@ -671,7 +671,7 @@ augroup AlpacaTags
   endif
 augroup END
 
-nnoremap <expr>tt  ':Unite tags -horizontal -buffer-name=tags -input='.expand("<cword>").'<CR>'
+nnoremap <expr><leader>tt  ':Unite tags -horizontal -buffer-name=tags -input='.expand("<cword>").'<CR>'
 
 " }}}
 
