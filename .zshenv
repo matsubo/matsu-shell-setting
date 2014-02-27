@@ -66,6 +66,8 @@ alias lowpriority="ionice -c3 nice -n19"
 
 alias g="git"
 alias gi="git"
+
+alias simple_http_server="python -m SimpleHTTPServer"
 # }}}
 # {{{ encoding
 #export LANG=ja_JP.utf8
