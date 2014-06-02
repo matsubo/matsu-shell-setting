@@ -40,6 +40,7 @@ setopt transient_rprompt
 
 # ディレクトリ名だけで移動できる。
 setopt auto_cd
+#cdpath=(.. ~ ~/src)
 # }}}
 # {{{ OS setting
 umask 0002
@@ -217,6 +218,13 @@ fi
 # {{{ rbenv
 export PATH="$HOME/.rbenv/bin:$PATH"
 eval "$(rbenv init -)"
+#source /Users/matsu/.rvm/scripts/rvm
+# }}}
+# {{{ perlbrew
+if [ -f ~/perl5/perlbrew/etc/bashrc ]
+then
+    source ~/perl5/perlbrew/etc/bashrc
+fi
 # }}}
 # {{{ history back
 autoload history-search-end

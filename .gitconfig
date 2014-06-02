@@ -94,7 +94,7 @@
 
 [core]
     editor = vim
-    pager = lv -c
+ #   pager = lv -c
     excludesfile = ~/.setting/.gitignore
 	quotepath = false
 [status]
@@ -112,6 +112,13 @@
 
 [log]
   date = local
+
+[pager]
+    log = diff-highlight | less
+    show = diff-highlight | less
+    diff = diff-highlight | less
+
+
 
 
 [rerere]
