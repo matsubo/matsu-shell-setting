@@ -244,3 +244,6 @@ if [ -x "`which tmux`" ]; then
   tmux attach -d
 fi
 # }}}
+
+### Added by the Heroku Toolbelt
+export PATH="/usr/local/heroku/bin:$PATH"
