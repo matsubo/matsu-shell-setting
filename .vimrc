@@ -17,12 +17,12 @@ NeoBundleFetch "Shougo/neobundle.vim"
 " NeoBundle 'git://github.com/terryma/vim-multiple-cursors'
 " }}}
 " {{{ vdebug
-NeoBundle 'git://github.com/joonty/vdebug.git'
-
-let g:vdebug_options = {
-            \    "break_on_open" : 0,
-            \    "continuous_mode"  : 1,
-            \ }
+"NeoBundle 'git://github.com/joonty/vdebug.git'
+"
+"let g:vdebug_options = {
+"            \    "break_on_open" : 0,
+"            \    "continuous_mode"  : 1,
+"            \ }
 " }}}
 
 " vim useful functions
