@@ -223,7 +223,8 @@ set hidden  "ファイル変更中でも他のファイルを開けるように�
 let mapleader=","
 
 
-
+" set modifiable
+set modifiable
 
 highlight SpecialKey cterm=NONE ctermfg=darkgray
 highlight JpSpace cterm=underline ctermfg=darkgray

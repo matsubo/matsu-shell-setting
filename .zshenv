@@ -67,6 +67,12 @@ alias lowpriority="ionice -c3 nice -n19"
 alias g="git"
 alias gi="git"
 
+if type hub > /dev/null 2>&1; then
+  alias g="hub"
+  compdef '_dispatch git git' g
+  compdef '_dispatch git git' hub
+fi
+
 alias simple_http_server="python -m SimpleHTTPServer"
 # }}}
 # {{{ encoding
