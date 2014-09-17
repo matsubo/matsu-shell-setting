@@ -645,37 +645,6 @@ vnoremap <silent> <C-p> "0p<CR>
 set scrolloff=10
 " }}}
 
-" {{{ alpaca-tags
-
-" NeoBundle
-NeoBundleLazy 'alpaca-tc/alpaca_tags', {
-      \ 'rev' : 'development',
-      \ 'depends': ['Shougo/vimproc', 'Shougo/unite.vim'],
-      \ 'autoload' : {
-      \   'commands' : ['Tags', 'TagsUpdate', 'TagsSet', 'TagsBundle', 'TagsCleanCache'],
-      \   'unite_sources' : ['tags']
-      \ }}
-
-" ~/.ctagsにctagsの設定ファイルを設置します。現在無い人は、このディレクトリ内の.ctagsをコピーしてください。
-" 適切なlanguageは`ctags --list-maps=all`で見つけてください。人によりますので。
-let g:alpaca_update_tags_config = {
-      \ '_' : '-R --sort=yes --languages=-js,html,css',
-      \ 'ruby': '--languages=+Ruby',
-      \ }
-
-augroup AlpacaTags
-  autocmd!
-  if exists(':Tags')
-    autocmd BufWritePost * TagsUpdate ruby
-    autocmd BufWritePost Gemfile TagsBundle
-    autocmd BufEnter * TagsSet
-  endif
-augroup END
-
-nnoremap <expr><leader>tt  ':Unite tags -horizontal -buffer-name=tags -input='.expand("<cword>").'<CR>'
-
-" }}}
-
 " neosnippet "{{{
 " snippetを保存するディレクトリを設定してください
 " example
