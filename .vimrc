@@ -1,17 +1,18 @@
 " VIM setting
 "
 " {{{ NeoBundle basic setting
-filetype plugin indent off
 
 if has('vim_starting')
-    set runtimepath+=~/.vim/bundle/neobundle.vim/
+  set runtimepath+=~/.vim/bundle/neobundle.vim/
 endif
 
-" init neobundle
-call neobundle#rc(expand('~/.vim/bundle/'))
+filetype off
+filetype plugin indent off
 
-" update neobunle itself
-NeoBundleFetch "Shougo/neobundle.vim"
+call neobundle#begin(expand('~/.vim/bundle/'))
+NeoBundleFetch 'Shougo/neobundle.vim'
+call neobundle#end()
+
 " }}}
 " {{{ vim-multiple-cursors
 " NeoBundle 'git://github.com/terryma/vim-multiple-cursors'
