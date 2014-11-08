@@ -121,6 +121,8 @@ case ${OSTYPE} in
     alias ls='ls -G -p'
     export GREP_OPTIONS
 
+    alias notify="terminal-notifier -message"
+
 
     if [ -f /usr/bin/ccache ];then
       export CC='ccache gcc'
