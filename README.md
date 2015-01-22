@@ -30,6 +30,7 @@ ln -s .setting/.gitattributes_global
 ln -s .setting/.gemrc
 ln -s .setting/.bundle
 ln -s .setting/.grcat
+ln -s .setting/.pryrc
 cp .setting/.tigrc ./
 cp .setting/.gitconfig ./
 cp .setting/.zshrc_local ./
