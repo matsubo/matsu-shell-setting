@@ -8,7 +8,10 @@ if has('vim_starting')
 endif
 
 " init neobundle
-call neobundle#rc(expand('~/.vim/bundle/'))
+call neobundle#begin(expand('~/.vim/bundle/'))
+NeoBundleFetch 'Shougo/neobundle.vim'
+call neobundle#end()
+
 
 " update neobunle itself
 NeoBundleFetch "Shougo/neobundle.vim"
