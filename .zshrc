@@ -197,9 +197,6 @@ GREP_OPTIONS="--exclude-dir=.libs $GREP_OPTIONS"
 #	GREP_OPTIONS="--color=always $GREP_OPTIONS"
 #fi
 # }}}
-# {{{ z
-. ~/.setting/lib/z/z.sh
-# }}}
 # {{{ git flow
 source ~/.setting/lib/git-flow-completion/git-flow-completion.zsh
 # }}}
@@ -247,3 +244,9 @@ fi
 
 ### Added by the Heroku Toolbelt
 export PATH="/usr/local/heroku/bin:$PATH"
+
+# The next line updates PATH for the Google Cloud SDK.
+#source '/Users/yuki_matsukura/google-cloud-sdk/path.zsh.inc'
+
+# The next line enables bash completion for gcloud.
+#source '/Users/yuki_matsukura/google-cloud-sdk/completion.bash.inc'
