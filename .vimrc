@@ -54,7 +54,7 @@ NeoBundle 'romanvbabenko/rails.vim'
 
 
 " NeoBundle 'ujihisa/unite-rake'
-" NeoBundle 'basyura/unite-rails'
+NeoBundle 'basyura/unite-rails'
 " }}}
 " {{{ phpdoc
 NeoBundle 'git@github.com:vim-scripts/PDV--phpDocumentor-for-Vim.git'
