@@ -32,7 +32,7 @@ NeoBundle 'L9'
 " NeoBundle 'project.tar.gz'
 " NeoBundle 'FuzzyFinder'
 " Bundle 'Highlight-UnMatched-Brackets'
-NeoBundle 'gtags.vim'
+" NeoBundle 'gtags.vim'
 " NeoBundle 'Shougo/vimfiler.git'
 
 
@@ -114,8 +114,6 @@ augroup END
 " {{{ vim-scripts/Mark
 NeoBundleLazy "vim-scripts/Mark"
 " }}}
-
-NeoBundle 'scrooloose/syntastic.git'
 
 NeoBundle 'git://github.com/vim-scripts/camelcasemotion.git'
 
@@ -346,6 +344,8 @@ nnoremap <silent> <leader>q :q<cr>
 " {{{ autocomplete
 NeoBundle 'AutoComplPop'
 NeoBundle 'Shougo/neocomplcache'
+NeoBundle 'marcus/rsense'
+NeoBundle 'supermomonga/neocomplete-rsense.vim'
 
 NeoBundle 'Shougo/neosnippet'
 NeoBundle 'Shougo/neosnippet-snippets'
@@ -368,11 +368,20 @@ let g:neocomplcache_dictionary_filetype_lists = {
             \ 'php' : $HOME.'/.setting/.vim/dict/php.dict',
             \ }
 
+" 静的解析
+NeoBundle 'scrooloose/syntastic'
+
+" メソッド定義元へのジャンプ
+NeoBundle 'szw/vim-tags'
+
 " }}}
 " {{{ Color setting
 " colorscheme
-  NeoBundle 'tomasr/molokai'
-  " NeoBundle 'altercation/vim-colors-solarized'
+NeoBundle 'tomasr/molokai'
+
+
+NeoBundle 'ujihisa/unite-colorscheme'
+" NeoBundle 'altercation/vim-colors-solarized'
 
 
 
@@ -547,13 +556,13 @@ endfunction
 
 
 "" gtags
-map <C-g><C-g> :Gtags
-" map <C-i> :Gtags -f %<CR>
-" code jump
-map <C-j> :GtagsCursor<CR>
-" for gtags file skip
-map <C-n> :cn<CR>
-map <C-p> :cp<CR>
+" map <C-g><C-g> :Gtags
+" " map <C-i> :Gtags -f %<CR>
+" " code jump
+" map <C-j> :GtagsCursor<CR>
+" " for gtags file skip
+" map <C-n> :cn<CR>
+" map <C-p> :cp<CR>
 
 " vmap
 " dump the variable.
@@ -699,4 +708,6 @@ NeoBundle 'ruby-matchit'
 
 NeoBundle 'hail2u/vim-css3-syntax'
 
+
+NeoBundleCheck
 

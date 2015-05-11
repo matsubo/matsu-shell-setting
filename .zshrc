@@ -23,9 +23,16 @@ setopt list_packed
 setopt list_types
 setopt no_case_glob
 setopt complete_in_word
+
+# コマンドラインの引数で --prefix=/usr などの = 以降でも補完できる
 setopt magic_equal_subst
 setopt auto_param_slash
+
+# show japanese character
 setopt print_eight_bit
+
+# 範囲指定できるようにする
+# 例 : mkdir {1-3} で フォルダ1, 2, 3を作れる
 setopt brace_ccl
 
 # C-s, C-qを無効にする。
@@ -37,6 +44,8 @@ setopt hist_ignore_space
 # hide rprompt after execute the command.
 setopt transient_rprompt
 
+# treat comment after sharp.
+setopt interactive_comments
 
 # ディレクトリ名だけで移動できる。
 setopt auto_cd
@@ -45,6 +54,10 @@ setopt auto_cd
 # {{{ OS setting
 umask 0002
 ulimit -n 1024
+# }}}
+# {{{ Auto completion
+# This should be before compinit
+fpath=(~/.setting/lib/zsh-completions.git/src(N-/) $fpath)
 # }}}
 # {{{ basic zsh behavior
 autoload -U compinit
@@ -146,6 +159,10 @@ zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z} r:|[._-]=*'
 zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS}
 zstyle ':completion:*' use-cache yes
 # }}}
+# {{{ use-cache
+# apt-getとかdpkgコマンドをキャッシュを使って速くする
+zstyle ':completion:*' use-cache true
+# }}}
 # {{{ keychain
 export HOSTNAME=`hostname`
 if [ -f ~/.keychain/$HOSTNAME-sh ]; then
@@ -229,9 +246,6 @@ zle -N history-beginning-search-backward-end history-search-end
 zle -N history-beginning-search-forward-end history-search-end
 bindkey "^P" history-beginning-search-backward-end
 bindkey "^N" history-beginning-search-forward-end
-# }}}
-# {{{ Auto completion
-fpath=(~/.setting/lib/zsh-completions.git/src $fpath)
 # }}}
 # {{{ calculation function
 calc(){ awk "BEGIN{ print $* }" ;}
