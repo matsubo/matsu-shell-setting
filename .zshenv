@@ -94,7 +94,7 @@ export SVN_EDITOR=vim
 
 export JAVA_HOME=/usr/local/java
 export MONGO_HOME=/usr/local/mongodb
-export PATH=~/bin:~/.settings/bin:$MONGO_HOME/bin:$MYSQL/bin/:~/.setting/bin:/usr/local/bin:/bin:/usr/bin:/sbin:/usr/sbin:$JAVA_HOME/bin:/opt/local/bin:/usr/local/sbin:/usr/local/mysql/bin
+export PATH=~/bin:bin/:~/.settings/bin:$MONGO_HOME/bin:$MYSQL/bin/:~/.setting/bin:/usr/local/bin:/bin:/usr/bin:/sbin:/usr/sbin:$JAVA_HOME/bin:/opt/local/bin:/usr/local/sbin:/usr/local/mysql/bin
 
 # ignore ssl certificate when using git
 export GIT_SSL_NO_VERIFY=true

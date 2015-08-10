@@ -264,3 +264,7 @@ export PATH="/usr/local/heroku/bin:$PATH"
 
 # The next line enables bash completion for gcloud.
 #source '/Users/yuki_matsukura/google-cloud-sdk/completion.bash.inc'
+# enhancd
+if [ -f "/Users/yuki_matsukura/.enhancd/zsh/enhancd.zsh" ]; then
+    source "/Users/yuki_matsukura/.enhancd/zsh/enhancd.zsh"
+fi
