@@ -2,29 +2,24 @@
 "
 " {{{ NeoBundle basic setting
 
+" Note: Skip initialization for vim-tiny or vim-small.
+if 0 | endif
+
 if has('vim_starting')
+  if &compatible
+    set nocompatible               " Be iMproved
+  endif
+  " Required:
   set runtimepath+=~/.vim/bundle/neobundle.vim/
 endif
+
 
 filetype off
 filetype plugin indent off
 
 call neobundle#begin(expand('~/.vim/bundle/'))
-NeoBundleFetch 'Shougo/neobundle.vim'
-call neobundle#end()
+  NeoBundleFetch 'Shougo/neobundle.vim'
 
-" }}}
-" {{{ vim-multiple-cursors
-" NeoBundle 'git://github.com/terryma/vim-multiple-cursors'
-" }}}
-" {{{ vdebug
-"NeoBundle 'git://github.com/joonty/vdebug.git'
-"
-"let g:vdebug_options = {
-"            \    "break_on_open" : 0,
-"            \    "continuous_mode"  : 1,
-"            \ }
-" }}}
 
 " vim useful functions
 NeoBundle 'L9'
@@ -97,20 +92,6 @@ NeoBundleLazy "chrisbra/csv.vim.git"
 " augroup END
 " }}}
 
-" {{{
-NeoBundle "JSON.vim"
-au! BufRead,BufNewFile *.json set filetype=json 
-augroup json_autocmd 
-    autocmd! 
-    autocmd FileType json set autoindent 
-    autocmd FileType json set formatoptions=tcq2l 
-    autocmd FileType json set textwidth=78 shiftwidth=2 
-    autocmd FileType json set softtabstop=2 tabstop=8 
-    autocmd FileType json set expandtab 
-    autocmd FileType json set foldmethod=syntax 
-augroup END
-" }}}
-
 " {{{ vim-scripts/Mark
 NeoBundleLazy "vim-scripts/Mark"
 " }}}
@@ -131,35 +112,108 @@ map <S-W> <Plug>CamelCaseMotion_w
 map <S-B> <Plug>CamelCaseMotion_b
 map <S-E> <Plug>CamelCaseMotion_e
 " }}}
-" {{{ aoi jump and smarty jum
-" NeoBundle 'git://github.com/watanabe0621/SmartyJump.git'
-" NeoBundle 'git://github.com/watanabe0621/aoi-jump.vim.git'
-" nnoremap <silent> <space>b :e#<CR>
-" nnoremap <silent> <space>ag :call AoiGrep()<CR>
-" nnoremap <silent> <space>am :call AoiModuleJump()<CR>
-" nnoremap <silent> <space>ap :call AoiProcessorJump()<CR>
-" nnoremap <silent> <space>ac :call AoiClientJump()<CR>
-" nnoremap <silent> <space>i :call SmartyJump()<CR>
-" }}}
-" {{{ php-cs-fixer
-NeoBundle 'stephpy/vim-php-cs-fixer'
+" {{{ autocomplete
+NeoBundle 'AutoComplPop'
+NeoBundle 'Shougo/neocomplcache'
+NeoBundle 'marcus/rsense'
+NeoBundle 'supermomonga/neocomplete-rsense.vim'
 
-" If php-cs-fixer is in $PATH, you don't need to define line below
-let g:php_cs_fixer_path = "~/.setting/bin/php-cs-fixer.phar"   " define the path to the php-cs-fixer.phar
-let g:php_cs_fixer_level = "all"                  " which level ?
-let g:php_cs_fixer_config = "default"             " configuration
-let g:php_cs_fixer_php_path = "php"               " Path to PHP
-let g:php_cs_fixer_fixers_list = "controls_spaces,elseif,eof_ending,extra_empty_lines,php_closing_tag,braces,include,short_tag,return,visibility,unused_use,trailing_spaces,linefeed"
-let g:php_cs_fixer_enable_default_mapping = 1     " Enable the mapping by default (<leader>pcd)
-let g:php_cs_fixer_dry_run = 0                    " Call command with dry-run option
-let g:php_cs_fixer_verbose = 0                    " Return the output of command if 1, else an inline information.
-nnoremap <silent><leader>pcd :call PhpCsFixerFixDirectory()<CR>
-nnoremap <silent><leader>pcf :call PhpCsFixerFixFile()<CR>
+NeoBundle 'Shougo/neosnippet'
+NeoBundle 'Shougo/neosnippet-snippets'
+
+"
+autocmd FileType php set omnifunc=phpcomplete#CompletePHP
+
+" disable auto comment out after the line break
+" set formatoptions-=ro
+
+
+" neocomplcache
+let g:neocomplcache_enable_at_startup = 1
+let g:neocomplcache_enable_smart_case = 1
+let g:neocomplcache_enable_camel_case_completion = 1
+let g:neocomplcache_enable_underbar_completion = 1
+
+let g:neocomplcache_dictionary_filetype_lists = {
+            \ 'default' : '',
+            \ 'php' : $HOME.'/.setting/.vim/dict/php.dict',
+            \ }
+
+" 静的解析
+NeoBundle 'scrooloose/syntastic'
+
+" メソッド定義元へのジャンプ
+NeoBundle 'szw/vim-tags'
+
 " }}}
+
+
+" {{{
+NeoBundle 'AndrewRadev/switch.vim'
+nnoremap + :call switch#Switch(g:variable_style_switch_definitions)<cr>
+nnoremap - :Switch<cr>
+" }}}
+
+" {{{ end-wise
+NeoBundle 'tpope/vim-endwise.git'
+" }}}
+" {{{
+NeoBundle 'ruby-matchit'
+" }}}
+" {{{ airline
+NeoBundle 'bling/vim-airline'
+let g:airline#extensions#tabline#enabled = 1
+let g:airline_powerline_fonts = 1
+
+if !exists('g:airline_symbols')
+  let g:airline_symbols = {}
+endif
+
+" unicode symbols
+"let g:airline_left_sep = '»'
+"let g:airline_left_sep = '▶'
+"let g:airline_right_sep = '«'
+"let g:airline_right_sep = '◀'
+"let g:airline_symbols.linenr = '␊'
+"let g:airline_symbols.linenr = '␤'
+"let g:airline_symbols.linenr = '¶'
+"let g:airline_symbols.branch = '⎇'
+"let g:airline_symbols.paste = 'ρ'
+"let g:airline_symbols.paste = 'Þ'
+"let g:airline_symbols.paste = '∥'
+"let g:airline_symbols.whitespace = 'Ξ'
+
+" }}}
+
+NeoBundle 'hail2u/vim-css3-syntax'
+
+
+
+" colorscheme
+NeoBundle 'tomasr/molokai'
+NeoBundle 'ujihisa/unite-colorscheme'
+
+
+NeoBundle 'unite.vim'
+NeoBundle 'basyura/unite-rails'
+
+
+NeoBundle 'thinca/vim-ref'
+NeoBundle 'taka84u9/vim-ref-ri'
+
+call neobundle#end()
+
 " {{{ plugin setting
 " need to call after neobundle
 filetype plugin on
 filetype plugin indent on
+" }}}
+" {{{ colorscheme
+" http://winterdom.com/2008/08/molokaiforvim
+set bg=dark
+set t_Co=256
+colorscheme molokai
+let g:molokai_original=1
 " }}}
 " {{{ global setting
 set encoding=utf-8
@@ -341,59 +395,7 @@ noremap <F1> <Nop>
 nnoremap <silent> <leader>q :q<cr>
 
 
-" {{{ autocomplete
-NeoBundle 'AutoComplPop'
-NeoBundle 'Shougo/neocomplcache'
-NeoBundle 'marcus/rsense'
-NeoBundle 'supermomonga/neocomplete-rsense.vim'
-
-NeoBundle 'Shougo/neosnippet'
-NeoBundle 'Shougo/neosnippet-snippets'
-
-"
-autocmd FileType php set omnifunc=phpcomplete#CompletePHP
-
-" disable auto comment out after the line break
-" set formatoptions-=ro
-
-
-" neocomplcache
-let g:neocomplcache_enable_at_startup = 1
-let g:neocomplcache_enable_smart_case = 1
-let g:neocomplcache_enable_camel_case_completion = 1
-let g:neocomplcache_enable_underbar_completion = 1
-
-let g:neocomplcache_dictionary_filetype_lists = {
-            \ 'default' : '',
-            \ 'php' : $HOME.'/.setting/.vim/dict/php.dict',
-            \ }
-
-" 静的解析
-NeoBundle 'scrooloose/syntastic'
-
-" メソッド定義元へのジャンプ
-NeoBundle 'szw/vim-tags'
-
-" }}}
-" {{{ Color setting
-" colorscheme
-NeoBundle 'tomasr/molokai'
-
-
-NeoBundle 'ujihisa/unite-colorscheme'
-" NeoBundle 'altercation/vim-colors-solarized'
-
-
-
-" http://winterdom.com/2008/08/molokaiforvim
-set bg=dark
-set t_Co=256
-colorscheme molokai
-let g:molokai_original=1
-" }}}
 " {{{ vim-ref
-NeoBundle 'thinca/vim-ref'
-NeoBundle 'taka84u9/vim-ref-ri'
 let g:ref_open                    = 'split'
 let g:ref_refe_cmd                = expand('~/.vim/ref/ruby-ref1.9.2/refe-1_9_2')
 
@@ -444,92 +446,6 @@ autocmd FileType xhtml,html :setlocal makeprg=tidy\ -raw\ -quiet\ -errors\ --gnu
 autocmd FileType xhtml,html map <c-c><c-c> :make<cr> :cw<cr><cr>
 
 
-" {{{ unite.vim
-NeoBundle 'unite.vim'
-" 入力モードで開始する
-let g:unite_enable_start_insert=1
-
-" バッファ一覧
-nnoremap <silent> ,ub :<C-u>Unite buffer<CR>
-" ファイル一覧
-nnoremap <silent> ,uf :<C-u>UniteWithBufferDir -buffer-name=files file<CR>
-" レジスタ一覧
-nnoremap <silent> ,ur :<C-u>Unite -buffer-name=register register<CR>
-" 最近使用したファイル一覧
-nnoremap <silent> ,um :<C-u>Unite file_mru<CR>
-" 常用セット
-nnoremap <silent> ,uu :<C-u>Unite buffer file_mru<CR>
-" 全部乗せ
-nnoremap <silent> ,ua :<C-u>UniteWithBufferDir -buffer-name=files buffer file_mru bookmark file<CR>
-
-call unite#set_buffer_name_option('default', 'ignorecase', 1)
-call unite#set_buffer_name_option('default', 'smartcase', 1)
-
-
-" ウィンドウを分割して開く
-au FileType unite nnoremap <silent> <buffer> <expr> <C-j> unite#do_action('split')
-au FileType unite inoremap <silent> <buffer> <expr> <C-j> unite#do_action('split')
-" ウィンドウを縦に分割して開く
-au FileType unite nnoremap <silent> <buffer> <expr> <C-l> unite#do_action('vsplit')
-au FileType unite inoremap <silent> <buffer> <expr> <C-l> unite#do_action('vsplit')
-" ESCキーを2回押すと終了する
-au FileType unite nnoremap <silent> <buffer> <ESC><ESC> q
-au FileType unite inoremap <silent> <buffer> <ESC><ESC> <ESC>q
-" }}}
-
-"------------------------------------
-" Unite-rails.vim
-"------------------------------------
-"{{{
-NeoBundle 'basyura/unite-rails'
-function! UniteRailsSetting()
-  nnoremap <buffer><C-H><C-H><C-H>  :<C-U>Unite rails/view<CR>
-  nnoremap <buffer><C-H><C-H>       :<C-U>Unite rails/model<CR>
-  nnoremap <buffer><C-H>            :<C-U>Unite rails/controller<CR>
-
-  nnoremap <buffer><C-H>c           :<C-U>Unite rails/config<CR>
-  nnoremap <buffer><C-H>s           :<C-U>Unite rails/spec<CR>
-  nnoremap <buffer><C-H>m           :<C-U>Unite rails/db -input=migrate<CR>
-  nnoremap <buffer><C-H>l           :<C-U>Unite rails/lib<CR>
-  nnoremap <buffer><expr><C-H>g     ':e '.b:rails_root.'/Gemfile<CR>'
-  nnoremap <buffer><expr><C-H>r     ':e '.b:rails_root.'/config/routes.rb<CR>'
-  nnoremap <buffer><expr><C-H>se    ':e '.b:rails_root.'/db/seeds.rb<CR>'
-  nnoremap <buffer><C-H>ra          :<C-U>Unite rails/rake<CR>
-  nnoremap <buffer><C-H>h           :<C-U>Unite rails/heroku<CR>
-endfunction
-aug MyAutoCmd
-  au User Rails call UniteRailsSetting()
-aug END
-"}}}
-" {{{ Powerline
-" NeoBundle 'git://github.com/Lokaltog/vim-powerline.git'
-" let g:Powerline_symbols = 'fancy'
-" }}}
-" {{{ airline
-NeoBundle 'bling/vim-airline'
-let g:airline#extensions#tabline#enabled = 1
-let g:airline_powerline_fonts = 1
-
-
-if !exists('g:airline_symbols')
-  let g:airline_symbols = {}
-endif
-
-" unicode symbols
-"let g:airline_left_sep = '»'
-"let g:airline_left_sep = '▶'
-"let g:airline_right_sep = '«'
-"let g:airline_right_sep = '◀'
-"let g:airline_symbols.linenr = '␊'
-"let g:airline_symbols.linenr = '␤'
-"let g:airline_symbols.linenr = '¶'
-"let g:airline_symbols.branch = '⎇'
-"let g:airline_symbols.paste = 'ρ'
-"let g:airline_symbols.paste = 'Þ'
-"let g:airline_symbols.paste = '∥'
-"let g:airline_symbols.whitespace = 'Ξ'
-
-" }}}
 " move the search word to the center
 nmap n nzz
 nmap N Nzz
@@ -572,59 +488,6 @@ endfunction
 " gitv
 autocmd FileType git :setlocal foldlevel=99
 
-
-
-" {{{ surround
-NeoBundle 'surround.vim'
-"for surround.vim
-" [key map]
-" 1 : <h1>|</h1>
-" 2 : <h2>|</h2>
-" 3 : <h3>|</h3>
-" 4 : <h4>|</h4>
-" 5 : <h5>|</h5>
-" 6 : <h6>|</h6>
-"
-" p : <p>|</p>
-" u : <ul>|</ul>
-" o : <ol>|</ol>
-" l : <li>|</li>
-" a : <a href="">|</a>
-" A : <a href="|"></a>
-" i : <img src="|" alt="" />
-" I : <img src="" alt"|" />
-" d : <div>|</div>
-" D : <div class="section">|</div>
-
-autocmd FileType smarty let b:surround_101 = "{t}\r{/t}" " 101 = e
-autocmd FileType smarty let b:surround_10f = "{t}\n\r\n{/t}" " 102 = f
-map  ,tt ysse
-map  ,tb ySSe
-
-
-autocmd FileType php let g:surround_103 = "_('\r')"  " 103 = g
-autocmd FileType php let g:surround_71 = "_(\"\r\")" " 71 = G
-
-
-
-autocmd FileType html let b:surround_49  = "<h1>\r</h1>"
-autocmd FileType html let b:surround_50  = "<h2>\r</h2>"
-autocmd FileType html let b:surround_51  = "<h3>\r</h3>"
-autocmd FileType html let b:surround_52  = "<h4>\r</h4>"
-autocmd FileType html let b:surround_53  = "<h5>\r</h5>"
-autocmd FileType html let b:surround_54  = "<h6>\r</h6>"
-
-autocmd FileType html let b:surround_112 = "<p>\r</p>"
-autocmd FileType html let b:surround_117 = "<ul>\r</ul>"
-autocmd FileType html let b:surround_111 = "<ol>\r</ol>"
-autocmd FileType html let b:surround_108 = "<li>\r</li>"
-autocmd FileType html let b:surround_97  = "<a href=\"\">\r</a>"
-autocmd FileType html let b:surround_65  = "<a href=\"\r\"></a>"
-autocmd FileType html let b:surround_105 = "<img src=\"\r\" alt=\"\" />"
-autocmd FileType html let b:surround_73  = "<img src=\"\" alt=\"\r\" />"
-autocmd FileType html let b:surround_100 = "<div>\r</div>"
-autocmd FileType html let b:surround_68  = "<div class=\"section\">\r</div>"
-" }}}
 
 
 set foldmethod=marker
@@ -679,6 +542,60 @@ vnoremap <silent> <C-p> "0p<CR>
 set scrolloff=10
 " }}}
 
+
+" {{{ unite.vim
+" 入力モードで開始する
+let g:unite_enable_start_insert=1
+
+" バッファ一覧
+nnoremap <silent> ,ub :<C-u>Unite buffer<CR>
+" ファイル一覧
+nnoremap <silent> ,uf :<C-u>UniteWithBufferDir -buffer-name=files file<CR>
+" レジスタ一覧
+nnoremap <silent> ,ur :<C-u>Unite -buffer-name=register register<CR>
+" 最近使用したファイル一覧
+nnoremap <silent> ,um :<C-u>Unite file_mru<CR>
+" 常用セット
+nnoremap <silent> ,uu :<C-u>Unite buffer file_mru<CR>
+" 全部乗せ
+nnoremap <silent> ,ua :<C-u>UniteWithBufferDir -buffer-name=files buffer file_mru bookmark file<CR>
+
+call unite#set_buffer_name_option('default', 'ignorecase', 1)
+call unite#set_buffer_name_option('default', 'smartcase', 1)
+
+
+" ウィンドウを分割して開く
+au FileType unite nnoremap <silent> <buffer> <expr> <C-j> unite#do_action('split')
+au FileType unite inoremap <silent> <buffer> <expr> <C-j> unite#do_action('split')
+" ウィンドウを縦に分割して開く
+au FileType unite nnoremap <silent> <buffer> <expr> <C-l> unite#do_action('vsplit')
+au FileType unite inoremap <silent> <buffer> <expr> <C-l> unite#do_action('vsplit')
+" ESCキーを2回押すと終了する
+au FileType unite nnoremap <silent> <buffer> <ESC><ESC> q
+au FileType unite inoremap <silent> <buffer> <ESC><ESC> <ESC>q
+" }}}
+"{{{
+function! UniteRailsSetting()
+  nnoremap <buffer><C-H><C-H><C-H>  :<C-U>Unite rails/view<CR>
+  nnoremap <buffer><C-H><C-H>       :<C-U>Unite rails/model<CR>
+  nnoremap <buffer><C-H>            :<C-U>Unite rails/controller<CR>
+
+  nnoremap <buffer><C-H>c           :<C-U>Unite rails/config<CR>
+  nnoremap <buffer><C-H>s           :<C-U>Unite rails/spec<CR>
+  nnoremap <buffer><C-H>m           :<C-U>Unite rails/db -input=migrate<CR>
+  nnoremap <buffer><C-H>l           :<C-U>Unite rails/lib<CR>
+  nnoremap <buffer><expr><C-H>g     ':e '.b:rails_root.'/Gemfile<CR>'
+  nnoremap <buffer><expr><C-H>r     ':e '.b:rails_root.'/config/routes.rb<CR>'
+  nnoremap <buffer><expr><C-H>se    ':e '.b:rails_root.'/db/seeds.rb<CR>'
+  nnoremap <buffer><C-H>ra          :<C-U>Unite rails/rake<CR>
+  nnoremap <buffer><C-H>h           :<C-U>Unite rails/heroku<CR>
+endfunction
+aug MyAutoCmd
+  au User Rails call UniteRailsSetting()
+aug END
+"}}}
+
+
 " neosnippet "{{{
 " snippetを保存するディレクトリを設定してください
 " example
@@ -692,21 +609,6 @@ nnoremap <silent><Space>e         :<C-U>NeoSnippetEdit -split<CR>
 smap <silent><C-F>                <Plug>(neosnippet_expand_or_jump)
 " xmap <silent>o                    <Plug>(neosnippet_register_oneshot_snippet)
 " }}}
-" {{{
-NeoBundle 'AndrewRadev/switch.vim'
-nnoremap + :call switch#Switch(g:variable_style_switch_definitions)<cr>
-nnoremap - :Switch<cr>
-" }}}
-
-" {{{ end-wise
-NeoBundle 'tpope/vim-endwise.git'
-" }}}
-" {{{
-NeoBundle 'ruby-matchit'
-" }}}
-
-
-NeoBundle 'hail2u/vim-css3-syntax'
 
 
 NeoBundleCheck
