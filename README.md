@@ -31,6 +31,7 @@ ln -s .setting/.gemrc
 ln -s .setting/.bundle
 ln -s .setting/.grcat
 ln -s .setting/.pryrc
+ln -s .setting/.gist
 cp .setting/.tigrc ./
 cp .setting/.gitconfig ./
 cp .setting/.zshrc_local ./
