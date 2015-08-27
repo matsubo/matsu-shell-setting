@@ -17,6 +17,8 @@ endif
 filetype off
 filetype plugin indent off
 
+" }}}
+
 call neobundle#begin(expand('~/.vim/bundle/'))
   NeoBundleFetch 'Shougo/neobundle.vim'
 
@@ -104,6 +106,8 @@ NeoBundle 'git://github.com/vim-scripts/camelcasemotion.git'
 " html5
 NeoBundle 'hail2u/vim-css3-syntax'
 NeoBundle 'taichouchou2/html5.vim'
+NeoBundle 'pangloss/vim-javascript'
+
 
 
 " {{{ camelcasemotion
