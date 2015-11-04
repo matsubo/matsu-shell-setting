@@ -1,6 +1,8 @@
 ##
 # ~/.zshrc
 ##
+
+
 # {{{ setopt
 setopt auto_menu
 setopt correct
@@ -51,13 +53,41 @@ setopt interactive_comments
 setopt auto_cd
 #cdpath=(.. ~ ~/src)
 # }}}
+# {{{ antigen setting
+if [[ -f $HOME/.setting/antigen.zsh ]]; then
+
+  source ~/.setting/antigen.zsh
+
+  # Load the oh-my-zsh's library.
+  #antigen use oh-my-zsh
+
+  # Bundles from the default repo (robbyrussell's oh-my-zsh).
+#  antigen bundle git
+  antigen bundle brew
+  antigen bundle bundler
+#  antigen bundle cap
+#  antigen bundle gem
+#  antigen bundle git
+#  antigen bundle github
+  antigen bundle npm
+#  antigen bundle osx
+  antigen bundle rails
+  antigen bundle ruby
+#  antigen bundle urltools
+#  antigen bundle prezto
+#  antigen bundle command-not-found
+  antigen bundle zsh-users/zsh-syntax-highlighting
+
+  # Load the theme.
+  #antigen theme robbyrussell
+
+  # Tell antigen that you're done.
+  antigen apply
+fi
+# }}}
 # {{{ OS setting
 umask 0002
 ulimit -n 1024
-# }}}
-# {{{ Auto completion
-# This should be before compinit
-fpath=(~/.setting/lib/zsh-completions.git/src(N-/) $fpath)
 # }}}
 # {{{ basic zsh behavior
 autoload -U compinit
@@ -170,28 +200,6 @@ if [ -f ~/.keychain/$HOSTNAME-sh ]; then
     . ~/.keychain/$HOSTNAME-sh
 fi
 # }}}
-# {{{ rails setting
-_rake_does_task_list_need_generating () {
-    if [ ! -f .rake_tasks ]; then return 0;
-    else
-        accurate=$(stat -f%m .rake_tasks)
-        changed=$(stat -f%m Rakefile)
-        return $(expr $accurate '>=' $changed)
-    fi
-}
-
-_rake () {
-    if [ -f Rakefile ]; then
-        if _rake_does_task_list_need_generating; then
-            echo "\nGenerating .rake_tasks..." > /dev/stderr
-            rake --silent --tasks | cut -d " " -f 2 > .rake_tasks
-        fi
-        compadd `cat .rake_tasks`
-    fi
-}
-
-compdef _rake rake
-# }}}
 # {{{ grep setting
 ## GNU grepがあったら優先して使う。
 if type ggrep > /dev/null 2>&1; then
@@ -213,12 +221,6 @@ GREP_OPTIONS="--exclude-dir=.libs $GREP_OPTIONS"
 #if grep --help | grep -q -- --color; then
 #	GREP_OPTIONS="--color=always $GREP_OPTIONS"
 #fi
-# }}}
-# {{{ git flow
-source ~/.setting/lib/git-flow-completion/git-flow-completion.zsh
-# }}}
-# {{{ zsh-syntax-highlighting
-source ~/.setting/lib/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 # }}}
 # {{{ local setting. 
 if [[ -f ~/.zshrc_local ]] ; then;
@@ -258,15 +260,3 @@ if [ -x "`which tmux`" ]; then
 fi
 # }}}
 
-### Added by the Heroku Toolbelt
-export PATH="/usr/local/heroku/bin:$PATH"
-
-# The next line updates PATH for the Google Cloud SDK.
-#source '/Users/yuki_matsukura/google-cloud-sdk/path.zsh.inc'
-
-# The next line enables bash completion for gcloud.
-#source '/Users/yuki_matsukura/google-cloud-sdk/completion.bash.inc'
-# enhancd
-if [ -f "/Users/yuki_matsukura/.enhancd/zsh/enhancd.zsh" ]; then
-    source "/Users/yuki_matsukura/.enhancd/zsh/enhancd.zsh"
-fi
