@@ -105,10 +105,12 @@ NeoBundle 'git://github.com/vim-scripts/camelcasemotion.git'
 
 " html5
 NeoBundle 'hail2u/vim-css3-syntax'
-NeoBundle 'taichouchou2/html5.vim'
+NeoBundle 'othree/html5.vim'
 NeoBundle 'pangloss/vim-javascript'
 
 
+" github
+NeoBundle 'rhysd/github-complete.vim'
 
 " {{{ camelcasemotion
 NeoBundle 'git://github.com/bkad/CamelCaseMotion.git'

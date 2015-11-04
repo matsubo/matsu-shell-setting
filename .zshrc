@@ -252,7 +252,9 @@ calc(){ awk "BEGIN{ print $* }" ;}
 # }}}
 # {{{ startup command
 if [ -x "`which tmux`" ]; then
-  tmux attach -d
+  if [ -n "$SSH_TTY" ]; then
+    tmux attach -d
+  fi
 fi
 # }}}
 
