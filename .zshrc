@@ -74,9 +74,10 @@ if [[ -f $HOME/.setting/antigen.zsh ]]; then
   antigen bundle rails
   antigen bundle ruby
 #  antigen bundle urltools
-#  antigen bundle prezto
+#  antigen bundle sorin-ionescu/prezto
 #  antigen bundle command-not-found
   antigen bundle zsh-users/zsh-syntax-highlighting
+  antigen bundle chrissicool/zsh-256color
 
   # Load the theme.
   #antigen theme robbyrussell

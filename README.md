@@ -32,6 +32,7 @@ ln -s .setting/.bundle
 ln -s .setting/.grcat
 ln -s .setting/.pryrc
 ln -s .setting/.gist
+ln -s .antigen/repos/.zprezto .zprezto
 cp .setting/.tigrc ./
 cp .setting/.gitconfig ./
 cp .setting/.zshrc_local ./
