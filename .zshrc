@@ -238,6 +238,9 @@ export PATH="$HOME/.rbenv/bin:$PATH"
 eval "$(rbenv init -)"
 #source /Users/matsu/.rvm/scripts/rvm
 # }}}
+# {{{ pyenv
+eval "$(pyenv init -)"
+# }}}
 # {{{ perlbrew
 if [ -f ~/perl5/perlbrew/etc/bashrc ]
 then
