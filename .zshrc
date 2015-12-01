@@ -265,3 +265,4 @@ if [ -x "`which tmux`" ]; then
 fi
 # }}}
 
+source ~/.tmuxinator/tmuxinator.zsh

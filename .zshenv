@@ -88,7 +88,7 @@ export LSCOLORS=cxfxcxdxbxegedabagacad
 export MYSQL=/usr/local/mysql
 
 export VISUAL=vim
-export EDITOR="$VISUAL"
+export EDITOR=vim
 export SVN_EDITOR=vim
 
 export JAVA_HOME=/usr/local/java
