@@ -60,9 +60,9 @@
   d5 = diff HEAD~~~~~        # HEADから5つ前とdiff
   d10 = diff HEAD~~~~~~~~~~  # HEADから10前とdiff
   # mergeの際にconflictが起きたファイルを編集
-  edit-unmerged = "!f() { git ls-files --unmerged | cut -f2 | sort -u ; }; vim `f`"
+  #edit-unmerged = "!f() { git ls-files --unmerged | cut -f2 | sort -u ; }; vim `f`"
   # mergeの際にconflictが起きたファイルをadd
-  add-unmerged = "!f() { git ls-files --unmerged | cut -f2 | sort -u ; }; git add `f`"
+  #add-unmerged = "!f() { git ls-files --unmerged | cut -f2 | sort -u ; }; git add `f`"
   # grep関連
   gr = grep
   gn = grep -n
@@ -126,4 +126,4 @@
 [filter "lfs"]
 	clean = git-lfs clean %f
 	smudge = git-lfs smudge %f
-	required = true
+	required = false
