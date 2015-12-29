@@ -76,8 +76,9 @@ if [[ -f $HOME/.setting/antigen.zsh ]]; then
 #  antigen bundle urltools
 #  antigen bundle sorin-ionescu/prezto
 #  antigen bundle command-not-found
-  antigen bundle zsh-users/zsh-syntax-highlighting
   antigen bundle chrissicool/zsh-256color
+  antigen bundle zsh-users/zsh-syntax-highlighting
+  antigen bundle zsh-users/zsh-completions
 
   # Load the theme.
   #antigen theme robbyrussell
@@ -237,6 +238,9 @@ export PATH="$HOME/.rbenv/bin:$PATH"
 eval "$(rbenv init -)"
 #source /Users/matsu/.rvm/scripts/rvm
 # }}}
+# {{{ pyenv
+eval "$(pyenv init -)"
+# }}}
 # {{{ perlbrew
 if [ -f ~/perl5/perlbrew/etc/bashrc ]
 then
@@ -261,3 +265,4 @@ if [ -x "`which tmux`" ]; then
 fi
 # }}}
 
+source ~/.tmuxinator/tmuxinator.zsh
