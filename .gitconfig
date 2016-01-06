@@ -123,7 +123,18 @@
 
 [rerere]
 	enabled = true
+
+# ~/.gitconfig
+[ghq]
+  root = ~/.ghq
+  root = ~/.go/src
+
+[filter "media"]
+	clean = git-media-clean %f
+	smudge = git-media-smudge %f
 [filter "lfs"]
-	clean = git-lfs clean %f
-	smudge = git-lfs smudge %f
-	required = false
+	clean = git lfs clean %f
+	smudge = git lfs smudge %f
+	required = true
+[pull]
+  rebase = true
