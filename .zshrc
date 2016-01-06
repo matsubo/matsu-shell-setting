@@ -1,8 +1,6 @@
 ##
 # ~/.zshrc
 ##
-
-
 # {{{ setopt
 setopt auto_menu
 setopt correct
@@ -16,8 +14,6 @@ setopt sun_keyboard_hack
 setopt extended_glob
 setopt hist_ignore_all_dups
 setopt no_beep
-setopt always_last_prompt
-setopt cdable_vars
 setopt sh_word_split
 setopt auto_param_keys
 setopt auto_pushd
@@ -25,6 +21,8 @@ setopt list_packed
 setopt list_types
 setopt no_case_glob
 setopt complete_in_word
+
+setopt prompt_subst
 
 # コマンドラインの引数で --prefix=/usr などの = 以降でも補完できる
 setopt magic_equal_subst
@@ -53,44 +51,6 @@ setopt interactive_comments
 setopt auto_cd
 #cdpath=(.. ~ ~/src)
 # }}}
-# {{{ antigen setting
-if [[ -f $HOME/.setting/antigen.zsh ]]; then
-
-  source ~/.setting/antigen.zsh
-
-  # Load the oh-my-zsh's library.
-  #antigen use oh-my-zsh
-
-  # Bundles from the default repo (robbyrussell's oh-my-zsh).
-#  antigen bundle git
-  antigen bundle brew
-  antigen bundle bundler
-#  antigen bundle cap
-#  antigen bundle gem
-#  antigen bundle git
-#  antigen bundle github
-  antigen bundle npm
-#  antigen bundle osx
-  antigen bundle rails
-  antigen bundle ruby
-#  antigen bundle urltools
-#  antigen bundle sorin-ionescu/prezto
-#  antigen bundle command-not-found
-  antigen bundle chrissicool/zsh-256color
-  antigen bundle zsh-users/zsh-syntax-highlighting
-  antigen bundle zsh-users/zsh-completions
-
-  # Load the theme.
-  #antigen theme robbyrussell
-
-  # Tell antigen that you're done.
-  antigen apply
-fi
-# }}}
-# {{{ OS setting
-umask 0002
-ulimit -n 1024
-# }}}
 # {{{ basic zsh behavior
 autoload -U compinit
 compinit -u
@@ -98,89 +58,86 @@ bindkey -e
 
 bindkey \^U backward-kill-line
 
-
 # Show the execution consumed resource
 # If the command takes over following sec.
 REPORTTIME=2
 
-
 NAME='Yuki Matsukura'
 # }}}
-# {{{ VCS setting
-# http://d.hatena.ne.jp/mollifier/20090814/p1
-if [[ $ZSH_VERSION == (<5->|4.<4->|4.3.<10->)* ]]; then
-    autoload -Uz vcs_info
-    zstyle ':vcs_info:*' formats '(%s)-[%b]'
-    zstyle ':vcs_info:*' actionformats '(%s)-[%b|%a]'
-    precmd () {
-        psvar=()
-        LANG=en_US.UTF-8 vcs_info
-        [[ -n "$vcs_info_msg_0_" ]] && psvar[1]="$vcs_info_msg_0_"
-    }
-    RPROMPT="%1(v|%F{green}%1v%f|)"
+# {{{ zplug setting
+if [[ -f $HOME/.setting/lib/zplug/zplug ]]; then
+
+  source ~/.setting/lib/zplug/zplug
+
+  zplug "chrissicool/zsh-256color", of:"zsh-256color.plugin.zsh"
+
+  zplug "zsh-users/zsh-completions"
+
+  # Make sure you use double quotes
+  zplug "zsh-users/zsh-history-substring-search"
+
+  # Can manage a plugin as a command
+  # And accept glob patterns (e.g., brace, wildcard, ...)
+  zplug "Jxck/dotfiles", as:command, of:"bin/{ip}"
+
+  # Grab binaries from GitHub Releases
+  # and rename to use "file:" tag
+  zplug "junegunn/fzf-bin", \
+    as:command, \
+    from:gh-r, \
+    file:fzf, \
+    of:"*darwin*amd64*"
+
+  # Support oh-my-zsh plugins and the like
+  zplug "plugins/git",     from:oh-my-zsh, if:"which git"
+  zplug "plugins/rails",   from:oh-my-zsh, if:"which rails"
+  zplug "plugins/brew",    from:oh-my-zsh, if:"which brew"
+  zplug "plugins/tmux",    from:oh-my-zsh, if:"which tmux"
+  zplug "plugins/bundler", from:oh-my-zsh, if:"which bundler"
+  zplug "plugins/ruby",    from:oh-my-zsh, if:"which ruby"
+  #zplug "plugins/rbenv",   from:oh-my-zsh # does not work when if installed in $HOME/.rbenv
+
+  zplug "themes/blinks", from:oh-my-zsh
+  zplug "lib/clipboard", from:oh-my-zsh, if:"[[ $OSTYPE == *darwin* ]]"
+
+  zplug "b4b4r07/emoji-cli"
+
+
+  # Set priority to load command like a nice command
+  # e.g., zsh-syntax-highlighting must be loaded
+  # after executing compinit command and sourcing other plugins
+  zplug "zsh-users/zsh-syntax-highlighting", nice:10
+
+
+  # Install plugins if there are plugins that have not been installed
+  if ! zplug check --verbose; then
+    printf "Install? [y/N]: "
+    if read -q; then
+      echo; zplug install
+    fi
+  fi
+
+  # Then, source plugins and add commands to $PATH
+  zplug load --verbose
+
+
 fi
 # }}}
-# {{{ git increasing response speed setting
-# http://u7fa9.org/memo/HEAD/archives/2011-02/2011-02-01.rst
-__git_files() { _files }
+# {{{ rbenv
+export PATH="$HOME/.rbenv/bin:$PATH"
+eval "$(rbenv init -)"
 # }}}
-# {{{ login check
-watch=(notme)
-LOGCHECK=10
-WATCHFMT="%(a:${fg[blue]}Hello %n [%m] [%t]:${fg[red]}Bye %n [%m] [%t])"
-# }}}
-# {{{ prompt (PS1)
-setopt prompt_subst
-local DARKC=$'%{\e[38;5;47m%}'
-local LIGHTC=$'%{\e[38;5;46m%}'
-local DEFAULTC=$'%{\e[m%}'
-PROMPT=$DARKC"[%U$USER@%m "$LIGHTC"%~%u"$DARKC"]%# "$DEFAULTC
-# }}}
-# {{{ history
-HISTFILE=$HOME/.zsh_history
-HISTSIZE=10000
-SAVEHIST=1000000
-function history-all { history -E 1 }
+# {{{ pyenv
+eval "$(pyenv init -)"
 # }}}
 # {{{ prints all color setting
 function pcolor() {
-    for ((f = 0; f < 255; f++)); do
-        printf "\e[38;5;%dm %3d#\e[m" $f $f
-        if [[ $f%8 -eq 7 ]] then
-            printf "\n"
-        fi
-    done
-
-    echo
-    echo 
-
-    echo "tmux color code"
-    for i in $(seq 0 4 255); do
-        for j in $(seq $i $(expr $i + 3)); do
-            for k in $(seq 1 $(expr 3 - ${#j})); do
-                printf " "
-            done
-            printf "\x1b[38;5;${j}mcolour${j}"
-            [[ $(expr $j % 4) != 3 ]] && printf "    "
-        done
-        printf "\n"
-    done
-
-    echo "zsh"
-    for COLOR in $(seq 0 255)
-    do
-        for STYLE in "38;5"
-        do
-            TAG="\033[${STYLE};${COLOR}m"
-            STR="${STYLE};${COLOR}"
-            echo -ne "${TAG}${STR}${NONE}  "
-        done
-        echo
-    done
-
-
-    printf "\n"
+  for c in {016..255}; do echo -n "\e[38;5;${c}m $c" ; [ $(($((c-16))%6)) -eq 5 ] && echo;done;echo
 }
+# }}}
+# {{{ OS setting
+umask 0002
+ulimit -n 1024
 # }}}
 # {{{ override function
 # Execute when pwd is changed
@@ -202,60 +159,13 @@ if [ -f ~/.keychain/$HOSTNAME-sh ]; then
     . ~/.keychain/$HOSTNAME-sh
 fi
 # }}}
-# {{{ grep setting
-## GNU grepがあったら優先して使う。
-if type ggrep > /dev/null 2>&1; then
-    alias grep=ggrep
-fi
-## デフォルトオプションの設定
-### バイナリファイルにはマッチさせない。
-GREP_OPTIONS="--binary-files=without-match"
-### grep対象としてディレクトリを指定したらディレクトリ内を再帰的にgrepする。
-#GREP_OPTIONS="--directories=recurse $GREP_OPTIONS"
-### 拡張子が.tmpのファイルは無視する。
-GREP_OPTIONS="--exclude=\*.tmp $GREP_OPTIONS"
-## 管理用ディレクトリを無視する。
-GREP_OPTIONS="--exclude-dir=.svn $GREP_OPTIONS"
-GREP_OPTIONS="--exclude-dir=.git $GREP_OPTIONS"
-GREP_OPTIONS="--exclude-dir=.deps $GREP_OPTIONS"
-GREP_OPTIONS="--exclude-dir=.libs $GREP_OPTIONS"
-### 可能なら色を付ける。
-#if grep --help | grep -q -- --color; then
-#	GREP_OPTIONS="--color=always $GREP_OPTIONS"
-#fi
+# {{{ startup command
+source ~/.tmuxinator/tmuxinator.zsh
 # }}}
 # {{{ local setting. 
 if [[ -f ~/.zshrc_local ]] ; then;
     source ~/.zshrc_local
 fi
-# }}}
-# {{{ tmux setting
-# showing branch infor on left side.
-#PS1="$PS1"'$([ -n "$TMUX" ] && tmux setenv TMUXPWD_$(tmux display -p "#D" | tr -d %) "$PWD")'
-# }}}
-# {{{ rbenv
-export PATH="$HOME/.rbenv/bin:$PATH"
-eval "$(rbenv init -)"
-#source /Users/matsu/.rvm/scripts/rvm
-# }}}
-# {{{ pyenv
-eval "$(pyenv init -)"
-# }}}
-# {{{ perlbrew
-if [ -f ~/perl5/perlbrew/etc/bashrc ]
-then
-    source ~/perl5/perlbrew/etc/bashrc
-fi
-# }}}
-# {{{ history back
-autoload history-search-end
-zle -N history-beginning-search-backward-end history-search-end
-zle -N history-beginning-search-forward-end history-search-end
-bindkey "^P" history-beginning-search-backward-end
-bindkey "^N" history-beginning-search-forward-end
-# }}}
-# {{{ calculation function
-calc(){ awk "BEGIN{ print $* }" ;}
 # }}}
 # {{{ startup command
 if [ -x "`which tmux`" ]; then
@@ -264,5 +174,3 @@ if [ -x "`which tmux`" ]; then
   fi
 fi
 # }}}
-
-source ~/.tmuxinator/tmuxinator.zsh
