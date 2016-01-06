@@ -45,6 +45,12 @@ vim
 
 (open vim and type `:NeoBundleInstall` to retrieve plugins)
 
+iTerm2 setting
+---
+
+Download following color scheme and import in iTerm2's color preset.
+- [https://github.com/altercation/solarized/blob/master/iterm2-colors-solarized/Solarized%20Dark.itermcolors](https://github.com/altercation/solarized/blob/master/iterm2-colors-solarized/Solarized%20Dark.itermcolors)
+
 
 submoduleの更新方法
 ---------------------------------
