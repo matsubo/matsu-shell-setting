@@ -73,6 +73,11 @@ fi
 
 alias simple_http_server="python -m SimpleHTTPServer"
 # }}}
+# {{{ History
+HISTFILE=$HOME/.zsh_history
+HISTSIZE=10000
+SAVEHIST=1000000
+# }}}
 # {{{ encoding
 #export LANG=ja_JP.utf8
 export LC_ALL=en_US.UTF-8
@@ -113,20 +118,32 @@ else
     export PAGER="less"
 fi
 # }}}
+# {{{ grep setting
+## デフォルトオプションの設定
+### バイナリファイルにはマッチさせない。
+GREP_OPTIONS="--binary-files=without-match"
+### grep対象としてディレクトリを指定したらディレクトリ内を再帰的にgrepする。
+#GREP_OPTIONS="--directories=recurse $GREP_OPTIONS"
+### 拡張子が.tmpのファイルは無視する。
+GREP_OPTIONS="--exclude=\*.tmp $GREP_OPTIONS"
+## 管理用ディレクトリを無視する。
+GREP_OPTIONS="--exclude-dir=.svn $GREP_OPTIONS"
+GREP_OPTIONS="--exclude-dir=.git $GREP_OPTIONS"
+GREP_OPTIONS="--exclude-dir=.deps $GREP_OPTIONS"
+GREP_OPTIONS="--exclude-dir=.libs $GREP_OPTIONS"
+export GREP_OPTIONS
+### 可能なら色を付ける。
+#if grep --help | grep -q -- --color; then
+#	GREP_OPTIONS="--color=always $GREP_OPTIONS"
+#fi
+# }}}
 # {{{ OS specific setting
 case ${OSTYPE} in
   darwin*)
     alias updatedb=/usr/libexec/locate.updatedb
     alias ls='ls -G -p'
-    export GREP_OPTIONS
 
     alias notify="terminal-notifier -message"
-
-
-    if [ -f /usr/bin/ccache ];then
-      export CC='ccache gcc'
-      export CXX='ccache g++'
-    fi
 
     ;;
   linux*)
