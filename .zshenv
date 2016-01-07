@@ -41,22 +41,6 @@ alias ...='cd ../..'
 alias ....='cd ../../..'
 
 
-# {{{ dstat
-alias dstat-full='dstat -Tclmdrn'
-alias dstat-mem='dstat -Tclm'
-alias dstat-cpu='dstat -Tclr'
-alias dstat-net='dstat -Tclnd'
-alias dstat-disk='dstat -Tcldr'
-alias dstat-top-cpu='dstat --top-cpu --top-cputime'
-alias dstat-top-io='dstat --top-io --top-bio'
-
-export DSTAT_MYSQL_USER=root
-export DSTAT_MYSQL_PWD=
-export DSTAT_MYSQL_HOST=127.0.0.1
-alias dstat-mysql='dstat -T --mysql5-cmds --mysql5-conn --mysql5-io --mysql5-keys'
-alias dstat-innodb='dstat -T --innodb-io --innodb-buffer --innodb-ops'
-# }}}
-
 alias historytime="history -nir 0 | less"
 
 # execute row priority
