@@ -4,3 +4,6 @@
 [submodule "lib/zplug"]
 	path = lib/zplug
 	url = git@github.com:b4b4r07/zplug.git
+[submodule "lib/neobundle"]
+	path = lib/neobundle
+	url = https://github.com/Shougo/neobundle.vim
