@@ -59,7 +59,7 @@ submoduleの更新方法
 ---------------------------------
 
 ```
-git submodule foreach 'git pull origin master'
+git submodule sync
 ```
 
 
