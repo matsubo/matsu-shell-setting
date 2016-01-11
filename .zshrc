@@ -135,6 +135,11 @@ function pcolor() {
   for c in {016..255}; do echo -n "\e[38;5;${c}m $c" ; [ $(($((c-16))%6)) -eq 5 ] && echo;done;echo
 }
 # }}}
+# {{{ prints my global ip address
+function myip() {
+  curl kakunin.teraren.com
+}
+# }}}
 # {{{ OS setting
 umask 0002
 ulimit -n 1024

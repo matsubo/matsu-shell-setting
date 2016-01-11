@@ -37,12 +37,12 @@ NeoBundle 'L9'
 NeoBundle 'kana/vim-submode'
 
 
-NeoBundleLazy 'git://github.com/thinca/vim-quickrun.git'
+NeoBundleLazy 'thinca/vim-quickrun'
 " {{{ vcs
 NeoBundle 'fugitive.vim'
 NeoBundle 'gitv'
 NeoBundleLazy 'svndiff.vim'
-NeoBundleLazy 'git://github.com/aghareza/vim-gitgrep.git'
+NeoBundleLazy 'aghareza/vim-gitgrep'
 NeoBundleLazy 'vcscommand.vim'
 " }}}
 " {{{ rails
@@ -66,11 +66,11 @@ NeoBundle 'ref.vim'
 " NeoBundle 'scrooloose/nerdcommenter'
 
 " {{{ visualstar
-NeoBundleLazy "git://github.com/thinca/vim-visualstar.git"
+NeoBundleLazy "thinca/vim-visualstar"
 " }}}
 
 " {{{ occur
-NeoBundleLazy "git://github.com/vim-scripts/occur.vim.git"
+NeoBundleLazy "vim-scripts/occur.vim"
 " }}}
 
 " {{{ vimproc
@@ -102,7 +102,7 @@ NeoBundleLazy "chrisbra/csv.vim.git"
 NeoBundleLazy "vim-scripts/Mark"
 " }}}
 
-NeoBundle 'git://github.com/vim-scripts/camelcasemotion.git'
+NeoBundle 'vim-scripts/camelcasemotion'
 
 
 
@@ -117,7 +117,7 @@ NeoBundle 'pangloss/vim-javascript'
 NeoBundle 'rhysd/github-complete.vim'
 
 " {{{ camelcasemotion
-NeoBundle 'git://github.com/bkad/CamelCaseMotion.git'
+NeoBundle 'bkad/CamelCaseMotion'
 map <S-W> <Plug>CamelCaseMotion_w
 map <S-B> <Plug>CamelCaseMotion_b
 map <S-E> <Plug>CamelCaseMotion_e
