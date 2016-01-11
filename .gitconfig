@@ -127,7 +127,6 @@
 # ~/.gitconfig
 [ghq]
   root = ~/.ghq
-  root = ~/.go/src
 
 [filter "media"]
 	clean = git-media-clean %f
