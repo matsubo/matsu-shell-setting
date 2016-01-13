@@ -124,11 +124,15 @@ if [[ -f $HOME/.setting/lib/zplug/zplug ]]; then
 fi
 # }}}
 # {{{ rbenv
-export PATH="$HOME/.rbenv/bin:$PATH"
-eval "$(rbenv init -)"
+if type rbenv > /dev/null 2>&1; then
+  export PATH="$HOME/.rbenv/bin:$PATH"
+  eval "$(rbenv init -)"
+fi
 # }}}
 # {{{ pyenv
-eval "$(pyenv init -)"
+if type pyenv > /dev/null 2>&1; then
+  eval "$(pyenv init -)"
+fi
 # }}}
 # {{{ prints all color setting
 function pcolor() {
@@ -170,12 +174,5 @@ source ~/.tmuxinator/tmuxinator.zsh
 # {{{ local setting. 
 if [[ -f ~/.zshrc_local ]] ; then;
     source ~/.zshrc_local
-fi
-# }}}
-# {{{ startup command
-if [ -x "`which tmux`" ]; then
-  if [ -n "$SSH_TTY" ]; then
-    tmux attach -d
-  fi
 fi
 # }}}
