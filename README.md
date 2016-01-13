@@ -35,7 +35,6 @@ ln -s .setting/.gemrc
 ln -s .setting/.bundle
 ln -s .setting/.grcat
 ln -s .setting/.pryrc
-ln -s .setting/.gist
 ln -s .setting/.tmuxinator
 cp .setting/.tigrc ./
 cp .setting/.gitconfig ./
