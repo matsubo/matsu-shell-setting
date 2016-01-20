@@ -137,7 +137,8 @@ esac
 
 # }}}
 # {{{ oh-my-zsh tmux plugin setting
-export ZSH_TMUX_AUTOSTART=true
+if [ -n "$SSH_TTY" ]; then
+  export ZSH_TMUX_AUTOSTART=true
 # }}}
 # {{{ PATH
 path=(
