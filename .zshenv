@@ -80,10 +80,6 @@ export VISUAL=vim
 export EDITOR=vim
 export SVN_EDITOR=vim
 
-export JAVA_HOME=/usr/local/java
-export MONGO_HOME=/usr/local/mongodb
-export PATH=~/bin:bin/:~/.settings/bin:$MONGO_HOME/bin:$MYSQL/bin/:~/.setting/bin:/usr/local/bin:/bin:/usr/bin:/sbin:/usr/sbin:$JAVA_HOME/bin:/opt/local/bin:/usr/local/sbin:/usr/local/mysql/bin
-
 # ignore ssl certificate when using git
 export GIT_SSL_NO_VERIFY=true
 
@@ -139,13 +135,14 @@ esac
 # {{{ oh-my-zsh tmux plugin setting
 if [ -n "$SSH_TTY" ]; then
   export ZSH_TMUX_AUTOSTART=true
+fi
 # }}}
 # {{{ PATH
+export PATH=~/bin:bin/:~/.settings/bin:~/.setting/bin:/usr/local/bin:/bin:/usr/bin:/sbin:/usr/sbin:/usr/local/sbin
 path=(
   $path
   ~/.nodebrew/current/bin(N-/)
   ~/bin(N-/)
-  /opt/local/bin(N-/)
   /usr/local/share/npm/lib/node_modules/grunt-cli/bin(N-/)
   ~/Documents/adt/sdk/platform-tools/(N-/)
   /usr/local/share/npm/bin/
