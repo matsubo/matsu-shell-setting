@@ -13,9 +13,7 @@ alias up='svn up'
 alias vi='vim'
 alias v='vi'
 
-alias ap='sudo /usr/local/apache2/bin/apachectl'
-alias my='sudo /etc/init.d/mysql'
-alias upgrade='sudo aptitude update && sudo aptitude safe-upgrade'
+alias debian_upgrade='sudo aptitude update && sudo aptitude safe-upgrade'
 
 alias r='rails'
 alias zshrc="vi ~/.zshrc"
@@ -29,9 +27,6 @@ alias -g S='| sed'
 alias -g A='| awk'
 alias -g W='| wc'
 
-
-#alias cd="pushd"
-#alias bd="popd"
 
 # super shortcut
 # ex: findg TestAction
@@ -74,8 +69,6 @@ export LS_COLORS="no=00:fi=00:di=04;35:ln=00;36:pi=40;33:so=00;35:bd=40;33;01:cd
 export LSCOLORS=cxfxcxdxbxegedabagacad
 # }}}
 # {{{ Environment variable
-export MYSQL=/usr/local/mysql
-
 export VISUAL=vim
 export EDITOR=vim
 export SVN_EDITOR=vim
@@ -86,8 +79,6 @@ export GIT_SSL_NO_VERIFY=true
 export WORDCHARS="*?_-.[]~=&;!#$%^(){}<>"
 
 export GOPATH=$HOME
-
-
 # }}}
 # {{{ lv setting
 if type lv > /dev/null 2>&1; then

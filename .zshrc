@@ -47,6 +47,9 @@ setopt transient_rprompt
 # treat comment after sharp.
 setopt interactive_comments
 
+# do not share history within shells
+unsetopt share_history
+
 # ディレクトリ名だけで移動できる。
 setopt auto_cd
 #cdpath=(.. ~ ~/src)

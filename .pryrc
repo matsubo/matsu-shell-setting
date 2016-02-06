@@ -3,6 +3,7 @@ begin
   require 'hirb'
 rescue LoadError
   # Missing goodies, bummer
+  puts 'failed to load hirb'
 end
 
 if defined? Hirb
@@ -29,3 +30,13 @@ Pry.commands.alias_command 'c', 'continue'
 Pry.commands.alias_command 's', 'step'
 Pry.commands.alias_command 'n', 'next'
 
+
+
+
+begin
+  require 'awesome_print'
+rescue LoadError
+  puts 'failed to load awesome_print'
+else
+  AwesomePrint.pry!
+end
