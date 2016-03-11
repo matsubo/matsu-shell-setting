@@ -19,3 +19,4 @@ Session.vim
 .vim/plugin/
 *.swo
 *.swp
+/.w3m/history
