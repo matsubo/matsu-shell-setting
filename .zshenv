@@ -130,6 +130,10 @@ if [ -x "`which tmux`" ]; then
   fi
 fi
 # }}}
+# {{{ nodebrew settings
+export PATH=$HOME/.nodebrew/current/bin:$PATH
+export NODEBREW_ROOT=/usr/local/var/nodebrew
+# }}}
 # {{{ PATH
 export PATH=~/bin:bin/:~/.settings/bin:~/.setting/bin:/usr/local/bin:/bin:/usr/bin:/sbin:/usr/sbin:/usr/local/sbin
 path=(
@@ -141,3 +145,4 @@ path=(
   /usr/local/share/npm/bin/
 )
 # }}}
+

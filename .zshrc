@@ -103,8 +103,6 @@ if [[ -f $HOME/.setting/lib/zplug/zplug ]]; then
   zplug "themes/blinks", from:oh-my-zsh
   zplug "lib/clipboard", from:oh-my-zsh, if:"[[ $OSTYPE == *darwin* ]]"
 
-  zplug "b4b4r07/emoji-cli"
-
 
   # Set priority to load command like a nice command
   # e.g., zsh-syntax-highlighting must be loaded
@@ -131,6 +129,10 @@ if type rbenv > /dev/null 2>&1; then
   export PATH="$HOME/.rbenv/bin:$PATH"
   eval "$(rbenv init -)"
 fi
+# }}}
+# {{{ nodebrew settings
+export PATH=$HOME/.nodebrew/current/bin:$PATH
+export NODEBREW_ROOT=/usr/local/var/nodebrew
 # }}}
 # {{{ pyenv
 if type pyenv > /dev/null 2>&1; then

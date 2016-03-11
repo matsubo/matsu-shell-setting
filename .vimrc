@@ -97,21 +97,50 @@ NeoBundleLazy "chrisbra/csv.vim.git"
 "    autocmd FileType phpunit EnableFastPHPFolds
 " augroup END
 " }}}
-
 " {{{ vim-scripts/Mark
 NeoBundleLazy "vim-scripts/Mark"
 " }}}
-
 NeoBundle 'vim-scripts/camelcasemotion'
+" {{{ alpaca tags (ctags generator)
+NeoBundleLazy 'alpaca-tc/alpaca_tags', {
+      \    'depends': ['Shougo/vimproc'],
+      \    'autoload' : {
+      \       'commands' : [
+      \          { 'name' : 'AlpacaTagsBundle', 'complete': 'customlist,alpaca_tags#complete_source' },
+      \          { 'name' : 'AlpacaTagsUpdate', 'complete': 'customlist,alpaca_tags#complete_source' },
+      \          'AlpacaTagsSet', 'AlpacaTagsCleanCache', 'AlpacaTagsEnable', 'AlpacaTagsDisable', 'AlpacaTagsKillProcess', 'AlpacaTagsProcessStatus',
+      \       ],
+      \    }
+      \}
 
+let g:alpaca_tags#config = {
+      \    '_' : '-R --sort=yes',
+      \    'ruby': '--languages=+Ruby',
+      \ }
 
+augroup AlpacaTags
+  autocmd!
+  if exists(':AlpacaTags')
+    autocmd BufWritePost Gemfile AlpacaTagsBundle
+    autocmd BufEnter * AlpacaTagsSet
+    autocmd BufWritePost * AlpacaTagsUpdate
+  endif
+augroup END
 
-
-" html5
+" }}}
+" {{{ html5
 NeoBundle 'hail2u/vim-css3-syntax'
 NeoBundle 'othree/html5.vim'
 NeoBundle 'pangloss/vim-javascript'
+" }}}
 
+
+" {{{ rubocop
+NeoBundle 'scrooloose/syntastic'
+let g:syntastic_mode_map = { 'mode': 'passive',
+      \ 'active_filetypes': ['ruby'] }
+let g:syntastic_ruby_checkers = ['rubocop']
+" }}}
 
 " github
 NeoBundle 'rhysd/github-complete.vim'

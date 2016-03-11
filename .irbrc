@@ -7,7 +7,6 @@ IRB.conf[:HISTORY_FILE] = File.expand_path('~/.irb_history')
 
 if defined? Rails::Console
   ActiveRecord::Base.logger = Logger.new(STDOUT)
-  ActiveResource::Base.logger = Logger.new(STDOUT)
 
   if defined? Hirb
     Hirb.enable

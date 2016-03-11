@@ -13,7 +13,7 @@ install brew-cask
 cask install 1password
 #cask install atom
 #cask install bathyscaphe
-cask install cooviewer
+#cask install cooviewer
 #cask install dropbox
 cask install box
 cask install github
@@ -25,6 +25,9 @@ cask install iterm2
 #cask install sourcetree
 cask install vlc
 cask install xquartz
+cask install mysql_workbench
+cask install virtualbox
+cask install atom
 
 ## rcmdnk/file
 tap rcmdnk/file
@@ -50,7 +53,7 @@ install googlecl
 install graphviz
 install heroku-toolbelt
 install htop-osx
-install hub 2.2.2
+install hub
 install icu4c
 install iftop
 install imagemagick
@@ -71,7 +74,7 @@ install ncrack
 install nkf
 install nmap
 install openssl
-install php55
+install php70
 install pyenv
 install rbenv
 install redis
@@ -94,7 +97,7 @@ appstore Evernote
 #appstore iMovie
 #appstore iPhoto
 #appstore Keynote
-appstore Microsoft Remote Desktop
+#appstore Microsoft Remote Desktop
 #appstore Photos Duplicate Cleaner
 appstore Skitch
 #appstore Sunrise
