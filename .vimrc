@@ -442,6 +442,9 @@ set shiftwidth=2
 set softtabstop=2
 set tabstop=2
 
+" show vertical line
+set cursorcolumn
+
 
 
 
