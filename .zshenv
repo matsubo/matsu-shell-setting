@@ -51,6 +51,8 @@ if type hub > /dev/null 2>&1; then
 fi
 
 alias simple_http_server="python -m SimpleHTTPServer"
+
+alias mux=tmuxinator
 # }}}
 # {{{ History
 HISTFILE=$HOME/.zsh_history
