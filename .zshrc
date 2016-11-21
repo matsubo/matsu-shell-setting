@@ -93,7 +93,7 @@ if [[ -f $HOME/.setting/lib/zplug/zplug ]]; then
 
   # Support oh-my-zsh plugins and the like
   #zplug "plugins/git",     from:oh-my-zsh, if:"which git"
-  zplug "plugins/rails",   from:oh-my-zsh, if:"which rails"
+  #zplug "plugins/rails",   from:oh-my-zsh, if:"which rails"
   zplug "plugins/brew",    from:oh-my-zsh, if:"which brew"
   zplug "plugins/tmux",    from:oh-my-zsh, if:"which tmux"
   zplug "plugins/bundler", from:oh-my-zsh, if:"which bundler"
