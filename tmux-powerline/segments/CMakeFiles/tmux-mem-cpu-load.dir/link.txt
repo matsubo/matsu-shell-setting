@@ -1,1 +1,0 @@
-/usr/bin/ccache  g++  -O3 -DNDEBUG   CMakeFiles/tmux-mem-cpu-load.dir/tmux-mem-cpu-load.cpp.o  -o tmux-mem-cpu-load -rdynamic 

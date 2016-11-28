@@ -68,11 +68,11 @@ REPORTTIME=2
 NAME='Yuki Matsukura'
 # }}}
 # {{{ zplug setting
-if [[ -f $HOME/.setting/lib/zplug/zplug ]]; then
+if [[ -f $HOME/.setting/lib/zplug/init.zsh ]]; then
 
-  source ~/.setting/lib/zplug/zplug
+  source ~/.setting/lib/zplug/init.zsh
 
-  zplug "chrissicool/zsh-256color", of:"zsh-256color.plugin.zsh"
+  zplug "chrissicool/zsh-256color", use:"zsh-256color.plugin.zsh"
 
   zplug "zsh-users/zsh-completions"
 
@@ -81,15 +81,14 @@ if [[ -f $HOME/.setting/lib/zplug/zplug ]]; then
 
   # Can manage a plugin as a command
   # And accept glob patterns (e.g., brace, wildcard, ...)
-  zplug "Jxck/dotfiles", as:command, of:"bin/{ip}"
+  zplug "Jxck/dotfiles", as:command, use:"bin/{ip}"
 
   # Grab binaries from GitHub Releases
   # and rename to use "file:" tag
   zplug "junegunn/fzf-bin", \
     as:command, \
     from:gh-r, \
-    file:fzf, \
-    of:"*darwin*amd64*"
+    file:fzf
 
   # Support oh-my-zsh plugins and the like
   #zplug "plugins/git",     from:oh-my-zsh, if:"which git"

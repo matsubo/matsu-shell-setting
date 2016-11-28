@@ -1,1 +1,0 @@
-/home/yuki-matsukura/.setting/tmux-powerline/segments/CMakeFiles/tmux-mem-cpu-load.dir
