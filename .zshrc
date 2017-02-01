@@ -88,7 +88,7 @@ if [[ -f $HOME/.setting/lib/zplug/init.zsh ]]; then
   zplug "junegunn/fzf-bin", \
     as:command, \
     from:gh-r, \
-    file:fzf
+    rename-to:fzf
 
   # Support oh-my-zsh plugins and the like
   #zplug "plugins/git",     from:oh-my-zsh, if:"which git"
