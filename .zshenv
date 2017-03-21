@@ -110,6 +110,10 @@ export GREP_OPTIONS
 #	GREP_OPTIONS="--color=always $GREP_OPTIONS"
 #fi
 # }}}
+# {{{ zsh-history-substring-search
+bindkey -M emacs '^P' history-substring-search-up
+bindkey -M emacs '^N' history-substring-search-down
+# }}}
 # {{{ OS specific setting
 case ${OSTYPE} in
   darwin*)

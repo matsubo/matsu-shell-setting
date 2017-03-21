@@ -59,8 +59,6 @@ autoload -U compinit
 compinit -u
 bindkey -e
 
-bindkey \^U backward-kill-line
-
 # Show the execution consumed resource
 # If the command takes over following sec.
 REPORTTIME=2
@@ -76,19 +74,6 @@ if [[ -f $HOME/.setting/lib/zplug/init.zsh ]]; then
 
   zplug "zsh-users/zsh-completions"
 
-  # Make sure you use double quotes
-  zplug "zsh-users/zsh-history-substring-search"
-
-  # Can manage a plugin as a command
-  # And accept glob patterns (e.g., brace, wildcard, ...)
-  zplug "Jxck/dotfiles", as:command, use:"bin/{ip}"
-
-  # Grab binaries from GitHub Releases
-  # and rename to use "file:" tag
-  zplug "junegunn/fzf-bin", \
-    as:command, \
-    from:gh-r, \
-    rename-to:fzf
 
   # Support oh-my-zsh plugins and the like
   #zplug "plugins/git",     from:oh-my-zsh, if:"which git"
@@ -107,6 +92,13 @@ if [[ -f $HOME/.setting/lib/zplug/init.zsh ]]; then
   # e.g., zsh-syntax-highlighting must be loaded
   # after executing compinit command and sourcing other plugins
   zplug "zsh-users/zsh-syntax-highlighting", defer:3
+  zplug "zsh-users/zsh-history-substring-search", defer:3
+  zplug "tcnksm/docker-alias", use:zshrc, if:"which docker"
+  zplug "k4rthik/git-cal", as:command
+  zplug "b4b4r07/httpstat", \
+    as:command, \
+    use:'(*).sh', \
+    rename-to:'$1'
 
 
   # Install plugins if there are plugins that have not been installed
@@ -148,6 +140,12 @@ function myip() {
   curl kakunin.teraren.com
 }
 # }}}
+# {{{ clipboard
+if which pbcopy >/dev/null 2>&1 ; then 
+  # Mac  
+  alias -g C='| pbcopy'
+fi
+# }}}
 # {{{ OS setting
 umask 0002
 ulimit -n 1024
@@ -168,7 +166,7 @@ zstyle ':completion:*' use-cache true
 # {{{ keychain
 export HOSTNAME=`hostname`
 if [ -f ~/.keychain/$HOSTNAME-sh ]; then
-    keychain --timeout 10080 ~/.ssh/id_rsa
+    keychain --nogui --quiet --timeout 10080 ~/.ssh/id_rsa
     . ~/.keychain/$HOSTNAME-sh
 fi
 # }}}
