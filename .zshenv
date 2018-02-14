@@ -149,6 +149,7 @@ path=(
   /usr/local/share/npm/lib/node_modules/grunt-cli/bin(N-/)
   ~/Documents/adt/sdk/platform-tools/(N-/)
   /usr/local/share/npm/bin/
+  /usr/local/share/git-core/contrib/diff-highlight
 )
 # }}}
 

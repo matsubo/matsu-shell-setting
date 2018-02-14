@@ -135,11 +135,12 @@ NeoBundle 'pangloss/vim-javascript'
 " }}}
 
 
-" {{{ rubocop
-NeoBundle 'scrooloose/syntastic'
-let g:syntastic_mode_map = { 'mode': 'passive',
-      \ 'active_filetypes': ['ruby'] }
-let g:syntastic_ruby_checkers = ['rubocop']
+" {{{ rubocop (very slow)
+" This takes 4 sec to start vim itself.
+"NeoBundle 'scrooloose/syntastic'
+"let g:syntastic_mode_map = { 'mode': 'passive',
+"      \ 'active_filetypes': ['ruby'] }
+"let g:syntastic_ruby_checkers = ['rubocop']
 " }}}
 
 " github
@@ -178,9 +179,6 @@ let g:neocomplcache_dictionary_filetype_lists = {
             \ 'php' : $HOME.'/.setting/.vim/dict/php.dict',
             \ }
 
-" 静的解析
-NeoBundle 'scrooloose/syntastic'
-
 " メソッド定義元へのジャンプ
 NeoBundle 'szw/vim-tags'
 
@@ -210,7 +208,7 @@ NeoBundle 'itchyny/landscape.vim'
 NeoBundle 'itchyny/lightline.vim'
 
 let g:lightline = {
-      \ 'colorscheme': 'solarized_dark',
+      \ 'colorscheme': 'solarized',
       \ 'mode_map': { 'c': 'NORMAL' },
       \ 'active': {
       \   'left': [ [ 'mode', 'paste' ], [ 'fugitive', 'filename' ] ]
@@ -277,7 +275,7 @@ NeoBundle 'tomasr/molokai'
 NeoBundle 'ujihisa/unite-colorscheme'
 
 
-NeoBundle 'unite.vim'
+NeoBundle 'Shougo/unite.vim'
 NeoBundle 'basyura/unite-rails'
 
 
@@ -296,7 +294,9 @@ filetype plugin indent on
 set bg=dark
 set t_Co=256
 colorscheme molokai
-let g:molokai_original=1
+let g:molokai_original = 1
+let g:rehash256 = 1
+
 " }}}
 " {{{ global setting
 set encoding=utf-8
@@ -369,7 +369,8 @@ au BufRead,BufNew * match JpSpace /　/
 
 
 " カーソル行をハイライト
-set cursorline
+" makes curso slow
+" set cursorline
 highlight CursorLine ctermbg=DarkGray
 
 
@@ -385,8 +386,9 @@ augroup END
 " カレントウィンドウにのみ罫線を引く
 augroup cch
 autocmd! cch
-autocmd WinLeave * set nocursorline
-autocmd WinEnter,BufRead * set cursorline
+" slow
+" autocmd WinLeave * set nocursorline
+" autocmd WinEnter,BufRead * set cursorline
 augroup END
 
 " {{{ highlight setting
@@ -440,7 +442,8 @@ set softtabstop=2
 set tabstop=2
 
 " show vertical line
-set cursorcolumn
+" makes slow
+" set cursorcolumn
 
 
 
@@ -741,4 +744,7 @@ smap <silent><C-F>                <Plug>(neosnippet_expand_or_jump)
 
 
 NeoBundleCheck
+
+set rtp+=~/.fzf
+
 
