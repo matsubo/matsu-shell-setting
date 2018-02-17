@@ -135,14 +135,6 @@ NeoBundle 'pangloss/vim-javascript'
 " }}}
 
 
-" {{{ rubocop (very slow)
-" This takes 4 sec to start vim itself.
-"NeoBundle 'scrooloose/syntastic'
-"let g:syntastic_mode_map = { 'mode': 'passive',
-"      \ 'active_filetypes': ['ruby'] }
-"let g:syntastic_ruby_checkers = ['rubocop']
-" }}}
-
 " github
 NeoBundle 'rhysd/github-complete.vim'
 

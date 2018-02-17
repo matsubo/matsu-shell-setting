@@ -55,6 +55,7 @@ setopt auto_cd
 #cdpath=(.. ~ ~/src)
 # }}}
 # {{{ basic zsh behavior
+fpath=(/usr/local/share/zsh-completions $fpath)
 autoload -U compinit
 compinit -u
 bindkey -e
