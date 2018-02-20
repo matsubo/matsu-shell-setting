@@ -36,46 +36,18 @@ ln -s .setting/.bundle
 ln -s .setting/.grcat
 ln -s .setting/.pryrc
 ln -s .setting/.tmuxinator
+mkdir -p .config/fish && cd .config/fish/ && ln -s ~/.setting/.config/fish/config.fish; cd
 cp .setting/.tigrc ./
 cp .setting/.gitconfig ./
 cp .setting/.zshrc_local ./
 cd .setting
-git submodule init
-git submodule update
-vim
 ```
-
-(open vim and type `:NeoBundleInstall` to retrieve plugins)
 
 iTerm2 setting
 ---
 
 Download following color scheme and import in iTerm2's color preset.
 - [https://github.com/altercation/solarized/blob/master/iterm2-colors-solarized/Solarized%20Dark.itermcolors](https://github.com/altercation/solarized/blob/master/iterm2-colors-solarized/Solarized%20Dark.itermcolors)
-
-
-submoduleの更新方法
----------------------------------
-
-```
-git submodule sync
-```
-
-
-submoduleの削除方法
----------------------------------
-* `.gitmodules`ファイルから該当する行を削除
-* `.git/config`ファイルから該当する行を削除
-
-```
-% git rm --cached path/to/hoge
-% git commit
-```
-
-* Updating all submodule repositories
-```
-% git submodule foreach 'git checkout master; git pull'
-```
 
 
 Copyright
