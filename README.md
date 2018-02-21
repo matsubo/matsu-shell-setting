@@ -37,6 +37,7 @@ ln -s .setting/.grcat
 ln -s .setting/.pryrc
 ln -s .setting/.tmuxinator
 mkdir -p .config/fish && cd .config/fish/ && ln -s ~/.setting/.config/fish/config.fish; cd
+cd .config/fish/ && ln -s ~/.setting/.config/fish/fishfile; cd
 cp .setting/.tigrc ./
 cp .setting/.gitconfig ./
 cp .setting/.zshrc_local ./

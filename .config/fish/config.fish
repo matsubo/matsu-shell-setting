@@ -15,18 +15,19 @@ set GIT_SSL_NO_VERIFY true
 
 set NAME 'Yuki Matsukura'
 
-#set -gx HOSTNAME (hostname)
-#if status --is-interactive;
-# keychain --nogui --clear ~/.ssh/id_rsa
-# [ -e $HOME/.keychain/$HOSTNAME-fish ]; and . $HOME/.keychain/$HOSTNAME-fish
-#end
-
 if which keychain > /dev/null ^&1 
   eval (keychain --eval --agents ssh -Q --quiet id_rsa --nogui)
 end
 
+if [ ! -f ~/.config/fish/functions/fisher.fish ]
+  curl -Lo ~/.config/fish/functions/fisher.fish --create-dirs https://git.io/fisher
+  fisher eval(cat ~/.config/fish/fishfile)
+end
+
 set -U fish_user_paths $HOME/bin
-[ -f /usr/local/share/git-core/contrib/diff-highlight ] ; set -U fish_user_paths $fish_user_paths /usr/local/share/git-core/contrib/diff-highlight
+
+set diff /usr/local/share/git-core/contrib/diff-highlight
+if [ -f  $diff ] ; set -U fish_user_paths $fish_user_paths $diff ;  end
 
 function cd
   builtin cd $argv
