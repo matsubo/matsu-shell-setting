@@ -20,7 +20,10 @@ set NAME 'Yuki Matsukura'
 # keychain --nogui --clear ~/.ssh/id_rsa
 # [ -e $HOME/.keychain/$HOSTNAME-fish ]; and . $HOME/.keychain/$HOSTNAME-fish
 #end
-eval (keychain --eval --agents ssh -Q --quiet id_rsa --nogui)
+
+if which keychain > /dev/null ^&1 
+  eval (keychain --eval --agents ssh -Q --quiet id_rsa --nogui)
+end
 
 set -U fish_user_paths $HOME/bin
 set -U fish_user_paths $fish_user_paths /usr/local/share/git-core/contrib/diff-highlight

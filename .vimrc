@@ -58,6 +58,8 @@ set ttyfast
 set lazyredraw
 
 " editor
+syntax enable
+filetype plugin indent on
 set autoindent
 set cindent
 set expandtab
