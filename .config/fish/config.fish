@@ -26,7 +26,7 @@ if which keychain > /dev/null ^&1
 end
 
 set -U fish_user_paths $HOME/bin
-set -U fish_user_paths $fish_user_paths /usr/local/share/git-core/contrib/diff-highlight
+[ -f /usr/local/share/git-core/contrib/diff-highlight ] ; set -U fish_user_paths $fish_user_paths /usr/local/share/git-core/contrib/diff-highlight
 
 function cd
   builtin cd $argv
