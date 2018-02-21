@@ -1,9 +1,29 @@
 [[plugins]]
 repo = "tpope/vim-fugitive"
 
+################
+### Markdown ###
+################
 [[plugins]]
-repo  = 'kannokanno/previm'
-on_ft = ['markdown']
+repo = 'plasticboy/vim-markdown'
+on_ft = ['markdown','mkd']
+
+# quote内のプログラムをシンタックスハイライトする
+[[plugins]]
+repo = 'joker1007/vim-markdown-quote-syntax'
+on_ft = ['markdown','mkd']
+
+# 編集中のMarkdownファイルのプレビューを作成する
+[[plugins]]
+repo = 'kannokanno/previm'
+on_ft = ['markdown','mkd']
+
+# プレビューをブラウザで開いてくれる
+[[plugins]]
+repo = 'tyru/open-browser.vim'
+on_ft = ['markdown','mkd']
+
+
 
 [[plugins]]
 repo = 'Shougo/neocomplete.vim'
@@ -26,3 +46,4 @@ repo = 'tpope/vim-rails'
 
 [[plugins]]
 repo = 'romanvbabenko/rails.vim'
+
