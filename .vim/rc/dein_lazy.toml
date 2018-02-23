@@ -23,12 +23,6 @@ on_ft = ['markdown','mkd']
 repo = 'tyru/open-browser.vim'
 on_ft = ['markdown','mkd']
 
-
-
-[[plugins]]
-repo = 'Shougo/neocomplete.vim'
-insert = 1
-
 [[plugins]]
 repo = 'vim-ruby/vim-ruby'
 
@@ -39,11 +33,21 @@ repo = 'vim-scripts/ruby-matchit'
 repo = 'tpope/vim-endwise'
 
 [[plugins]]
-repo = 'tpope/vim-endwise'
-
-[[plugins]]
 repo = 'tpope/vim-rails'
 
 [[plugins]]
 repo = 'romanvbabenko/rails.vim'
+
+# インサートモードに入ったら読み込む
+[[plugins]]
+repo = 'Shougo/neocomplete.vim'
+on_i = 1
+
+[[plugins]]
+repo   = 'Shougo/unite.vim'
+
+# unite.vim を読み込んだら一緒に読み込む
+[[plugins]]
+repo      = 'Shougo/neomru.vim'
+on_source = ['unite.vim']
 

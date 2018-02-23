@@ -6,8 +6,5 @@ depends = ['/vim-airline-themes']
 repo = 'vim-airline/vim-airline-themes'
 
 [[plugins]]
-repo = 'Shougo/unite.vim'
-
-[[plugins]]
 repo = 'tomasr/molokai'
 
