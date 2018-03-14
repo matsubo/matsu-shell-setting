@@ -33,3 +33,7 @@ function cd
   builtin cd $argv
   ls -la
 end
+
+# attach tmux if remote server
+if [ $SSH_TTY ]; then ; tmux a; end
+

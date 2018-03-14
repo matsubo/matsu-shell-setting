@@ -20,3 +20,5 @@ Session.vim
 *.swo
 *.swp
 /.w3m/history
+/.bundle/cache/
+/.vim/dein/

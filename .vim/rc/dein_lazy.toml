@@ -1,6 +1,3 @@
-[[plugins]]
-repo = "tpope/vim-fugitive"
-
 ################
 ### Markdown ###
 ################
@@ -25,28 +22,32 @@ on_ft = ['markdown','mkd']
 
 [[plugins]]
 repo = 'vim-ruby/vim-ruby'
+on_ft = ['ruby']
 
 [[plugins]]
 repo = 'vim-scripts/ruby-matchit'
 
 [[plugins]]
 repo = 'tpope/vim-endwise'
+on_ft = ['ruby']
 
 [[plugins]]
 repo = 'tpope/vim-rails'
+on_ft = ['ruby']
 
 [[plugins]]
 repo = 'romanvbabenko/rails.vim'
+on_ft = ['ruby']
 
-# インサートモードに入ったら読み込む
 [[plugins]]
 repo = 'Shougo/neocomplete.vim'
 on_i = 1
 
 [[plugins]]
 repo   = 'Shougo/unite.vim'
+on_event = ['FocusLost', 'CursorHold']
 
-# unite.vim を読み込んだら一緒に読み込む
+
 [[plugins]]
 repo      = 'Shougo/neomru.vim'
 on_source = ['unite.vim']

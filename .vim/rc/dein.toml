@@ -8,3 +8,6 @@ repo = 'vim-airline/vim-airline-themes'
 [[plugins]]
 repo = 'tomasr/molokai'
 
+[[plugins]]
+repo = "tpope/vim-fugitive"
+
