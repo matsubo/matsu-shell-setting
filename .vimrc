@@ -104,14 +104,14 @@ nnoremap <silent> [TABCMD]s :<c-u>tabs<cr>
 nnoremap <silent> [TABCMD]t :<c-u>tabnew<cr>
 
 " fugitive
-" nnoremap [fugitive]  <Nop>
-" nmap <space>g [fugitive]
-" nnoremap <silent> [fugitive]s :Gstatus<CR><C-w>T
-" nnoremap <silent> [fugitive]a :Gwrite<CR>
-" nnoremap <silent> [fugitive]c :Gcommit-v<CR>
-" nnoremap <silent> [fugitive]b :Gblame<CR>
-" nnoremap <silent> [fugitive]d :Gdiff<CR>
-" nnoremap <silent> [fugitive]m :Gmerge<CR>
+nnoremap [fugitive]  <Nop>
+nmap <space>g [fugitive]
+nnoremap <silent> [fugitive]s :Gstatus<CR><C-w>T
+nnoremap <silent> [fugitive]a :Gwrite<CR>
+nnoremap <silent> [fugitive]c :Gcommit-v<CR>
+nnoremap <silent> [fugitive]b :Gblame<CR>
+nnoremap <silent> [fugitive]d :Gdiff<CR>
+nnoremap <silent> [fugitive]m :Gmerge<CR>
 
 
 " The prefix key.

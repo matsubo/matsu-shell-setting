@@ -24,7 +24,7 @@ if [ ! -f ~/.config/fish/functions/fisher.fish ]
   fisher eval(cat ~/.config/fish/fishfile)
 end
 
-set -U fish_user_paths $HOME/bin
+set -U fish_user_paths $HOME/bin $HOME/Library/Android/sdk/platform-tools
 
 set diff /usr/local/share/git-core/contrib/diff-highlight
 if [ -f  $diff ] ; set -U fish_user_paths $fish_user_paths $diff ;  end

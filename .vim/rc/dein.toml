@@ -9,5 +9,5 @@ repo = 'vim-airline/vim-airline-themes'
 repo = 'tomasr/molokai'
 
 [[plugins]]
-repo = "tpope/vim-fugitive"
+repo = 'tpope/vim-fugitive'
 
