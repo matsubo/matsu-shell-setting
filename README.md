@@ -36,6 +36,7 @@ ln -s .setting/.bundle
 ln -s .setting/.grcat
 ln -s .setting/.pryrc
 ln -s .setting/.tmuxinator
+ln -s .setting/.tmux-powerlinerc
 mkdir -p .config/fish && cd .config/fish/ && ln -s ~/.setting/.config/fish/config.fish; cd
 cd .config/fish/ && ln -s ~/.setting/.config/fish/fishfile; cd
 cp .setting/.tigrc ./
