@@ -15,7 +15,12 @@ Please subscribe RSS of my blog to keep track of open source development.
 Installation
 ---------------------------------
 
-Get this repository and make symbolic links.
+Install command on OS
+```
+brew install fzf fish rbenv keychain
+```
+
+Get this repository and make symbolic links. This instruction is written for fish.
 ```
 ghq get git@github.com:matsubo/matsu-shell-setting.git
 cd

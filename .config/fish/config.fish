@@ -34,6 +34,12 @@ function cd
   ls -la
 end
 
+
+# fzf
+set -U FZF_LEGACY_KEYBINDINGS 0
+set -U FZF_REVERSE_ISEARCH_OPTS "--reverse --height=100%"
+
+
 # attach tmux if remote server
 if [ $SSH_TTY ]; then ; tmux a; end
 
