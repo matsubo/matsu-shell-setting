@@ -16,9 +16,9 @@ Installation
 ---------------------------------
 
 ```
-git clone git@github.com:matsubo/matsu-shell-setting.git .setting
+ghq get git@github.com:matsubo/matsu-shell-setting.git
 cd
-ln -s .setting/.htoprc
+ln -s ghq/github.com/matsubo/matsu-shell-setting/.setting/.htoprc
 ln -s .setting/.vim
 ln -s .setting/.vimrc
 ln -s .setting/.gvimrc
