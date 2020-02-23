@@ -5,7 +5,7 @@ alias vi vim
 alias v vi
 alias r rails
 alias vifish "vi ~/.config/fish/config.fish"
-alias reload "source ~/.config/fish/config.fish"
+alias reload ". ~/.config/fish/config.fish"
 
 set VISUAL vim
 set EDITOR vim
@@ -15,7 +15,7 @@ set GIT_SSL_NO_VERIFY true
 
 set NAME 'Yuki Matsukura'
 
-if which keychain > /dev/null ^&1 
+if which keychain > /dev/null
   eval (keychain --eval --agents ssh -Q --quiet id_rsa --nogui)
 end
 

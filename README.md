@@ -15,41 +15,38 @@ Please subscribe RSS of my blog to keep track of open source development.
 Installation
 ---------------------------------
 
+Get this repository and make symbolic links.
 ```
 ghq get git@github.com:matsubo/matsu-shell-setting.git
 cd
-ln -s ghq/github.com/matsubo/matsu-shell-setting/.setting/.htoprc
-ln -s .setting/.vim
-ln -s .setting/.vimrc
-ln -s .setting/.gvimrc
-ln -s .setting/.zshrc
-ln -s .setting/.zshenv
-ln -s .setting/.my.cnf
-ln -s .setting/.lv
-ln -s .setting/.w3m
-ln -s .setting/.tmux-powerlinerc
-ln -s .setting/.tmux.conf
-ln -s .setting/.global_ignore
-ln -s .setting/.gitattributes_global
-ln -s .setting/.gemrc
-ln -s .setting/.bundle
-ln -s .setting/.grcat
-ln -s .setting/.pryrc
-ln -s .setting/.tmuxinator
-ln -s .setting/.tmux-powerlinerc
-mkdir -p .config/fish && cd .config/fish/ && ln -s ~/.setting/.config/fish/config.fish; cd
-cd .config/fish/ && ln -s ~/.setting/.config/fish/fishfile; cd
-cp .setting/.tigrc ./
-cp .setting/.gitconfig ./
-cp .setting/.zshrc_local ./
-cd .setting
+ln -s ghq/github.com/matsubo/matsu-shell-setting/.htoprc
+ln -s ghq/github.com/matsubo/matsu-shell-setting/.vim
+ln -s ghq/github.com/matsubo/matsu-shell-setting/.vimrc
+ln -s ghq/github.com/matsubo/matsu-shell-setting/.gvimrc
+ln -s ghq/github.com/matsubo/matsu-shell-setting/.my.cnf
+ln -s ghq/github.com/matsubo/matsu-shell-setting/.lv
+ln -s ghq/github.com/matsubo/matsu-shell-setting/.w3m
+ln -s ghq/github.com/matsubo/matsu-shell-setting/.tmux-powerlinerc
+ln -s ghq/github.com/matsubo/matsu-shell-setting/.tmux.conf
+ln -s ghq/github.com/matsubo/matsu-shell-setting/.global_ignore
+ln -s ghq/github.com/matsubo/matsu-shell-setting/.gitattributes_global
+ln -s ghq/github.com/matsubo/matsu-shell-setting/.gemrc
+ln -s ghq/github.com/matsubo/matsu-shell-setting/.bundle
+ln -s ghq/github.com/matsubo/matsu-shell-setting/.grcat
+ln -s ghq/github.com/matsubo/matsu-shell-setting/.pryrc
+ln -s ghq/github.com/matsubo/matsu-shell-setting/.tmuxinator
+ln -s ghq/github.com/matsubo/matsu-shell-setting/.tmux-powerlinerc
+mkdir -p .config/fish; cd .config/fish/; ln -s ~/ghq/github.com/matsubo/matsu-shell-setting/.config/fish/config.fish; cd
+cd .config/fish/; ln -s ~/ghq/github.com/matsubo/matsu-shell-setting/.config/fish/fishfile; cd
+cd
 ```
 
-iTerm2 setting
----
 
-Download following color scheme and import in iTerm2's color preset.
-- [https://github.com/altercation/solarized/blob/master/iterm2-colors-solarized/Solarized%20Dark.itermcolors](https://github.com/altercation/solarized/blob/master/iterm2-colors-solarized/Solarized%20Dark.itermcolors)
+Copy template setting and edit for local setting.
+```
+cp -n ghq/github.com/matsubo/matsu-shell-setting/.tigrc ./
+cp -n ghq/github.com/matsubo/matsu-shell-setting/.gitconfig ./
+```
 
 
 Copyright
