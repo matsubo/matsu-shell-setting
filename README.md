@@ -33,7 +33,7 @@ ln -s ghq/github.com/matsubo/matsu-shell-setting/.lv
 ln -s ghq/github.com/matsubo/matsu-shell-setting/.w3m
 ln -s ghq/github.com/matsubo/matsu-shell-setting/.tmux-powerlinerc
 ln -s ghq/github.com/matsubo/matsu-shell-setting/.tmux.conf
-ln -s ghq/github.com/matsubo/matsu-shell-setting/.global_ignore
+ln -s ghq/github.com/matsubo/matsu-shell-setting/.gitignore
 ln -s ghq/github.com/matsubo/matsu-shell-setting/.gitattributes_global
 ln -s ghq/github.com/matsubo/matsu-shell-setting/.gemrc
 ln -s ghq/github.com/matsubo/matsu-shell-setting/.bundle

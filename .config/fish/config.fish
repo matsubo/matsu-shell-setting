@@ -43,3 +43,7 @@ set -U FZF_REVERSE_ISEARCH_OPTS "--reverse --height=100%"
 # attach tmux if remote server
 if [ $SSH_TTY ]; then ; tmux a; end
 
+# rbenv
+set -x PATH $HOME/.rbenv/bin $PATH
+status --is-interactive; and source (rbenv init -|psub)
+

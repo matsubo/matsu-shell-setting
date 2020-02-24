@@ -95,7 +95,7 @@
 [core]
     editor = vim
  #   pager = lv -c
-    excludesfile = ~/.setting/.gitignore
+    excludesfile = ~/.gitignore
 	quotepath = false
 [status]
 	diff = auto
