@@ -4,10 +4,10 @@ Shell setting
 I'm a system architect and work as a programmer also. I'd like to publish my shell setting on github for effective coding.
 
 Please subscribe RSS of my blog to keep track of open source development.
-[http://matsu.teraren.com/blog/](http://matsu.teraren.com/blog/)
+[https://matsu.teraren.com/blog/](https://matsu.teraren.com/blog/)
 
 
-![image](http://matsu.teraren.com/blog/wp-content/uploads/2016/01/tty.gif)
+![image](https://matsu.teraren.com/blog/wp-content/uploads/2016/01/tty.gif)
 
 
 
