@@ -15,12 +15,30 @@ Please subscribe RSS of my blog to keep track of open source development.
 Installation
 ---------------------------------
 
-Install command on OS
+- Required for OS
+
+macos
 ```
-brew install fzf fish rbenv keychain
+brew install git fzf fish rbenv ruby-build keychain ghq
 ```
 
-Get this repository and make symbolic links. This instruction is written for fish.
+ubuntu
+```
+sudo apt install -y git fzf rbenv ruby-build  keychain
+
+sudo apt-add-repository ppa:fish-shell/release-3
+sudo apt-get update
+sudo apt-get install fish -y
+
+sudo add-apt-repository ppa:longsleep/golang-backports
+sudo apt update
+sudo apt install golang-go-1.13
+/usr/lib/go-1.13/bin/go get github.com/motemen/ghq
+set -U fish_user_paths ~/go/bin $fish_user_paths
+```
+
+
+Get this repository and make symbolic links. This instruction is written for [fish](https://fishshell.com/).
 ```
 ghq get git@github.com:matsubo/matsu-shell-setting.git
 cd
