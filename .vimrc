@@ -1,4 +1,10 @@
-" vimrc に以下のように追記
+"dein Scripts-----------------------------
+if &compatible
+  set nocompatible               " Be iMproved
+endif
+
+" Required:
+set runtimepath+=/Users/matsu/.cache/dein/repos/github.com/Shougo/dein.vim
 
 " プラグインが実際にインストールされるディレクトリ
 let s:dein_dir = expand('~/.cache/dein')
@@ -32,10 +38,15 @@ if dein#load_state(s:dein_dir)
   call dein#save_state()
 endif
 
+" Required:
+filetype plugin indent on
+syntax enable
+
 " もし、未インストールものものがあったらインストール
 if dein#check_install()
   call dein#install()
 endif
+"End dein Scripts-------------------------
 
 " basic setting
 syntax on
@@ -53,13 +64,14 @@ set number
 set ruler
 set modifiable
 set cursorline
+set showtabline=2
+set undofile
 
 " rendering
 set ttyfast
 set lazyredraw
 
 " editor
-syntax enable
 filetype plugin indent on
 autocmd FileType yaml setlocal ts=2 sts=2 sw=2 expandtab
 
@@ -130,6 +142,14 @@ nnoremap <silent> [unite]h :<C-u>Unite<Space>history/yank<CR>
 nnoremap <silent> [unite]r :<C-u>Unite -buffer-name=register register<CR>
 nnoremap <silent> [unite]c :<C-u>UniteWithBufferDir -buffer-name=files file<CR>
 nnoremap <silent> ,vr :UniteResume<CR>
+
+
+" quickhl
+nmap <Space>m <Plug>(quickhl-manual-this)
+xmap <Space>m <Plug>(quickhl-manual-this)
+nmap <Space>M <Plug>(quickhl-manual-reset)
+xmap <Space>M <Plug>(quickhl-manual-reset)
+
 
 let g:unite_source_grep_command = 'ag'
 let g:unite_source_grep_default_opts = '--nocolor --nogroup'

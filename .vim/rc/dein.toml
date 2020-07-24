@@ -11,3 +11,11 @@ repo = 'tomasr/molokai'
 [[plugins]]
 repo = 'tpope/vim-fugitive'
 
+[[plugins]]
+repo      = 'tyru/caw.vim'
+
+[[plugins]]
+repo      = 't9md/vim-quickhl'
+
+[[plugins]]
+repo      = 'mattn/vim-lexiv'

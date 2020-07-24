@@ -52,3 +52,10 @@ on_event = ['FocusLost', 'CursorHold']
 repo      = 'Shougo/neomru.vim'
 on_source = ['unite.vim']
 
+
+[[plugins]]
+repo      = 'lambdalisue/fern.vim'
+
+[[plugins]]
+repo      = 'mattn/vim-sonictemplate'
+
