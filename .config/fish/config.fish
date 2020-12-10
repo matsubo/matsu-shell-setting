@@ -47,3 +47,5 @@ if [ -n $SSH_TTY ]; tmux a; end
 set -x PATH $HOME/.rbenv/bin $PATH
 status --is-interactive; and source (rbenv init -|psub)
 
+# python
+set -x PATH $HOME/.local/bin $PATH
