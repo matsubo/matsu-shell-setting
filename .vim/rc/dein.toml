@@ -19,3 +19,6 @@ repo      = 't9md/vim-quickhl'
 
 [[plugins]]
 repo      = 'mattn/vim-lexiv'
+
+[[plugins]]
+repo      = 'ctrlpvim/ctrlp.vim'
