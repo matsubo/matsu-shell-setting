@@ -36,12 +36,11 @@ end
 
 # modern command replacement
 if type -q exa
-  alias ls exa --icons
+  alias ls exa
 end
 if type -q bat
   alias cat bat
 end
-
 
 
 
