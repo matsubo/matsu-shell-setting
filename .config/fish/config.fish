@@ -34,6 +34,16 @@ function cd
   ls -la
 end
 
+# modern command replacement
+if type -q exa
+  alias ls exa --icons
+end
+if type -q bat
+  alias cat bat
+end
+
+
+
 
 # fzf
 set -U FZF_LEGACY_KEYBINDINGS 0

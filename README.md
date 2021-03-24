@@ -19,12 +19,12 @@ Installation
 
 macos
 ```
-brew install git fzf fish rbenv ruby-build keychain ghq
+brew install git fzf fish rbenv ruby-build keychain ghq exa fd ripgrep
 ```
 
 ubuntu
 ```
-sudo apt install -y git fzf rbenv ruby-build  keychain
+sudo apt install -y git fzf rbenv ruby-build  keychain exa fd-find ripgrep
 
 sudo apt-add-repository ppa:fish-shell/release-3
 sudo apt-get update
