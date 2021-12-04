@@ -58,7 +58,6 @@ ln -s ghq/github.com/matsubo/matsu-shell-setting/.bundle
 ln -s ghq/github.com/matsubo/matsu-shell-setting/.grcat
 ln -s ghq/github.com/matsubo/matsu-shell-setting/.pryrc
 ln -s ghq/github.com/matsubo/matsu-shell-setting/.tmuxinator
-ln -s ghq/github.com/matsubo/matsu-shell-setting/.tmux-powerlinerc
 mkdir -p .config/fish; cd .config/fish/; ln -s ~/ghq/github.com/matsubo/matsu-shell-setting/.config/fish/config.fish; cd
 cd .config/fish/; ln -s ~/ghq/github.com/matsubo/matsu-shell-setting/.config/fish/fishfile; cd
 cd
