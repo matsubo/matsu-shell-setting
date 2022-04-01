@@ -59,3 +59,5 @@ repo      = 'lambdalisue/fern.vim'
 [[plugins]]
 repo      = 'mattn/vim-sonictemplate'
 
+[[plugins]]
+repo      = 'slim-template/vim-slim'
