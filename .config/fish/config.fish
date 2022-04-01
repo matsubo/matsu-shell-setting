@@ -51,12 +51,6 @@ function cd
   ls -la
 end
 
-
-# fzf
-set -U FZF_LEGACY_KEYBINDINGS 0
-set -U FZF_REVERSE_ISEARCH_OPTS "--reverse --height=100%"
-
-
 # rbenv
 set -x PATH $HOME/.rbenv/bin $PATH
 status --is-interactive; and source (rbenv init -|psub)
@@ -64,8 +58,8 @@ status --is-interactive; and source (rbenv init -|psub)
 # python
 set -x PATH $HOME/.local/bin $PATH
 
-
 # attach tmux if remote server
 if test -n "$SSH_TTY"
   tmux a
 end
+
