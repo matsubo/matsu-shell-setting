@@ -75,6 +75,12 @@ cp -n ghq/github.com/matsubo/matsu-shell-setting/.tigrc ./
 cp -n ghq/github.com/matsubo/matsu-shell-setting/.gitconfig ./
 ```
 
+Install dein on local machine.
+```
+curl https://raw.githubusercontent.com/Shougo/dein.vim/master/bin/installer.sh > installer.sh
+sh ./installer.sh ~/.cache/dein
+```
+
 
 Copyright
 ---------------------------------
