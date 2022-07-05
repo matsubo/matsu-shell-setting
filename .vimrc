@@ -3,6 +3,7 @@ if &compatible
   set nocompatible               " Be iMproved
 endif
 
+
 " Required:
 set runtimepath+=~/.cache/dein/repos/github.com/Shougo/dein.vim
 
@@ -12,14 +13,19 @@ let s:dein_dir = expand('~/.cache/dein')
 let s:dein_repo_dir = s:dein_dir . '/repos/github.com/Shougo/dein.vim'
 
 " dein.vim がなければ github から落としてくる
-if &runtimepath !~# '/dein.vim'
-  if !isdirectory(s:dein_repo_dir)
-    execute '!git clone https://github.com/Shougo/dein.vim' s:dein_repo_dir
-  endif
-  execute 'set runtimepath^=' . fnamemodify(s:dein_repo_dir, ':p')
+if !isdirectory(s:dein_repo_dir)
+  execute '!git clone https://github.com/Shougo/dein.vim' s:dein_repo_dir
 endif
+execute 'set runtimepath^=' . fnamemodify(s:dein_repo_dir, ':p')
 
-" 設定開始
+
+" Required:
+set runtimepath+=~/.cache/dein/repos/github.com/Shougo/dein.vim
+
+" Let dein manage dein
+" Required:
+" call dein#add('~/.cache/dein/repos/github.com/Shougo/dein.vim')
+
 if dein#load_state(s:dein_dir)
   call dein#begin(s:dein_dir)
 
@@ -28,8 +34,7 @@ if dein#load_state(s:dein_dir)
   let g:rc_dir    = expand('~/.vim/rc')
   let s:toml      = g:rc_dir . '/dein.toml'
   let s:lazy_toml = g:rc_dir . '/dein_lazy.toml'
-
-  " TOML を読み込み、キャッシュしておく
+  
   call dein#load_toml(s:toml,      {'lazy': 0})
   call dein#load_toml(s:lazy_toml, {'lazy': 1})
 
@@ -42,11 +47,15 @@ endif
 filetype plugin indent on
 syntax enable
 
-" もし、未インストールものものがあったらインストール
-if dein#check_install()
-  call dein#install()
-endif
+" If you want to install not installed plugins on startup.
+"if dein#check_install()
+"  call dein#install()
+"endif
+
 "End dein Scripts-------------------------
+
+
+
 
 " basic setting
 syntax on
@@ -144,7 +153,7 @@ nnoremap <silent> [unite]c :<C-u>UniteWithBufferDir -buffer-name=files file<CR>
 nnoremap <silent> ,vr :UniteResume<CR>
 
 
-" quickhl
+" quikhl
 nmap <Space>m <Plug>(quickhl-manual-this)
 xmap <Space>m <Plug>(quickhl-manual-this)
 nmap <Space>M <Plug>(quickhl-manual-reset)
@@ -159,5 +168,8 @@ let g:unite_source_grep_recursive_opt = ''
 " unite-grepの便利キーマップ
 vnoremap /g y:Unite grep::-iRn:<C-R>=escape(@", '\\.*$^[]')<CR><CR>
 
+
+" easymotion
+map <Leader>s <Plug>(easymotion-prefix)
 
 

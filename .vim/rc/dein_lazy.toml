@@ -57,7 +57,8 @@ on_source = ['unite.vim']
 repo      = 'lambdalisue/fern.vim'
 
 [[plugins]]
-repo      = 'mattn/vim-sonictemplate'
+repo      = 'slim-template/vim-slim'
 
 [[plugins]]
-repo      = 'slim-template/vim-slim'
+repo      = 'easymotion/vim-easymotion'
+
