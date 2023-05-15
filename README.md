@@ -56,6 +56,7 @@ ln -s ghq/github.com/matsubo/matsu-shell-setting/.tmux-powerlinerc
 ln -s ghq/github.com/matsubo/matsu-shell-setting/.tmux.conf
 ln -s ghq/github.com/matsubo/matsu-shell-setting/.gitignore
 ln -s ghq/github.com/matsubo/matsu-shell-setting/.gitattributes_global
+ln -s ghq/github.com/matsubo/matsu-shell-setting/.git_commit_template
 ln -s ghq/github.com/matsubo/matsu-shell-setting/.gemrc
 ln -s ghq/github.com/matsubo/matsu-shell-setting/.bundle
 ln -s ghq/github.com/matsubo/matsu-shell-setting/.grcat
