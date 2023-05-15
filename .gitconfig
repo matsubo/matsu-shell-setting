@@ -141,3 +141,5 @@
 	trustExitCode = true
 [init]
 	defaultBranch = main
+[commit]
+	template = ~/.git_commit_template
