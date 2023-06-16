@@ -20,7 +20,7 @@ abbr -a vi vim
 abbr -a v vim
 abbr -a l less
 abbr -a c cat
-abbr -a dc docker-compose
+abbr -a dc docker compose
 
 # environment variables
 set VISUAL vim
