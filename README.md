@@ -52,7 +52,6 @@ ln -s ghq/github.com/matsubo/matsu-shell-setting/.gvimrc
 ln -s ghq/github.com/matsubo/matsu-shell-setting/.my.cnf
 ln -s ghq/github.com/matsubo/matsu-shell-setting/.lv
 ln -s ghq/github.com/matsubo/matsu-shell-setting/.w3m
-ln -s ghq/github.com/matsubo/matsu-shell-setting/.tmux-powerlinerc
 ln -s ghq/github.com/matsubo/matsu-shell-setting/.tmux.conf
 ln -s ghq/github.com/matsubo/matsu-shell-setting/.gitignore
 ln -s ghq/github.com/matsubo/matsu-shell-setting/.gitattributes_global
@@ -61,11 +60,10 @@ ln -s ghq/github.com/matsubo/matsu-shell-setting/.gemrc
 ln -s ghq/github.com/matsubo/matsu-shell-setting/.bundle
 ln -s ghq/github.com/matsubo/matsu-shell-setting/.grcat
 ln -s ghq/github.com/matsubo/matsu-shell-setting/.pryrc
-ln -s ghq/github.com/matsubo/matsu-shell-setting/.tmuxinator
-ln -s ghq/github.com/matsubo/matsu-shell-setting/.tmux-powerlinerc
 ln -s ghq/github.com/matsubo/matsu-shell-setting/Brewfile
 mkdir -p .config/fish; cd .config/fish/; ln -s ~/ghq/github.com/matsubo/matsu-shell-setting/.config/fish/config.fish; cd
 cd .config/fish/; ln -s ~/ghq/github.com/matsubo/matsu-shell-setting/.config/fish/fishfile; cd
+git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 cd
 ```
 
@@ -88,6 +86,5 @@ Copyright
 
 Createive Commons Attribution 3.0 Unported (CC BY 3.0)
 * http://creativecommons.org/licenses/by/3.0/
-
 
 
