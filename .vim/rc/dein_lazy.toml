@@ -62,3 +62,7 @@ repo      = 'slim-template/vim-slim'
 [[plugins]]
 repo      = 'easymotion/vim-easymotion'
 
+[[plugins]]
+repo      = 'dense-analysis/ale'
+
+

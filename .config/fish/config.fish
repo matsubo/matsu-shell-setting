@@ -57,7 +57,7 @@ status --is-interactive; and source (rbenv init -|psub)
 set -x PATH $HOME/.local/bin $PATH
 
 # attach tmux if remote server
-if test -n "$SSH_TTY"
-  tmux a
-end
+#if test -n "$SSH_TTY"
+#  tmux a
+#end
 
