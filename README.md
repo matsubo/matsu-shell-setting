@@ -74,6 +74,12 @@ cp -n ghq/github.com/matsubo/matsu-shell-setting/.tigrc ./
 cp -n ghq/github.com/matsubo/matsu-shell-setting/.gitconfig ./
 ```
 
+Setup git property
+```
+git config --global user.name "Foo Bar"
+git config --global user.email "foo@example.com"
+```
+
 Install dein on local machine.
 ```
 curl https://raw.githubusercontent.com/Shougo/dein.vim/master/bin/installer.sh > installer.sh
