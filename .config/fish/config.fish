@@ -61,3 +61,7 @@ set -x PATH $HOME/.local/bin $PATH
 #  tmux a
 #end
 
+
+# bun
+set --export BUN_INSTALL "$HOME/.bun"
+set --export PATH $BUN_INSTALL/bin $PATH

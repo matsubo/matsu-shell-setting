@@ -65,4 +65,5 @@ repo      = 'easymotion/vim-easymotion'
 [[plugins]]
 repo      = 'dense-analysis/ale'
 
-
+[[plugins]]
+repo      = 'tani/vim-typo'
