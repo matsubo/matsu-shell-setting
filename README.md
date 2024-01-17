@@ -19,7 +19,7 @@ Installation
 
 macos
 ```
-brew install git fzf fish rbenv ruby-build keychain ghq exa fd ripgrep
+brew install git fzf fish rbenv ruby-build keychain ghq eza fd ripgrep
 ```
 
 ubuntu

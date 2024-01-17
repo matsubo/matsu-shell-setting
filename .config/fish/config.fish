@@ -1,8 +1,8 @@
 # alias
 
 # modern command replacement
-if type -q exa
-  alias ls exa
+if type -q eza
+  alias ls eza
 end
 if type -q bat
   alias cat bat
