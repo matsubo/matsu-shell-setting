@@ -19,7 +19,7 @@ Installation
 
 macos
 ```
-brew install git fzf fish rbenv ruby-build keychain ghq eza fd ripgrep git-delta
+brew install git fzf fish rbenv ruby-build keychain ghq eza fd ripgrep git-delta vhs
 ```
 
 ubuntu
@@ -60,6 +60,7 @@ ln -s ghq/github.com/matsubo/matsu-shell-setting/.gemrc
 ln -s ghq/github.com/matsubo/matsu-shell-setting/.bundle
 ln -s ghq/github.com/matsubo/matsu-shell-setting/.grcat
 ln -s ghq/github.com/matsubo/matsu-shell-setting/.pryrc
+ln -s ghq/github.com/matsubo/matsu-shell-setting/.tape
 ln -s ghq/github.com/matsubo/matsu-shell-setting/Brewfile
 mkdir -p .config/fish; cd .config/fish/; ln -s ~/ghq/github.com/matsubo/matsu-shell-setting/.config/fish/config.fish; cd
 cd .config/fish/; ln -s ~/ghq/github.com/matsubo/matsu-shell-setting/.config/fish/fishfile; cd
