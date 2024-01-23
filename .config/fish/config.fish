@@ -66,3 +66,7 @@ set -x PATH $HOME/.local/bin $PATH
 # bun
 set --export BUN_INSTALL "$HOME/.bun"
 set --export PATH $BUN_INSTALL/bin $PATH
+
+### MANAGED BY RANCHER DESKTOP START (DO NOT EDIT)
+set --export --prepend PATH "/Users/yuki.matsukura/.rd/bin"
+### MANAGED BY RANCHER DESKTOP END (DO NOT EDIT)
