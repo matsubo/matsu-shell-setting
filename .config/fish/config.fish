@@ -21,6 +21,7 @@ abbr -a v vim
 abbr -a l less
 abbr -a c cat
 abbr -a dc docker compose
+abbr -a ls eza
 
 # environment variables
 set VISUAL vim
