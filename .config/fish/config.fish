@@ -22,6 +22,8 @@ abbr -a l less
 abbr -a c cat
 abbr -a dc docker compose
 abbr -a ls eza
+abbr -a ll eza -l
+abbr -a la eza -a
 abbr -a cat gat
 
 # environment variables
