@@ -90,6 +90,7 @@
   whois = "!sh -c 'git log -i -1 --pretty=\"format:%an <%ae>\n\" --author=\"$1\"' -"
   whatis = show -s --pretty='tformat:%h (%s, %ad)' --date=short
 	pushf = push --force-with-lease
+	fame = !python -m gitfame
 
 [core]
   editor = vim
