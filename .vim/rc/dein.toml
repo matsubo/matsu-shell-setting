@@ -6,7 +6,7 @@ depends = ['/vim-airline-themes']
 repo = 'vim-airline/vim-airline-themes'
 
 [[plugins]]
-repo = 'tomasr/molokai'
+repo = 'morhetz/gruvbox'
 
 [[plugins]]
 repo = 'tpope/vim-fugitive'

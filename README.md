@@ -64,7 +64,9 @@ ln -s ghq/github.com/matsubo/matsu-shell-setting/.tape
 ln -s ghq/github.com/matsubo/matsu-shell-setting/Brewfile
 mkdir -p .config/fish; cd .config/fish/; ln -s ~/ghq/github.com/matsubo/matsu-shell-setting/.config/fish/config.fish; cd
 cd .config/fish/; ln -s ~/ghq/github.com/matsubo/matsu-shell-setting/.config/fish/fishfile; cd
+
 git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+
 cd
 ```
 
@@ -81,11 +83,8 @@ git config --global user.name "Foo Bar"
 git config --global user.email "foo@example.com"
 ```
 
-Install dein on local machine.
-```
-curl https://raw.githubusercontent.com/Shougo/dein.vim/master/bin/installer.sh > installer.sh
-sh ./installer.sh ~/.cache/dein
-```
+Open tmux and press `prefix + I` to install tmux plugins by tmp.
+`prefix + U` to update tmux plugins.
 
 
 Copyright

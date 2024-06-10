@@ -48,9 +48,9 @@ filetype plugin indent on
 syntax enable
 
 " If you want to install not installed plugins on startup.
-"if dein#check_install()
-"  call dein#install()
-"endif
+if dein#check_install()
+  call dein#install()
+endif
 
 "End dein Scripts-------------------------
 
@@ -59,13 +59,14 @@ syntax enable
 
 " basic setting
 syntax on
-colorscheme molokai
+colorscheme gruvbox
+set bg=dark
+
 set t_Co=256
 
 set encoding=utf-8
 set fileencoding=utf-8
 set fileencodings=utf-8,euc-jp,iso-2022-jp,sjis
-set ambiwidth=double
 set wildmenu wildmode=list:full
 set ignorecase
 set smartcase
@@ -95,6 +96,7 @@ set hlsearch
 " airline setting
 let g:airline#extensions#tabline#enabled = 1
 let g:airline_powerline_fonts = 1 
+
 
 
 " move the search word to the center
