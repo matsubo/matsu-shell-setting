@@ -4,9 +4,9 @@
 if type -q eza
   alias ls eza
 end
-if type -q bat
-  alias cat bat
-end
+#if type -q bat
+#  alias cat bat
+#end
 
 alias vifish "vi ~/.config/fish/config.fish"
 alias reload "source ~/.config/fish/config.fish"
@@ -24,7 +24,7 @@ abbr -a dc docker compose
 abbr -a ls eza
 abbr -a ll eza -l
 abbr -a la eza -a
-abbr -a cat bat
+# abbr -a cat bat
 
 # environment variables
 set VISUAL vim

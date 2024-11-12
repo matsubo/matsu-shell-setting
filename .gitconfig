@@ -6,12 +6,13 @@
   interactive = auto
   grep = auto
 [help]
-	autocorrect = 1
+	autocorrect = prompt
 
 
 [push]
-	default = tracking
+	default = simple
 	autoSetupRemote = true
+	followTags = true
 
 [alias]
   s  = status
@@ -65,6 +66,20 @@
   gr = grep
   gn = grep -n
 
+  grep-with-exclude = !git grep --line-number -I --show-function --heading --break $@ -- ':!*.svg' ':!*/package-lock.json' ':!*/yarn.lock' ':!*/Gemfile.lock' && :
+
+  g = grep-with-exclude --ignore-case
+  G = grep-with-exclude
+
+  # fgrep
+  f = grep-with-exclude --fixed-strings --ignore-case
+  F = grep-with-exclude --fixed-strings
+
+  # egrep
+  e = grep-with-exclude --extended-regexp --ignore-case
+  E = grep-with-exclude --extended-regexp
+
+
   hist = log --pretty=format:\\\"%h %ad | %s%d [%an]\\\" --graph --date=short
 
   # open unmerged files.
@@ -102,6 +117,7 @@
 [branch]
 	diff = auto
 	autosetuprebase = always
+	sort = -committerdate
 [color "diff"]
 	meta = cyan bold
 	old = yellow
@@ -118,11 +134,17 @@
 #    show = diff-highlight | less
 #    diff = diff-highlight | less
 
+[tag]
+	sort = version:refname
 
-
+[fetch]
+	prune = true
+	pruneTags = true
+	all = true
 
 [rerere]
 	enabled = true
+	autoupdate = true
 
 [filter "media"]
 	clean = git-media-clean %f
@@ -143,6 +165,7 @@
 	defaultBranch = main
 [commit]
 	template = ~/.git_commit_template
+	verbose = true
 
 [interactive]
   diffFilter = delta --color-only
@@ -155,7 +178,10 @@
     conflictstyle = diff3
 
 [diff]
-    colorMoved = default
+    colorMoved = plain
+    algorithm = histogram
+    mnemonicPrefix = true
+    renames = true
 
 [user]
 	email = matsubokkuri@gmail.com
@@ -163,3 +189,4 @@
 	autostash = true
 	abbreviateCommands = true
 	autosquash = true
+	updateRefs = true
