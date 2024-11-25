@@ -30,14 +30,16 @@ sudo apt-add-repository ppa:fish-shell/release-3
 sudo apt-get update
 sudo apt-get install fish -y
 
-sudo add-apt-repository ppa:longsleep/golang-backports
-sudo apt update
-sudo apt install golang-go-1.13
-/usr/lib/go-1.13/bin/go get github.com/motemen/ghq
+sudo apt install golang -y
+go install github.com/motemen/ghq
+go install github.com/koki-develop/gat@latest
+
 set -U fish_user_paths ~/go/bin $fish_user_paths
 
+
+
 sudo pip3 install powerline-status
-sudo apt-get install fonts-powerline
+sudo apt-get install fonts-powerline -y
 ```
 
 

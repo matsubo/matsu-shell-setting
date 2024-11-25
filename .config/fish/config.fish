@@ -33,6 +33,7 @@ set SVN_EDITOR vim
 
 set GIT_SSL_NO_VERIFY true
 
+
 set NAME 'Yuki Matsukura'
 
 if which keychain > /dev/null
@@ -57,15 +58,22 @@ end
 set -x PATH $HOME/.local/bin $PATH
 
 # attach tmux if remote server
-#if test -n "$SSH_TTY"
-#  tmux a
-#end
-
+function ssh_tmux_attach --on-event fish_prompt
+    if not set -q TMUX
+        tmux a || tmux new
+    end
+end
 
 # bun
 set --export BUN_INSTALL "$HOME/.bun"
 set --export PATH $BUN_INSTALL/bin $PATH
 
+# go
+set --export GOPATH $HOME/go
+
 ### MANAGED BY RANCHER DESKTOP START (DO NOT EDIT)
 set --export --prepend PATH "/Users/yuki.matsukura/.rd/bin"
 ### MANAGED BY RANCHER DESKTOP END (DO NOT EDIT)
+
+# conda
+source /home/matsu/anaconda3/etc/fish/conf.d/conda.fish
