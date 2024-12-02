@@ -24,7 +24,7 @@ brew install git fzf fish rbenv ruby-build keychain ghq eza fd ripgrep git-delta
 
 ubuntu
 ```
-sudo apt install -y git fzf rbenv ruby-build  keychain exa fd-find ripgrep
+sudo apt install -y git fzf rbenv ruby-build  keychain eza fd-find ripgrep
 
 sudo apt-add-repository ppa:fish-shell/release-3
 sudo apt-get update
@@ -64,12 +64,25 @@ ln -s ghq/github.com/matsubo/matsu-shell-setting/.grcat
 ln -s ghq/github.com/matsubo/matsu-shell-setting/.pryrc
 ln -s ghq/github.com/matsubo/matsu-shell-setting/.tape
 ln -s ghq/github.com/matsubo/matsu-shell-setting/Brewfile
+
 mkdir -p .config/fish; cd .config/fish/; ln -s ~/ghq/github.com/matsubo/matsu-shell-setting/.config/fish/config.fish; cd
 cd .config/fish/; ln -s ~/ghq/github.com/matsubo/matsu-shell-setting/.config/fish/fishfile; cd
-
 git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 
 cd
+```
+
+install fishe related setting
+```
+mkdir -p .config/fish; cd .config/fish/; ln -s ~/ghq/github.com/matsubo/matsu-shell-setting/.config/fish/config.fish; cd
+cd .config/fish/; ln -s ~/ghq/github.com/matsubo/matsu-shell-setting/.config/fish/fishfile; cd
+curl -sL https://raw.githubusercontent.com/jorgebucaran/fisher/main/functions/fisher.fish | source && fisher install jorgebucaran/fisher
+fisher install IlanCosman/tide@v6`
+```
+
+tide setting
+```
+tide configure --auto --style=Rainbow --prompt_colors='True color' --show_time='24-hour format' --rainbow_prompt_separators=Round --powerline_prompt_heads=Slanted --powerline_prompt_tails=Slanted --powerline_prompt_style='Two lines, character' --prompt_connection=Solid --powerline_right_prompt_frame=No --prompt_connection_andor_frame_color=Darkest --prompt_spacing=Sparse --icons='Few icons' --transient=No
 ```
 
 

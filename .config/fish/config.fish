@@ -24,7 +24,7 @@ abbr -a dc docker compose
 abbr -a ls eza
 abbr -a ll eza -l
 abbr -a la eza -a
-abbr -a cat gat
+abbr -a cat bat
 
 # environment variables
 set VISUAL vim
@@ -77,3 +77,7 @@ set --export --prepend PATH "/Users/yuki.matsukura/.rd/bin"
 
 # conda
 source /home/matsu/anaconda3/etc/fish/conf.d/conda.fish
+
+# Added by `rbenv init` on Thu Nov 14 04:35:44 JST 2024
+status --is-interactive; and rbenv init - --no-rehash fish | source
+
