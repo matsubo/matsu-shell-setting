@@ -58,11 +58,11 @@ end
 set -x PATH $HOME/.local/bin $PATH
 
 # attach tmux if remote server
-function ssh_tmux_attach --on-event fish_prompt
-    if not set -q TMUX
-        tmux a || tmux new
-    end
-end
+#function ssh_tmux_attach --on-event fish_prompt
+#    if not set -q TMUX
+#        tmux a || tmux new
+#    end
+#end
 
 # bun
 set --export BUN_INSTALL "$HOME/.bun"
@@ -74,10 +74,4 @@ set --export GOPATH $HOME/go
 ### MANAGED BY RANCHER DESKTOP START (DO NOT EDIT)
 set --export --prepend PATH "/Users/yuki.matsukura/.rd/bin"
 ### MANAGED BY RANCHER DESKTOP END (DO NOT EDIT)
-
-# conda
-source /home/matsu/anaconda3/etc/fish/conf.d/conda.fish
-
-# Added by `rbenv init` on Thu Nov 14 04:35:44 JST 2024
-status --is-interactive; and rbenv init - --no-rehash fish | source
 

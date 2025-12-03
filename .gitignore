@@ -1,24 +1,57 @@
-*.o
-\#*#
-*#
-.#*
-.*~
+# vim, emacs, etc. backup files
 *~
-.DS_Store
-*.sw[po]
-tags
-TAGS
-Session.vim
-.svn
-*.dSYM
-*.dvi
-*.aux
-*.elc
-.vim/.netrwhist
-.vim/bundle
-.vim/plugin/
-*.swo
 *.swp
-/.w3m/history
-/.bundle/cache/
-/.vim/dein/
+*.swo
+.#*
+*.bak
+*.tmp
+
+# Specific backup files mentioned
+# (The general *~ above should cover these, but being explicit doesn't hurt)
+# ..env.sample.un~
+# ..env.un~
+# .Makefile.un~
+# .docker-compose.yaml.un~
+
+# Environment variables
+# Actual .env file should be ignored as it contains sensitive information
+.env
+# .env.*.local (e.g. .env.local, .env.development.local)
+.env.*.local
+
+# OS generated files
+.DS_Store
+Thumbs.db
+ehthumbs.db
+
+# IDE / Editor specific
+.idea/
+.vscode/
+*.sublime-project
+*.sublime-workspace
+
+# Log files
+*.log
+logs/
+
+# Dependency directories (adjust based on your project)
+# node_modules/
+# vendor/ # For PHP Composer dependencies - be careful if your themes/plugins use this and are part of the repo
+
+# Build artifacts (adjust based on your project)
+# build/
+# dist/
+# public/ # If it's a build output directory
+
+# WordPress specific (optional, depending on your setup)
+# wp-config.php # If it contains sensitive data not managed by environment variables
+# wp-content/uploads/ # Usually ignored unless you specifically want to version control uploads
+# wp-content/upgrade/
+# wp-content/backup-db/
+# wp-content/cache/
+# .htaccess # May be generated or modified by WordPress/plugins
+
+# Docker specific (optional)
+# docker-compose.override.yml # If it contains local-only configurations
+# Docker build context cache
+.dockerignore # Often you have a .dockerignore, but the .gitignore itself doesn't need to ignore it

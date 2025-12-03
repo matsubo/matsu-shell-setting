@@ -4,10 +4,10 @@ Shell setting
 I'm a system architect and work as a programmer also. I'd like to publish my shell setting on github for effective coding.
 
 Please subscribe RSS of my blog to keep track of open source development.
-[https://matsu.teraren.com/blog/](https://matsu.teraren.com/blog/)
+[https://matsu.teraren.com/blog/](https://blog.teraren.com/)
 
 
-![image](https://matsu.teraren.com/blog/wp-content/uploads/2016/01/tty.gif)
+![image](https://blog.teraren.com/wp-content/uploads/2016/01/tty.gif)
 
 
 
@@ -72,7 +72,7 @@ git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 cd
 ```
 
-install fishe related setting
+install fisher related setting
 ```
 mkdir -p .config/fish; cd .config/fish/; ln -s ~/ghq/github.com/matsubo/matsu-shell-setting/.config/fish/config.fish; cd
 cd .config/fish/; ln -s ~/ghq/github.com/matsubo/matsu-shell-setting/.config/fish/fishfile; cd
@@ -90,6 +90,16 @@ Copy template setting and edit for local setting.
 ```
 cp -n ghq/github.com/matsubo/matsu-shell-setting/.tigrc ./
 cp -n ghq/github.com/matsubo/matsu-shell-setting/.gitconfig ./
+```
+
+
+Fisher plugin
+```
+fisher install jorgebucaran/fisher
+fisher install oh-my-fish/theme-bobthefish
+fisher install patrickf1/fzf.fish
+fisher install jethrokuan/fzf
+fisher install rstacruz/fish-asdf
 ```
 
 Setup git property

@@ -1,3 +1,5 @@
+[user]
+	email = matsubokkuri@gmail.com
 [color]
   ui = auto
   status = auto
@@ -109,7 +111,7 @@
 
 [core]
   editor = vim
-#  pager = delta
+	pager = 
   excludesfile = ~/.gitignore
 	quotepath = false
 [status]
@@ -133,14 +135,6 @@
 #    log = diff-highlight | less
 #    show = diff-highlight | less
 #    diff = diff-highlight | less
-
-[tag]
-	sort = version:refname
-
-[fetch]
-	prune = true
-	pruneTags = true
-	all = true
 
 [rerere]
 	enabled = true
@@ -183,8 +177,6 @@
     mnemonicPrefix = true
     renames = true
 
-[user]
-	email = matsubokkuri@gmail.com
 [rebase]
 	autostash = true
 	abbreviateCommands = true
