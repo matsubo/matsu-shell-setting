@@ -177,6 +177,10 @@
     mnemonicPrefix = true
     renames = true
 
+[user]
+	name = Yuki Matsukura
+	email = matsubokkuri@gmail.com
+
 [rebase]
 	autostash = true
 	abbreviateCommands = true

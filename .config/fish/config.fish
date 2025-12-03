@@ -75,3 +75,5 @@ set --export GOPATH $HOME/go
 set --export --prepend PATH "/Users/yuki.matsukura/.rd/bin"
 ### MANAGED BY RANCHER DESKTOP END (DO NOT EDIT)
 
+/home/matsu/.local/bin/mise activate fish | source
+
