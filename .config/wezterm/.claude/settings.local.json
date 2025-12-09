@@ -1,0 +1,8 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(wezterm ls-fonts:*)",
+      "Bash(fc-cache:*)"
+    ]
+  }
+}

@@ -1,5 +1,4 @@
-Shell setting
-================================
+# Shell setting
 
 I'm a system architect and work as a programmer also. I'd like to publish my shell setting on github for effective coding.
 
@@ -12,19 +11,20 @@ Please subscribe RSS of my blog to keep track of open source development.
 
 
 
-Installation
----------------------------------
+## Installation
+
 
 - Required for OS
 
 macos
 ```
-brew install git fzf fish rbenv ruby-build keychain ghq eza fd ripgrep git-delta vhs
+brew install git fzf fish keychain ghq eza fd ripgrep git-delta vhs
+brew install --cask font-hackgen-nerd
 ```
 
 ubuntu
 ```
-sudo apt install -y git fzf rbenv ruby-build  keychain eza fd-find ripgrep
+sudo apt install -y git fzf keychain eza fd-find ripgrep
 
 sudo apt-add-repository ppa:fish-shell/release-3
 sudo apt-get update
@@ -69,6 +69,10 @@ mkdir -p .config/fish; cd .config/fish/; ln -s ~/ghq/github.com/matsubo/matsu-sh
 cd .config/fish/; ln -s ~/ghq/github.com/matsubo/matsu-shell-setting/.config/fish/fishfile; cd
 git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 
+cd .config
+ln -s ghq/github.com/matsubo/matsu-shell-setting/.config/.nvim
+ln -s ghq/github.com/matsubo/matsu-shell-setting/.config/.wezterm
+
 cd
 ```
 
@@ -112,8 +116,7 @@ Open tmux and press `prefix + I` to install tmux plugins by tmp.
 `prefix + U` to update tmux plugins.
 
 
-Copyright
----------------------------------
+## Copyright
 
 Createive Commons Attribution 3.0 Unported (CC BY 3.0)
 * http://creativecommons.org/licenses/by/3.0/
