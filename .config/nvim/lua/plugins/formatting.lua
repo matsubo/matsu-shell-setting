@@ -18,12 +18,8 @@ return {
         lua = { "stylua" }, -- Luaの整形
         ruby = { "rubocop" }, -- Rubyの整形 (必要に応じて)
       },
-      -- 保存時の自動実行設定
-      format_on_save = {
-        lsp_fallback = true, -- フォーマッターがない場合はLSPで整形
-        async = false,
-        timeout_ms = 1000, -- 1秒待つ
-      },
+      -- 保存時の自動実行設定（無効化）
+      format_on_save = false,
     })
   end,
 }

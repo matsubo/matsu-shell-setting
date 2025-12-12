@@ -170,12 +170,24 @@
 
 [merge]
     conflictstyle = diff3
+    tool = nvimdiff
 
 [diff]
     colorMoved = plain
     algorithm = histogram
     mnemonicPrefix = true
     renames = true
+    tool = nvimdiff
+[difftool]
+    prompt = false
+[difftool "nvimdiff"]
+    cmd = "nvim -d \"$LOCAL\" \"$REMOTE\""
+[mergetool]
+    prompt = true
+[mergetool "nvimdiff"]
+    cmd = "nvim -d \"$LOCAL\" \"$REMOTE\" \"$MERGED\" -c 'wincmd w' -c 'wincmd J'"
+
+
 
 [user]
 	name = Yuki Matsukura
