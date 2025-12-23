@@ -1,0 +1,13 @@
+# Runtime files
+fish_variables
+fish_variables.*
+fishd.*
+
+# Backup files
+*.un~
+*~
+.*.swp
+.*.swo
+
+# Themes (if installed via plugin manager)
+themes/

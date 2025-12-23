@@ -85,7 +85,7 @@
   hist = log --pretty=format:\\\"%h %ad | %s%d [%an]\\\" --graph --date=short
 
   # open unmerged files.
-  edit-unmerged = "!f() { git ls-files --unmerged | cut -f2 | sort -u ; }; vim -p +/\\<\\<\\<\\<\\<\\< `f`"
+  edit-unmerged = "!f() { git ls-files --unmerged | cut -f2 | sort -u ; }; nvim -p +/\\<\\<\\<\\<\\<\\< `f`"
 
   # A shortcut for seeing the fetched commits
   lc = log ORIG_HEAD.. --stat --no-merges
@@ -110,7 +110,7 @@
 	fame = !python -m gitfame
 
 [core]
-  editor = vim
+  editor = nvim
 	pager = 
   excludesfile = ~/.gitignore
 	quotepath = false
