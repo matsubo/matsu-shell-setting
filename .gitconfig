@@ -108,10 +108,11 @@
   whatis = show -s --pretty='tformat:%h (%s, %ad)' --date=short
 	pushf = push --force-with-lease
 	fame = !python -m gitfame
+	ac = "!aicommits"
 
 [core]
   editor = nvim
-	pager = 
+	pager = delta
   excludesfile = ~/.gitignore
 	quotepath = false
 [status]
@@ -162,14 +163,14 @@
 	verbose = true
 
 [interactive]
-  diffFilter = delta --color-only
+	diffFilter = delta --color-only
 
 [delta]
-  navigate = true    # use n and N to move between diff sections
+	navigate = true
   light = false      # set to true if you're in a terminal w/ a light background color (e.g. the default macOS terminal)
 
 [merge]
-    conflictstyle = diff3
+	conflictStyle = zdiff3
     tool = nvimdiff
 
 [diff]

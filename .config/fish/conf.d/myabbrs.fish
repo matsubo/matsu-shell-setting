@@ -1,4 +1,4 @@
-abbr -a -- dc docker-compose
+abbr -a -- dc "docker compose"
 abbr -a -- g git
 abbr -a -- l less
 abbr -a -- j jobs
@@ -38,7 +38,7 @@ if type -q fastfetch
   abbr -a fetch 'fastfetch'
 end
 
-if type -q gat
-  abbr -a cat 'gat'
+if type -q bat
+  abbr -a cat 'bat'
 end
 

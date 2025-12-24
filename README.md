@@ -13,7 +13,7 @@ Please subscribe RSS of my blog to keep track of open source development.
 
 #### macOS
 ```
-brew install git fzf fish keychain ghq eza fd ripgrep git-delta vhs starship
+brew install git fzf fish keychain ghq eza fd ripgrep git-delta vhs starship delta
 brew install --cask font-hackgen-nerd
 ```
 
@@ -32,11 +32,6 @@ curl -sS https://starship.rs/install.sh | sh
 sudo apt install golang -y
 go install github.com/motemen/ghq
 go install github.com/koki-develop/gat@latest
-
-set -U fish_user_paths ~/go/bin $fish_user_paths
-
-sudo pip3 install powerline-status
-sudo apt-get install fonts-powerline -y
 ```
 
 ### Setup Repository and Symbolic Links
